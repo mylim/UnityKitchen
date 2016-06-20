@@ -7,8 +7,8 @@ public class Unit : MonoBehaviour {
     
     protected CharacterController charControl;
     protected Vector3 move = Vector3.zero;
-    public float moveSpeed = 0.05f;
-    public float turnSpeed = 15f;
+    public float moveSpeed = 0.000000001f;
+    public float turnSpeed = 0.000000001f;
 
     // Use this for initialization
     public virtual void Start () {

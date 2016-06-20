@@ -14,7 +14,7 @@ public class CubeInteraction : MonoBehaviour {
             if (this.selectable)
             {
                 CubeInteraction.selectedColor = this.c;
-                //this.transform.Rotate(Vector3.up, 33);
+                this.transform.Rotate(Vector3.up, 33);
                 return;
             }
 
