@@ -7,10 +7,14 @@ public class CubeInteraction : MonoBehaviour {
     public static Color selectedColor;
     public bool selectable = false;
 
-    void OnTriggerEnter(Collider c)
+    void OnTriggerEnter(Collider other)
     {
-        if (c.gameObject.transform.parent.name.Equals("index"))
+        Debug.Log("Collision occurred");
+        //Debug.Log("Collider " + other.gameObject.transform.parent.name);
+        if (other.gameObject.transform.parent.name.Equals("index"))
+        //if (other.gameObject.name.Equals("Player"))
         {
+            Debug.Log("Collider " + other.gameObject.name);
             if (this.selectable)
             {
                 CubeInteraction.selectedColor = this.c;

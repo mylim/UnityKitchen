@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6d45b928f86bd3a4a946080933a4db0a
-timeCreated: 1465812740
+timeCreated: 1466581457
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -10,10 +10,10 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: CupboardLeftDoor
-    7400000: CupboardLeftDoorOpen
+    7400000: CupboardLeftDoorIdle
     7400002: CupboardLeftDoorAnim
-    7400004: CupboardLeftDoorClose
-    7400006: CupboardLeftDoorIdle
+    7400004: CupboardLeftDoorOpen
+    7400006: CupboardLeftDoorClose
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -41,6 +41,36 @@ ModelImporter:
       takeName: CupboardLeftDoor|CircleAction
       firstFrame: 0
       lastFrame: 99
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: CupboardLeftDoorIdle
+      takeName: CupboardLeftDoor|Circle.001Action
+      firstFrame: 0
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -101,36 +131,6 @@ ModelImporter:
       takeName: CupboardLeftDoor|CircleAction
       firstFrame: 51
       lastFrame: 99
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: CupboardLeftDoorIdle
-      takeName: CupboardLeftDoor|CircleAction
-      firstFrame: 0
-      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

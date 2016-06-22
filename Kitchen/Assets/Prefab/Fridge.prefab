@@ -30,7 +30,9 @@ GameObject:
   - 23: {fileID: 2335464}
   - 111: {fileID: 11113244}
   - 65: {fileID: 6589362}
-  - 95: {fileID: 9576890}
+  - 136: {fileID: 13637052}
+  - 95: {fileID: 9565794}
+  - 114: {fileID: 11498808}
   m_Layer: 0
   m_Name: FridgeRightDoor
   m_TagString: Untagged
@@ -46,7 +48,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470540}
-  - 111: {fileID: 11124854}
   m_Layer: 0
   m_Name: Fridge
   m_TagString: Untagged
@@ -66,6 +67,7 @@ GameObject:
   - 23: {fileID: 2367414}
   - 111: {fileID: 11165360}
   - 65: {fileID: 6557678}
+  - 136: {fileID: 13621346}
   - 95: {fileID: 9533370}
   m_Layer: 0
   m_Name: FridgeLeftDoor
@@ -81,8 +83,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4275, y: 0.235, z: 0.704}
-  m_LocalScale: {x: 10, y: 10, z: 100}
+  m_LocalPosition: {x: 0.4285, y: 0.235, z: 0.70387}
+  m_LocalScale: {x: 10.1, y: 10, z: 100}
   m_Children: []
   m_Father: {fileID: 470540}
   m_RootOrder: 1
@@ -92,7 +94,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102946}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalRotation: {x: 0.7071066, y: 0, z: 0, w: -0.70710695}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 45.99998, y: 77.99996, z: 23.5}
   m_Children: []
@@ -105,8 +107,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4275, y: 0.235, z: 0.507}
-  m_LocalScale: {x: 10, y: 10, z: 100}
+  m_LocalPosition: {x: -0.4285, y: 0.235, z: 0.50705}
+  m_LocalScale: {x: 10.1, y: 10, z: 100}
   m_Children: []
   m_Father: {fileID: 470540}
   m_RootOrder: 2
@@ -279,7 +281,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &9576890
+--- !u!95 &9565794
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -288,7 +290,7 @@ Animator:
   m_GameObject: {fileID: 154654}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8740877fc72c8b04497e24fa7534cb8a, type: 3}
-  m_Controller: {fileID: 9100000, guid: ec09048a67b1ba245967cfd1696147e8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 637a1a5166009b44187c3d4676dfbfe4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -314,24 +316,6 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!111 &11124854
-Animation:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174336}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400006, guid: 8740877fc72c8b04497e24fa7534cb8a, type: 3}
-  m_Animations:
-  - {fileID: 7400006, guid: 8740877fc72c8b04497e24fa7534cb8a, type: 3}
-  - {fileID: 7400008, guid: 8740877fc72c8b04497e24fa7534cb8a, type: 3}
-  - {fileID: 7400006, guid: 5ef13d37a81607040b34308764e9ca6e, type: 3}
-  - {fileID: 7400008, guid: 5ef13d37a81607040b34308764e9ca6e, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!111 &11165360
 Animation:
   m_ObjectHideFlags: 1
@@ -350,6 +334,43 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11498808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb53d70e1fe6f94ea5fdd393a64dae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &13621346
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.02
+  m_Height: 0.0045
+  m_Direction: 2
+  m_Center: {x: -0.032, y: -0.0007713367, z: -0.0075}
+--- !u!136 &13637052
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154654}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.02
+  m_Height: 0.0045
+  m_Direction: 2
+  m_Center: {x: 0.032, y: -0.0006761611, z: -0.0055}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
