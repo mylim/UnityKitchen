@@ -126,6 +126,7 @@
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
+    <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />

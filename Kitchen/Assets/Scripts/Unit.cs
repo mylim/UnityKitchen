@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour {
     protected Vector3 move = Vector3.zero;
     public float moveSpeed = 1.0f;
     public float turnSpeed = 25.0f;
-    public float cameraPitchMax = 25.0f;
+    public float cameraPitchMax = 30.0f;
     public float gravity = 20.0f;
     public float cameraRotX = 0.0f;
 

@@ -4,14 +4,18 @@ using Leap;
 using System;
 
 public class GrabCube : MonoBehaviour {
-    
 
-    Controller controller;
-    SampleListener listener;
+    GameObject grabbedObject;
+    Vector3 grabbedObjectSize;
+
+    //Controller controller;
+    //SampleListener listener;
+    Vector3 position;
+    Vector3 target;
 
     // Use this for initialization
     void Start () {
-        controller = new Controller();
+        //controller = new Controller();
         
         /*listener = new SampleListener();
         controller.Connect += listener.OnServiceConnect;
@@ -21,17 +25,53 @@ public class GrabCube : MonoBehaviour {
 
     GameObject GetMouseHoverObject(float range)
     {
-        Vector3 position = gameObject.transform.position;
+        position = gameObject.transform.position;
         RaycastHit rayCastHit;
-        Vector3 target = position + Camera.main.transform.forward;
+        target = position + Camera.main.transform.forward;
         if (Physics.Linecast(position, target, out rayCastHit))
             return rayCastHit.collider.gameObject;
         return null;
     }
 
+    void TryGrabObject(GameObject grabObject)
+    {
+        if (grabObject == null || !CanGrab(grabObject))
+            return;
+        grabbedObject = grabObject;
+        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+    }
+
+    void DropObject ()
+    {
+        if (grabbedObject == null)
+            return;
+        if (grabbedObject.GetComponent<Rigidbody>() != null)
+            grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        grabbedObject = null;
+    }
+
+    bool CanGrab(GameObject candidate)
+    {
+        return candidate.GetComponent<Rigidbody>() != null;
+    }
+
     void Update()
     {
         Debug.Log(GetMouseHoverObject(5));
+        Debug.DrawRay(position, target);
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (grabbedObject == null)
+                TryGrabObject(GetMouseHoverObject(5));
+            else
+                DropObject();
+        }
+
+        if (grabbedObject != null)
+        {
+            Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize.x;
+            grabbedObject.transform.position = newPosition;
+        }
     }
 
     /*void UpdatePinch(Frame frame)
@@ -95,7 +135,7 @@ public class GrabCube : MonoBehaviour {
 
     void Stop ()
     {
-        controller.Dispose();
+        //controller.Dispose();
     }
 }
 

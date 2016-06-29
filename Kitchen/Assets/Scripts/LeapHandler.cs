@@ -2,34 +2,121 @@
 using System.Collections;
 using Leap;
 using System.Collections.Generic;
+using Leap.Unity;
 
 public class LeapHandler : MonoBehaviour {
-    Animator animator;
-    bool open = false;
+   
+    Controller controller;
+ 
+    Vector3 position;
+    Vector3 target;
+    GameObject grabbedObject;
+    Vector3 grabbedObjectSize;
 
-    void OnTriggerEnter(Collider other)
-    //void OnCollisionEnter(Collision other)
+    // Use this for initialization
+    void Start()
     {
-        /*foreach (ContactPoint contact in other.contacts)
+        controller = new Controller();
+    }
+    
+    GameObject GetHandHoverObject(float range)
+    {
+        Frame frame = controller.Frame();
+        foreach (Hand hand in frame.Hands)
         {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-        }*/
+            if (hand.IsRight)
+            {
+                List<Finger> fingers = hand.Fingers;
+                foreach (Finger finger in fingers)
+                {
+                    Finger.FingerType fingerType = finger.Type;
+                    if (fingerType.Equals(Finger.FingerType.TYPE_INDEX))
+                    {
+                        //position = gameObject.transform.position;
+                        position = finger.TipPosition.ToVector3() * 0.001f;
+                        position.x = -position.x;
+                        position.z = -position.z;
+                        Debug.Log("Position " + position);
+                        Debug.Log("Finger position" + finger.Direction.ToVector3() * 0.001f);
+                        RaycastHit rayCastHit;
+                        target = finger.Direction.ToVector3() * range;
+                        target.x = -target.x;
+                        target.z = -target.z;
+                        Debug.Log("Finger direction" + target);
+                        if (Physics.Raycast(position, target, out rayCastHit, range))
+                        {
+                            Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
+                            return rayCastHit.collider.gameObject;
+                        }
+                    }
+                }
+            }           
+        }
+        return null;
+    }
 
-        Debug.Log("Collider " + other.gameObject.name);
-        //if (other.gameObject.transform.parent.name.Equals("RigidRoundHand_R"))
+    void TryGrabObject(GameObject grabObject)
+    {
+        if (grabObject == null || !CanGrab(grabObject))
+            return;
+        grabbedObject = grabObject;
+        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+    }
+
+    void DropObject()
+    {
+        if (grabbedObject == null)
+            return;
+        if (grabbedObject.GetComponent<Rigidbody>() != null)
+            grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward);
+        //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        grabbedObject = null;
+    }
+
+    bool CanGrab(GameObject candidate)
+    {
+        return candidate.GetComponent<Rigidbody>() != null;
+    }
+
+    bool isHandExtended()
+    {
+        int extendedFingers = 0;
+
+        Frame frame = controller.Frame();
+        foreach (Hand hand in frame.Hands)
         {
-            Debug.Log("collider " + other.ToString());
-            animator = other.GetComponent<Animator>();
-            if (animator)
+            if (hand.IsRight)
             {
-                Debug.Log("Script found");
-                animator.SetBool("isOpened", !open);
-                open = !open;
+                List<Finger> fingers = hand.Fingers;
+                foreach (Finger finger in fingers)
+                {
+                    if (finger.IsExtended)
+                        extendedFingers++;
+                }
+                if (extendedFingers == 5)
+                    return true;
             }
-            else
-            {
-                Debug.Log("Script not found");
-            }
+        }
+        return false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Debug.DrawRay(position, target, Color.red, 2f);
+
+        if (grabbedObject == null)
+            TryGrabObject(GetHandHoverObject(10f));
+        else if ((grabbedObject != null) && (!isHandExtended()))
+            // do nothing
+            ;
+        else
+            DropObject();     
+
+        if (grabbedObject != null)
+        {
+            Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize.x;
+            grabbedObject.transform.position = newPosition;
         }
     }
 }
