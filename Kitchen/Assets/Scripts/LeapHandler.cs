@@ -8,6 +8,7 @@ public class LeapHandler : MonoBehaviour {
 
     LeapProvider provider;
     Frame frame;
+    public float gravity = 20f;
     //Controller controller;
 
     Vector3 position;
@@ -78,21 +79,38 @@ public class LeapHandler : MonoBehaviour {
         return null;
     }
 
-    void TryGrabObject(GameObject grabObject)
+      void TryGrabObject(GameObject grabObject)
     {
         if (grabObject == null || !CanGrab(grabObject))
             return;
         grabbedObject = grabObject;
         grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+        //grabbedObjectSize = grabObject.GetComponent<Collider>().bounds.size;
     }
 
     void DropObject()
     {
         if (grabbedObject == null)
             return;
+
+        // Drop the object onto a surface
         if (grabbedObject.GetComponent<Rigidbody>() != null)
+        {
+            grabbedObject.GetComponent<Rigidbody>().AddForce(-transform.up*gravity);
+            grabbedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
+        }
+        /*if (grabbedObject.GetComponent<Rigidbody>() != null)
+        {
             //grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward);
-            grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit))
+            {
+                Vector3 dropPosition = hit.point;
+                grabbedObject.transform.position = dropPosition + grabbedObjectSize * 0.5f;
+            }
+        }*/
         grabbedObject = null;
     }
 
@@ -129,6 +147,7 @@ public class LeapHandler : MonoBehaviour {
     {
 
         GetHandHoverObject(1f);
+        
         Debug.DrawRay(position, target, Color.red, 2f);
 
         if (grabbedObject == null)

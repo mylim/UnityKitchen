@@ -3,32 +3,54 @@ using System.Collections;
 using Leap;
 using System;
 using System.Collections.Generic;
+using Leap.Unity;
 
 public class UnitPlayerLeap: Unit {
 
-    Controller controller;  
+    LeapProvider provider;
+    //Controller controller;  
 
     // Use this for initialization
     public override void Start () {
         base.Start();
-        controller = new Controller();        
-	}
-
+        provider = FindObjectOfType<LeapProvider>() as LeapProvider;
+        //controller = new Controller();        
+    }
+    float cameraRotY = 0f;
     // Update is called once per frame
     public override void Update() {
-
-        Frame frame = controller.Frame();
+        
+        //Frame frame = controller.Frame();
+        Frame frame = provider.CurrentFrame;
         foreach (Hand hand in frame.Hands)
         {
-            if (hand.IsLeft)
+            if (hand.IsRight)
             {
                 Debug.Log("Left hand");
                 Debug.Log(hand.Direction);
+                Debug.Log("Z " + hand.Direction.z);
+                //Debug.Log("transform rotation " + transform.rotation.y);
                 // character rotation
-                transform.Rotate(0f, hand.Direction.x * turnSpeed * Time.deltaTime, 0f);
+              
+                //cameraRotY -= hand.Direction.z * turnSpeed * Time.deltaTime;
+                //Debug.Log("Z " + cameraRotY);
+                //cameraRotY = Mathf.Clamp(cameraRotY, -0.5f, 0.5f);
+                transform.Rotate(0f, -hand.Direction.z * turnSpeed * Time.deltaTime, 0f);
+                /*if (transform.rotation.y == 0.5f)
+                {
+                    transform.Rotate(0f, hand.Direction.z * turnSpeed * Time.deltaTime, 0f);
+                } else
+                {
+                    transform.Rotate(0f, -hand.Direction.z * turnSpeed * Time.deltaTime, 0f);
+                }
+                    
+                Debug.Log("cameraRotY " + cameraRotY);
+                Debug.Log("transform rotation " + transform.rotation.y);*/
+              
 
                 // camera rotation        
                 cameraRotX -= hand.Direction.y;
+                //Debug.Log("X " + cameraRotX);
                 cameraRotX = Mathf.Clamp(cameraRotX, -cameraPitchMax, cameraPitchMax); // limit the angle of camera rotation
                 Camera.main.transform.forward = transform.forward; // reset the camera view
                 Camera.main.transform.Rotate(cameraRotX, 90f, 0f);
@@ -39,7 +61,8 @@ public class UnitPlayerLeap: Unit {
                 Vector normal = hand.PalmNormal;
                 Vector direction = hand.Direction;
 
-                move = new Vector3(hand.Direction.y * 0.01f, normal.y * 0.01f, -hand.Direction.x * 0.01f);
+                //move = new Vector3(hand.Direction.y * 0.01f, normal.y * 0.01f, -hand.Direction.x * 0.01f);
+                move = new Vector3(hand.Direction.y * 0.01f, normal.y * 0.01f, hand.Direction.z * 0.01f);
                 move.y -= gravity * Time.deltaTime;
                 move.Normalize();
                 move = transform.TransformDirection(move);

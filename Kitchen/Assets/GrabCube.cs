@@ -46,7 +46,15 @@ public class GrabCube : MonoBehaviour {
         if (grabbedObject == null)
             return;
         if (grabbedObject.GetComponent<Rigidbody>() != null)
-            grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit))
+            {
+                Vector3 dropPosition = hit.point;
+                grabbedObject.transform.position = dropPosition + grabbedObjectSize*0.5f;
+            }
+        }
+            //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         grabbedObject = null;
     }
 

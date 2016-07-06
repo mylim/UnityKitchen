@@ -20,10 +20,12 @@ public class UnitPlayer : Unit {
         if (Input.GetMouseButton(0))
         {
             // character rotation
+            //Debug.Log("X " + Input.GetAxis("Mouse X"));
             transform.Rotate(0f, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0f);
 
             // camera rotation        
             cameraRotX -= Input.GetAxis("Mouse Y");
+            //Debug.Log("Y " + Input.GetAxis("Mouse Y"));
             cameraRotX = Mathf.Clamp(cameraRotX, -cameraPitchMax, cameraPitchMax); // limit the angle of camera rotation
             Camera.main.transform.forward = transform.forward; // reset the camera view
             Camera.main.transform.Rotate(cameraRotX, 90f, 0f);
