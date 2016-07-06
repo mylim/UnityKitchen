@@ -4,6 +4,10 @@ using Leap;
 using System.Collections.Generic;
 using Leap.Unity;
 
+/**
+Open or close doors using hands - hands have capsule colliders and are triggers
+*/
+
 public class LeapOpenCloseHandler : MonoBehaviour {
     Animator animator;
     bool open = false;

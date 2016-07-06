@@ -5,23 +5,30 @@ using System.Collections.Generic;
 using Leap.Unity;
 
 public class LeapHandler : MonoBehaviour {
-   
-    Controller controller;
- 
+
+    LeapProvider provider;
+    Frame frame;
+    //Controller controller;
+
     Vector3 position;
     Vector3 target;
     GameObject grabbedObject;
     Vector3 grabbedObjectSize;
 
+    Animator animator;
+    bool open = false;
+
     // Use this for initialization
     void Start()
     {
-        controller = new Controller();
+        provider = FindObjectOfType<LeapProvider>() as LeapProvider;
+        //controller = new Controller();
     }
     
     GameObject GetHandHoverObject(float range)
     {
-        Frame frame = controller.Frame();
+        frame = provider.CurrentFrame;
+        //Frame frame = controller.Frame();
         foreach (Hand hand in frame.Hands)
         {
             if (hand.IsRight)
@@ -32,22 +39,38 @@ public class LeapHandler : MonoBehaviour {
                     Finger.FingerType fingerType = finger.Type;
                     if (fingerType.Equals(Finger.FingerType.TYPE_INDEX))
                     {
-                        //position = gameObject.transform.position;
-                        position = finger.TipPosition.ToVector3() * 0.001f;
-                        position.x = -position.x;
-                        position.z = -position.z;
-                        Debug.Log("Position " + position);
-                        Debug.Log("Finger position" + finger.Direction.ToVector3() * 0.001f);
+                      
+                        position = finger.TipPosition.ToVector3();                       
+                        Debug.Log("Finger position " + position);
+                      
                         RaycastHit rayCastHit;
-                        target = finger.Direction.ToVector3() * range;
-                        target.x = -target.x;
-                        target.z = -target.z;
+                        target = finger.Direction.ToVector3() * range;                     
                         Debug.Log("Finger direction" + target);
+
                         if (Physics.Raycast(position, target, out rayCastHit, range))
                         {
                             Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
                             return rayCastHit.collider.gameObject;
                         }
+
+                        // Open close doors by pointing fingers - hands don't need capsule colliders
+                        /*if (Physics.Raycast(position, target, out rayCastHit, range) && rayCastHit.collider.isTrigger)
+                        {
+                            Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
+                            animator = rayCastHit.transform.GetComponent<Animator>();
+                            if (animator)
+                            {
+                                Debug.Log("Script found");
+                                animator.SetBool("isOpened", !open);
+                                open = !open;
+                                //fridgeDoorAnim.PlayDoorAnim();
+                            }
+                            else
+                            {
+                                Debug.Log("Script not found");
+                            }
+                            return rayCastHit.collider.gameObject;
+                        }*/
                     }
                 }
             }           
@@ -68,8 +91,8 @@ public class LeapHandler : MonoBehaviour {
         if (grabbedObject == null)
             return;
         if (grabbedObject.GetComponent<Rigidbody>() != null)
-            grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward);
-        //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward);
+            grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         grabbedObject = null;
     }
 
@@ -82,7 +105,8 @@ public class LeapHandler : MonoBehaviour {
     {
         int extendedFingers = 0;
 
-        Frame frame = controller.Frame();
+        Frame frame = provider.CurrentFrame;
+        //Frame frame = controller.Frame();
         foreach (Hand hand in frame.Hands)
         {
             if (hand.IsRight)
@@ -103,10 +127,12 @@ public class LeapHandler : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        GetHandHoverObject(1f);
         Debug.DrawRay(position, target, Color.red, 2f);
 
         if (grabbedObject == null)
-            TryGrabObject(GetHandHoverObject(10f));
+            TryGrabObject(GetHandHoverObject(1f));
         else if ((grabbedObject != null) && (!isHandExtended()))
             // do nothing
             ;
