@@ -103,14 +103,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\CustomEditorBase.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\LeapHandControllerEditor.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\LeapImageRetrieverEditor.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\LeapServiceProviderEditor.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\Tests\FrameValidator.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\Tests\HandFactoryTest.cs" />
-    <Compile Include="Assets\LeapMotion\Editor\Tests\TransformCopyTest.cs" />
+    <Compile Include="Assets\Editor\CustomEditorBase.cs" />
+    <Compile Include="Assets\Editor\LeapHandControllerEditor.cs" />
+    <Compile Include="Assets\Editor\LeapImageRetrieverEditor.cs" />
+    <Compile Include="Assets\Editor\LeapServiceProviderEditor.cs" />
+    <Compile Include="Assets\Editor\Tests\FrameValidator.cs" />
+    <Compile Include="Assets\Editor\Tests\HandFactoryTest.cs" />
+    <Compile Include="Assets\Editor\Tests\TransformCopyTest.cs" />
+    <Compile Include="Assets\LeapMotion\Prefabs\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\VR\Editor\EyeTypeEditor.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\VR\Editor\LeapTemporalWarpingEditor.cs" />
   </ItemGroup>
@@ -123,6 +123,7 @@
     <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />
     <None Include="Assets\LeapMotion\Version.txt" />
     <None Include="Assets\LeapMotion\readme.txt" />
+    <None Include="Assets\LeapMotionModules\DetectionExamples\Shaders\LeapPinchLine.shader" />
     <None Include="Assets\Plugins\donotdelete.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

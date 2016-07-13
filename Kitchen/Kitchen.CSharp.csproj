@@ -123,6 +123,11 @@
     <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\VR\VRHeightOffset.cs" />
+    <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\FireControl.cs" />
+    <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\LeapRTS.cs" />
+    <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\MengerSponge.cs" />
+    <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
+    <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
@@ -131,6 +136,8 @@
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerMouse.cs" />
+    <Compile Include="Assets\Scripts\UnitPlayerWaypointsNavigation.cs" />
+    <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>
@@ -143,6 +150,7 @@
     <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />
     <None Include="Assets\LeapMotion\Version.txt" />
     <None Include="Assets\LeapMotion\readme.txt" />
+    <None Include="Assets\LeapMotionModules\DetectionExamples\Shaders\LeapPinchLine.shader" />
     <None Include="Assets\Plugins\donotdelete.txt" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />

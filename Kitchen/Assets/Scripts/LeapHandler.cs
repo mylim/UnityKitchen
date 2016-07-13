@@ -55,7 +55,7 @@ public class LeapHandler : MonoBehaviour {
                         }
 
                         // Open close doors by pointing fingers - hands don't need capsule colliders
-                        /*if (Physics.Raycast(position, target, out rayCastHit, range) && rayCastHit.collider.isTrigger)
+                        if (Physics.Raycast(position, target, out rayCastHit, range) && rayCastHit.collider.isTrigger)
                         {
                             Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
                             animator = rayCastHit.transform.GetComponent<Animator>();
@@ -71,7 +71,7 @@ public class LeapHandler : MonoBehaviour {
                                 Debug.Log("Script not found");
                             }
                             return rayCastHit.collider.gameObject;
-                        }*/
+                        }
                     }
                 }
             }           

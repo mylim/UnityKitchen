@@ -4,8 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FridgeRightDoor
-  - New Tag
+  - Fridge
+  - Shelf
+  - Sink
+  - Table
+  - Cupboard
+  - Stove
   layers:
   - Default
   - TransparentFX
