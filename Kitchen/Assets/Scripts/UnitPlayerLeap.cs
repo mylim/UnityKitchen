@@ -9,6 +9,7 @@ public class UnitPlayerLeap: Unit {
 
     LeapProvider provider;
     float leapUnityFactor = 0.01f;
+
     //Controller controller;  
 
     // Use this for initialization

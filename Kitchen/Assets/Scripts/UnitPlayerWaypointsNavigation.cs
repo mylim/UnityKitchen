@@ -26,7 +26,6 @@ public class UnitPlayerWaypointsNavigation : MonoBehaviour {
     NavMeshAgent agent;
     public Transform goal;
 
-
     // Use this for initialization
     public void Start()
     {

@@ -5,11 +5,13 @@ using System;
 using System.Collections.Generic;
 
 public class UnitPlayer : Unit {
+    //NavMeshAgent agent;
 
     // Use this for initialization
     public override void Start()
     {
         base.Start();
+        //agent = GetComponent<NavMeshAgent>();
     }    
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class UnitPlayer : Unit {
         if (Input.GetMouseButton(0))
         {
             // character rotation
-            //Debug.Log("X " + Input.GetAxis("Mouse X"));
+            Debug.Log("X " + Input.GetAxis("Mouse X"));
             transform.Rotate(0f, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0f);
 
             // camera rotation        
@@ -29,6 +31,16 @@ public class UnitPlayer : Unit {
             Camera.main.transform.forward = transform.forward; // reset the camera view
             Camera.main.transform.Rotate(cameraRotX, 90f, 0f);
         }
+
+        /*if (Input.GetMouseButtonDown(2))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                agent.destination = hit.point;
+            }
+        }*/
 
         // movement
         move = new Vector3(Input.GetAxis("Vertical"), 0f, -Input.GetAxis("Horizontal"));
