@@ -720,6 +720,8 @@ MonoBehaviour:
   moveSpeed: 0.1
   turnSpeed: 90
   cameraPitchMax: 45
+  gravity: 20
+  cameraRotX: 0
 --- !u!143 &567878303
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1172,6 +1174,10 @@ Prefab:
     - target: {fileID: 6542268, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 122964, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416094, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}

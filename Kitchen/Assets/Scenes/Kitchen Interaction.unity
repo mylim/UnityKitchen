@@ -1641,6 +1641,10 @@ Prefab:
       propertyPath: m_Size.z
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 122964, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416094, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}
     - {fileID: 6542268, guid: 50695eaebcaa1e842b37906d105f90fb, type: 2}
@@ -2343,6 +2347,8 @@ MonoBehaviour:
   cameraPitchMax: 25
   gravity: 20
   cameraRotX: 0
+  waypoints: []
+  goal: {fileID: 0}
 --- !u!114 &1260707656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3390,11 +3396,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 13637052, guid: 716110439ced6084f8b922eab4968e0d, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13621346, guid: 716110439ced6084f8b922eab4968e0d, type: 2}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11498808, guid: 716110439ced6084f8b922eab4968e0d, type: 2}

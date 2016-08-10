@@ -132,12 +132,14 @@
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
+    <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerMouse.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerWaypointsNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
+    <Compile Include="Assets\Scripts\WaypointRotationAngles.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>

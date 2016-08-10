@@ -7,28 +7,100 @@ using Leap.Unity;
 
 public class WaypointNavigation: Unit {
 
-    public GameObject[] checkpoints;
+    public GameObject[] waypoints;
     int counter = 0;
     public float distance = 2.0f; //on which distance you want to switch to the next waypoint
     Vector3 direction;
-    public Transform goal;
+    //public Transform goal;
     NavMeshAgent agent;
 
     void Start()
     {
         base.Start();
         agent = GetComponent<NavMeshAgent>();
-        //agent.destination = goal.position;
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        counter = 0;
+
+        /*Vector3 rotation = goal.position - transform.position;
+        //rotation.y = 0f;
+        bool turned = false;
+        // Do we need to adjust facing?
+        Quaternion idealFacing = Quaternion.LookRotation(rotation);
+        // This is how far we would like to turn
+        float angle = Quaternion.Angle(transform.rotation, idealFacing);
+        // This is most we are allowed to turn this frame
+        float maxTurn = 25 * Time.deltaTime;
+        if (maxTurn >= angle)
+        {
+            // Excellent. We can just face the target
+            transform.rotation = idealFacing;
+        }
+        else {
+            // We'll have to take this more gradually then; use slerp to smoothly face the target.
+            transform.rotation = Quaternion.Slerp(transform.rotation, idealFacing, maxTurn / angle);
+            turned = true;
+        }
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, idealFacing, maxTurn / angle);
+        turned = true;
+
+        if (turned)
+        {
+            agent.destination = goal.position;
+        }*/
+        
 
     }
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            System.Random rnd = new System.Random();
+            counter = rnd.Next(0, waypoints.Length);
+            //Debug.Log("hitObject: " + hitObject.name);
+            Debug.Log("Waypoint: " + waypoints[counter].name);
+            Vector3 direction = waypoints[counter].transform.position - transform.position;
+            Debug.Log("Direction: " + direction);
+            //if (Equals(hitObject.name, waypoints[i].tag))
+            {
+                //Debug.Log("hitObject: " + hitObject.name + ", Waypoint: " + waypoints[i].tag);
+                //goal.position = waypoints[i].transform.position;
+                RotateTowards(waypoints[counter].transform);
+                MoveTowards(waypoints[counter].transform);
+
+                agent.destination = waypoints[counter].transform.position;
+
+                /*counter++;
+                Debug.Log("counter: " + counter);
+                if (counter >= waypoints.Length)
+                {
+                    counter = 0;
+                }*/
+
+                /*move = waypoints[i].transform.position;
+                move.y -= gravity * Time.deltaTime;
+
+                //Debug.Log(move.ToString());
+                move.Normalize();
+                // transform the movement to the character's local orientation
+                move = transform.TransformDirection(move);
+                hitObject = null;*/
+            }
+        }
+
+        /*for (int i = 0; i < waypoints.Length; i++)
+        {
+           // Debug.Log("hitObject: " + hitObject.name);
+            Debug.Log("Waypoint: " + waypoints[i].name);
+            agent.transform.Rotate(waypoints[i].transform.rotation * Vector3.forward);
+            agent.destination = waypoints[i].transform.position;
+        }*/
         // rotate only when left mouse button is down
-        if (Input.GetMouseButton(0))
+        /*if (Input.GetMouseButton(0))
         {
             // character rotation
-            //Debug.Log("X " + Input.GetAxis("Mouse X"));
+            Debug.Log("X " + Input.GetAxis("Mouse X"));
             transform.Rotate(0f, Input.GetAxis("Mouse X") * turnSpeed * Time.deltaTime, 0f);
 
             // camera rotation        
@@ -45,12 +117,34 @@ public class WaypointNavigation: Unit {
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 2))
             {
+              
                 agent.destination = hit.point;
                 Debug.Log("Hit target " + hit.collider.gameObject.name);
             }
-        }
+        }*/
 
         base.Update();
+    }
+
+    private void MoveTowards(Transform target)
+    {
+        agent.SetDestination(target.position);
+    }
+
+    private void RotateTowards(Transform target)
+    {
+        Quaternion qRotation = target.transform.rotation;
+        Vector3 vRotation = qRotation.eulerAngles;
+        //Debug.Log("vRotation " + vRotation);
+        Camera.main.transform.forward = transform.forward; // reset the camera view
+        Camera.main.transform.Rotate(vRotation.x, 90f + vRotation.y, 0f);
+
+        /*float ang;
+        Vector3 rot;
+
+        Vector3 direction = (target.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);*/
     }
 
     /*void FixedUpdate()

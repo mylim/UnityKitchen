@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour {
     public float cameraPitchMax = 30.0f;
     public float gravity = 20.0f;
     public float cameraRotX = 0.0f;
-
+    
     // Use this for initialization
     public virtual void Start () {
         charControl = GetComponent<CharacterController>();
