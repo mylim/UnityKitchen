@@ -13,6 +13,8 @@ public class WaypointNavigation: Unit {
     Vector3 direction;
     //public Transform goal;
     NavMeshAgent agent;
+    Vector3 vRotation;
+    Quaternion qRotation;
 
     void Start()
     {
@@ -56,8 +58,9 @@ public class WaypointNavigation: Unit {
     {
         if (Input.GetMouseButtonDown(1))
         {
-            System.Random rnd = new System.Random();
-            counter = rnd.Next(0, waypoints.Length);
+            //System.Random rnd = new System.Random();
+            //counter = rnd.Next(0, waypoints.Length);
+
             //Debug.Log("hitObject: " + hitObject.name);
             Debug.Log("Waypoint: " + waypoints[counter].name);
             Vector3 direction = waypoints[counter].transform.position - transform.position;
@@ -71,12 +74,12 @@ public class WaypointNavigation: Unit {
 
                 agent.destination = waypoints[counter].transform.position;
 
-                /*counter++;
+                counter++;
                 Debug.Log("counter: " + counter);
                 if (counter >= waypoints.Length)
                 {
                     counter = 0;
-                }*/
+                }
 
                 /*move = waypoints[i].transform.position;
                 move.y -= gravity * Time.deltaTime;
@@ -133,9 +136,16 @@ public class WaypointNavigation: Unit {
 
     private void RotateTowards(Transform target)
     {
-        Quaternion qRotation = target.transform.rotation;
-        Vector3 vRotation = qRotation.eulerAngles;
-        //Debug.Log("vRotation " + vRotation);
+        //Debug.Log("vRotation before " + vRotation);
+        //Debug.Log("transform before " + transform.rotation.eulerAngles);
+        //transform.Rotate(0f, -vRotation.y, 0f);
+        //Debug.Log("transform after " + transform.rotation.eulerAngles);
+        qRotation = target.transform.rotation;
+        vRotation = qRotation.eulerAngles;
+        Debug.Log("vRotation after " + vRotation);
+        //transform.Rotate(0f, 0f, 0f);
+        
+        //transform.Rotate(0f, vRotation.y, 0f);
         Camera.main.transform.forward = transform.forward; // reset the camera view
         Camera.main.transform.Rotate(vRotation.x, 90f + vRotation.y, 0f);
 

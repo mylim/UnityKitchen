@@ -48,11 +48,11 @@ public class LeapHandler : MonoBehaviour {
                         target = finger.Direction.ToVector3() * range;                     
                         Debug.Log("Finger direction" + target);
 
-                        if (Physics.Raycast(position, target, out rayCastHit, range))
+                        /*if (Physics.Raycast(position, target, out rayCastHit, range))
                         {
                             Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
                             return rayCastHit.collider.gameObject;
-                        }
+                        }*/
 
                         // Open close doors by pointing fingers - hands don't need capsule colliders
                         if (Physics.Raycast(position, target, out rayCastHit, range) && rayCastHit.collider.isTrigger)
@@ -84,8 +84,8 @@ public class LeapHandler : MonoBehaviour {
         if (grabObject == null || !CanGrab(grabObject))
             return;
         grabbedObject = grabObject;
-        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
-        //grabbedObjectSize = grabObject.GetComponent<Collider>().bounds.size;
+        //grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+        grabbedObjectSize = grabObject.GetComponent<Collider>().bounds.size;
     }
 
     void DropObject()
@@ -150,7 +150,8 @@ public class LeapHandler : MonoBehaviour {
         
         Debug.DrawRay(position, target, Color.red, 2f);
 
-        if (grabbedObject == null)
+        // For grabbing object
+        /*if (grabbedObject == null)
             TryGrabObject(GetHandHoverObject(1f));
         else if ((grabbedObject != null) && (!isHandExtended()))
             // do nothing
@@ -162,6 +163,6 @@ public class LeapHandler : MonoBehaviour {
         {
             Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize.x;
             grabbedObject.transform.position = newPosition;
-        }
+        }*/
     }
 }
