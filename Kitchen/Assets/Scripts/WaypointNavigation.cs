@@ -5,7 +5,13 @@ using System;
 using System.Collections.Generic;
 using Leap.Unity;
 
-public class WaypointNavigation: Unit {
+/**
+Moving the player to a set of pre-specified waypoints 
+Hands are not rotated to the right direction the player is facing
+*/
+
+public class WaypointNavigation : Unit
+{
 
     public GameObject[] waypoints;
     int counter = 0;
@@ -50,7 +56,7 @@ public class WaypointNavigation: Unit {
         {
             agent.destination = goal.position;
         }*/
-        
+
 
     }
 
@@ -144,7 +150,7 @@ public class WaypointNavigation: Unit {
         vRotation = qRotation.eulerAngles;
         Debug.Log("vRotation after " + vRotation);
         //transform.Rotate(0f, 0f, 0f);
-        
+
         //transform.Rotate(0f, vRotation.y, 0f);
         Camera.main.transform.forward = transform.forward; // reset the camera view
         Camera.main.transform.Rotate(vRotation.x, 90f + vRotation.y, 0f);
@@ -156,27 +162,4 @@ public class WaypointNavigation: Unit {
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);*/
     }
-
-    /*void FixedUpdate()
-    {
-        direction = Vector3.zero;
-        //get the vector from your position to current waypoint
-        direction = checkpoints[counter].transform.position - transform.position;
-        //check our distance to the current waypoint, Are we near enough?
-        if (direction.magnitude < distance)
-        {
-            if (counter < checkpoints.Length - 1) //switch to the next waypoint if exists
-            {
-                counter++;
-            }
-            else //begin from new if we are already on the last waypoint
-            {
-                counter = 0;
-            }
-        }
-        direction = direction.normalized;
-        Vector3 dir = direction;
-        move = transform.TransformDirection(direction);
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x * actualSpeed, direction.y * actualSpeed);
-    }*/
 }

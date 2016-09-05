@@ -128,11 +128,13 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\MengerSponge.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
+    <Compile Include="Assets\PickUpObject.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\LookAt.cs" />
+    <Compile Include="Assets\Scripts\Pickupable.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />

@@ -14,9 +14,10 @@ public class GrabCube : MonoBehaviour {
     Vector3 target;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //controller = new Controller();
-        
+
         /*listener = new SampleListener();
         controller.Connect += listener.OnServiceConnect;
         controller.Device += listener.OnConnect;
@@ -25,10 +26,14 @@ public class GrabCube : MonoBehaviour {
 
     GameObject GetMouseHoverObject(float range)
     {
-        position = gameObject.transform.position;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit rayCastHit;
-        target = position + Camera.main.transform.forward;
-        if (Physics.Linecast(position, target, out rayCastHit))
+        // Debug ray
+        Debug.DrawRay(ray.origin, ray.direction * range, Color.green, range);
+        //Debug.Log("Ray direction " + ray.direction.ToString());
+
+
+        if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, range))
             return rayCastHit.collider.gameObject;
         return null;
     }
@@ -38,23 +43,34 @@ public class GrabCube : MonoBehaviour {
         if (grabObject == null || !CanGrab(grabObject))
             return;
         grabbedObject = grabObject;
-        grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+        //grabbedObjectSize = grabObject.GetComponent<Renderer>().bounds.size;
+        grabbedObjectSize = grabObject.GetComponent<Collider>().bounds.size;
     }
 
-    void DropObject ()
+    void DropObject()
     {
         if (grabbedObject == null)
             return;
-        if (grabbedObject.GetComponent<Rigidbody>() != null)
+
+        // Drop the object onto a surface
+        /*if (grabbedObject.GetComponent<Rigidbody>() != null)
         {
+            grabbedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
+            grabbedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
+        }*/
+
+        if (grabbedObject.GetComponent<Rigidbody>() != null)
+        { 
             RaycastHit hit;
             if (Physics.Raycast(transform.position, Vector3.down, out hit))
             {
                 Vector3 dropPosition = hit.point;
-                grabbedObject.transform.position = dropPosition + grabbedObjectSize*0.5f;
+                grabbedObject.transform.position = dropPosition + grabbedObjectSize * 5;
+                grabbedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
+                grabbedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
             }
         }
-            //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         grabbedObject = null;
     }
 
@@ -66,7 +82,7 @@ public class GrabCube : MonoBehaviour {
     void Update()
     {
         Debug.Log(GetMouseHoverObject(5));
-        Debug.DrawRay(position, target);
+        Debug.DrawRay(position, target, Color.red, 5f);
         if (Input.GetMouseButtonDown(1))
         {
             if (grabbedObject == null)
@@ -77,7 +93,7 @@ public class GrabCube : MonoBehaviour {
 
         if (grabbedObject != null)
         {
-            Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize.x;
+            Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * 5 * grabbedObjectSize.x;
             grabbedObject.transform.position = newPosition;
         }
     }

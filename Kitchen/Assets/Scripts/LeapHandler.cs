@@ -4,6 +4,14 @@ using Leap;
 using System.Collections.Generic;
 using Leap.Unity;
 
+/** 
+
+Grab and drop object
+
+Opening and closing doors - commented out right now, code for grabbing in Update() needs to be commented out for it to work
+
+*/
+
 public class LeapHandler : MonoBehaviour {
 
     LeapProvider provider;
@@ -48,17 +56,17 @@ public class LeapHandler : MonoBehaviour {
                         target = finger.Direction.ToVector3() * range;                     
                         Debug.Log("Finger direction" + target);
 
-                        /*if (Physics.Raycast(position, target, out rayCastHit, range))
+                        if (Physics.Raycast(position, target, out rayCastHit, range))
                         {
                             Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
                             return rayCastHit.collider.gameObject;
-                        }*/
+                        }
 
-                        // Open close doors by pointing fingers - hands don't need capsule colliders
+                        /*// Open close doors by pointing fingers - hands don't need capsule colliders
                         if (Physics.Raycast(position, target, out rayCastHit, range) && rayCastHit.collider.isTrigger)
                         {
                             Debug.Log("Hand hit object " + rayCastHit.collider.gameObject);
-                            animator = rayCastHit.transform.GetComponent<Animator>();
+                            animator = rayCastHit.collider.GetComponent<Animator>();
                             if (animator)
                             {
                                 Debug.Log("Script found");
@@ -71,7 +79,7 @@ public class LeapHandler : MonoBehaviour {
                                 Debug.Log("Script not found");
                             }
                             return rayCastHit.collider.gameObject;
-                        }
+                        }*/
                     }
                 }
             }           
@@ -79,7 +87,7 @@ public class LeapHandler : MonoBehaviour {
         return null;
     }
 
-      void TryGrabObject(GameObject grabObject)
+    void TryGrabObject(GameObject grabObject)
     {
         if (grabObject == null || !CanGrab(grabObject))
             return;
@@ -99,18 +107,7 @@ public class LeapHandler : MonoBehaviour {
             grabbedObject.GetComponent<Rigidbody>().AddForce(-transform.up*gravity);
             grabbedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
         }
-        /*if (grabbedObject.GetComponent<Rigidbody>() != null)
-        {
-            //grabbedObject.GetComponent<Rigidbody>().AddForce(transform.forward);
-            //grabbedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, Vector3.down, out hit))
-            {
-                Vector3 dropPosition = hit.point;
-                grabbedObject.transform.position = dropPosition + grabbedObjectSize * 0.5f;
-            }
-        }*/
+     
         grabbedObject = null;
     }
 
@@ -151,7 +148,7 @@ public class LeapHandler : MonoBehaviour {
         Debug.DrawRay(position, target, Color.red, 2f);
 
         // For grabbing object
-        /*if (grabbedObject == null)
+        if (grabbedObject == null)
             TryGrabObject(GetHandHoverObject(1f));
         else if ((grabbedObject != null) && (!isHandExtended()))
             // do nothing
@@ -163,6 +160,6 @@ public class LeapHandler : MonoBehaviour {
         {
             Vector3 newPosition = gameObject.transform.position + Camera.main.transform.forward * grabbedObjectSize.x;
             grabbedObject.transform.position = newPosition;
-        }*/
+        }
     }
 }
