@@ -1,32 +1,32 @@
 fileFormatVersion: 2
 guid: 3ef3f4bde36e38e4fad31292e4eef73b
-timeCreated: 1473074826
+timeCreated: 1477471744
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Blue Coffee Mug
-    100002: //RootNode
-    100004: Green Coffee Mug
-    100006: Grey Coffee Mug
-    100008: Pink Coffee Mug
-    400000: Blue Coffee Mug
-    400002: //RootNode
-    400004: Green Coffee Mug
-    400006: Grey Coffee Mug
-    400008: Pink Coffee Mug
-    2300000: Blue Coffee Mug
-    2300002: Green Coffee Mug
-    2300004: Grey Coffee Mug
-    2300006: Pink Coffee Mug
-    3300000: Blue Coffee Mug
-    3300002: Green Coffee Mug
-    3300004: Grey Coffee Mug
-    3300006: Pink Coffee Mug
-    4300000: Pink Coffee Mug
-    4300002: Blue Coffee Mug
-    4300004: Green Coffee Mug
-    4300006: Grey Coffee Mug
+    100000: //RootNode
+    100002: E1_ST5_EM4_I1
+    100004: E1_ST5_EM4_I2
+    100006: E1_ST5_EM4_I3
+    100008: E1_ST5_EM4_I4
+    400000: //RootNode
+    400002: E1_ST5_EM4_I1
+    400004: E1_ST5_EM4_I2
+    400006: E1_ST5_EM4_I3
+    400008: E1_ST5_EM4_I4
+    2300000: E1_ST5_EM4_I1
+    2300002: E1_ST5_EM4_I2
+    2300004: E1_ST5_EM4_I3
+    2300006: E1_ST5_EM4_I4
+    3300000: E1_ST5_EM4_I1
+    3300002: E1_ST5_EM4_I2
+    3300004: E1_ST5_EM4_I3
+    3300006: E1_ST5_EM4_I4
+    4300000: E1_ST5_EM4_I4
+    4300002: E1_ST5_EM4_I3
+    4300004: E1_ST5_EM4_I2
+    4300006: E1_ST5_EM4_I1
   materials:
     importMaterials: 1
     materialName: 0

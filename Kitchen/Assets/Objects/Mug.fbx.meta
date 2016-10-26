@@ -1,32 +1,32 @@
 fileFormatVersion: 2
 guid: 021324b0a2489d64ab5a46d05ca2083c
-timeCreated: 1473076639
+timeCreated: 1477472114
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Black Spot Mug
-    100002: Blue Spot Mug
-    100004: Grey Spot Mug
-    100006: //RootNode
-    100008: Orange Spot Mug
-    400000: Black Spot Mug
-    400002: Blue Spot Mug
-    400004: Grey Spot Mug
-    400006: //RootNode
-    400008: Orange Spot Mug
-    2300000: Black Spot Mug
-    2300002: Blue Spot Mug
-    2300004: Grey Spot Mug
-    2300006: Orange Spot Mug
-    3300000: Black Spot Mug
-    3300002: Blue Spot Mug
-    3300004: Grey Spot Mug
-    3300006: Orange Spot Mug
-    4300000: Black Spot Mug
-    4300002: Grey Spot Mug
-    4300004: Blue Spot Mug
-    4300006: Orange Spot Mug
+    100000: E1_ST5_EM1_I1
+    100002: E1_ST5_EM1_I2
+    100004: E1_ST5_EM1_I3
+    100006: E1_ST5_EM1_I4
+    100008: //RootNode
+    400000: E1_ST5_EM1_I1
+    400002: E1_ST5_EM1_I2
+    400004: E1_ST5_EM1_I3
+    400006: E1_ST5_EM1_I4
+    400008: //RootNode
+    2300000: E1_ST5_EM1_I1
+    2300002: E1_ST5_EM1_I2
+    2300004: E1_ST5_EM1_I3
+    2300006: E1_ST5_EM1_I4
+    3300000: E1_ST5_EM1_I1
+    3300002: E1_ST5_EM1_I2
+    3300004: E1_ST5_EM1_I3
+    3300006: E1_ST5_EM1_I4
+    4300000: E1_ST5_EM1_I2
+    4300002: E1_ST5_EM1_I1
+    4300004: E1_ST5_EM1_I3
+    4300006: E1_ST5_EM1_I4
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +70,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

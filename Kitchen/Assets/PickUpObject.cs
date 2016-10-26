@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** 
+Handles objects pickup and dropping
+*/
+
 public class PickUpObject : MonoBehaviour {
 
     GameObject mainCamera;
@@ -9,6 +13,8 @@ public class PickUpObject : MonoBehaviour {
 
     public float distance;
     public float smooth;
+    Animator animator;
+    bool open = false;
 
     void Start()
     {
@@ -17,7 +23,7 @@ public class PickUpObject : MonoBehaviour {
     }
 
     void Update()
-    {
+    {      
         if (carrying)
         {
             Carry(carriedObject);
@@ -26,7 +32,7 @@ public class PickUpObject : MonoBehaviour {
         else
         {
             Pickup();
-        }
+        }      
     }
 
     void Carry(GameObject cObject)
@@ -48,7 +54,6 @@ public class PickUpObject : MonoBehaviour {
             Debug.DrawRay(ray.origin, ray.direction * 2, Color.green, 2f);
             Debug.Log("Ray direction " + ray.direction.ToString());
 
-
             if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, 2f))
             {
                 Pickupable p = rayCastHit.collider.GetComponent<Pickupable>();
@@ -61,7 +66,7 @@ public class PickUpObject : MonoBehaviour {
                     carriedObject.GetComponent<Rigidbody>().useGravity = false;
                 }
             }
-        }
+        }    
     }
 
     void CheckDrop()

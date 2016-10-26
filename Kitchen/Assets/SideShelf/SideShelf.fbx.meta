@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 130580bd7743d92478fa63b441297ef3
-timeCreated: 1475480918
+timeCreated: 1477485256
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Cube
+    4300000: SideShelf
   materials:
     importMaterials: 1
     materialName: 0

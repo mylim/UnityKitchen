@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: fcbffd0cf56eb8d4e87eeb9b057f5bae
+timeCreated: 1477481319
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Dark Green Cup
+    100004: E1_ST5_EM2_I1
+    100006: E1_ST5_EM2_I2
+    100008: E1_ST5_EM2_I3
+    100010: E1_ST5_EM2_I4
+    100012: Light Blue Cup
+    100014: Light Green Cup
+    100016: Orange Cup
+    400000: //RootNode
+    400002: Dark Green Cup
+    400004: E1_ST5_EM2_I1
+    400006: E1_ST5_EM2_I2
+    400008: E1_ST5_EM2_I3
+    400010: E1_ST5_EM2_I4
+    400012: Light Blue Cup
+    400014: Light Green Cup
+    400016: Orange Cup
+    2300000: Dark Green Cup
+    2300002: E1_ST5_EM2_I1
+    2300004: E1_ST5_EM2_I2
+    2300006: E1_ST5_EM2_I3
+    2300008: E1_ST5_EM2_I4
+    2300010: Light Blue Cup
+    2300012: Light Green Cup
+    2300014: Orange Cup
+    3300000: Dark Green Cup
+    3300002: E1_ST5_EM2_I1
+    3300004: E1_ST5_EM2_I2
+    3300006: E1_ST5_EM2_I3
+    3300008: E1_ST5_EM2_I4
+    3300010: Light Blue Cup
+    3300012: Light Green Cup
+    3300014: Orange Cup
+    4300000: Light Blue Cup
+    4300002: Orange Cup
+    4300004: Light Green Cup
+    4300006: Dark Green Cup
+    4300008: E1_ST5_EM2_I2
+    4300010: E1_ST5_EM2_I3
+    4300012: E1_ST5_EM2_I4
+    4300014: E1_ST5_EM2_I1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
