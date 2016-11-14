@@ -13,17 +13,23 @@ public class PickUpObject : MonoBehaviour {
 
     public float distance;
     public float smooth;
-    Animator animator;
-    bool open = false;
+    GameObject tiedBag;
 
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
         carrying = false;
+
+        tiedBag = GameObject.FindWithTag("TiedBag");
+        if (tiedBag)
+        {
+            Debug.Log("Tied Bag found");
+            tiedBag.SetActive(false);
+        }
     }
 
     void Update()
-    {      
+    {    
         if (carrying)
         {
             Carry(carriedObject);
@@ -32,7 +38,7 @@ public class PickUpObject : MonoBehaviour {
         else
         {
             Pickup();
-        }      
+        }
     }
 
     void Carry(GameObject cObject)
@@ -44,26 +50,36 @@ public class PickUpObject : MonoBehaviour {
     void Pickup()
     {
         if (Input.GetMouseButtonDown(1))
-        {
-            //int x = Screen.width / 2;
-            //int y = Screen.height / 2;
-            //Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
-            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-            RaycastHit rayCastHit;
-            // Debug ray
-            Debug.DrawRay(ray.origin, ray.direction * 2, Color.green, 2f);
-            Debug.Log("Ray direction " + ray.direction.ToString());
-
-            if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, 2f))
+        {           
+            Collider collider = GetMouseHoverObject(2);
+            if (collider != null)
             {
-                Pickupable p = rayCastHit.collider.GetComponent<Pickupable>();
+                Pickupable p = collider.GetComponent<Pickupable>();
                 if (p != null)
                 {
                     Debug.Log("pickupable " + p.gameObject);
                     carrying = true;
                     carriedObject = p.gameObject;
-                    //cObject.GetComponent<Rigidbody>().isKinematic = true;
+                    //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
                     carriedObject.GetComponent<Rigidbody>().useGravity = false;
+                }
+                else
+                {
+                    Debug.Log("Collider " + collider.gameObject.name);
+                    //if (collider.isTrigger)
+                    {
+                        if (collider.tag.Equals("BinBag"))
+                        {
+                            Debug.Log("Bin Bag clicked");
+                            collider.gameObject.SetActive(false);
+
+                            if (tiedBag)
+                            {
+                                Debug.Log("Tied Bag found");
+                                tiedBag.SetActive(true);
+                            }
+                        }
+                    }
                 }
             }
         }    
@@ -85,5 +101,22 @@ public class PickUpObject : MonoBehaviour {
         //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carriedObject.GetComponent<Rigidbody>().useGravity = true;
         carriedObject = null;
+    }
+
+    Collider GetMouseHoverObject(float range)
+    {
+        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayCastHit;
+
+        // Debug ray
+        //Debug.DrawRay(ray.origin, ray.direction * range, Color.green, 2f);
+        //Debug.Log("Ray direction " + ray.direction.ToString());
+
+        if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, range))
+        {
+            return rayCastHit.collider;
+        }
+        return null;
+
     }
 }
