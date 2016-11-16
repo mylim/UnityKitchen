@@ -11,8 +11,9 @@ TagManager:
   - Cupboard
   - Stove
   - Waypoint
-  - BinBag
+  - BinLid
   - TiedBag
+  - BinBag
   layers:
   - Default
   - TransparentFX

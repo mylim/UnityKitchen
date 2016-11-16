@@ -13,7 +13,11 @@ public class PickUpObject : MonoBehaviour {
 
     public float distance;
     public float smooth;
+
+    // Bin manipulation
     GameObject tiedBag;
+    bool lidOn;
+    Vector3 lidPosition;
 
     void Start()
     {
@@ -25,10 +29,11 @@ public class PickUpObject : MonoBehaviour {
         {
             Debug.Log("Tied Bag found");
             tiedBag.SetActive(false);
+            lidOn = true;
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {    
         if (carrying)
         {
@@ -50,23 +55,30 @@ public class PickUpObject : MonoBehaviour {
     void Pickup()
     {
         if (Input.GetMouseButtonDown(1))
-        {           
+        {            
             Collider collider = GetMouseHoverObject(2);
             if (collider != null)
             {
+                Debug.Log("In Pickup()");
                 Pickupable p = collider.GetComponent<Pickupable>();
                 if (p != null)
                 {
+                    if (collider.tag.Equals("BinLid"))
+                    {
+                        lidPosition = p.gameObject.transform.position;
+                        lidOn = false;
+                    }
                     Debug.Log("pickupable " + p.gameObject);
                     carrying = true;
                     carriedObject = p.gameObject;
                     //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
                     carriedObject.GetComponent<Rigidbody>().useGravity = false;
+                   
                 }
                 else
                 {
                     Debug.Log("Collider " + collider.gameObject.name);
-                    //if (collider.isTrigger)
+                    if (!lidOn)
                     {
                         if (collider.tag.Equals("BinBag"))
                         {
@@ -99,7 +111,11 @@ public class PickUpObject : MonoBehaviour {
         //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
         //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
         //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-        carriedObject.GetComponent<Rigidbody>().useGravity = true;
+        /*if (carriedObject.tag.Equals("BinLid"))
+        {
+            carriedObject.transform.position = lidPosition;
+        }*/
+        carriedObject.GetComponent<Rigidbody>().useGravity = true;        
         carriedObject = null;
     }
 

@@ -1,15 +1,22 @@
 fileFormatVersion: 2
 guid: 5014c9b4ed58bb84eb1d5a8efb39f8bd
-timeCreated: 1465371116
+timeCreated: 1479308856
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Front panel
+    100000: Carpet
+    100002: //RootNode
+    100004: Wall
+    400000: Carpet
+    400002: //RootNode
+    400004: Wall
+    2300000: Carpet
+    2300002: Wall
+    3300000: Carpet
+    3300002: Wall
+    4300000: Wall
+    4300002: Carpet
   materials:
     importMaterials: 1
     materialName: 0
@@ -53,7 +60,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
