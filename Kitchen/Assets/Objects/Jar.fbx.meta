@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 838d56a8bb0827f49ab38ab79c1a4f8a
-timeCreated: 1477474995
+guid: 5f80ef402b2dc6f458667e9a67a944cb
+timeCreated: 1479732487
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -10,13 +10,11 @@ ModelImporter:
     100004: E1_ST5_EM3_I3
     100006: E1_ST5_EM3_I4
     100008: //RootNode
-    100010: Sun
     400000: E1_ST5_EM3_I1
     400002: E1_ST5_EM3_I2
     400004: E1_ST5_EM3_I3
     400006: E1_ST5_EM3_I4
     400008: //RootNode
-    400010: Sun
     2300000: E1_ST5_EM3_I1
     2300002: E1_ST5_EM3_I2
     2300004: E1_ST5_EM3_I3

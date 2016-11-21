@@ -16,14 +16,21 @@ public class PickUpObject : MonoBehaviour {
 
     // Bin manipulation
     GameObject tiedBag;
+    GameObject binBag;
     bool lidOn;
+    bool binEmpty;
     Vector3 lidPosition;
+
+    public AudioClip dropSound;
+    private AudioSource source;
+
 
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
         carrying = false;
 
+        binBag = GameObject.FindWithTag("BinBag");
         tiedBag = GameObject.FindWithTag("TiedBag");
         if (tiedBag)
         {
@@ -31,9 +38,11 @@ public class PickUpObject : MonoBehaviour {
             tiedBag.SetActive(false);
             lidOn = true;
         }
+
+        source = GetComponent<AudioSource>();
     }
 
-    void FixedUpdate()
+    void Update()
     {    
         if (carrying)
         {
@@ -68,6 +77,10 @@ public class PickUpObject : MonoBehaviour {
                         lidPosition = p.gameObject.transform.position;
                         lidOn = false;
                     }
+                    else if (collider.tag.Equals("TiedBag"))
+                    {
+                        binEmpty = true;
+                    }
                     Debug.Log("pickupable " + p.gameObject);
                     carrying = true;
                     carriedObject = p.gameObject;
@@ -89,6 +102,13 @@ public class PickUpObject : MonoBehaviour {
                             {
                                 Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
+                            }
+                        }
+                        else if((collider.tag.Equals("Bin")) && (binEmpty))
+                        {
+                            if (binBag)
+                            {
+                                //binBag.GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
                             }
                         }
                     }
@@ -115,7 +135,8 @@ public class PickUpObject : MonoBehaviour {
         {
             carriedObject.transform.position = lidPosition;
         }*/
-        carriedObject.GetComponent<Rigidbody>().useGravity = true;        
+        carriedObject.GetComponent<Rigidbody>().useGravity = true;
+        source.PlayOneShot(dropSound);
         carriedObject = null;
     }
 
@@ -125,7 +146,7 @@ public class PickUpObject : MonoBehaviour {
         RaycastHit rayCastHit;
 
         // Debug ray
-        //Debug.DrawRay(ray.origin, ray.direction * range, Color.green, 2f);
+        Debug.DrawRay(ray.origin, ray.direction * range, Color.green, 2f);
         //Debug.Log("Ray direction " + ray.direction.ToString());
 
         if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, range))
