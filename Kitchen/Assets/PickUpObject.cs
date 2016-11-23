@@ -15,6 +15,7 @@ public class PickUpObject : MonoBehaviour {
     public float smooth;
 
     // Bin manipulation
+    GameObject singleItem;
     GameObject tiedBag;
     GameObject binBag;
     bool lidOn;
@@ -29,6 +30,12 @@ public class PickUpObject : MonoBehaviour {
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
         carrying = false;
+
+        singleItem = GameObject.FindWithTag("SingleItem");
+        if (singleItem)
+        {
+            singleItem.SetActive(false);
+        }
 
         binBag = GameObject.FindWithTag("BinBag");
         tiedBag = GameObject.FindWithTag("TiedBag");
@@ -86,10 +93,23 @@ public class PickUpObject : MonoBehaviour {
                     carriedObject = p.gameObject;
                     //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
                     carriedObject.GetComponent<Rigidbody>().useGravity = false;
-                   
+
+                }
+                else if (collider.GetComponent<PickupableSingle>())
+                {
+                    PickupableSingle pOne = collider.GetComponent<PickupableSingle>();
+
+                    carrying = true;
+
+                    //Instantiate(singleItem, new Vector3(0, 0, 0), Quaternion.identity);
+                    singleItem.GetComponent<Renderer>().material.SetColor("_Color", pOne.itemColor);
+                    singleItem.SetActive(true);
+                    carriedObject = singleItem;                    
+                    //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                    carriedObject.GetComponent<Rigidbody>().useGravity = false;
                 }
                 else
-                {
+                { 
                     Debug.Log("Collider " + collider.gameObject.name);
                     if (!lidOn)
                     {
@@ -102,13 +122,6 @@ public class PickUpObject : MonoBehaviour {
                             {
                                 Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
-                            }
-                        }
-                        else if((collider.tag.Equals("Bin")) && (binEmpty))
-                        {
-                            if (binBag)
-                            {
-                                //binBag.GetComponent<Renderer>().material.SetColor("_Color", defaultColor);
                             }
                         }
                     }
@@ -127,6 +140,17 @@ public class PickUpObject : MonoBehaviour {
 
     void DropObject()
     {
+        if (carriedObject == singleItem)
+        {
+            Collider collider = GetMouseHoverObject(2);
+            if (collider != null && collider.tag.Equals("Bin"))
+            {
+                binBag.SetActive(true);
+                binBag.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                singleItem.SetActive(false);
+            }
+        }
+
         carrying = false;
         //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
         //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);

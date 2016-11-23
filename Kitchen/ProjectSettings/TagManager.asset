@@ -15,6 +15,7 @@ TagManager:
   - TiedBag
   - BinBag
   - Bin
+  - SingleItem
   layers:
   - Default
   - TransparentFX

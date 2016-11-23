@@ -134,8 +134,8 @@
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\LookAt.cs" />
-    <Compile Include="Assets\Scripts\PickOneSheet.cs" />
     <Compile Include="Assets\Scripts\Pickupable.cs" />
+    <Compile Include="Assets\Scripts\PickupableSingle.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />
