@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 37782e684eb82e540b7ff5889640c7f0
-timeCreated: 1479291111
+timeCreated: 1480341989
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,24 +9,19 @@ ModelImporter:
     100002: //RootNode
     100004: E4_ST1_LI
     100006: E4_ST1_LI lid
-    100008: Tied Bag
     400000: Bag
     400002: //RootNode
     400004: E4_ST1_LI
     400006: E4_ST1_LI lid
-    400008: Tied Bag
     2300000: Bag
     2300002: E4_ST1_LI
     2300004: E4_ST1_LI lid
-    2300006: Tied Bag
     3300000: Bag
     3300002: E4_ST1_LI
     3300004: E4_ST1_LI lid
-    3300006: Tied Bag
-    4300000: Tied Bag
-    4300002: Bag
-    4300004: E4_ST1_LI lid
-    4300006: E4_ST1_LI
+    4300000: Bag
+    4300002: E4_ST1_LI lid
+    4300004: E4_ST1_LI
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +65,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
