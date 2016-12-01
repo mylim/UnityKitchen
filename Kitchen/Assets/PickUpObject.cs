@@ -36,9 +36,6 @@ public class PickUpObject : MonoBehaviour
     public AudioClip dropSound;
     private AudioSource source;
 
-    GameObject spawnItem;
-    Transform spawnPosition;
-
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
@@ -154,16 +151,16 @@ public class PickUpObject : MonoBehaviour
                         {
                             Debug.Log("Bin Bag clicked");
                             binBag.SetActive(false);
-                            //spawnItem = binBag.GetComponent<SpawnBag>().gameObject;
+                            //GameObject spawnItem = binBag.GetComponent<SpawnBag>().gameObject;
                             //spawnPosition = binBag.GetComponent<SpawnBag>().transform;
 
-                            if (tiedBag)
+                            if (!newBag && tiedBag)
                             {
                                 Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
                                 tiedBag.transform.position = tiedBagPosition;
                             }
-                           // Instantiate(spawnItem, spawnPosition.position, spawnPosition.rotation);
+                            //Instantiate(spawnItem, spawnPosition.position, spawnPosition.rotation);
                         }
                     }
                 }
@@ -207,14 +204,14 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Bin is not empty");
                 }                
             }
-            /*else if (carriedObject == spawnItem)
+            /*else if (carriedObject.tag.Equals("TiedBag"))
             {
                 float distance = Vector3.Distance(spawnPosition.position, collider.transform.position);
                 Debug.Log("Bag distance " + distance);
                 if (distance < 1.0f && !lidOn)
                 {
                     carriedObject.transform.position = spawnPosition.position;
-                    GameObject.FindWithTag("Bin").transform.position = binPosition;
+                    //GameObject.FindWithTag("Bin").transform.position = binPosition;
                     binEmpty = false;
                     Debug.Log("Bin is not empty");
                 }
@@ -238,10 +235,6 @@ public class PickUpObject : MonoBehaviour
             //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
             //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
             //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-            /*if (carriedObject.tag.Equals("BinLid"))
-            {
-                carriedObject.transform.position = lidPosition;
-            }*/
             //carriedObject.transform.position = rayCastHit.transform.position;
             carriedObject.GetComponent<Rigidbody>().useGravity = true;
             source.PlayOneShot(dropSound);

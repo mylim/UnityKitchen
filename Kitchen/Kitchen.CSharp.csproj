@@ -137,6 +137,7 @@
     <Compile Include="Assets\Scripts\OpenCloseDoors.cs" />
     <Compile Include="Assets\Scripts\Pickupable.cs" />
     <Compile Include="Assets\Scripts\PickupableSingle.cs" />
+    <Compile Include="Assets\Scripts\ShowPopUp.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
