@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /** 
 Handles objects pickup and dropping
@@ -75,7 +76,6 @@ public class PickUpObject : MonoBehaviour
             tiedBagPosition = tiedBag.transform.position;            
             tiedBag.SetActive(false);            
         }
-
         source = GetComponent<AudioSource>();
     }
 
@@ -102,7 +102,7 @@ public class PickUpObject : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            Collider collider = GetMouseHoverObject(2);
+            Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
             if (collider != null)
             {
                 Debug.Log("In Pickup()");
@@ -178,7 +178,7 @@ public class PickUpObject : MonoBehaviour
 
     void DropObject()
     {
-        Collider collider = GetMouseHoverObject(2);
+        Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
         if (collider != null)
         {
             if (carriedObject == binLid)
@@ -242,7 +242,7 @@ public class PickUpObject : MonoBehaviour
         }
     }
 
-    Collider GetMouseHoverObject(float range)
+    /*Collider GetMouseHoverObject(float range)
     {
         Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
         
@@ -257,5 +257,5 @@ public class PickUpObject : MonoBehaviour
         }
         return null;
 
-    }
+    }*/
 }

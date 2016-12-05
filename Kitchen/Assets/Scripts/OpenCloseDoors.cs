@@ -10,20 +10,15 @@ public class OpenCloseDoors : MonoBehaviour {
     Animator animator;
     bool open = false;
 
-    GameObject mainCamera;
-    RaycastHit rayCastHit;
-    GameObject tiedBag;
+    //GameObject mainCamera;
+    //RaycastHit rayCastHit;
+   
 
-    void Start()
+    /*void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
-        /*tiedBag = GameObject.FindWithTag("TiedBag");
-        if (tiedBag)
-        {
-            Debug.Log("Tied Bag found");
-            tiedBag.SetActive(false);
-        }*/
-    }
+       
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -34,7 +29,7 @@ public class OpenCloseDoors : MonoBehaviour {
         }
     }
 
-    Collider GetMouseHoverObject(float range)
+    /*Collider GetMouseHoverObject(float range)
     {
         Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
@@ -48,18 +43,18 @@ public class OpenCloseDoors : MonoBehaviour {
         }
         return null;
 
-    }
+    }*/
 
     // Opening and Closing Doors
     void OpenCloseDoor()
     {
-        Collider collider = GetMouseHoverObject(2);
+        Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
 
         if (collider != null)
         {
             if (collider.isTrigger)
             {
-                animator = rayCastHit.collider.GetComponent<Animator>();
+                animator = collider.GetComponent<Animator>();
                 if (animator)
                 {
                     Debug.Log("Script found");
