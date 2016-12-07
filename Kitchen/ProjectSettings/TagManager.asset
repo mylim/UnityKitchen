@@ -16,6 +16,10 @@ TagManager:
   - BinBag
   - Bin
   - SingleItem
+  - Kettle
+  - Tap
+  - SingleTeaBag
+  - Mug
   layers:
   - Default
   - TransparentFX

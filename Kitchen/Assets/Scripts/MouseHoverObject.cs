@@ -26,6 +26,10 @@ public class MouseHoverObject : MonoBehaviour {
             return rayCastHit.collider;
         }
         return null;
+    }
 
+    public Vector3 GetHitPoint()
+    {
+        return rayCastHit.point;
     }
 }

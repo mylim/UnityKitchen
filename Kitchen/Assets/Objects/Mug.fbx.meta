@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 021324b0a2489d64ab5a46d05ca2083c
-timeCreated: 1477472114
+timeCreated: 1481122260
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,10 +23,10 @@ ModelImporter:
     3300002: E1_ST5_EM1_I2
     3300004: E1_ST5_EM1_I3
     3300006: E1_ST5_EM1_I4
-    4300000: E1_ST5_EM1_I2
+    4300000: E1_ST5_EM1_I3
     4300002: E1_ST5_EM1_I1
-    4300004: E1_ST5_EM1_I3
-    4300006: E1_ST5_EM1_I4
+    4300004: E1_ST5_EM1_I4
+    4300006: E1_ST5_EM1_I2
   materials:
     importMaterials: 1
     materialName: 0

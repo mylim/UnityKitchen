@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 /** 
 Handles objects pickup and dropping
@@ -8,14 +9,12 @@ Handles objects pickup and dropping
 
 public class PickUpObject : MonoBehaviour
 {
-
     private GameObject mainCamera;
     private RaycastHit rayCastHit;
 
     // Object being carried
     private bool carrying;
     private GameObject carriedObject;
-
     public float distance;
     public float smooth;
 
@@ -37,6 +36,10 @@ public class PickUpObject : MonoBehaviour
     public AudioClip dropSound;
     private AudioSource source;
 
+    private GameObject kettle;
+    private GameObject singleTeaBag;
+    private bool teaBagIn;
+
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
@@ -45,14 +48,12 @@ public class PickUpObject : MonoBehaviour
         if (GameObject.FindWithTag("BinLid"))
         {
             binLid = GameObject.FindWithTag("BinLid");
-            lidPosition = binLid.transform.position;
             lidOn = true;
         }
 
         if (GameObject.FindWithTag("Bin"))
         {
             bin = GameObject.FindWithTag("Bin");
-            binPosition = bin.transform.position;
         }
 
         if (GameObject.FindWithTag("SingleItem"))
@@ -61,21 +62,32 @@ public class PickUpObject : MonoBehaviour
             singleItem.SetActive(false);
         }
 
+        if (GameObject.FindWithTag("SingleTeaBag"))
+        {
+            singleTeaBag = GameObject.FindWithTag("SingleTeaBag");
+            singleTeaBag.SetActive(false);
+            teaBagIn = false;
+        }
+
         if (GameObject.FindWithTag("BinBag"))
         {
             binBag = GameObject.FindWithTag("BinBag");
-            binBagPosition = binBag.transform.position;
             newBag = false;
         }
 
         if (GameObject.FindWithTag("TiedBag"))
         {
             Debug.Log("Tied Bag found");
-
-            tiedBag = GameObject.FindWithTag("TiedBag");
-            tiedBagPosition = tiedBag.transform.position;            
-            tiedBag.SetActive(false);            
+            tiedBag = GameObject.FindWithTag("TiedBag");     
         }
+
+        if (GameObject.FindWithTag("Kettle"))
+        {
+            Debug.Log("Kettle");
+            kettle = GameObject.FindWithTag("Kettle");
+        }
+
+
         source = GetComponent<AudioSource>();
     }
 
@@ -83,11 +95,13 @@ public class PickUpObject : MonoBehaviour
     {
         if (carrying)
         {
+            Debug.Log("Carrying");
             Carry(carriedObject);
             CheckDrop();
         }
         else
         {
+            Debug.Log("Pickup");
             Pickup();
         }
     }
@@ -110,9 +124,9 @@ public class PickUpObject : MonoBehaviour
                 if (collider.GetComponent<Pickupable>())
                 {
                     Pickupable p = collider.GetComponent<Pickupable>();
-                    if (collider.tag.Equals("BinLid"))
+                    if (collider.tag.Equals("BinLid") && lidOn)
                     {
-                        lidOn = false;
+                        lidOn = false;                       
                         Debug.Log("Lid off");
                     }
                     else if (collider.tag.Equals("TiedBag"))
@@ -126,8 +140,7 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("pickupable " + p.gameObject);
                     carriedObject = p.gameObject;
                     carrying = true;
-                    //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
-                    carriedObject.GetComponent<Rigidbody>().useGravity = false;
+                    carriedObject.GetComponentInParent<Rigidbody>().useGravity = false;
 
                 }
                 else if (collider.GetComponent<PickupableSingle>())
@@ -138,7 +151,13 @@ public class PickUpObject : MonoBehaviour
                     singleItem.SetActive(true);
                     carriedObject = singleItem;
                     carrying = true;
-                    //carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                    carriedObject.GetComponent<Rigidbody>().useGravity = false;
+                }
+                else if (collider.GetComponent<PickupableTeaBag>())
+                {
+                    singleTeaBag.SetActive(true);
+                    carriedObject = singleTeaBag;
+                    carrying = true;
                     carriedObject.GetComponent<Rigidbody>().useGravity = false;
                 }
                 else
@@ -156,9 +175,9 @@ public class PickUpObject : MonoBehaviour
 
                             if (!newBag && tiedBag)
                             {
-                                Debug.Log("Tied Bag found");
+                                Debug.Log("Tied Bag found");                               
                                 tiedBag.SetActive(true);
-                                tiedBag.transform.position = tiedBagPosition;
+                                //tiedBag.GetComponent<Rigidbody>().isKinematic = true;
                             }
                             //Instantiate(spawnItem, spawnPosition.position, spawnPosition.rotation);
                         }
@@ -180,82 +199,79 @@ public class PickUpObject : MonoBehaviour
     {
         Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
         if (collider != null)
-        {
-            if (carriedObject == binLid)
+        {          
+            if (collider.tag.Equals("Tap"))
             {
-                float distance = Vector3.Distance(lidPosition, collider.transform.position);
-                Debug.Log("Lid distance " + distance);
-                if (distance < 1.0f)
-                {
-                    carriedObject.transform.position = lidPosition;
-                    lidOn = true;
-                    Debug.Log("Lid on");
-                }
+                if (carriedObject == kettle)
+                    Debug.Log("Filling water ");
             }
-            else if (carriedObject == tiedBag)
+            else if (collider.tag.Equals("Mug"))
             {
-                float distance = Vector3.Distance(tiedBagPosition, collider.transform.position);
-                Debug.Log("Bag distance " + distance);
-                if (distance < 1.0f && !lidOn && !newBag)
-                {
-                    carriedObject.transform.position = tiedBagPosition;
-                    //GameObject.FindWithTag("Bin").transform.position = binPosition;
-                    binEmpty = false;
-                    Debug.Log("Bin is not empty");
-                }                
+                if (carriedObject == kettle)
+                    Debug.Log("Pouring water ");            
             }
-            /*else if (carriedObject.tag.Equals("TiedBag"))
+            else
             {
-                float distance = Vector3.Distance(spawnPosition.position, collider.transform.position);
-                Debug.Log("Bag distance " + distance);
-                if (distance < 1.0f && !lidOn)
+                Vector3 originalPosition = carriedObject.GetComponent<Pickupable>().getOriginalPosition();
+                float distance = Vector3.Distance(originalPosition, collider.transform.position);
+                if (distance < 0.2f)
                 {
-                    carriedObject.transform.position = spawnPosition.position;
-                    //GameObject.FindWithTag("Bin").transform.position = binPosition;
-                    binEmpty = false;
-                    Debug.Log("Bin is not empty");
+                    Debug.Log(carriedObject.name + " Distance " + distance);
+                    if (carriedObject == binLid)
+                    {
+                        Debug.Log("Lid distance " + distance);
+                        lidOn = true;
+                        Debug.Log("Lid on");
+                    }
+                    else if (carriedObject == tiedBag)
+                    {
+                        Debug.Log("Bag distance " + distance);
+                        if (!lidOn && !newBag)
+                        {
+                            binEmpty = false;
+                            Debug.Log("Bin is not empty");
+                        }
+                    }
+                    carriedObject.transform.position = originalPosition;
                 }
-            }*/
-            else if (carriedObject == singleItem)
-            {
-                if ((collider.tag.Equals("Bin")) && (!lidOn))
+                else
                 {
-                    binBag.SetActive(true);
-                    binBag.transform.position = binBagPosition;
-                    singleItem.SetActive(false);
-                    Debug.Log("Bin bag default color " + binBag.GetComponent<Renderer>().material.GetColor("_Color"));
-                    binBag.GetComponent<Renderer>().material.SetColor("_Color", singleItem.GetComponent<Renderer>().material.GetColor("_Color"));
-                 
-                    //GameObject.FindWithTag("Bin").transform.position = binPosition;
-                    newBag = true;
+                    carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
                 }
-            }
 
-            carrying = false;
-            //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
-            //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
-            //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-            //carriedObject.transform.position = rayCastHit.transform.position;
-            carriedObject.GetComponent<Rigidbody>().useGravity = true;
-            source.PlayOneShot(dropSound);
-            carriedObject = null;
+                if (collider.tag.Equals("Bin"))
+                {
+                    if ((carriedObject == singleItem) && (binEmpty) && (!lidOn))
+                    {
+                        binBag.SetActive(true);
+                        singleItem.SetActive(false);
+                        Debug.Log("Bin bag default color " + binBag.GetComponent<Renderer>().material.GetColor("_Color"));
+                        binBag.GetComponent<Renderer>().material.SetColor("_Color", singleItem.GetComponent<Renderer>().material.GetColor("_Color"));
+                        newBag = true;
+                    }
+                }
+                else if (collider.tag.Equals("Mug"))
+                {
+                    if (carriedObject == singleTeaBag)
+                    {
+                        teaBagIn = true;
+                        singleTeaBag.SetActive(false);
+                        Debug.Log("Tea bag is in");
+                    }
+                }
+
+                carrying = false;
+                Debug.Log("carrying is false");
+                //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
+                //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
+                /*if (carriedObject.GetComponent<IsKinematic>())
+                {
+                    carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                }*/
+                carriedObject.GetComponent<Rigidbody>().useGravity = true;
+                source.PlayOneShot(dropSound);
+                carriedObject = null;
+            }
         }
     }
-
-    /*Collider GetMouseHoverObject(float range)
-    {
-        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
-        
-
-        // Debug ray
-        Debug.DrawRay(ray.origin, ray.direction * range, Color.green, 2f);
-        //Debug.Log("Ray direction " + ray.direction.ToString());
-
-        if (Physics.Raycast(ray.origin, ray.direction, out rayCastHit, range))
-        {
-            return rayCastHit.collider;
-        }
-        return null;
-
-    }*/
 }

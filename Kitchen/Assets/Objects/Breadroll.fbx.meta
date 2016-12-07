@@ -1,24 +1,20 @@
 fileFormatVersion: 2
 guid: 6959e2c07f40e6d42911023a42e2a93e
-timeCreated: 1477476075
+timeCreated: 1481098416
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Camera
-    100004: E2_ST4_EM1_I1
-    100006: E2_ST4_EM1_I2
-    100008: E2_ST4_EM1_I3
-    100010: E2_ST4_EM1_I4
-    100012: Lamp
+    100002: E2_ST4_EM1_I1
+    100004: E2_ST4_EM1_I2
+    100006: E2_ST4_EM1_I3
+    100008: E2_ST4_EM1_I4
     400000: //RootNode
-    400002: Camera
-    400004: E2_ST4_EM1_I1
-    400006: E2_ST4_EM1_I2
-    400008: E2_ST4_EM1_I3
-    400010: E2_ST4_EM1_I4
-    400012: Lamp
+    400002: E2_ST4_EM1_I1
+    400004: E2_ST4_EM1_I2
+    400006: E2_ST4_EM1_I3
+    400008: E2_ST4_EM1_I4
     2300000: E2_ST4_EM1_I1
     2300002: E2_ST4_EM1_I2
     2300004: E2_ST4_EM1_I3

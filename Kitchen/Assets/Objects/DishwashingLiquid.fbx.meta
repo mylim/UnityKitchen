@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 186955e8d739eca4a8ee0c29633804bd
-timeCreated: 1479730735
+timeCreated: 1481125266
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,9 +23,9 @@ ModelImporter:
     3300002: E4_ST6_EM1_I2
     3300004: E4_ST6_EM1_I3
     3300006: E4_ST6_EM1_I4
-    4300000: E4_ST6_EM1_I4
-    4300002: E4_ST6_EM1_I3
-    4300004: E4_ST6_EM1_I2
+    4300000: E4_ST6_EM1_I2
+    4300002: E4_ST6_EM1_I4
+    4300004: E4_ST6_EM1_I3
     4300006: E4_ST6_EM1_I1
   materials:
     importMaterials: 1

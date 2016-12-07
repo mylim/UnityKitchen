@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\InteferenceDialog.cs" />
     <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
+    <Compile Include="Assets\Scripts\IsKinematic.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\LoadOnClick.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Assets\Scripts\OpenCloseDoors.cs" />
     <Compile Include="Assets\Scripts\Pickupable.cs" />
     <Compile Include="Assets\Scripts\PickupableSingle.cs" />
+    <Compile Include="Assets\Scripts\PickupableTeaBag.cs" />
     <Compile Include="Assets\Scripts\ShowPopUp.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />

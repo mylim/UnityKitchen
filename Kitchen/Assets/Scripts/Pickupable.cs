@@ -5,10 +5,17 @@ public class Pickupable : MonoBehaviour {
 
     public GameObject gameObject;
     private Color defaultColor;
+    private Vector3 originalPosition;
    
     // Use this for initialization
     void Start()
     {
+        originalPosition = gameObject.transform.position;
+        if (gameObject == GameObject.FindWithTag("TiedBag"))
+        {
+            Debug.Log("Tied Bag found");
+            gameObject.SetActive(false);         
+        }
     }
 
 	// Update is called once per frame
@@ -27,6 +34,11 @@ public class Pickupable : MonoBehaviour {
     {
         Debug.Log("Exit");
         Highlight(false);
+    }
+
+    public Vector3 getOriginalPosition()
+    {
+        return originalPosition;
     }
 
     private void Highlight(bool glow)
