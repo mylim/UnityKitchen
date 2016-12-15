@@ -72,8 +72,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CorrectItem.cs" />
     <Compile Include="Assets\CubeInteraction.cs" />
     <Compile Include="Assets\GrabCube.cs" />
+    <Compile Include="Assets\HasWater.cs" />
+    <Compile Include="Assets\InstantiateBreadSlice.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\Detector.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\DetectorLogicGate.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\ExtendedFingerDetector.cs" />
@@ -128,9 +131,12 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\MengerSponge.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
-    <Compile Include="Assets\PickUpObject.cs" />
+    <Compile Include="Assets\OnTable.cs" />
+    <Compile Include="Assets\PouredWater.cs" />
+    <Compile Include="Assets\RightItem.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\InstantiateItem.cs" />
     <Compile Include="Assets\Scripts\InteferenceDialog.cs" />
     <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
     <Compile Include="Assets\Scripts\IsKinematic.cs" />
@@ -140,9 +146,15 @@
     <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\MouseHoverObject.cs" />
     <Compile Include="Assets\Scripts\OpenCloseDoors.cs" />
+    <Compile Include="Assets\Scripts\PickUpObject.cs" />
     <Compile Include="Assets\Scripts\Pickupable.cs" />
     <Compile Include="Assets\Scripts\PickupableSingle.cs" />
     <Compile Include="Assets\Scripts\PickupableTeaBag.cs" />
+    <Compile Include="Assets\Scripts\Properties\BinEmpty.cs" />
+    <Compile Include="Assets\Scripts\Properties\BoiledWater.cs" />
+    <Compile Include="Assets\Scripts\Properties\FilledWithWater.cs" />
+    <Compile Include="Assets\Scripts\Properties\LidOn.cs" />
+    <Compile Include="Assets\Scripts\Properties\NewBag.cs" />
     <Compile Include="Assets\Scripts\ShowPopUp.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
@@ -153,6 +165,8 @@
     <Compile Include="Assets\Scripts\UnitPlayerWaypointsNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointRotationAngles.cs" />
+    <Compile Include="Assets\TeaBagIn.cs" />
+    <Compile Include="Assets\UsedForSandwich.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>

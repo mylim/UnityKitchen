@@ -20,6 +20,21 @@ TagManager:
   - Tap
   - SingleTeaBag
   - Mug
+  - BinBody
+  - Cup
+  - Jar
+  - CoffeeMug
+  - Tea
+  - Bread
+  - KitchenTop
+  - Breadroll
+  - Pitta
+  - Wrap
+  - Ham
+  - Cheese
+  - Napkin
+  - BinBags
+  - SingleNapkin
   layers:
   - Default
   - TransparentFX

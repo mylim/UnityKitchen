@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7e2796a655196fb4791c8c6519223813
-timeCreated: 1477476201
+timeCreated: 1481545109
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,10 +23,10 @@ ModelImporter:
     3300002: E1_ST7_EM3_I2
     3300004: E1_ST7_EM3_I3
     3300006: E1_ST7_EM3_I4
-    4300000: E1_ST7_EM3_I4
-    4300002: E1_ST7_EM3_I3
-    4300004: E1_ST7_EM3_I2
-    4300006: E1_ST7_EM3_I1
+    4300000: E1_ST7_EM3_I1
+    4300002: E1_ST7_EM3_I4
+    4300004: E1_ST7_EM3_I3
+    4300006: E1_ST7_EM3_I2
   materials:
     importMaterials: 1
     materialName: 0
