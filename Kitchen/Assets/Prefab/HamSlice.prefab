@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 469586}
   - 33: {fileID: 3359088}
   - 23: {fileID: 2344146}
-  - 54: {fileID: 5481794}
-  - 65: {fileID: 6515658}
-  - 114: {fileID: 11476798}
+  - 54: {fileID: 5474896}
+  - 65: {fileID: 6597056}
+  - 114: {fileID: 11410296}
   m_Layer: 0
   m_Name: HamSlice
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123754}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.061483867, z: 0}
-  m_LocalScale: {x: 8.749995, y: 9.999995, z: 1}
+  m_LocalPosition: {x: 3.318383, y: -0.35569224, z: -0.6223553}
+  m_LocalScale: {x: 7.4999957, y: 8.771925, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -65,7 +65,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123754}
   m_Mesh: {fileID: 4300000, guid: 3e6cbda9129621c449fb89148c374c0e, type: 3}
---- !u!54 &5481794
+--- !u!54 &5474896
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,7 +80,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6515658
+--- !u!65 &6597056
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,9 +90,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01600001, y: 0.017100003, z: 0.0019999996}
-  m_Center: {x: 4.656613e-10, y: 0, z: -0.0009424222}
---- !u!114 &11476798
+  m_Size: {x: 0.01600001, y: 0.017100003, z: 0.0019999994}
+  m_Center: {x: 4.656613e-10, y: -8.3703916e-19, z: -0.00094242214}
+--- !u!114 &11410296
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

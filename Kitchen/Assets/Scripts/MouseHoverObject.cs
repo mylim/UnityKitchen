@@ -8,7 +8,6 @@ public class MouseHoverObject : MonoBehaviour {
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
-
     }
 
 

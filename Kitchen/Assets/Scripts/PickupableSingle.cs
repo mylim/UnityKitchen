@@ -3,18 +3,13 @@ using System.Collections;
 
 public class PickupableSingle: MonoBehaviour {
     public Color itemColor;
-    public GameObject item;
+    public GameObject singleItem;
     private Color defaultColor;
 
     // Use this for initialization
     void Start () {
         defaultColor = gameObject.GetComponent<Renderer>().material.GetColor("_Color"); 
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void OnMouseEnter()
     {

@@ -10,9 +10,9 @@ GameObject:
   - 4: {fileID: 477470}
   - 33: {fileID: 3388460}
   - 23: {fileID: 2313292}
-  - 54: {fileID: 5433430}
-  - 65: {fileID: 6567016}
-  - 114: {fileID: 11466714}
+  - 54: {fileID: 5495248}
+  - 65: {fileID: 6551678}
+  - 114: {fileID: 11468414}
   m_Layer: 0
   m_Name: CheeseSlice
   m_TagString: Untagged
@@ -26,9 +26,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154602}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 1.437, y: -0.09261085, z: -1.233}
-  m_LocalScale: {x: 62.5, y: 100, z: 15}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 3.383411, y: -0.35569224, z: -0.5139839}
+  m_LocalScale: {x: 45.62153, y: 85.71428, z: 15.000002}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -65,7 +65,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154602}
   m_Mesh: {fileID: 4300000, guid: 317ce985089f61d4fa9907519867d089, type: 3}
---- !u!54 &5433430
+--- !u!54 &5495248
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,7 +80,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &6567016
+--- !u!65 &6551678
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -90,9 +90,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.001753558, y: 0.0017499996, z: 0.00013333329}
-  m_Center: {x: 0, y: 4.3474214e-19, z: -0.00024473804}
---- !u!114 &11466714
+  m_Size: {x: 0.001753558, y: 0.0017499996, z: 0.00013333328}
+  m_Center: {x: 0, y: 0, z: -0.00024473615}
+--- !u!114 &11468414
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

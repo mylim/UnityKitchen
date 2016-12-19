@@ -35,6 +35,11 @@ TagManager:
   - Napkin
   - BinBags
   - SingleNapkin
+  - ObjectsHandler
+  - Fork
+  - Knife
+  - TableSpoon
+  - TeaSpoon
   layers:
   - Default
   - TransparentFX

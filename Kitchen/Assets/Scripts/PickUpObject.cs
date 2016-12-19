@@ -10,6 +10,7 @@ Handles objects pickup and dropping
 public class PickUpObject : MonoBehaviour
 {
     private GameObject mainCamera;
+    private GameObject objectsHandler;
     private RaycastHit rayCastHit;
 
     // Object being carried
@@ -21,7 +22,7 @@ public class PickUpObject : MonoBehaviour
     // Bin manipulation
     private GameObject binLid;
     private GameObject bin;
-    private GameObject singleItem;
+    //private GameObject singleItem;
     private GameObject tiedBag;
     private GameObject binBag;
     private bool lidOn;
@@ -37,7 +38,7 @@ public class PickUpObject : MonoBehaviour
     private AudioSource source;
 
     private GameObject kettle;
-    private GameObject singleTeaBag;
+    //private GameObject singleTeaBag;
     private bool teaBagIn;
 
     private static int NUM_BREAD = 2;
@@ -45,10 +46,16 @@ public class PickUpObject : MonoBehaviour
     void Start()
     {
         mainCamera = GameObject.FindWithTag("MainCamera");
+        objectsHandler = GameObject.FindWithTag("ObjectsHandler");
         carrying = false;
 
         // Garbage removal
-        if (GameObject.FindWithTag("Bin"))
+        bin = GameObject.FindWithTag("Bin");
+        binLid = GameObject.FindWithTag("BinLid");
+        binBag = GameObject.FindWithTag("BinBag");
+        tiedBag = GameObject.FindWithTag("TiedBag");
+
+        /*if (GameObject.FindWithTag("Bin"))
         {
             bin = GameObject.FindWithTag("Bin");
         }
@@ -56,13 +63,8 @@ public class PickUpObject : MonoBehaviour
         if (GameObject.FindWithTag("BinLid"))
         {
             binLid = GameObject.FindWithTag("BinLid");           
-        }
-       
-        if (GameObject.FindWithTag("SingleItem"))
-        {
-            singleItem = GameObject.FindWithTag("SingleItem");
-            singleItem.SetActive(false);
-        }
+        }       
+      
         if (GameObject.FindWithTag("BinBag"))
         {
             binBag = GameObject.FindWithTag("BinBag");
@@ -72,20 +74,21 @@ public class PickUpObject : MonoBehaviour
         {
             Debug.Log("Tied Bag found");
             tiedBag = GameObject.FindWithTag("TiedBag");
-        }
-    
+        }*/
+
         // Tea making
-        if (GameObject.FindWithTag("Kettle"))
+        kettle = GameObject.FindWithTag("Kettle");
+        /*if (GameObject.FindWithTag("Kettle"))
         {
             Debug.Log("Kettle");
             kettle = GameObject.FindWithTag("Kettle");
-        }
-        if (GameObject.FindWithTag("SingleTeaBag"))
+        }*/
+        /*if (GameObject.FindWithTag("SingleTeaBag"))
         {
             singleTeaBag = GameObject.FindWithTag("SingleTeaBag");
             singleTeaBag.SetActive(false);
             teaBagIn = false;
-        }
+        }*/
         source = GetComponent<AudioSource>();
     }
 
@@ -126,21 +129,8 @@ public class PickUpObject : MonoBehaviour
                     {
                         // The kettle has been filled with water
                         Debug.Log("Boiling water");
-                        kettle.GetComponent<BoiledWater>().boiledWater = true;
-                        /*if (kettle.GetComponent<FilledWithWater>().filledWithWater && !kettle.GetComponent<BoiledWater>().boiledWater)
-                        {
-                            Debug.Log("Boiling water");
-                            kettle.GetComponent<BoiledWater>().boiledWater = true;
-                        }
-                        else
-                        {
-                            CarriedObject(p.gameObject);
-                        }  */
-                    } 
-                    /*else if (p.gameObject.tag.Equals("Bread") && p.gameObject.GetComponent<OnTable>().onTable)
-                    {
-                        Destroy(collider);
-                    }*/
+                        kettle.GetComponent<BoiledWater>().boiledWater = true;                       
+                    }                    
                     else
                     {
                         CarriedObject(p.gameObject);
@@ -161,8 +151,10 @@ public class PickUpObject : MonoBehaviour
                                 bin.GetComponent<BinEmpty>().binEmpty = true;
                             }
                         }
-                    }  
-                    
+                    }
+
+                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject);
+
                     // Picked the correct item
                     if (p.gameObject.GetComponent<CorrectItem>())
                     {
@@ -173,9 +165,18 @@ public class PickUpObject : MonoBehaviour
                 else if (collider.GetComponent<PickupableSingle>())
                 {
                     PickupableSingle pickSingle = collider.GetComponent<PickupableSingle>();
-                    GameObject item = Instantiate(pickSingle.item);
-                    item.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
-                    CarriedObject(item);
+                    GameObject singleItem = Instantiate(pickSingle.singleItem);
+                    singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
+                    CarriedObject(singleItem);
+
+                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject);
+
+                    // Picked the correct item
+                    if (pickSingle.gameObject.GetComponent<CorrectItem>())
+                    {
+                        Debug.Log("Correct " + pickSingle.gameObject.tag + " picked");
+                    }
+
                     /*singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
                     singleItem.SetActive(true);
                     CarriedObject(singleItem);*/
@@ -183,8 +184,19 @@ public class PickUpObject : MonoBehaviour
                 // Picking up a single tea bag
                 else if (collider.GetComponent<PickupableTeaBag>())
                 {
-                    singleTeaBag.SetActive(true);
+                    PickupableTeaBag pickTeaBag = collider.GetComponent<PickupableTeaBag>();
+                    GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
                     CarriedObject(singleTeaBag);
+
+                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
+
+                    // Picked the correct item
+                    if (pickTeaBag.gameObject.GetComponent<CorrectItem>())
+                    {
+                        Debug.Log("Correct " + pickTeaBag.gameObject.tag + " picked");
+                    }
+                    //singleTeaBag.SetActive(true);
+                    //CarriedObject(singleTeaBag);
                 }
                 else
                 {
@@ -241,7 +253,7 @@ public class PickUpObject : MonoBehaviour
             // Tap is clicked while carrying the kettle = filling water
             if (collider.tag.Equals("Tap"))
             {
-                if (carriedObject == kettle)
+                if (carriedObject.tag.Equals("Kettle"))
                 {
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
@@ -249,17 +261,18 @@ public class PickUpObject : MonoBehaviour
             }
             else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
             {
-                if (carriedObject == kettle)
+                if (carriedObject.tag.Equals("Kettle"))
                 {
                     Debug.Log("Pouring water ");
                     kettle.GetComponent<PouredWater>().pouredWater = true;
-                    collider.GetComponent<HasWater>().hasWater = true;
+                    collider.GetComponent<HasContent>().hasWater = true;
                 }
-                else if (carriedObject == singleTeaBag)
+                else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
-                    singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
-                    singleTeaBag.SetActive(false);
+                    carriedObject.SetActive(false);
                     Debug.Log("Tea bag is in");
+                    /*singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
+                    singleTeaBag.SetActive(false);                   */
                 }
             }
             else if (collider.tag.Equals("BinBody"))
@@ -311,9 +324,12 @@ public class PickUpObject : MonoBehaviour
                         if (collider.tag.Equals("KitchenTop") || collider.tag.Equals("Table"))
                         {
                             Debug.Log("collider tag" + collider.tag);
-
-                            carriedObject.GetComponent<OnTable>().onTable = true;
-                            carriedObject.GetComponentInParent<InstantiateItem>().Instantiate(carriedObject.transform.position, 2);                           
+                            // Instantiate items only if the object is placed on the table                            
+                            if (carriedObject.GetComponent<InstantiateItem>())
+                            {
+                                carriedObject.GetComponent<OnTable>().onTable = true;
+                                carriedObject.GetComponentInParent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y / 2))), 2);
+                            }
                         }
                     }
                     
