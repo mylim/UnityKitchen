@@ -38,8 +38,10 @@ public class PickUpObject : MonoBehaviour
     private AudioSource source;
 
     private GameObject kettle;
+    public GameObject sandwich;
+    private Object sandwichParent;
     //private GameObject singleTeaBag;
-    private bool teaBagIn;
+    //private bool teaBagIn;
 
     private static int NUM_BREAD = 2;
 
@@ -54,6 +56,7 @@ public class PickUpObject : MonoBehaviour
         binLid = GameObject.FindWithTag("BinLid");
         binBag = GameObject.FindWithTag("BinBag");
         tiedBag = GameObject.FindWithTag("TiedBag");
+        
 
         /*if (GameObject.FindWithTag("Bin"))
         {
@@ -222,6 +225,17 @@ public class PickUpObject : MonoBehaviour
                             }
                         }
                     }
+                    /*else if (collider.tag.Equals("SingleNapkin") || collider.tag.Equals("HamSlice") ||
+                     collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")
+                     collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")))*/
+                    else if ((collider.transform.parent != null) && collider.transform.parent.tag.Equals("Sandwich"))
+                    {
+                       
+                        {
+                            Debug.Log("Sandwich exists");
+                            CarriedObject(sandwich);
+                        }
+                    }
                 }
             }
         }
@@ -233,7 +247,11 @@ public class PickUpObject : MonoBehaviour
         Debug.Log("carried object" + gameObject.tag);
         carriedObject = gameObject;
         carrying = true;
-        carriedObject.GetComponentInParent<Rigidbody>().useGravity = false;
+        if (carriedObject.GetComponent<Rigidbody>())
+        {
+            carriedObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+        //carriedObject.GetComponentInParent<Rigidbody>().useGravity = false;
     }
 
     void CheckDrop()
@@ -247,6 +265,7 @@ public class PickUpObject : MonoBehaviour
     void DropObject()
     {
         Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
+     
         if (collider != null)
         {
             Debug.Log("Collider for drop object " + collider.gameObject.tag);
@@ -257,6 +276,10 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
+                }
+                else if (carriedObject.tag.Equals("Sponge"))
+                {
+                    Debug.Log("Rinsing dirty bowl ");
                 }
             }
             else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
@@ -275,6 +298,29 @@ public class PickUpObject : MonoBehaviour
                     singleTeaBag.SetActive(false);                   */
                 }
             }
+            else if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
+            {
+                if (carriedObject.tag.Equals("Cereal"))
+                {
+                    Debug.Log("Pouring Cereal");
+                }
+                else if (carriedObject.tag.Equals("Milk"))
+                {
+                    Debug.Log("Pouring Milk");
+                }
+                else if (carriedObject.tag.Equals("Honey"))
+                {
+                    Debug.Log("Pouring Honey ");
+                }
+                else if (carriedObject.tag.Equals("Sponge"))
+                {
+                    Debug.Log("Washing dirty bowl ");
+                }
+                else
+                {
+                    Drop(collider);
+                }
+            }
             else if (collider.tag.Equals("BinBody"))
             {
                 if ((carriedObject.tag.Equals("SingleItem")) && (bin.GetComponent<BinEmpty>().binEmpty) && (!bin.GetComponent<LidOn>().lidOn))
@@ -287,69 +333,99 @@ public class PickUpObject : MonoBehaviour
                     carriedObject.SetActive(false);
                 }
             }
+            else if (collider.tag.Equals("BinLid"))
+            {
+                if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
+                {
+                    Debug.Log("Disposing Cereal");
+                }
+            }
+            else if (collider.tag.Equals("Sponge"))
+            {
+                if (collider.tag.Equals("DishwashingLiquid"))
+                {
+                    Debug.Log("Putting dishwashing liquid on sponge");
+                }
+            }
             else
             {
-                Vector3 originalPosition = carriedObject.GetComponent<Pickupable>().getOriginalPosition();
-                float distance = Vector3.Distance(originalPosition, collider.transform.position);
-                if (distance < 0.2f)
-                {
-                    Debug.Log(carriedObject.name + " Distance " + distance);
-                    if (carriedObject == binLid)
-                    {
-                        Debug.Log("Lid distance " + distance);
-                        bin.GetComponent<LidOn>().lidOn = true;
-                        Debug.Log("Lid on");
-                    }
-                    else if (carriedObject == tiedBag)
-                    {
-                        Debug.Log("Bag distance " + distance);
-                        if (!bin.GetComponent<LidOn>().lidOn && !bin.GetComponent<NewBag>().newBag)
-                        {
-                            bin.GetComponent<BinEmpty>().binEmpty = false;
-                            Debug.Log("Bin is not empty");
-                        }
-                    }
-                    carriedObject.transform.position = originalPosition;
-                }
-                else
-                {
-                    carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
-                    if (carriedObject.tag.Equals("Bread") || carriedObject.tag.Equals("Breadroll") || carriedObject.tag.Equals("Pitta") || 
-                        carriedObject.tag.Equals("Wrap") || carriedObject.tag.Equals("Ham") || carriedObject.tag.Equals("Cheese"))
-                    {
-                        carriedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                        //Vector3 movement = carriedObject.transform.position + GetComponent<MouseHoverObject>().GetHitPoint();
-                        Debug.Log("carried object tag" + carriedObject.tag);
-
-                        if (collider.tag.Equals("KitchenTop") || collider.tag.Equals("Table"))
-                        {
-                            Debug.Log("collider tag" + collider.tag);
-                            // Instantiate items only if the object is placed on the table                            
-                            if (carriedObject.GetComponent<InstantiateItem>())
-                            {
-                                carriedObject.GetComponent<OnTable>().onTable = true;
-                                carriedObject.GetComponentInParent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y / 2))), 2);
-                            }
-                        }
-                    }
-                    
-                }
-
-
-
-                carrying = false;
-                Debug.Log("carrying is false");
-                //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
-                //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
-                /*if (carriedObject.GetComponent<IsKinematic>())
-                {
-                    carriedObject.GetComponent<Rigidbody>().isKinematic = true;
-                }*/
-                carriedObject.GetComponent<Rigidbody>().useGravity = true;
-
-                //source.PlayOneShot(dropSound);
-                carriedObject = null;
+                Drop(collider);
             }
         }
+    }
+
+    void Drop(Collider collider)
+    {
+        Vector3 originalPosition = carriedObject.GetComponent<Pickupable>().getOriginalPosition();
+        float distance = Vector3.Distance(originalPosition, collider.transform.position);
+        if (distance < 0.2f)
+        {
+            Debug.Log(carriedObject.name + " Distance " + distance);
+            if (carriedObject == binLid)
+            {
+                Debug.Log("Lid distance " + distance);
+                bin.GetComponent<LidOn>().lidOn = true;
+                Debug.Log("Lid on");
+            }
+            else if (carriedObject == tiedBag)
+            {
+                Debug.Log("Bag distance " + distance);
+                if (!bin.GetComponent<LidOn>().lidOn && !bin.GetComponent<NewBag>().newBag)
+                {
+                    bin.GetComponent<BinEmpty>().binEmpty = false;
+                    Debug.Log("Bin is not empty");
+                }
+            }
+            carriedObject.transform.position = originalPosition;
+        }
+        else
+        {
+            carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
+            if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
+                carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
+                carriedObject.tag.Equals("HamSlice") || carriedObject.tag.Equals("CheeseSlice"))
+            {
+                carriedObject.transform.parent = sandwich.transform;
+                Destroy(carriedObject.GetComponent<Rigidbody>());
+                Destroy(carriedObject.GetComponent<Pickupable>());
+            }
+            else
+            {
+                if (carriedObject.tag.Equals("Bread") || carriedObject.tag.Equals("Breadroll") || carriedObject.tag.Equals("Pitta") ||
+                    carriedObject.tag.Equals("Wrap") || carriedObject.tag.Equals("Ham") || carriedObject.tag.Equals("Cheese"))
+                {
+                    carriedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                    //Vector3 movement = carriedObject.transform.position + GetComponent<MouseHoverObject>().GetHitPoint();
+                    Debug.Log("carried object tag" + carriedObject.tag);
+
+                    if (collider.tag.Equals("KitchenTop") || collider.tag.Equals("Table"))
+                    {
+                        Debug.Log("collider tag" + collider.tag);
+                        // Instantiate items only if the object is placed on the table                            
+                        if (carriedObject.GetComponent<InstantiateItem>())
+                        {
+                            carriedObject.GetComponent<OnTable>().onTable = true;
+                            //carriedObject.GetComponentInParent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y / 2))), 2);
+                            carriedObject.GetComponent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y))), 2);
+                        }
+                    }
+                }
+            }
+        }
+
+        carrying = false;
+        Debug.Log("carrying is false");
+        //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
+        //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
+        /*if (carriedObject.GetComponent<IsKinematic>())
+        {
+            carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+        }*/
+        if (carriedObject.GetComponent<Rigidbody>())
+        {
+            carriedObject.GetComponent<Rigidbody>().useGravity = true;
+        }
+        //source.PlayOneShot(dropSound);
+        carriedObject = null;
     }
 }

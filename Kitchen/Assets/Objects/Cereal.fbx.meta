@@ -1,15 +1,32 @@
 fileFormatVersion: 2
 guid: e4ac4c37c93055447a19d7422123cd02
-timeCreated: 1477489174
+timeCreated: 1482414991
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: E3_ST4_LI
+    100000: BranFlakes
+    100002: //RootNode
+    100004: E3_ST4_LI
+    100006: SainsburyHoops
+    100008: SpecialK
+    400000: BranFlakes
+    400002: //RootNode
+    400004: E3_ST4_LI
+    400006: SainsburyHoops
+    400008: SpecialK
+    2300000: BranFlakes
+    2300002: E3_ST4_LI
+    2300004: SainsburyHoops
+    2300006: SpecialK
+    3300000: BranFlakes
+    3300002: E3_ST4_LI
+    3300004: SainsburyHoops
+    3300006: SpecialK
+    4300000: BranFlakes
+    4300002: SpecialK
+    4300004: SainsburyHoops
+    4300006: E3_ST4_LI
   materials:
     importMaterials: 1
     materialName: 0

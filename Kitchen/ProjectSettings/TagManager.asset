@@ -40,6 +40,22 @@ TagManager:
   - Knife
   - TableSpoon
   - TeaSpoon
+  - Sandwich
+  - SingleSlice
+  - HamSlice
+  - CheeseSlice
+  - DishwashingLiquid
+  - SinglePitta
+  - SingleWrap
+  - SingleRoll
+  - Bowl
+  - PicnicPlate
+  - SmallPlate
+  - Saucer
+  - Cereal
+  - Milk
+  - Honey
+  - Sponge
   layers:
   - Default
   - TransparentFX

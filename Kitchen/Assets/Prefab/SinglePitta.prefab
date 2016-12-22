@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11401580}
   m_Layer: 0
   m_Name: SinglePitta
-  m_TagString: Untagged
+  m_TagString: SinglePitta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +26,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135408}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 3.5427446, y: -0.3500001, z: -0.90323955}
-  m_LocalScale: {x: 128.01889, y: 90.64509, z: 1.125}
+  m_LocalRotation: {x: -0.49991354, y: 0.49991363, z: 0.5000864, w: 0.50008637}
+  m_LocalPosition: {x: 3.1873708, y: -0.35569224, z: -0.4835394}
+  m_LocalScale: {x: 128.01889, y: 90.64509, z: 30.000004}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0018747236, y: 0.0014341639, z: 1.3043647e-15}
-  m_Center: {x: -0.0023926748, y: -0.0019670895, z: 0.0025696845}
+  m_Size: {x: 0.0018747237, y: 0.0014341639, z: 0.000099999976}
+  m_Center: {x: 0, y: 8.731148e-11, z: -0.000049999057}
 --- !u!114 &11401580
 MonoBehaviour:
   m_ObjectHideFlags: 1

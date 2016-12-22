@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: e27c77b060adea0419e08f9fdd58856a
-timeCreated: 1481806153
+timeCreated: 1482404778
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: E2_ST4_EM1_I2.005
+    4300000: SingleRoll
   materials:
     importMaterials: 1
     materialName: 0

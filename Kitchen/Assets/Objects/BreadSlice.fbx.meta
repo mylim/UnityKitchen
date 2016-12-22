@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: feb38ee84c901e747ae158ee08f08fd6
-timeCreated: 1481805568
+timeCreated: 1482401784
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Slice1
+    4300000: E2_ST4_EM2_I2_Slice1
   materials:
     importMaterials: 1
     materialName: 0

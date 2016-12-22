@@ -15,7 +15,7 @@ GameObject:
   - 114: {fileID: 11432402}
   m_Layer: 0
   m_Name: SingleRoll
-  m_TagString: Untagged
+  m_TagString: SingleRoll
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140550}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 3.1247551, y: -0.315, z: -0.569085}
+  m_LocalPosition: {x: 3.5659153, y: -0.328, z: -0.57486475}
   m_LocalScale: {x: 54.17013, y: 51.729343, z: 26.401114}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0019475536, y: 0.0018226911, z: 0.0022022198}
-  m_Center: {x: 0.000053045485, y: 0.0019501849, z: 0.0004803427}
+  m_Size: {x: 0.0019933295, y: 0.0019439007, z: 0.002}
+  m_Center: {x: 0.000081463804, y: 0.000005504815, z: -0.000031085576}
 --- !u!114 &11432402
 MonoBehaviour:
   m_ObjectHideFlags: 1
