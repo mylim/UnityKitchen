@@ -56,6 +56,10 @@ TagManager:
   - Milk
   - Honey
   - Sponge
+  - Placemat
+  - Cutlery
+  - Dishes
+  - BeverageContainers
   layers:
   - Default
   - TransparentFX

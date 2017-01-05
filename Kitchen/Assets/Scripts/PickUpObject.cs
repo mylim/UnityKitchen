@@ -44,6 +44,7 @@ public class PickUpObject : MonoBehaviour
     //private bool teaBagIn;
 
     private static int NUM_BREAD = 2;
+    //private ObjectsHandler objectHandler;
 
     void Start()
     {
@@ -92,7 +93,7 @@ public class PickUpObject : MonoBehaviour
             singleTeaBag.SetActive(false);
             teaBagIn = false;
         }*/
-        source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();  
     }
 
     void Update()
@@ -155,8 +156,14 @@ public class PickUpObject : MonoBehaviour
                             }
                         }
                     }
-
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject);
+                    if (p.gameObject.transform.parent != null)
+                    {
+                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
+                    } 
+                    else
+                    {
+                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.tag, p.gameObject);
+                    }
 
                     // Picked the correct item
                     if (p.gameObject.GetComponent<CorrectItem>())
@@ -172,7 +179,7 @@ public class PickUpObject : MonoBehaviour
                     singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
                     CarriedObject(singleItem);
 
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject);
+                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
 
                     // Picked the correct item
                     if (pickSingle.gameObject.GetComponent<CorrectItem>())
@@ -191,7 +198,7 @@ public class PickUpObject : MonoBehaviour
                     GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
                     CarriedObject(singleTeaBag);
 
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
+                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
 
                     // Picked the correct item
                     if (pickTeaBag.gameObject.GetComponent<CorrectItem>())
@@ -277,7 +284,7 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
                 }
-                else if (carriedObject.tag.Equals("Sponge"))
+                else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 {
                     Debug.Log("Rinsing dirty bowl ");
                 }
@@ -292,7 +299,10 @@ public class PickUpObject : MonoBehaviour
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
+                    //Drop(carriedObject.GetComponent<Collider>());
                     carriedObject.SetActive(false);
+                    carrying = false;
+                    carriedObject = null;  
                     Debug.Log("Tea bag is in");
                     /*singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
                     singleTeaBag.SetActive(false);                   */
@@ -335,7 +345,7 @@ public class PickUpObject : MonoBehaviour
             }
             else if (collider.tag.Equals("BinLid"))
             {
-                if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
+                if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 {
                     Debug.Log("Disposing Cereal");
                 }
@@ -410,6 +420,117 @@ public class PickUpObject : MonoBehaviour
                         }
                     }
                 }
+                else if (carriedObject.transform.parent != null)
+                {
+                    if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers") || carriedObject.transform.parent.tag.Equals("Sandwich"))
+                    {
+                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);                       
+                        foreach (Collider hitCollider in hitColliders)
+                        {                 
+                            if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
+                            {
+                                // direction from the cutlery to the dish
+                                /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
+                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+
+
+                                Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
+                                   
+                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                Debug.Log("AngleDir " + angleDir);
+                                if (angleDir < 0f)
+                                {
+                                    Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
+                                }
+                                else if (angleDir > 0f)
+                                {
+                                    Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
+                                }
+                                else
+                                {
+                                    Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
+                                }*/
+
+                                // direction from the dish to the cutlery
+                                Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
+                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+                                    
+                                //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
+                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                Debug.Log("AngleDir " + angleDir);
+                                if (angleDir > 0.0f && (angle > 45f && angle < 135f))
+                                {
+                                    Debug.Log(carriedObject.transform.parent.tag + " is at the right of dishes " + hitCollider.tag);
+                                }
+                                else if (angleDir < 0.0f)
+                                {
+                                    Debug.Log(carriedObject.transform.parent.tag + "  is at the wrong side of " + hitCollider.tag);
+                                }
+                                else
+                                {
+                                    Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
+                                }                             
+                            }
+                        }  
+                        /* Finding the closest object
+                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);
+                        Collider closest = null;
+                        foreach (Collider hitCollider in hitColliders)
+                        {
+                            Debug.Log("Hit collider " + hitCollider.tag);
+                            if (hitCollider != carriedObject.GetComponent<Collider>())
+                            {
+                                // if closest is null
+                                if (closest == null)
+                                {
+                                    closest = hitCollider;
+                                }
+                                if (Vector3.Distance(carriedObject.transform.position, hitCollider.transform.position) <
+                                    Vector3.Distance(carriedObject.transform.position, closest.transform.position))
+                                {
+                                    closest = hitCollider;
+                                }
+                            }
+                        }
+                        Debug.Log("Closest object " + closest.tag);*/                
+                    }
+                    /*else if (carriedObject.transform.parent.tag.Equals("BeverageContainers"))
+                    {
+                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);
+                        foreach (Collider hitCollider in hitColliders)
+                        {
+                            if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
+                            {
+                                // direction from the dish to the cutlery
+                                Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
+                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+
+                                //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
+                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                Debug.Log("AngleDir " + angleDir);
+                                if (angleDir > 0.0f && (angle > 45f && angle < 135f))
+                                {
+                                    Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
+                                }
+                                else if (angleDir < 0.0f)
+                                {
+                                    Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
+                                }
+                                else
+                                {
+                                    Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
+                                }
+                            }
+                        }                    
+                    }*/
+
+                }
             }
         }
 
@@ -428,4 +549,31 @@ public class PickUpObject : MonoBehaviour
         //source.PlayOneShot(dropSound);
         carriedObject = null;
     }
+
+    private float AngleDir(Vector3 fwd, Vector3 targetDir, Vector3 up)
+    {
+        //returns negative when to the left, positive to the right, and 0 for forward/backward
+        Vector3 right = Vector3.Cross(up, fwd);        // right vector
+        float dir = Vector3.Dot(right, targetDir);
+        Debug.Log("AngleDir " + dir);
+        return dir;
+
+        /*returns -1 when to the left, 1 to the right, and 0 for forward/backward
+        if (dir > 0.0f)
+        {
+            Debug.Log("Returning 1");
+            return 1f;
+        }
+        else if (dir < 0.0f)
+        {
+            Debug.Log("Returning -1");
+            return -1f;
+        }
+        else
+        {
+            Debug.Log("Returning 0");
+            return 0f;
+        }*/
+    }
+
 }
