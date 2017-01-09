@@ -60,6 +60,7 @@ TagManager:
   - Cutlery
   - Dishes
   - BeverageContainers
+  - Towel
   layers:
   - Default
   - TransparentFX

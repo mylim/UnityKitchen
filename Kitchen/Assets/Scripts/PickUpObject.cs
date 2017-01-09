@@ -40,10 +40,13 @@ public class PickUpObject : MonoBehaviour
     private GameObject kettle;
     public GameObject sandwich;
     private Object sandwichParent;
+    private float sandwichHeight = 0;
+    private bool makingSandwich = false;
     //private GameObject singleTeaBag;
     //private bool teaBagIn;
 
     private static int NUM_BREAD = 2;
+   
     //private ObjectsHandler objectHandler;
 
     void Start()
@@ -177,6 +180,8 @@ public class PickUpObject : MonoBehaviour
                     PickupableSingle pickSingle = collider.GetComponent<PickupableSingle>();
                     GameObject singleItem = Instantiate(pickSingle.singleItem);
                     singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
+                    //singleItem.GetComponent<Renderer>().material.SetTexture("_MainTex", pickSingle.itemTexture);
+                    //singleItem.GetComponent<Renderer>().material.mainTexture = pickSingle.itemTexture;
                     CarriedObject(singleItem);
 
                     objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
@@ -288,7 +293,11 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Rinsing dirty bowl ");
                 }
-            }
+                else if (carriedObject.tag.Equals("Towel"))
+                {
+                    Debug.Log("Wetting towel ");
+                }
+            }           
             else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
             {
                 if (carriedObject.tag.Equals("Kettle"))
@@ -357,6 +366,10 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Putting dishwashing liquid on sponge");
                 }
             }
+            else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.tag.Equals("Towel")))
+            {
+                Debug.Log("Wiping table ");                
+            }
             else
             {
                 Drop(collider);
@@ -390,12 +403,26 @@ public class PickUpObject : MonoBehaviour
         }
         else
         {
-            carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
+            carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();            
             if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
                 carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
                 carriedObject.tag.Equals("HamSlice") || carriedObject.tag.Equals("CheeseSlice"))
             {
+                carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
                 carriedObject.transform.parent = sandwich.transform;
+                sandwichHeight += carriedObject.GetComponent<Collider>().bounds.size.y;
+                //carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
+                /*if (makingSandwich)
+                {
+                    carriedObject.transform.parent = sandwich.transform;
+                    carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
+                }
+                else
+                {
+                    carriedObject.transform.parent = sandwich.transform;
+                    carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();                    
+                    makingSandwich = true;
+                }*/
                 Destroy(carriedObject.GetComponent<Rigidbody>());
                 Destroy(carriedObject.GetComponent<Pickupable>());
             }
@@ -404,6 +431,7 @@ public class PickUpObject : MonoBehaviour
                 if (carriedObject.tag.Equals("Bread") || carriedObject.tag.Equals("Breadroll") || carriedObject.tag.Equals("Pitta") ||
                     carriedObject.tag.Equals("Wrap") || carriedObject.tag.Equals("Ham") || carriedObject.tag.Equals("Cheese"))
                 {
+                    //RigidbodyConstraints constraints = carriedObject.GetComponent<Rigidbody>().constraints;
                     carriedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                     //Vector3 movement = carriedObject.transform.position + GetComponent<MouseHoverObject>().GetHitPoint();
                     Debug.Log("carried object tag" + carriedObject.tag);
@@ -419,61 +447,69 @@ public class PickUpObject : MonoBehaviour
                             carriedObject.GetComponent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y))), 2);
                         }
                     }
+                    //carriedObject.GetComponent<Rigidbody>().constraints = constraints;
                 }
                 else if (carriedObject.transform.parent != null)
                 {
-                    if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers") || carriedObject.transform.parent.tag.Equals("Sandwich"))
+                    if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers") || carriedObject.transform.parent.tag.Equals("Sandwich") || carriedObject.transform.parent.tag.Equals("Dishes"))
                     {
                         Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);                       
                         foreach (Collider hitCollider in hitColliders)
-                        {                 
-                            if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
+                        {
+                            if (hitCollider.transform.parent != null)
                             {
-                                // direction from the cutlery to the dish
-                                /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
-                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+                                if (!hitCollider.transform.parent.tag.Equals(carriedObject.transform.parent.tag))
+                                {
+                                    //if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
+                                    if (hitCollider.transform.parent.tag.Equals("Cutlery") || hitCollider.transform.parent.tag.Equals("BeverageContainers") || hitCollider.transform.parent.tag.Equals("Sandwich") || hitCollider.transform.parent.tag.Equals("Dishes"))
+                                    {
+                                        // direction from the cutlery to the dish
+                                        /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
+                                        float angle = Vector3.Angle(dir, mainCamera.transform.forward);
 
 
-                                Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
-                                   
-                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                Debug.Log("AngleDir " + angleDir);
-                                if (angleDir < 0f)
-                                {
-                                    Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
-                                }
-                                else if (angleDir > 0f)
-                                {
-                                    Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
-                                }
-                                else
-                                {
-                                    Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
-                                }*/
+                                        Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                        Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
 
-                                // direction from the dish to the cutlery
-                                Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
-                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
-                                    
-                                //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
-                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                Debug.Log("AngleDir " + angleDir);
-                                if (angleDir > 0.0f && (angle > 45f && angle < 135f))
-                                {
-                                    Debug.Log(carriedObject.transform.parent.tag + " is at the right of dishes " + hitCollider.tag);
+                                        Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                        float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                        Debug.Log("AngleDir " + angleDir);
+                                        if (angleDir < 0f)
+                                        {
+                                            Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
+                                        }
+                                        else if (angleDir > 0f)
+                                        {
+                                            Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
+                                        }
+                                        else
+                                        {
+                                            Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
+                                        }*/
+
+                                        // direction from the dish to the cutlery
+                                        Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
+                                        float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+
+                                        //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                        //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
+                                        Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                        float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                        Debug.Log("AngleDir " + angleDir);
+                                        if (angleDir > 0.0f && (angle > 45f && angle < 135f))
+                                        {
+                                            Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
+                                        }
+                                        else if (angleDir < 0.0f)
+                                        {
+                                            Debug.Log(carriedObject.transform.parent.tag + "  is at the wrong side of " + hitCollider.tag);
+                                        }
+                                        else
+                                        {
+                                            Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
+                                        }
+                                    }
                                 }
-                                else if (angleDir < 0.0f)
-                                {
-                                    Debug.Log(carriedObject.transform.parent.tag + "  is at the wrong side of " + hitCollider.tag);
-                                }
-                                else
-                                {
-                                    Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
-                                }                             
                             }
                         }  
                         /* Finding the closest object

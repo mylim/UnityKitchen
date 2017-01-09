@@ -147,6 +147,7 @@
     <Compile Include="Assets\Scripts\Pickupable.cs" />
     <Compile Include="Assets\Scripts\PickupableSingle.cs" />
     <Compile Include="Assets\Scripts\PickupableTeaBag.cs" />
+    <Compile Include="Assets\Scripts\PickupableTowel.cs" />
     <Compile Include="Assets\Scripts\PouredWater.cs" />
     <Compile Include="Assets\Scripts\Properties\BinEmpty.cs" />
     <Compile Include="Assets\Scripts\Properties\BoiledWater.cs" />

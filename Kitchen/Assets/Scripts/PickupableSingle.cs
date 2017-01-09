@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PickupableSingle: MonoBehaviour {
     public Color itemColor;
+    //public Texture itemTexture;
     public GameObject singleItem;
     private Color defaultColor;
 
