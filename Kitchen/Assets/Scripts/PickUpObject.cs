@@ -42,10 +42,14 @@ public class PickUpObject : MonoBehaviour
     private Object sandwichParent;
     private float sandwichHeight = 0;
     private bool makingSandwich = false;
+
+    private bool interfering;
     //private GameObject singleTeaBag;
     //private bool teaBagIn;
 
     private static int NUM_BREAD = 2;
+
+    private GameObject dialog = null;
    
     //private ObjectsHandler objectHandler;
 
@@ -96,7 +100,8 @@ public class PickUpObject : MonoBehaviour
             singleTeaBag.SetActive(false);
             teaBagIn = false;
         }*/
-        source = GetComponent<AudioSource>();  
+        source = GetComponent<AudioSource>();
+        interfering = false;
     }
 
     void Update()
@@ -127,6 +132,15 @@ public class PickUpObject : MonoBehaviour
             Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
             if (collider != null)
             {
+                if (collider.GetComponent<Interfere>())
+                {
+                    //collider.GetComponent<Interfere>().ShowID();
+                    collider.GetComponent<Interfere>().dialog.GetComponent<InterferenceDialog>().ShowDialog();
+                    dialog = collider.GetComponent<Interfere>().dialog;
+                    //interfering = true;
+                    //collider.GetComponent<Interfere>().dialog.GetComponent<InterferenceDialog>().SetInterference();
+                }
+
                 Debug.Log("In Pickup()");
                 if (collider.GetComponent<Pickupable>())
                 {
@@ -297,7 +311,7 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Wetting towel ");
                 }
-            }           
+            }
             else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
             {
                 if (carriedObject.tag.Equals("Kettle"))
@@ -311,7 +325,7 @@ public class PickUpObject : MonoBehaviour
                     //Drop(carriedObject.GetComponent<Collider>());
                     carriedObject.SetActive(false);
                     carrying = false;
-                    carriedObject = null;  
+                    carriedObject = null;
                     Debug.Log("Tea bag is in");
                     /*singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
                     singleTeaBag.SetActive(false);                   */
@@ -361,14 +375,18 @@ public class PickUpObject : MonoBehaviour
             }
             else if (collider.tag.Equals("Sponge"))
             {
-                if (collider.tag.Equals("DishwashingLiquid"))
+                if (carriedObject.tag.Equals("DishwashingLiquid"))
                 {
                     Debug.Log("Putting dishwashing liquid on sponge");
                 }
             }
             else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.tag.Equals("Towel")))
             {
-                Debug.Log("Wiping table ");                
+                Debug.Log("Wiping table ");
+            }
+            else if ((collider.tag.Equals("Bleach")) && (carriedObject != null))
+            {
+                Debug.Log("Bleach clicked ");
             }
             else
             {

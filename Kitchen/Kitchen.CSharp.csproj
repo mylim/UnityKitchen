@@ -133,7 +133,8 @@
     <Compile Include="Assets\Scripts\HasContent.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\InstantiateItem.cs" />
-    <Compile Include="Assets\Scripts\InteferenceDialog.cs" />
+    <Compile Include="Assets\Scripts\Interfere.cs" />
+    <Compile Include="Assets\Scripts\InterferenceDialog.cs" />
     <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />

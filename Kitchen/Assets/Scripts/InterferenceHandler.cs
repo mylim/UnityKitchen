@@ -13,16 +13,15 @@ public class InterferenceHandler : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(1))
         {
+            //GetComponent<InterferenceDialog>().ShowDialog();
             Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
             if (collider != null)
             {
-                if (collider.tag.Equals("Sink"))
+                if (collider.tag.Equals(GetComponent<Collider>().tag))
                 {                   
-                    GetComponent<InteferenceDialog>().ShowDialog();
+                    GetComponent<InterferenceDialog>().ShowDialog();
                 }                
             }
         }
-    }
-
-  
+    }  
 }
