@@ -1,27 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pickupable : MonoBehaviour {
+public class Clickable : MonoBehaviour {
 
     public GameObject gameObject;
     private Color defaultColor;
-    private Vector3 originalPosition;
     private bool highlighted;
-   
+
     // Use this for initialization
     void Start()
     {
-        originalPosition = gameObject.transform.position;
         highlighted = false;
-        if (gameObject == GameObject.FindWithTag("TiedBag"))
-        {
-            Debug.Log("Tied Bag found");
-            gameObject.SetActive(false);         
-        }
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
     }
 
@@ -45,11 +39,6 @@ public class Pickupable : MonoBehaviour {
             Highlight(false);
             highlighted = false;
         }
-    }
-
-    public Vector3 getOriginalPosition()
-    {
-        return originalPosition;
     }
 
     private void Highlight(bool glow)
