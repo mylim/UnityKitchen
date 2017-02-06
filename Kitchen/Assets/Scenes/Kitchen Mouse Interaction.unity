@@ -707,6 +707,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 58e089dbfde94f84ea2b5242f9f03544, type: 3}
+      propertyPath: m_TagString
+      value: PastaCouscous
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 58e089dbfde94f84ea2b5242f9f03544, type: 3}
+      propertyPath: m_TagString
+      value: PastaCouscous
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58e089dbfde94f84ea2b5242f9f03544, type: 3}
   m_IsPrefabParent: 0
@@ -1075,6 +1083,10 @@ Prefab:
     - target: {fileID: 400004, guid: 798e8b43998a2db479771a997c63b335, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 798e8b43998a2db479771a997c63b335, type: 3}
+      propertyPath: m_TagString
+      value: KettleBase
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 798e8b43998a2db479771a997c63b335, type: 3}
@@ -2857,6 +2869,22 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.417
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 205917e92d238934e9434994268827f9, type: 3}
+      propertyPath: m_TagString
+      value: MultipurposeCleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 205917e92d238934e9434994268827f9, type: 3}
+      propertyPath: m_TagString
+      value: MultipurposeCleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 205917e92d238934e9434994268827f9, type: 3}
+      propertyPath: m_TagString
+      value: MultipurposeCleaner
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 205917e92d238934e9434994268827f9, type: 3}
+      propertyPath: m_TagString
+      value: MultipurposeCleaner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 205917e92d238934e9434994268827f9, type: 3}
   m_IsPrefabParent: 0
@@ -3017,6 +3045,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 42
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1187157d4d49f874fa992158c9dc4bdc, type: 3}
+      propertyPath: m_TagString
+      value: SinkShelf
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1187157d4d49f874fa992158c9dc4bdc, type: 3}
   m_IsPrefabParent: 0
@@ -3102,6 +3134,22 @@ Prefab:
     - target: {fileID: 400000, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
       propertyPath: m_RootOrder
       value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
+      propertyPath: m_TagString
+      value: DisinfectantWipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
+      propertyPath: m_TagString
+      value: DisinfectantWipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
+      propertyPath: m_TagString
+      value: DisinfectantWipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
+      propertyPath: m_TagString
+      value: DisinfectantWipes
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
@@ -3464,6 +3512,22 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.2
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+      propertyPath: m_TagString
+      value: Coffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+      propertyPath: m_TagString
+      value: Coffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+      propertyPath: m_TagString
+      value: Coffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+      propertyPath: m_TagString
+      value: Coffee
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
   m_IsPrefabParent: 0
@@ -3825,7 +3889,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 64
+  m_RootOrder: 63
 --- !u!114 &622641001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4769,6 +4833,22 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: -0.077
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: fae429a068f28664f882ae3da17f2a81, type: 3}
+      propertyPath: m_TagString
+      value: CottonBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: fae429a068f28664f882ae3da17f2a81, type: 3}
+      propertyPath: m_TagString
+      value: CottonBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: fae429a068f28664f882ae3da17f2a81, type: 3}
+      propertyPath: m_TagString
+      value: CottonBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: fae429a068f28664f882ae3da17f2a81, type: 3}
+      propertyPath: m_TagString
+      value: CottonBag
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fae429a068f28664f882ae3da17f2a81, type: 3}
   m_IsPrefabParent: 0
@@ -5227,6 +5307,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 39
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6c758202f5587914a89342f56b14a31a, type: 3}
+      propertyPath: m_TagString
+      value: Dishrack
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c758202f5587914a89342f56b14a31a, type: 3}
   m_IsPrefabParent: 0
@@ -5368,6 +5452,22 @@ Prefab:
     - target: {fileID: 400006, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2715
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
+      propertyPath: m_TagString
+      value: PlasticBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
+      propertyPath: m_TagString
+      value: PlasticBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
+      propertyPath: m_TagString
+      value: PlasticBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
+      propertyPath: m_TagString
+      value: PlasticBag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 642d8dcd66bc55e46a661074a38d380e, type: 3}
@@ -5583,6 +5683,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b0d7827ce2e997a448fe9e4697a1030f, type: 3}
+      propertyPath: m_TagString
+      value: CerealBars
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b0d7827ce2e997a448fe9e4697a1030f, type: 3}
+      propertyPath: m_TagString
+      value: CerealBars
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0d7827ce2e997a448fe9e4697a1030f, type: 3}
   m_IsPrefabParent: 0
@@ -5743,6 +5851,22 @@ Prefab:
     - target: {fileID: 400000, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2764
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
+      propertyPath: m_TagString
+      value: PizzaPie
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
+      propertyPath: m_TagString
+      value: PizzaPie
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
+      propertyPath: m_TagString
+      value: PizzaPie
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
+      propertyPath: m_TagString
+      value: PizzaPie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 239aa1674cd5ffe47ae595cfd8c5e74e, type: 3}
@@ -6730,7 +6854,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
       propertyPath: m_TagString
-      value: MainCamera
+      value: Brush
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6799,6 +6923,18 @@ Prefab:
     - target: {fileID: 400004, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
+      propertyPath: m_TagString
+      value: Brush
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
+      propertyPath: m_TagString
+      value: Brush
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
+      propertyPath: m_TagString
+      value: Brush
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a1bae2916d14084bbace6dfe1e514cf, type: 3}
@@ -7068,35 +7204,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100030, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: HandTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: HandTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100026, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: HandTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100024, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: HandTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: TeaTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100020, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: TeaTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100018, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: TeaTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100016, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: TeaTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
@@ -7112,23 +7248,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: MopTowel
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: CleaningCloth
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: CleaningCloth
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: CleaningCloth
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_TagString
-      value: Towel
+      value: CleaningCloth
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7321,6 +7457,10 @@ Prefab:
     - target: {fileID: 400000, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.029
+      objectReference: {fileID: 0}
+    - target: {fileID: 100032, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
+      propertyPath: m_TagString
+      value: Rack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ceac3b6e1c82daf4fb0966805270b77d, type: 3}
@@ -9293,6 +9433,22 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.0622
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+      propertyPath: m_TagString
+      value: Milkshake
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+      propertyPath: m_TagString
+      value: Milkshake
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+      propertyPath: m_TagString
+      value: Milkshake
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+      propertyPath: m_TagString
+      value: Milkshake
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
   m_IsPrefabParent: 0
@@ -10322,6 +10478,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 52
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 14143ab25660d924dbed6688787c777e, type: 3}
+      propertyPath: m_TagString
+      value: Handwash
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 14143ab25660d924dbed6688787c777e, type: 3}
+      propertyPath: m_TagString
+      value: Handwash
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 14143ab25660d924dbed6688787c777e, type: 3}
+      propertyPath: m_TagString
+      value: Handwash
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 14143ab25660d924dbed6688787c777e, type: 3}
+      propertyPath: m_TagString
+      value: Handwash
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14143ab25660d924dbed6688787c777e, type: 3}
   m_IsPrefabParent: 0
@@ -10371,6 +10543,10 @@ Prefab:
     - target: {fileID: 141664, guid: d3224f54c7613434f97143fd30e8cfae, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 183064, guid: d3224f54c7613434f97143fd30e8cfae, type: 2}
+      propertyPath: m_TagString
+      value: Shelf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3224f54c7613434f97143fd30e8cfae, type: 2}
@@ -10554,6 +10730,14 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 0.73657554
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: e9dad17108373d140b275927ee8dca65, type: 3}
+      propertyPath: m_TagString
+      value: Ladle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: e9dad17108373d140b275927ee8dca65, type: 3}
+      propertyPath: m_TagString
+      value: Ladle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e9dad17108373d140b275927ee8dca65, type: 3}
   m_IsPrefabParent: 0
@@ -10681,6 +10865,22 @@ Prefab:
     - target: {fileID: 400008, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
+      propertyPath: m_TagString
+      value: KitchenTowels
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
+      propertyPath: m_TagString
+      value: KitchenTowels
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
+      propertyPath: m_TagString
+      value: KitchenTowels
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
+      propertyPath: m_TagString
+      value: KitchenTowels
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6743bf2917f15d046ba2d8f9176c83f8, type: 3}
@@ -11404,6 +11604,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 38
       objectReference: {fileID: 0}
+    - target: {fileID: 153902, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 126592, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 149192, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 191100, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 188720, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 177816, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
+      propertyPath: m_TagString
+      value: Light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a5640e71fa43064bb6b1862e2ac43bf, type: 2}
   m_IsPrefabParent: 0
@@ -11773,7 +11997,7 @@ Transform:
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
 --- !u!114 &1451554056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12066,6 +12290,22 @@ Prefab:
     - target: {fileID: 400004, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
+      propertyPath: m_TagString
+      value: Jam
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
+      propertyPath: m_TagString
+      value: Jam
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
+      propertyPath: m_TagString
+      value: Jam
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
+      propertyPath: m_TagString
+      value: Jam
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 809c4abe1cd60b443a795f7c1f039c0d, type: 3}
@@ -12814,6 +13054,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 48
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 661af6ad0369deb4eb42b6bddf689995, type: 3}
+      propertyPath: m_TagString
+      value: Pate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 661af6ad0369deb4eb42b6bddf689995, type: 3}
+      propertyPath: m_TagString
+      value: Pate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 661af6ad0369deb4eb42b6bddf689995, type: 3}
+      propertyPath: m_TagString
+      value: Pate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 661af6ad0369deb4eb42b6bddf689995, type: 3}
+      propertyPath: m_TagString
+      value: Pate
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 661af6ad0369deb4eb42b6bddf689995, type: 3}
   m_IsPrefabParent: 0
@@ -12854,7 +13110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498054, guid: 843d1a083db642040ac06b5a15b15486, type: 2}
       propertyPath: m_RootOrder
-      value: 58
+      value: 57
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 843d1a083db642040ac06b5a15b15486, type: 2}
@@ -12921,6 +13177,10 @@ Prefab:
     - target: {fileID: 100000, guid: 55b0ef8a092b4d64e9dd0d2fc33c1577, type: 3}
       propertyPath: m_Name
       value: GreenChair (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b0ef8a092b4d64e9dd0d2fc33c1577, type: 3}
+      propertyPath: m_TagString
+      value: Chair
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b0ef8a092b4d64e9dd0d2fc33c1577, type: 3}
@@ -13931,7 +14191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 468984, guid: ee944b180d2495a40b7c8c02ce400580, type: 2}
       propertyPath: m_RootOrder
-      value: 56
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 173342, guid: ee944b180d2495a40b7c8c02ce400580, type: 2}
       propertyPath: m_IsActive
@@ -13952,6 +14212,10 @@ Prefab:
     - target: {fileID: 6585860, guid: ee944b180d2495a40b7c8c02ce400580, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 189200, guid: ee944b180d2495a40b7c8c02ce400580, type: 2}
+      propertyPath: m_TagString
+      value: Fridge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee944b180d2495a40b7c8c02ce400580, type: 2}
@@ -14378,7 +14642,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485364, guid: cb8a6e329c897544f9df7f22c3335c5f, type: 2}
       propertyPath: m_RootOrder
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 167892, guid: cb8a6e329c897544f9df7f22c3335c5f, type: 2}
       propertyPath: m_IsActive
@@ -14387,6 +14651,10 @@ Prefab:
     - target: {fileID: 126442, guid: cb8a6e329c897544f9df7f22c3335c5f, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 183444, guid: cb8a6e329c897544f9df7f22c3335c5f, type: 2}
+      propertyPath: m_TagString
+      value: Cupboard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb8a6e329c897544f9df7f22c3335c5f, type: 2}
@@ -14429,6 +14697,14 @@ Prefab:
     - target: {fileID: 400004, guid: 2f2ed8c6fd002354d86c2be11af7d091, type: 3}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 2f2ed8c6fd002354d86c2be11af7d091, type: 3}
+      propertyPath: m_TagString
+      value: Yogurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2f2ed8c6fd002354d86c2be11af7d091, type: 3}
+      propertyPath: m_TagString
+      value: Yogurt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f2ed8c6fd002354d86c2be11af7d091, type: 3}
@@ -15094,7 +15370,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453332, guid: a129e5bbb3e636f49b803113258026fa, type: 2}
       propertyPath: m_RootOrder
-      value: 57
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 144732, guid: a129e5bbb3e636f49b803113258026fa, type: 2}
+      propertyPath: m_TagString
+      value: Stove
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a129e5bbb3e636f49b803113258026fa, type: 2}
@@ -15192,6 +15472,22 @@ Prefab:
     - target: {fileID: 400002, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
+      propertyPath: m_TagString
+      value: Spread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
+      propertyPath: m_TagString
+      value: Spread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
+      propertyPath: m_TagString
+      value: Spread
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
+      propertyPath: m_TagString
+      value: Spread
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
@@ -15782,6 +16078,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 55b0ef8a092b4d64e9dd0d2fc33c1577, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55b0ef8a092b4d64e9dd0d2fc33c1577, type: 3}
   m_IsPrefabParent: 0
@@ -16222,6 +16522,22 @@ Prefab:
     - target: {fileID: 400008, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
+      propertyPath: m_TagString
+      value: FoodBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
+      propertyPath: m_TagString
+      value: FoodBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
+      propertyPath: m_TagString
+      value: FoodBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
+      propertyPath: m_TagString
+      value: FoodBag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb82e94edaf052742a1c8f49285af39f, type: 3}
@@ -16699,6 +17015,22 @@ Prefab:
     - target: {fileID: 400004, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0279
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+      propertyPath: m_TagString
+      value: HotChocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+      propertyPath: m_TagString
+      value: HotChocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+      propertyPath: m_TagString
+      value: HotChocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+      propertyPath: m_TagString
+      value: HotChocolate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e2796a655196fb4791c8c6519223813, type: 3}

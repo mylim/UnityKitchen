@@ -129,7 +129,9 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\MengerSponge.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
+    <Compile Include="Assets\Scripts\Action.cs" />
     <Compile Include="Assets\Scripts\CorrectItem.cs" />
+    <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\HasContent.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
@@ -156,9 +158,9 @@
     <Compile Include="Assets\Scripts\Properties\FilledWithWater.cs" />
     <Compile Include="Assets\Scripts\Properties\LidOn.cs" />
     <Compile Include="Assets\Scripts\Properties\NewBag.cs" />
-    <Compile Include="Assets\Scripts\ShowPopUp.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
+    <Compile Include="Assets\Scripts\Subtask.cs" />
     <Compile Include="Assets\Scripts\Unit.cs" />
     <Compile Include="Assets\Scripts\UnitPlayer.cs" />
     <Compile Include="Assets\Scripts\UnitPlayerLeap.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="Assets\Scripts\UsedForSandwich.cs" />
     <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointRotationAngles.cs" />
+    <Compile Include="Assets\Scripts\WorldModelManager.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>

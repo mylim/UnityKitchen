@@ -10,7 +10,6 @@ TagManager:
   - Table
   - Cupboard
   - Stove
-  - Waypoint
   - BinLid
   - TiedBag
   - BinBag
@@ -60,8 +59,38 @@ TagManager:
   - Cutlery
   - Dishes
   - BeverageContainers
-  - Towel
+  - DishTowel
   - Bleach
+  - Floor
+  - Brush
+  - CerealBars
+  - Coffee
+  - CottonBag
+  - Dishrack
+  - DisinfectantWipes
+  - FoodBag
+  - Chair
+  - Handwash
+  - HotChocolate
+  - Jam
+  - KitchenTowels
+  - Ladle
+  - Milkshake
+  - MultipurposeCleaner
+  - PastaCouscous
+  - Pate
+  - PizzaPie
+  - PlasticBag
+  - Wall
+  - Light
+  - SinkShelf
+  - Spread
+  - Rack
+  - Yogurt
+  - CleaningCloth
+  - TeaTowel
+  - HandTowel
+  - KettleBase
   layers:
   - Default
   - TransparentFX

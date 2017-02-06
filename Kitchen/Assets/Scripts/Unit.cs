@@ -28,5 +28,8 @@ public class Unit : MonoBehaviour {
 	// Update is called once per frame
 	public virtual void Update () {
         charControl.Move(move * moveSpeed);
-	}
+
+        if (Input.GetKey("escape"))
+            Application.Quit();
+    }
 }
