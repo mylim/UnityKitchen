@@ -129,7 +129,6 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\MengerSponge.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
-    <Compile Include="Assets\Scripts\Action.cs" />
     <Compile Include="Assets\Scripts\CorrectItem.cs" />
     <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
@@ -153,6 +152,7 @@
     <Compile Include="Assets\Scripts\PickupableTeaBag.cs" />
     <Compile Include="Assets\Scripts\PickupableTowel.cs" />
     <Compile Include="Assets\Scripts\PouredWater.cs" />
+    <Compile Include="Assets\Scripts\PrimitiveAction.cs" />
     <Compile Include="Assets\Scripts\Properties\BinEmpty.cs" />
     <Compile Include="Assets\Scripts\Properties\BoiledWater.cs" />
     <Compile Include="Assets\Scripts\Properties\FilledWithWater.cs" />
