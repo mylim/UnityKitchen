@@ -9,6 +9,7 @@ Handles objects pickup and dropping
 
 public class PickUpObject : MonoBehaviour
 {
+    private GameObject player;
     private GameObject mainCamera;
     private GameObject objectsHandler;
     private RaycastHit rayCastHit;
@@ -38,6 +39,7 @@ public class PickUpObject : MonoBehaviour
     private AudioSource source;
 
     private GameObject kettle;
+    private GameObject water;
     public GameObject sandwich;
     private Object sandwichParent;
     private float sandwichHeight = 0;
@@ -50,13 +52,18 @@ public class PickUpObject : MonoBehaviour
     private static int NUM_BREAD = 2;
 
     private GameObject dialog = null;
+
+    private WorldModelManager manager;
+  
    
     //private ObjectsHandler objectHandler;
 
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         mainCamera = GameObject.FindWithTag("MainCamera");
         objectsHandler = GameObject.FindWithTag("ObjectsHandler");
+        manager = new WorldModelManager();
         carrying = false;
 
         // Garbage removal
@@ -89,6 +96,7 @@ public class PickUpObject : MonoBehaviour
 
         // Tea making
         kettle = GameObject.FindWithTag("Kettle");
+        water = GameObject.FindWithTag("Water");
         /*if (GameObject.FindWithTag("Kettle"))
         {
             Debug.Log("Kettle");
@@ -150,11 +158,13 @@ public class PickUpObject : MonoBehaviour
                     {
                         // The kettle has been filled with water
                         Debug.Log("Boiling water");
-                        kettle.GetComponent<BoiledWater>().boiledWater = true;                       
+                        kettle.GetComponent<BoiledWater>().boiledWater = true;
+                        manager.updateWorldModel("boiled", kettle, water);
                     }                    
                     else
                     {
                         CarriedObject(p.gameObject);
+                        manager.updateWorldModel("pickedUp", player, p.gameObject);
 
                         // Bin lid has been removed
                         if (p.gameObject.tag.Equals("BinLid"))
@@ -173,6 +183,7 @@ public class PickUpObject : MonoBehaviour
                             }
                         }
                     }
+
                     if (p.gameObject.transform.parent != null)
                     {
                         objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
@@ -197,6 +208,8 @@ public class PickUpObject : MonoBehaviour
                     //singleItem.GetComponent<Renderer>().material.SetTexture("_MainTex", pickSingle.itemTexture);
                     //singleItem.GetComponent<Renderer>().material.mainTexture = pickSingle.itemTexture;
                     CarriedObject(singleItem);
+                    // update world model
+                    manager.updateWorldModel("pickedUp", player, collider.gameObject);
 
                     objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
 
@@ -216,6 +229,8 @@ public class PickUpObject : MonoBehaviour
                     PickupableTeaBag pickTeaBag = collider.GetComponent<PickupableTeaBag>();
                     GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
                     CarriedObject(singleTeaBag);
+                    // update world model
+                    manager.updateWorldModel("pickedUp", player, collider.gameObject);
 
                     objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
 
@@ -302,6 +317,8 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
+                    // update world model
+                    manager.updateWorldModel("filled", kettle, water);
                 }
                 else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 {
@@ -319,9 +336,15 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Pouring water ");
                     kettle.GetComponent<PouredWater>().pouredWater = true;
                     collider.GetComponent<HasContent>().hasWater = true;
+
+                    // update world model
+                    manager.updateWorldModel("in", collider.gameObject, water);
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
+                    // update world model
+                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
+
                     //Drop(carriedObject.GetComponent<Collider>());
                     carriedObject.SetActive(false);
                     carrying = false;
@@ -417,11 +440,19 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Bin is not empty");
                 }
             }
+            else if (carriedObject == kettle)
+            {
+                manager.updateWorldModel("on", kettle, collider.gameObject);
+            }
             carriedObject.transform.position = originalPosition;
         }
         else
         {
-            carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();            
+            carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
+
+            // update world model with the new position of the object
+            manager.updateWorldModel("on", carriedObject, collider.gameObject);
+
             if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
                 carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
                 carriedObject.tag.Equals("HamSlice") || carriedObject.tag.Equals("CheeseSlice"))

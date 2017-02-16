@@ -91,6 +91,10 @@ TagManager:
   - TeaTowel
   - HandTowel
   - KettleBase
+  - Waypoint
+  - MopTowel
+  - Towel
+  - Water
   layers:
   - Default
   - TransparentFX

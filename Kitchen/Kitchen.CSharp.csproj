@@ -158,6 +158,7 @@
     <Compile Include="Assets\Scripts\Properties\FilledWithWater.cs" />
     <Compile Include="Assets\Scripts\Properties\LidOn.cs" />
     <Compile Include="Assets\Scripts\Properties\NewBag.cs" />
+    <Compile Include="Assets\Scripts\SemanticCategory.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
     <Compile Include="Assets\Scripts\Subtask.cs" />

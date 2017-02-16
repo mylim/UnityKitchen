@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class Errand : MonoBehaviour {
     private string name;
     private List<Subtask> subtasks;
-    private ArrayList objects;
 
 	// Use this for initialization
 	void Start () {
