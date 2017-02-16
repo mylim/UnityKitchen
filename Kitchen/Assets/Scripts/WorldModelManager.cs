@@ -5,13 +5,15 @@ using System.Collections.Generic;
 public class WorldModelManager : MonoBehaviour {
     private List<PrimitiveAction> actions;
     private int actionIndex;
-    private Dictionary<string, List<string>> objects;
+    private Dictionary<string, GameObject> objects;
+    
 
     // Use this for initialization
     public WorldModelManager () {
         actionIndex = 0;
         actions = new List<PrimitiveAction>();
-	}
+        objects = new Dictionary<string, GameObject>();
+    }
 	
     public void updateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
     {
@@ -21,23 +23,55 @@ public class WorldModelManager : MonoBehaviour {
 
         //PrimitiveAction action = new PrimitiveAction(pAction, elementOne, elementTwo);
         actions.Add(new PrimitiveAction(pAction, elementOne, elementTwo));
+        if (elementOne.transform.parent != null && elementOne.transform.parent.GetComponent<SemanticCategory>())
+        {
+            if (!objects.ContainsKey(elementOne.transform.parent.tag))
+                objects.Add(elementOne.transform.parent.tag, elementOne);
+            else
+            {
+                objects[elementOne.transform.parent.tag] = elementOne;
+            }
+        }
+        if (elementTwo.transform.parent != null && elementTwo.transform.parent.GetComponent<SemanticCategory>())
+        {
+            if (!objects.ContainsKey(elementTwo.transform.parent.tag))
+                objects.Add(elementTwo.transform.parent.tag, elementTwo);
+            else
+            {
+                objects[elementTwo.transform.parent.tag] = elementTwo;
+            }
+        }
         printActions();
     }
 
     private void printActions()
     {
-        for (int i = 0; i < actions.Count; i++)
+        string fileName = System.DateTime.Today.ToString("yy-MM-dd");
+        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
         {
-            Debug.Log("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.tag + " " + actions[i].ElementTwo.tag);
-            if (actions[i].ElementOne.transform.parent != null && actions[i].ElementOne.transform.parent.GetComponent<SemanticCategory>())
+            for (int i = 0; i < actions.Count; i++)
             {
-                if (actions[i].ElementOne.GetComponent<CorrectItem>())
-                    Debug.Log("correct " + actions[i].ElementOne.tag);
+                Debug.Log("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.tag + " " + actions[i].ElementTwo.tag);
+                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.tag + " " + actions[i].ElementTwo.tag);
+                /*if (actions[i].ElementOne.transform.parent != null && actions[i].ElementOne.transform.parent.GetComponent<SemanticCategory>())
+                {
+                    if (actions[i].ElementOne.GetComponent<CorrectItem>())
+                        Debug.Log("correct " + actions[i].ElementOne.tag);
+                }
+                if (actions[i].ElementTwo.transform.parent != null && actions[i].ElementTwo.transform.parent.GetComponent<SemanticCategory>())
+                {
+                    if(actions[i].ElementTwo.GetComponent<CorrectItem>())
+                        Debug.Log("correct " + actions[i].ElementTwo.tag);
+                }*/
             }
-            if (actions[i].ElementTwo.transform.parent != null && actions[i].ElementTwo.transform.parent.GetComponent<SemanticCategory>())
+
+            if (objects != null)
             {
-                if(actions[i].ElementTwo.GetComponent<CorrectItem>())
-                   Debug.Log("correct " + actions[i].ElementTwo.tag);
+                foreach (KeyValuePair<string, GameObject> item in objects)
+                {
+                    Debug.Log("Item " + item.Key + ", value " + item.Value.name);
+                    logFile.WriteLine("Item " + item.Key + ", value " + item.Value.name);
+                }
             }
         }
     }

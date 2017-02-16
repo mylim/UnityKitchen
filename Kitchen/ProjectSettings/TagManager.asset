@@ -95,6 +95,7 @@ TagManager:
   - MopTowel
   - Towel
   - Water
+  - Beverage
   layers:
   - Default
   - TransparentFX

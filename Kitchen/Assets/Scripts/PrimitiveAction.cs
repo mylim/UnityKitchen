@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// <summary>
 /// A primitive action can be represented as: "pickedUp(player, kettle)", "in(teabag, teacup)" (i.e. player picked up kettle, teabag is in the teacup), 
 /// </summary>
-public class PrimitiveAction : MonoBehaviour {
+public class PrimitiveAction {
   
     /// <summary>
     /// The name of the primitive action.

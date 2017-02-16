@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1001 &62486197
 Prefab:
   m_ObjectHideFlags: 0
@@ -206,7 +205,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: d10b557cfe79bc74196f72a1910119d0, type: 3}
       propertyPath: m_TagString
-      value: Tea
+      value: Beverage
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d10b557cfe79bc74196f72a1910119d0, type: 3}
       propertyPath: m_TagString
@@ -989,6 +988,21 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 7d9163abbfdcd534eaadb543eb10745e, type: 3}
+--- !u!1 &218000002 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+  m_PrefabInternal: {fileID: 1124654925}
+--- !u!114 &218000004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 218000002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcb7466b30ec1f448d16e503bd32064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &238573028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,7 +2175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1 &376363883 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 94ec8b0e67834be489ab11ed41601a1c, type: 3}
@@ -3438,10 +3451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObjectsList:
   - {fileID: 667511751}
-  - {fileID: 1390554714}
-  - {fileID: 429733424}
-  - {fileID: 1205175213}
-  - {fileID: 1999088281}
+  - {fileID: 0}
 --- !u!1 &527179696 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
@@ -3551,6 +3561,10 @@ Prefab:
     - target: {fileID: 100008, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
       propertyPath: m_TagString
       value: Coffee
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+      propertyPath: m_TagString
+      value: Beverage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
@@ -4748,7 +4762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1 &734681475 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: ca5206af6e43eae47bb7de7ad986dc10, type: 3}
@@ -6698,7 +6711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!114 &931882206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6863,6 +6875,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 970934516}
+--- !u!1 &976017082 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: a23f50232aff14a40982161e7713dbfc, type: 3}
+  m_PrefabInternal: {fileID: 534972271}
+--- !u!114 &976017084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 976017082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcb7466b30ec1f448d16e503bd32064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &978982238 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: ed0abfbe37b072f48a634dc6df43217a, type: 3}
@@ -9584,6 +9611,10 @@ Prefab:
       propertyPath: m_TagString
       value: Milkshake
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
+      propertyPath: m_TagString
+      value: Beverage
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd6e6def7a0c74d46a54ab9f6ab10720, type: 3}
   m_IsPrefabParent: 0
@@ -9644,7 +9675,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 8876987c992bb8243af4615c0e805cd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.147
+      value: -0.249
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 8876987c992bb8243af4615c0e805cd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9656,7 +9687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8876987c992bb8243af4615c0e805cd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.258
+      value: -0.146
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 8876987c992bb8243af4615c0e805cd2, type: 3}
       propertyPath: m_TagString
@@ -10419,7 +10450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1 &1199168883
 GameObject:
   m_ObjectHideFlags: 0
@@ -12343,6 +12373,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.002, y: 0.003, z: 0.0022}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1471743416 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: d10b557cfe79bc74196f72a1910119d0, type: 3}
+  m_PrefabInternal: {fileID: 62486197}
+--- !u!114 &1471743418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1471743416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcb7466b30ec1f448d16e503bd32064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1475220848
 GameObject:
   m_ObjectHideFlags: 0
@@ -12555,7 +12600,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!114 &1504506603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14180,7 +14224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1 &1720311767 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
@@ -15033,7 +15076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358bb438ed2a02439d9eb0fda2fcd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasSemanticCategory: 1
 --- !u!1001 &1888714783
 Prefab:
   m_ObjectHideFlags: 0
@@ -15675,6 +15717,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1982793957 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+  m_PrefabInternal: {fileID: 2102744253}
+--- !u!114 &1982793959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982793957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcb7466b30ec1f448d16e503bd32064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995546443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 144572, guid: e9d8ba9d41551b04c91a5ef53cb3809b, type: 2}
@@ -17214,6 +17271,10 @@ Prefab:
     - target: {fileID: 100000, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
       propertyPath: m_TagString
       value: HotChocolate
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 7e2796a655196fb4791c8c6519223813, type: 3}
+      propertyPath: m_TagString
+      value: Beverage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e2796a655196fb4791c8c6519223813, type: 3}

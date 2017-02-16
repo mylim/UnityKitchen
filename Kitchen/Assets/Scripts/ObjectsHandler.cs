@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ObjectsHandler : MonoBehaviour {    
+public class ObjectsHandler : MonoBehaviour {
+
     public List<GameObject> correctObjectsList;
     private Dictionary<string, GameObject> pickedObjectsDictionary; // picked individual objects
     private Dictionary<string, GameObject> pickedItemsDictionary; // picked object for a category

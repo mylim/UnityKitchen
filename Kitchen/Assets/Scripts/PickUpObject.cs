@@ -159,13 +159,14 @@ public class PickUpObject : MonoBehaviour
                         // The kettle has been filled with water
                         Debug.Log("Boiling water");
                         kettle.GetComponent<BoiledWater>().boiledWater = true;
+
+                        // update world model
                         manager.updateWorldModel("boiled", kettle, water);
-                    }                    
+                    }    
                     else
                     {
                         CarriedObject(p.gameObject);
-                        manager.updateWorldModel("pickedUp", player, p.gameObject);
-
+                     
                         // Bin lid has been removed
                         if (p.gameObject.tag.Equals("BinLid"))
                         {
@@ -181,7 +182,16 @@ public class PickUpObject : MonoBehaviour
                             {
                                 bin.GetComponent<BinEmpty>().binEmpty = true;
                             }
+                        } 
+
+                        // update world model
+                        //manager.updateWorldModel("pickedUp", player, p.gameObject);
+                        if (carriedObject == kettle || carriedObject.tag.Equals("DishwashingLiquid") || carriedObject.tag.Equals("Towel"))
+                        {
+                            // update world model
+                            manager.updateWorldModel("pickedUp", player, carriedObject);
                         }
+
                     }
 
                     if (p.gameObject.transform.parent != null)
@@ -259,10 +269,15 @@ public class PickUpObject : MonoBehaviour
                             {
                                 Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
+                                // update world model
+                                manager.updateWorldModel("tied", player, collider.gameObject);
                             }
+                            // Player take out the new bin bag
                             else if (bin.GetComponent<NewBag>().newBag)
                             {
                                 bin.GetComponent<NewBag>().newBag = false;
+                                // update world model
+                                manager.updateWorldModel("takeOut", player, collider.gameObject);
                             }
                         }
                     }
@@ -270,8 +285,7 @@ public class PickUpObject : MonoBehaviour
                      collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")
                      collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")))*/
                     else if ((collider.transform.parent != null) && collider.transform.parent.tag.Equals("Sandwich"))
-                    {
-                       
+                    {                       
                         {
                             Debug.Log("Sandwich exists");
                             CarriedObject(sandwich);
@@ -323,10 +337,14 @@ public class PickUpObject : MonoBehaviour
                 else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 {
                     Debug.Log("Rinsing dirty bowl ");
+                    // update world model
+                    manager.updateWorldModel("rinsed", carriedObject, water);
                 }
                 else if (carriedObject.tag.Equals("Towel"))
                 {
                     Debug.Log("Wetting towel ");
+                    // update world model
+                    manager.updateWorldModel("on", water, carriedObject);
                 }
             }
             else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
@@ -338,13 +356,10 @@ public class PickUpObject : MonoBehaviour
                     collider.GetComponent<HasContent>().hasWater = true;
 
                     // update world model
-                    manager.updateWorldModel("in", collider.gameObject, water);
+                    manager.updateWorldModel("in", water, collider.gameObject);
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
-                    // update world model
-                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
-
                     //Drop(carriedObject.GetComponent<Collider>());
                     carriedObject.SetActive(false);
                     carrying = false;
@@ -352,11 +367,18 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Tea bag is in");
                     /*singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
                     singleTeaBag.SetActive(false);                   */
+                    // update world model
+                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
                 }
             }
             else if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
             {
-                if (carriedObject.tag.Equals("Cereal"))
+                if (carriedObject.tag.Equals("Cereal") || carriedObject.tag.Equals("Milk") || carriedObject.tag.Equals("Honey"))
+                {
+                    // update world model
+                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
+                }
+                /*if (carriedObject.tag.Equals("Cereal"))
                 {
                     Debug.Log("Pouring Cereal");
                 }
@@ -367,10 +389,12 @@ public class PickUpObject : MonoBehaviour
                 else if (carriedObject.tag.Equals("Honey"))
                 {
                     Debug.Log("Pouring Honey ");
-                }
+                }*/
                 else if (carriedObject.tag.Equals("Sponge"))
                 {
                     Debug.Log("Washing dirty bowl ");
+                    // update world model
+                    manager.updateWorldModel("washed", carriedObject, collider.gameObject);
                 }
                 else
                 {
@@ -387,6 +411,8 @@ public class PickUpObject : MonoBehaviour
                     binBag.GetComponent<Renderer>().material.SetColor("_Color", carriedObject.GetComponent<Renderer>().material.GetColor("_Color"));
                     bin.GetComponent<NewBag>().newBag = true;
                     carriedObject.SetActive(false);
+                    // update world model
+                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
                 }
             }
             else if (collider.tag.Equals("BinLid"))
@@ -394,6 +420,8 @@ public class PickUpObject : MonoBehaviour
                 if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 {
                     Debug.Log("Disposing Cereal");
+                    // update world model
+                    manager.updateWorldModel("disposed", carriedObject, collider.gameObject);
                 }
             }
             else if (collider.tag.Equals("Sponge"))
@@ -401,13 +429,17 @@ public class PickUpObject : MonoBehaviour
                 if (carriedObject.tag.Equals("DishwashingLiquid"))
                 {
                     Debug.Log("Putting dishwashing liquid on sponge");
+                    // update world model
+                    manager.updateWorldModel("on", carriedObject, collider.gameObject);
                 }
             }
             else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.tag.Equals("Towel")))
             {
                 Debug.Log("Wiping table ");
+                // update world model
+                manager.updateWorldModel("wiped", carriedObject, collider.gameObject);
             }
-            else if ((collider.tag.Equals("Bleach")) && (carriedObject != null))
+            else if ((collider.tag.Equals("Bleach")) && (carrying))
             {
                 Debug.Log("Bleach clicked ");
             }
@@ -451,7 +483,7 @@ public class PickUpObject : MonoBehaviour
             carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
 
             // update world model with the new position of the object
-            manager.updateWorldModel("on", carriedObject, collider.gameObject);
+            // manager.updateWorldModel("on", carriedObject, collider.gameObject);
 
             if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
                 carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
@@ -474,6 +506,8 @@ public class PickUpObject : MonoBehaviour
                 }*/
                 Destroy(carriedObject.GetComponent<Rigidbody>());
                 Destroy(carriedObject.GetComponent<Pickupable>());
+                // update world model with the new position of the object
+                manager.updateWorldModel("on", carriedObject, sandwich);
             }
             else
             {
@@ -548,14 +582,20 @@ public class PickUpObject : MonoBehaviour
                                         if (angleDir > 0.0f && (angle > 45f && angle < 135f))
                                         {
                                             Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
+                                            // update world model
+                                            manager.updateWorldModel("right", carriedObject, hitCollider.gameObject);
                                         }
                                         else if (angleDir < 0.0f)
                                         {
-                                            Debug.Log(carriedObject.transform.parent.tag + "  is at the wrong side of " + hitCollider.tag);
+                                            Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
+                                            // update world model
+                                            manager.updateWorldModel("left", carriedObject, hitCollider.gameObject);
                                         }
                                         else
                                         {
                                             Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
+                                            // update world model
+                                            manager.updateWorldModel("front", carriedObject, hitCollider.gameObject);
                                         }
                                     }
                                 }
@@ -616,6 +656,8 @@ public class PickUpObject : MonoBehaviour
                     }*/
 
                 }
+                // update world model with the new position of the object
+                manager.updateWorldModel("on", carriedObject, collider.gameObject);
             }
         }
 
