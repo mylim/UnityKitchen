@@ -11,6 +11,7 @@ public class PickUpObject : MonoBehaviour
 {
     private GameObject player;
     private GameObject mainCamera;
+    private GameObject worldHandler;
     private GameObject objectsHandler;
     private RaycastHit rayCastHit;
 
@@ -53,17 +54,15 @@ public class PickUpObject : MonoBehaviour
 
     private GameObject dialog = null;
 
-    private WorldModelManager manager;
-  
-   
-    //private ObjectsHandler objectHandler;
+   //private ObjectsHandler objectHandler;
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         mainCamera = GameObject.FindWithTag("MainCamera");
-        objectsHandler = GameObject.FindWithTag("ObjectsHandler");
-        manager = new WorldModelManager();
+        worldHandler = GameObject.FindWithTag("WorldHandler");
+        objectsHandler = GameObject.FindWithTag("ObjectHandler");
+        //manager = new WorldModelManager();
         carrying = false;
 
         // Garbage removal
@@ -149,146 +148,160 @@ public class PickUpObject : MonoBehaviour
                     //collider.GetComponent<Interfere>().dialog.GetComponent<InterferenceDialog>().SetInterference();
                 }
 
-                Debug.Log("In Pickup()");
-                if (collider.GetComponent<Pickupable>())
+                // interference on 
+                if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
                 {
-                    Pickupable p = collider.GetComponent<Pickupable>();
-                    // Kettle is clicked 
-                    if (p.gameObject.tag.Equals("Kettle") && (kettle.GetComponent<FilledWithWater>().filledWithWater) && (!kettle.GetComponent<BoiledWater>().boiledWater))
-                    {
-                        // The kettle has been filled with water
-                        Debug.Log("Boiling water");
-                        kettle.GetComponent<BoiledWater>().boiledWater = true;
+                    Debug.Log("Interference " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
+                    if (collider.tag.Equals("Bleach"))
+                        Debug.Log("Bleach clicked");
 
-                        // update world model
-                        manager.updateWorldModel("boiled", kettle, water);
-                    }    
-                    else
-                    {
-                        CarriedObject(p.gameObject);
-                     
-                        // Bin lid has been removed
-                        if (p.gameObject.tag.Equals("BinLid"))
-                        {
-                            if (bin.GetComponent<LidOn>().lidOn)
-                            {
-                                bin.GetComponent<LidOn>().lidOn = false;
-                            }
-                        }
-                        // Tied bag has been removed
-                        else if (p.gameObject.tag.Equals("TiedBag"))
-                        {
-                            if (!bin.GetComponent<LidOn>().lidOn)
-                            {
-                                bin.GetComponent<BinEmpty>().binEmpty = true;
-                            }
-                        } 
-
-                        // update world model
-                        //manager.updateWorldModel("pickedUp", player, p.gameObject);
-                        if (carriedObject == kettle || carriedObject.tag.Equals("DishwashingLiquid") || carriedObject.tag.Equals("Towel"))
-                        {
-                            // update world model
-                            manager.updateWorldModel("pickedUp", player, carriedObject);
-                        }
-
-                    }
-
-                    if (p.gameObject.transform.parent != null)
-                    {
-                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
-                    } 
-                    else
-                    {
-                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.tag, p.gameObject);
-                    }
-
-                    // Picked the correct item
-                    if (p.gameObject.GetComponent<CorrectItem>())
-                    {
-                        Debug.Log("Correct " + p.gameObject.tag + " picked");
-                    }
-                }
-                // Picking up a single item of a collection, eg. bin bag, napkin
-                else if (collider.GetComponent<PickupableSingle>())
-                {
-                    PickupableSingle pickSingle = collider.GetComponent<PickupableSingle>();
-                    GameObject singleItem = Instantiate(pickSingle.singleItem);
-                    singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
-                    //singleItem.GetComponent<Renderer>().material.SetTexture("_MainTex", pickSingle.itemTexture);
-                    //singleItem.GetComponent<Renderer>().material.mainTexture = pickSingle.itemTexture;
-                    CarriedObject(singleItem);
-                    // update world model
-                    manager.updateWorldModel("pickedUp", player, collider.gameObject);
-
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
-
-                    // Picked the correct item
-                    if (pickSingle.gameObject.GetComponent<CorrectItem>())
-                    {
-                        Debug.Log("Correct " + pickSingle.gameObject.tag + " picked");
-                    }
-
-                    /*singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
-                    singleItem.SetActive(true);
-                    CarriedObject(singleItem);*/
-                }
-                // Picking up a single tea bag
-                else if (collider.GetComponent<PickupableTeaBag>())
-                {
-                    PickupableTeaBag pickTeaBag = collider.GetComponent<PickupableTeaBag>();
-                    GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
-                    CarriedObject(singleTeaBag);
-                    // update world model
-                    manager.updateWorldModel("pickedUp", player, collider.gameObject);
-
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
-
-                    // Picked the correct item
-                    if (pickTeaBag.gameObject.GetComponent<CorrectItem>())
-                    {
-                        Debug.Log("Correct " + pickTeaBag.gameObject.tag + " picked");
-                    }
-                    //singleTeaBag.SetActive(true);
-                    //CarriedObject(singleTeaBag);
                 }
                 else
                 {
-                    // Bin bag clicked
-                    Debug.Log("Collider " + collider.gameObject.name);
-                    if (collider.tag.Equals("BinBag"))
+                    Debug.Log("In Pickup()");
+                    if (collider.GetComponent<Pickupable>())
                     {
-                        if (!bin.GetComponent<LidOn>().lidOn)
+                        Pickupable p = collider.GetComponent<Pickupable>();
+                        // Kettle is clicked 
+                        if (p.gameObject.tag.Equals("Kettle") && (kettle.GetComponent<FilledWithWater>().filledWithWater) && (!kettle.GetComponent<BoiledWater>().boiledWater))
                         {
-                            //Make the bin bag invisible
-                            Debug.Log("Bin Bag clicked");
-                            binBag.SetActive(false);
+                            // The kettle has been filled with water
+                            Debug.Log("Boiling water");
+                            kettle.GetComponent<BoiledWater>().boiledWater = true;
 
-                            // Make tied bag visible 
-                            if (!bin.GetComponent<NewBag>().newBag && tiedBag)
+                            // update world model
+                            worldHandler.GetComponent<WorldModelManager>().updateWorldModel("boiled", kettle, water);
+                        }
+                        else
+                        {
+                            CarriedObject(p.gameObject);
+
+                            // Bin lid has been removed
+                            if (p.gameObject.tag.Equals("BinLid"))
                             {
-                                Debug.Log("Tied Bag found");
-                                tiedBag.SetActive(true);
-                                // update world model
-                                manager.updateWorldModel("tied", player, collider.gameObject);
+                                if (bin.GetComponent<LidOn>().lidOn)
+                                {
+                                    bin.GetComponent<LidOn>().lidOn = false;
+                                }
                             }
-                            // Player take out the new bin bag
-                            else if (bin.GetComponent<NewBag>().newBag)
+                            // Tied bag has been removed
+                            else if (p.gameObject.tag.Equals("TiedBag"))
                             {
-                                bin.GetComponent<NewBag>().newBag = false;
-                                // update world model
-                                manager.updateWorldModel("takeOut", player, collider.gameObject);
+                                if (!bin.GetComponent<LidOn>().lidOn)
+                                {
+                                    bin.GetComponent<BinEmpty>().binEmpty = true;
+                                }
                             }
+
+                            // update world model
+                            //manager.updateWorldModel("pickedUp", player, p.gameObject);
+                            if (carriedObject == kettle || (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("WashingLiquids") || carriedObject.transform.parent.tag.Equals("Towels") || carriedObject.transform.parent.tag.Equals("BeverageContainers"))))
+                            {
+                                // update world model
+                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, carriedObject);
+                            }
+
+                        }
+
+                        if (p.gameObject.transform.parent != null)
+                        {
+                            objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
+                        }
+                        else
+                        {
+                            objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.tag, p.gameObject);
+                        }
+
+                        // Picked the correct item
+                        if (p.gameObject.GetComponent<CorrectItem>())
+                        {
+                            Debug.Log("Correct " + p.gameObject.tag + " picked");
                         }
                     }
-                    /*else if (collider.tag.Equals("SingleNapkin") || collider.tag.Equals("HamSlice") ||
-                     collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")
-                     collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")))*/
-                    else if ((collider.transform.parent != null) && collider.transform.parent.tag.Equals("Sandwich"))
-                    {                       
+                    // Picking up a single item of a collection, eg. bin bag, napkin
+                    else if (collider.GetComponent<PickupableSingle>())
+                    {
+                        PickupableSingle pickSingle = collider.GetComponent<PickupableSingle>();
+                        GameObject singleItem = Instantiate(pickSingle.singleItem);
+                        singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
+                        //singleItem.GetComponent<Renderer>().material.SetTexture("_MainTex", pickSingle.itemTexture);
+                        //singleItem.GetComponent<Renderer>().material.mainTexture = pickSingle.itemTexture;
+                        CarriedObject(singleItem);
+                        // update world model
+                        if (!collider.tag.Equals("Napkin"))
                         {
-                            Debug.Log("Sandwich exists");
-                            CarriedObject(sandwich);
+                            worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, collider.gameObject);
+                        }
+
+                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
+
+                        // Picked the correct item
+                        if (pickSingle.gameObject.GetComponent<CorrectItem>())
+                        {
+                            Debug.Log("Correct " + pickSingle.gameObject.tag + " picked");
+                        }
+
+                        /*singleItem.GetComponent<Renderer>().material.SetColor("_Color", pickSingle.itemColor);
+                        singleItem.SetActive(true);
+                        CarriedObject(singleItem);*/
+                    }
+                    // Picking up a single tea bag
+                    else if (collider.GetComponent<PickupableTeaBag>())
+                    {
+                        PickupableTeaBag pickTeaBag = collider.GetComponent<PickupableTeaBag>();
+                        GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
+                        CarriedObject(singleTeaBag);
+                        // update world model
+                        worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, collider.gameObject);
+
+                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
+
+                        // Picked the correct item
+                        if (pickTeaBag.gameObject.GetComponent<CorrectItem>())
+                        {
+                            Debug.Log("Correct " + pickTeaBag.gameObject.tag + " picked");
+                        }
+                        //singleTeaBag.SetActive(true);
+                        //CarriedObject(singleTeaBag);
+                    }
+                    else
+                    {
+                        // Bin bag clicked
+                        Debug.Log("Collider " + collider.gameObject.name);
+                        if (collider.tag.Equals("BinBag"))
+                        {
+                            if (!bin.GetComponent<LidOn>().lidOn)
+                            {
+                                //Make the bin bag invisible
+                                Debug.Log("Bin Bag clicked");
+                                binBag.SetActive(false);
+
+                                // Make tied bag visible 
+                                if (!bin.GetComponent<NewBag>().newBag && tiedBag)
+                                {
+                                    Debug.Log("Tied Bag found");
+                                    tiedBag.SetActive(true);
+                                    // update world model
+                                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("tied", player, collider.gameObject);
+                                }
+                                // Player take out the new bin bag
+                                else if (bin.GetComponent<NewBag>().newBag)
+                                {
+                                    bin.GetComponent<NewBag>().newBag = false;
+                                    // update world model
+                                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("tookOut", player, collider.gameObject);
+                                }
+                            }
+                        }
+                        /*else if (collider.tag.Equals("SingleNapkin") || collider.tag.Equals("HamSlice") ||
+                         collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")
+                         collider.tag.Equals("CheeseSlice") || collider.tag.Equals("SingleSlice")))*/
+                        else if ((collider.transform.parent != null) && collider.transform.parent.tag.Equals("Sandwich"))
+                        {
+                            {
+                                Debug.Log("Sandwich exists");
+                                CarriedObject(sandwich);
+                            }
                         }
                     }
                 }
@@ -332,22 +345,24 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
                     // update world model
-                    manager.updateWorldModel("filled", kettle, water);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("filled", kettle, water);
                 }
-                else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
+                //else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
+                else if (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Dishes"))
                 {
                     Debug.Log("Rinsing dirty bowl ");
                     // update world model
-                    manager.updateWorldModel("rinsed", carriedObject, water);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("rinsed", carriedObject, water);
                 }
-                else if (carriedObject.tag.Equals("Towel"))
+                else if (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Towels"))
                 {
                     Debug.Log("Wetting towel ");
                     // update world model
-                    manager.updateWorldModel("on", water, carriedObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", water, carriedObject);
                 }
             }
-            else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
+            //else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
+            else if (collider.transform.parent != null && collider.transform.parent.tag.Equals("BeverageContainers"))
             {
                 if (carriedObject.tag.Equals("Kettle"))
                 {
@@ -356,27 +371,26 @@ public class PickUpObject : MonoBehaviour
                     collider.GetComponent<HasContent>().hasWater = true;
 
                     // update world model
-                    manager.updateWorldModel("in", water, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", water, collider.gameObject);
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
-                    //Drop(carriedObject.GetComponent<Collider>());
-                    carriedObject.SetActive(false);
+                    carriedObject.SetActive(false);                  
+                    Debug.Log("Tea bag is in");
+
+                    // update world model
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
                     carrying = false;
                     carriedObject = null;
-                    Debug.Log("Tea bag is in");
-                    /*singleTeaBag.GetComponent<TeaBagIn>().teaBagIn = true;
-                    singleTeaBag.SetActive(false);                   */
-                    // update world model
-                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
                 }
             }
-            else if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
+            //else if (collider.tag.Equals("Bowl") || collider.tag.Equals("PicnicPlate") || collider.tag.Equals("SmallPlate") || collider.tag.Equals("Saucer"))
+            else if (collider.transform.parent != null && collider.transform.parent.tag.Equals("Dishes"))
             {
                 if (carriedObject.tag.Equals("Cereal") || carriedObject.tag.Equals("Milk") || carriedObject.tag.Equals("Honey"))
                 {
                     // update world model
-                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
                 }
                 /*if (carriedObject.tag.Equals("Cereal"))
                 {
@@ -394,7 +408,7 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Washing dirty bowl ");
                     // update world model
-                    manager.updateWorldModel("washed", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("washed", carriedObject, collider.gameObject);
                 }
                 else
                 {
@@ -411,17 +425,21 @@ public class PickUpObject : MonoBehaviour
                     binBag.GetComponent<Renderer>().material.SetColor("_Color", carriedObject.GetComponent<Renderer>().material.GetColor("_Color"));
                     bin.GetComponent<NewBag>().newBag = true;
                     carriedObject.SetActive(false);
+
                     // update world model
-                    manager.updateWorldModel("in", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
+                    carrying = false;
+                    carriedObject = null;
                 }
             }
             else if (collider.tag.Equals("BinLid"))
             {
-                if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
+                //if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
+                if (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Dishes"))
                 {
                     Debug.Log("Disposing Cereal");
                     // update world model
-                    manager.updateWorldModel("disposed", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("disposed", carriedObject, collider.gameObject);
                 }
             }
             else if (collider.tag.Equals("Sponge"))
@@ -430,18 +448,20 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Putting dishwashing liquid on sponge");
                     // update world model
-                    manager.updateWorldModel("on", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, collider.gameObject);
                 }
             }
-            else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.tag.Equals("Towel")))
+            else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Towels")))
             {
                 Debug.Log("Wiping table ");
                 // update world model
-                manager.updateWorldModel("wiped", carriedObject, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("wiped", carriedObject, collider.gameObject);
             }
-            else if ((collider.tag.Equals("Bleach")) && (carrying))
-            {
-                Debug.Log("Bleach clicked ");
+            // interference on 
+            else if (worldHandler.GetComponent<WorldModelManager>().GetInterference() && collider.tag.Equals("Bleach"))
+            {               
+                Debug.Log("Bleach clicked");
+
             }
             else
             {
@@ -461,6 +481,8 @@ public class PickUpObject : MonoBehaviour
             {
                 Debug.Log("Lid distance " + distance);
                 bin.GetComponent<LidOn>().lidOn = true;
+                // update world model
+                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", binLid, collider.gameObject);
                 Debug.Log("Lid on");
             }
             else if (carriedObject == tiedBag)
@@ -469,12 +491,14 @@ public class PickUpObject : MonoBehaviour
                 if (!bin.GetComponent<LidOn>().lidOn && !bin.GetComponent<NewBag>().newBag)
                 {
                     bin.GetComponent<BinEmpty>().binEmpty = false;
+                    // update world model
+                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", tiedBag, collider.gameObject);
                     Debug.Log("Bin is not empty");
                 }
             }
             else if (carriedObject == kettle)
             {
-                manager.updateWorldModel("on", kettle, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", kettle, collider.gameObject);
             }
             carriedObject.transform.position = originalPosition;
         }
@@ -492,27 +516,16 @@ public class PickUpObject : MonoBehaviour
                 carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
                 carriedObject.transform.parent = sandwich.transform;
                 sandwichHeight += carriedObject.GetComponent<Collider>().bounds.size.y;
-                //carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
-                /*if (makingSandwich)
-                {
-                    carriedObject.transform.parent = sandwich.transform;
-                    carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
-                }
-                else
-                {
-                    carriedObject.transform.parent = sandwich.transform;
-                    carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();                    
-                    makingSandwich = true;
-                }*/
+     
+                // the object does not have independent properties anymore once it has been attached to sandwich object
                 Destroy(carriedObject.GetComponent<Rigidbody>());
                 Destroy(carriedObject.GetComponent<Pickupable>());
                 // update world model with the new position of the object
-                manager.updateWorldModel("on", carriedObject, sandwich);
+                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, sandwich);
             }
             else
             {
-                if (carriedObject.tag.Equals("Bread") || carriedObject.tag.Equals("Breadroll") || carriedObject.tag.Equals("Pitta") ||
-                    carriedObject.tag.Equals("Wrap") || carriedObject.tag.Equals("Ham") || carriedObject.tag.Equals("Cheese"))
+                if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Dough") || carriedObject.transform.parent.tag.Equals("Cheeses"))) || carriedObject.tag.Equals("Ham"))
                 {
                     //RigidbodyConstraints constraints = carriedObject.GetComponent<Rigidbody>().constraints;
                     carriedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -526,138 +539,88 @@ public class PickUpObject : MonoBehaviour
                         if (carriedObject.GetComponent<InstantiateItem>())
                         {
                             carriedObject.GetComponent<OnTable>().onTable = true;
-                            //carriedObject.GetComponentInParent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y / 2))), 2);
                             carriedObject.GetComponent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y))), 2);
                         }
-                    }
-                    //carriedObject.GetComponent<Rigidbody>().constraints = constraints;
+                    }                   
                 }
-                else if (carriedObject.transform.parent != null)
+                else if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers")) || carriedObject == sandwich))
                 {
-                    if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers") || carriedObject.transform.parent.tag.Equals("Sandwich") || carriedObject.transform.parent.tag.Equals("Dishes"))
+                    //if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers"))                        
+                        //|| (carriedObject == sandwich)))// || carriedObject.transform.parent.tag.Equals("Dishes"))
                     {
-                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);                       
-                        foreach (Collider hitCollider in hitColliders)
+                        if (collider.tag.Equals("Table") || collider.tag.Equals("Placemat"))
                         {
-                            if (hitCollider.transform.parent != null)
+                            Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);
+                            foreach (Collider hitCollider in hitColliders)
                             {
-                                if (!hitCollider.transform.parent.tag.Equals(carriedObject.transform.parent.tag))
+                                if (hitCollider.transform.parent != null)
                                 {
-                                    //if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
-                                    if (hitCollider.transform.parent.tag.Equals("Cutlery") || hitCollider.transform.parent.tag.Equals("BeverageContainers") || hitCollider.transform.parent.tag.Equals("Sandwich") || hitCollider.transform.parent.tag.Equals("Dishes"))
+                                    //if (!hitCollider.transform.parent.tag.Equals(carriedObject.transform.parent.tag))
+                                    if (hitCollider.transform.parent.tag.Equals("Dishes"))
                                     {
-                                        // direction from the cutlery to the dish
-                                        /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
-                                        float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+                                        //if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
+                                        //if (hitCollider.transform.parent.tag.Equals("Cutlery") || hitCollider.transform.parent.tag.Equals("BeverageContainers") || hitCollider.transform.parent.tag.Equals("Sandwich") || hitCollider.transform.parent.tag.Equals("Dishes"))
+                                        {
+                                            // direction from the cutlery to the dish
+                                            /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
+                                            float angle = Vector3.Angle(dir, mainCamera.transform.forward);
 
 
-                                        Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                        Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
+                                            Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                            Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
 
-                                        Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                        float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                        Debug.Log("AngleDir " + angleDir);
-                                        if (angleDir < 0f)
-                                        {
-                                            Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
-                                        }
-                                        else if (angleDir > 0f)
-                                        {
-                                            Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
-                                        }
-                                        else
-                                        {
-                                            Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
-                                        }*/
+                                            Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                            float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                            Debug.Log("AngleDir " + angleDir);
+                                            if (angleDir < 0f)
+                                            {
+                                                Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
+                                            }
+                                            else if (angleDir > 0f)
+                                            {
+                                                Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
+                                            }
+                                            else
+                                            {
+                                                Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
+                                            }*/
 
-                                        // direction from the dish to the cutlery
-                                        Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
-                                        float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+                                            // direction from the dish to the cutlery
+                                            Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
+                                            float angle = Vector3.Angle(dir, mainCamera.transform.forward);
 
-                                        //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                        //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
-                                        Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                        float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                        Debug.Log("AngleDir " + angleDir);
-                                        if (angleDir > 0.0f && (angle > 45f && angle < 135f))
-                                        {
-                                            Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
-                                            // update world model
-                                            manager.updateWorldModel("right", carriedObject, hitCollider.gameObject);
-                                        }
-                                        else if (angleDir < 0.0f)
-                                        {
-                                            Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
-                                            // update world model
-                                            manager.updateWorldModel("left", carriedObject, hitCollider.gameObject);
-                                        }
-                                        else
-                                        {
-                                            Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
-                                            // update world model
-                                            manager.updateWorldModel("front", carriedObject, hitCollider.gameObject);
+                                            //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                            //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
+                                            Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                            float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                            Debug.Log("AngleDir " + angleDir);
+                                            if (angleDir > 0.0f && (angle > 45f && angle < 135f))
+                                            {
+                                                //Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
+                                                // update world model
+                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("right", carriedObject, hitCollider.gameObject);
+                                            }
+                                            else if (angleDir < 0.0f)
+                                            {
+                                                //Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
+                                                // update world model
+                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("left", carriedObject, hitCollider.gameObject);
+                                            }
+                                            else
+                                            {
+                                                //Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
+                                                // update world model
+                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("front", carriedObject, hitCollider.gameObject);
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }  
-                        /* Finding the closest object
-                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);
-                        Collider closest = null;
-                        foreach (Collider hitCollider in hitColliders)
-                        {
-                            Debug.Log("Hit collider " + hitCollider.tag);
-                            if (hitCollider != carriedObject.GetComponent<Collider>())
-                            {
-                                // if closest is null
-                                if (closest == null)
-                                {
-                                    closest = hitCollider;
-                                }
-                                if (Vector3.Distance(carriedObject.transform.position, hitCollider.transform.position) <
-                                    Vector3.Distance(carriedObject.transform.position, closest.transform.position))
-                                {
-                                    closest = hitCollider;
-                                }
-                            }
-                        }
-                        Debug.Log("Closest object " + closest.tag);*/                
+                        } 
                     }
-                    /*else if (carriedObject.transform.parent.tag.Equals("BeverageContainers"))
-                    {
-                        Collider[] hitColliders = Physics.OverlapSphere(carriedObject.transform.position, 0.1f);
-                        foreach (Collider hitCollider in hitColliders)
-                        {
-                            if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
-                            {
-                                // direction from the dish to the cutlery
-                                Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
-                                float angle = Vector3.Angle(dir, mainCamera.transform.forward);
-
-                                //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
-                                Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                Debug.Log("AngleDir " + angleDir);
-                                if (angleDir > 0.0f && (angle > 45f && angle < 135f))
-                                {
-                                    Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
-                                }
-                                else if (angleDir < 0.0f)
-                                {
-                                    Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
-                                }
-                                else
-                                {
-                                    Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
-                                }
-                            }
-                        }                    
-                    }*/
-
                 }
                 // update world model with the new position of the object
-                manager.updateWorldModel("on", carriedObject, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, collider.gameObject);
             }
         }
 

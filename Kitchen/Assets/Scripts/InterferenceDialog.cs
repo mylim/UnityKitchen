@@ -6,15 +6,18 @@ public class InterferenceDialog : MonoBehaviour {
     public GameObject dialog;
     private string answer;
     private bool interfering;
+    private int index;
 
     void Start()
     {
+        index = 0;
         interfering = false;
     }
 
     public void ShowDialog()
     {
-        dialog.SetActive(true);        
+        dialog.SetActive(true);
+        SetInterference();      
     }
 
     public void ShowAnswer()

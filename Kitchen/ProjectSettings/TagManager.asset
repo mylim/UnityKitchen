@@ -34,7 +34,7 @@ TagManager:
   - Napkin
   - BinBags
   - SingleNapkin
-  - ObjectsHandler
+  - WorldHandler
   - Fork
   - Knife
   - TableSpoon
@@ -96,6 +96,12 @@ TagManager:
   - Towel
   - Water
   - Beverage
+  - Towels
+  - WashingLiquids
+  - Room
+  - Dough
+  - Cheeses
+  - ObjectHandler
   layers:
   - Default
   - TransparentFX

@@ -3,18 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WorldModelManager : MonoBehaviour {
+    public int interferenceInterval;
+    public GameObject[] dialogs;
+    private int dialogIndex;
     private List<PrimitiveAction> actions;
     private int actionIndex;
     private Dictionary<string, GameObject> objects;
-    
+    private bool interfering;
 
     // Use this for initialization
-    public WorldModelManager () {
+    void Start() {
         actionIndex = 0;
+        dialogIndex = 0;
         actions = new List<PrimitiveAction>();
-        objects = new Dictionary<string, GameObject>();
+        objects = new Dictionary<string, GameObject>();       
     }
-	
+
+    void Update()
+    {       
+        if (dialogs[dialogIndex].GetComponent<InterferenceDialog>().GetInterference())
+            dialogIndex++;
+    }
+
     public void updateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
     {
         Debug.Log("action " + pAction);
@@ -41,7 +51,25 @@ public class WorldModelManager : MonoBehaviour {
                 objects[elementTwo.transform.parent.tag] = elementTwo;
             }
         }
+        Debug.Log("action count " + actions.Count);
+        //+ "mod count " + actions.Count%10);
+        //if ((actions.Count > 0) && ((actions.Count % interferenceInterval) == 0))
+        //if (((actions.Count % interferenceInterval) == 0))
+        if ((actions.Count > 0) && (actions.Count % 10 == 0))
+        {
+            Debug.Log("In update of world model ");
+            if ((dialogIndex < dialogs.Length))
+            {
+                dialogs[dialogIndex].GetComponent<InterferenceDialog>().ShowDialog();
+                //dialogs[dialogIndex].GetComponent<InterferenceDialog>().SetInterference();
+            }
+        }
         printActions();
+    }
+
+    public bool GetInterference()
+    {
+        return dialogs[dialogIndex].GetComponent<InterferenceDialog>().GetInterference();
     }
 
     private void printActions()

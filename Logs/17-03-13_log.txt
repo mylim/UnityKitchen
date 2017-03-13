@@ -1,0 +1,3613 @@
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 on Bowl KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 on Bowl KitchenTop
+Action 21 on TableSpoon KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 on Bowl KitchenTop
+Action 21 on TableSpoon KitchenTop
+Action 22 on TableSpoon KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 on Bowl KitchenTop
+Action 21 on TableSpoon KitchenTop
+Action 22 on TableSpoon KitchenTop
+Action 23 on Cereal KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 on Bread KitchenTop
+Action 12 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 pickedUp Player Tea
+Action 6 in SingleTeaBag Mug
+Action 7 boiled Kettle Water
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Kettle
+Action 7 in Water Mug
+Action 8 on Kettle KettleBase
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player MultipurposeCleaner
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player MultipurposeCleaner
+Action 21 on MultipurposeCleaner Wall
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug KitchenTop
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player MultipurposeCleaner
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player MultipurposeCleaner
+Action 21 on MultipurposeCleaner Wall
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Bread KitchenTop
+Action 13 on Cheese KitchenTop
+Action 14 on Ham KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player MultipurposeCleaner
+Action 21 on MultipurposeCleaner Wall
+Action 22 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Tea
+Action 7 in SingleTeaBag Mug
+Action 8 pickedUp Player Kettle
+Action 9 in Water Mug
+Action 10 on Kettle KettleBase
+Action 11 on SingleNapkin Sandwich
+Action 12 on Cheese KitchenTop
+Action 13 on Ham KitchenTop
+Action 14 on Bread KitchenTop
+Action 15 on SingleSlice Sandwich
+Action 16 on HamSlice Sandwich
+Action 17 on HamSlice Sandwich
+Action 18 on CheeseSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Action 22 on Bleach SinkShelf
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Action 22 on Bleach SinkShelf
+Action 23 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Action 22 on Bleach SinkShelf
+Action 23 pickedUp Player Bleach
+Action 24 on Bleach Wall
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Action 22 on Bleach SinkShelf
+Action 23 pickedUp Player Bleach
+Action 24 on Bleach Wall
+Action 25 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+Action 5 on Mug KitchenTop
+Action 6 pickedUp Player Mug
+Action 7 on Mug KitchenTop
+Action 8 pickedUp Player Tea
+Action 9 in SingleTeaBag Mug
+Action 10 pickedUp Player Kettle
+Action 11 in Water Mug
+Action 12 on Kettle KettleBase
+Action 13 on SingleNapkin Sandwich
+Action 14 on Cheese KitchenTop
+Action 15 on Ham KitchenTop
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on HamSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 pickedUp Player Bleach
+Action 21 pickedUp Player Bleach
+Action 22 on Bleach SinkShelf
+Action 23 pickedUp Player Bleach
+Action 24 on Bleach Wall
+Action 25 pickedUp Player Bleach
+Action 26 on Bleach Wall
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Action 20 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Action 20 pickedUp Player Bleach
+Action 21 on Bleach Wall
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Action 20 pickedUp Player Bleach
+Action 21 on Bleach Wall
+Action 22 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Action 20 pickedUp Player Bleach
+Action 21 on Bleach Wall
+Action 22 pickedUp Player Bleach
+Action 23 pickedUp Player Bleach
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 pickedUp Player Mug
+Action 4 on Mug Sandwich
+Action 5 pickedUp Player Mug
+Action 6 on Mug Sandwich
+Action 7 pickedUp Player Mug
+Action 8 on Mug KitchenTop
+Action 9 pickedUp Player Tea
+Action 10 in SingleTeaBag Mug
+Action 11 boiled Kettle Water
+Action 12 pickedUp Player Kettle
+Action 13 in Water Mug
+Action 14 on Kettle KettleBase
+Action 15 on SingleNapkin Sandwich
+Action 16 on Bread KitchenTop
+Action 17 on SingleSlice Sandwich
+Action 18 on SingleSlice Sandwich
+Action 19 on Bread KitchenTop
+Action 20 pickedUp Player Bleach
+Action 21 on Bleach Wall
+Action 22 pickedUp Player Bleach
+Action 23 pickedUp Player Bleach
+Action 24 on Bleach SinkShelf
+Item BeverageContainers, value E1_ST5_EM1_I2
+Item Beverage, value E1_ST7_EM1_I3
