@@ -113,6 +113,7 @@ public class PickUpObject : MonoBehaviour
 
     void Update()
     {
+        //interfering = worldHandler.GetComponent<WorldModelManager>().GetInterference();
         if (carrying)
         {
             Debug.Log("Carrying");
@@ -139,24 +140,24 @@ public class PickUpObject : MonoBehaviour
             Collider collider = GetComponent<MouseHoverObject>().GetMouseHoverObject(2);
             if (collider != null)
             {
-                if (collider.GetComponent<Interfere>())
+                /*if (collider.GetComponent<Interfere>())
                 {
                     //collider.GetComponent<Interfere>().ShowID();
                     collider.GetComponent<Interfere>().dialog.GetComponent<InterferenceDialog>().ShowDialog();
                     dialog = collider.GetComponent<Interfere>().dialog;
                     //interfering = true;
                     //collider.GetComponent<Interfere>().dialog.GetComponent<InterferenceDialog>().SetInterference();
-                }
+                }*/
 
                 // interference on 
-                if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
+                /*if (collider.tag.Equals("Bleach") && interfering)
                 {
-                    Debug.Log("Interference " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
-                    if (collider.tag.Equals("Bleach"))
+                    Debug.Log("Interference bleach " + interfering);
+                    //if (collider.tag.Equals("Bleach"))
                         Debug.Log("Bleach clicked");
 
                 }
-                else
+                else*/
                 {
                     Debug.Log("In Pickup()");
                     if (collider.GetComponent<Pickupable>())
@@ -171,6 +172,13 @@ public class PickUpObject : MonoBehaviour
 
                             // update world model
                             worldHandler.GetComponent<WorldModelManager>().updateWorldModel("boiled", kettle, water);
+                        }
+                        else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+                        {
+                            //Debug.Log("Interference bleach " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
+                            //if (collider.tag.Equals("Bleach"))
+                            Debug.Log("Bleach clicked");
+
                         }
                         else
                         {
@@ -458,10 +466,10 @@ public class PickUpObject : MonoBehaviour
                 worldHandler.GetComponent<WorldModelManager>().updateWorldModel("wiped", carriedObject, collider.gameObject);
             }
             // interference on 
-            else if (worldHandler.GetComponent<WorldModelManager>().GetInterference() && collider.tag.Equals("Bleach"))
-            {               
+            else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+            {
+                //Debug.Log("Dialog interference " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
                 Debug.Log("Bleach clicked");
-
             }
             else
             {

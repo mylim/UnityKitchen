@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class WorldModelManager : MonoBehaviour {
     public int interferenceInterval;
-    public GameObject[] dialogs;
+    public InterferenceDialog[] dialogs;
     private int dialogIndex;
     private List<PrimitiveAction> actions;
     private int actionIndex;
@@ -19,10 +19,12 @@ public class WorldModelManager : MonoBehaviour {
         objects = new Dictionary<string, GameObject>();       
     }
 
-    void Update()
-    {       
-        if (dialogs[dialogIndex].GetComponent<InterferenceDialog>().GetInterference())
+    void Update() {
+        if (dialogs[dialogIndex].DialogClosed())
+        {
+            UpdateInterference();
             dialogIndex++;
+        }
     }
 
     public void updateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
@@ -55,21 +57,32 @@ public class WorldModelManager : MonoBehaviour {
         //+ "mod count " + actions.Count%10);
         //if ((actions.Count > 0) && ((actions.Count % interferenceInterval) == 0))
         //if (((actions.Count % interferenceInterval) == 0))
-        if ((actions.Count > 0) && (actions.Count % 10 == 0))
+        if ((actions.Count > 0) && (actions.Count % interferenceInterval == 0) && (!interfering))
         {
             Debug.Log("In update of world model ");
             if ((dialogIndex < dialogs.Length))
             {
-                dialogs[dialogIndex].GetComponent<InterferenceDialog>().ShowDialog();
+                //Debug.Log("Dialog index to show" + dialogIndex);
+                dialogs[dialogIndex].ShowDialog();
+                UpdateInterference();
+                //Debug.Log("In show Dialog index " + dialogIndex + " interference " + interfering);
+                //GetInterference();                
                 //dialogs[dialogIndex].GetComponent<InterferenceDialog>().SetInterference();
             }
         }
         printActions();
     }
 
+    private void UpdateInterference()
+    {
+        interfering = dialogs[dialogIndex].GetInterference();
+        //Debug.Log("In update Inteference dialog index " + dialogIndex + " interference " + interfering);
+    }
+
     public bool GetInterference()
     {
-        return dialogs[dialogIndex].GetComponent<InterferenceDialog>().GetInterference();
+        //Debug.Log("Dialog index " + dialogIndex + " interference " + interfering);
+        return interfering;
     }
 
     private void printActions()

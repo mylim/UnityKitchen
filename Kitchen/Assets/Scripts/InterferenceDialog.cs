@@ -5,19 +5,22 @@ using UnityEngine.UI;
 public class InterferenceDialog : MonoBehaviour {
     public GameObject dialog;
     private string answer;
-    private bool interfering;
+    public bool interfering;
     private int index;
+    private bool dialogClosed;
 
     void Start()
     {
         index = 0;
         interfering = false;
+        dialogClosed = false;
     }
 
     public void ShowDialog()
     {
-        dialog.SetActive(true);
-        SetInterference();      
+        SetInterference();       
+        //Debug.Log("Interference dialog " + dialog.name + " set to " + interfering);
+        dialog.SetActive(true);                    
     }
 
     public void ShowAnswer()
@@ -30,11 +33,18 @@ public class InterferenceDialog : MonoBehaviour {
     {
         ResetInterference();
         dialog.SetActive(false);
+        dialogClosed = true;
+    }
+
+    public bool DialogClosed()
+    {
+        return dialogClosed;
     }
 
     public void SetInterference()
     {
         interfering = true;
+        //Debug.Log("Interfering set to true dialog " + dialog.name);
     }
 
     public bool GetInterference()
@@ -44,6 +54,7 @@ public class InterferenceDialog : MonoBehaviour {
 
     public void ResetInterference()
     {
+        // Debug.Log("Interfering set to false dialog " + dialog.name);
         interfering = false;
     }
 

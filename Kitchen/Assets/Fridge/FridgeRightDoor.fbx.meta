@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8740877fc72c8b04497e24fa7534cb8a
-timeCreated: 1466598403
+timeCreated: 1491818882
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -11,12 +11,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: FridgeRightDoor
     7400000: FridgeRightDoor|FridgeLeftDoorAction
-    7400002: FridgeRightDoorAnim
-    7400004: FridgeRightDoorIdle
-    7400006: FridgeRightDoorOpen
-    7400008: FridgeRightDoorClose
+    7400002: FridgeRightDoor|FridgeLeftDoorAction.001
+    7400004: FridgeRightDoorAnim
+    7400006: FridgeRightDoorIdle
+    7400008: FridgeRightDoorOpen
+    7400010: FridgeRightDoorClose
     9500000: //RootNode
-    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -31,7 +31,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
