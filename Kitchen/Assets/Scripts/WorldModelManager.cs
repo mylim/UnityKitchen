@@ -33,7 +33,7 @@ public class WorldModelManager : MonoBehaviour {
         Debug.Log("elementOne " + elementOne.tag);
         Debug.Log("elementTwo " + elementTwo.tag);
 
-        //PrimitiveAction action = new PrimitiveAction(pAction, elementOne, elementTwo);
+        //adding the action performed
         actions.Add(new PrimitiveAction(pAction, elementOne, elementTwo));
         if (elementOne.transform.parent != null && elementOne.transform.parent.GetComponent<SemanticCategory>())
         {

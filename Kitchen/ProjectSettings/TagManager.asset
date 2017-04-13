@@ -93,15 +93,18 @@ TagManager:
   - KettleBase
   - Waypoint
   - MopTowel
-  - Towel
+  - DishTowel
   - Water
   - Beverage
   - Towels
   - WashingLiquids
   - Room
   - Dough
-  - Cheeses
+  - SandwichFilling
   - ObjectHandler
+  - Bags
+  - CleaningMaterials
+  - Towel
   layers:
   - Default
   - TransparentFX
