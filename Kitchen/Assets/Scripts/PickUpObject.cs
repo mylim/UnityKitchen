@@ -516,7 +516,7 @@ public class PickUpObject : MonoBehaviour
             }
             else
             {
-                if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Dough") || carriedObject.transform.parent.tag.Equals("Cheeses"))) || carriedObject.tag.Equals("Ham"))
+                if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Dough") || carriedObject.transform.parent.tag.Equals("SandwichFilling"))) || carriedObject.tag.Equals("Ham"))
                 {
                     //RigidbodyConstraints constraints = carriedObject.GetComponent<Rigidbody>().constraints;
                     carriedObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -529,7 +529,6 @@ public class PickUpObject : MonoBehaviour
                         // Instantiate items only if the object is placed on the table                            
                         if (carriedObject.GetComponent<InstantiateItem>())
                         {
-                            carriedObject.GetComponent<OnTable>().onTable = true;
                             carriedObject.GetComponent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y))), 2);
                         }
                     }                   

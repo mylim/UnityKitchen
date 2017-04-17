@@ -19,7 +19,7 @@ public class PrimitiveAction {
     /// <summary>
     /// The first element of the primitive action.
     /// </summary>
-    public GameObject ElementOne
+    public Element ElementOne
     {
         get;
         set;
@@ -28,7 +28,7 @@ public class PrimitiveAction {
     /// <summary>
     /// The second element of the primitive action.
     /// </summary>
-    public GameObject ElementTwo
+    public Element ElementTwo
     {
         get;
         set;
@@ -40,17 +40,18 @@ public class PrimitiveAction {
     /// <summary>
     /// Constructor for a new empty state.
     /// </summary>
-    /// <param name="name">The name of the state</param>
-    public PrimitiveAction(string name)
+    public PrimitiveAction()
     {
-        this.Name = name;
+        this.Name = "";
+        this.ElementOne = new Element();
+        this.ElementTwo = new Element();
     }
 
     /// <summary>
     /// Constructor for a new primitive action.
     /// </summary>
     /// <param name="name">The name of the state</param>
-    public PrimitiveAction(string name, GameObject elementOne, GameObject elementTwo)
+    public PrimitiveAction(string name, Element elementOne, Element elementTwo)
     {
         Add(name, elementOne, elementTwo);
     }
@@ -61,7 +62,7 @@ public class PrimitiveAction {
     /// <param name="variable">The action name</param>
     /// <param name="elementOne">The first element of the primitive action</param>
     /// <param name="elementTwo">The second element of the primitive action</param>
-    public void Add(string name, GameObject elementOne, GameObject elementTwo)
+    public void Add(string name, Element elementOne, Element elementTwo)
     {
         this.Name = name;
         this.ElementOne = elementOne;

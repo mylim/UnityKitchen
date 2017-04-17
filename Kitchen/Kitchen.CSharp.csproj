@@ -130,6 +130,7 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Scripts\CorrectItem.cs" />
+    <Compile Include="Assets\Scripts\Element.cs" />
     <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\HasContent.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointRotationAngles.cs" />
     <Compile Include="Assets\Scripts\WorldModelManager.cs" />
+    <Compile Include="Assets\Scripts\XMLParser.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>
@@ -188,6 +190,7 @@
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\XML\Tasks.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

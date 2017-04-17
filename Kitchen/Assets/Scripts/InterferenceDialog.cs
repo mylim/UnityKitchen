@@ -14,10 +14,12 @@ public class InterferenceDialog : MonoBehaviour {
         index = 0;
         interfering = false;
         dialogClosed = false;
+       
     }
 
     public void ShowDialog()
     {
+        answer = "";
         SetInterference();       
         //Debug.Log("Interference dialog " + dialog.name + " set to " + interfering);
         dialog.SetActive(true);                    

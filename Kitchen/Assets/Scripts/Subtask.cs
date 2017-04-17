@@ -1,18 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class Subtask : MonoBehaviour {
-    private string name;
-    private bool semanticCategory;
-    private PrimitiveAction action;
+public class Subtask{
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    /// <summary>
+    /// The ID of the subtask.
+    /// </summary>
+    public string ID
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// The primitive action.
+    /// </summary>
+    public PrimitiveAction Action
+    {
+        get;
+        set;
+    }
+
+    public Subtask() 
+    {
+        this.ID = "";
+        this.Action = new PrimitiveAction();
+    }
+
+    public Subtask(string ID, PrimitiveAction action) 
+    {
+        this.ID = ID;
+        this.Action = action;
+    }
 }
