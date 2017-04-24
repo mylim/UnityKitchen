@@ -13,6 +13,15 @@ public class XMLSubtask{
         set;
     }
 
+    /*/// <summary>
+    /// Whether the action is auxiliary
+    /// </summary>
+    public bool Auxiliary
+    {
+        get;
+        set;
+    }*/
+
     /// <summary>
     /// The primitive action.
     /// </summary>
@@ -25,12 +34,14 @@ public class XMLSubtask{
     public XMLSubtask() 
     {
         this.ID = "";
+        //this.Auxiliary = false;
         this.Action = new XMLPrimitiveAction();
     }
 
-    public XMLSubtask(string ID, XMLPrimitiveAction action) 
+    public XMLSubtask(string ID, bool auxiliary, XMLPrimitiveAction action) 
     {
         this.ID = ID;
+        //this.Auxiliary = auxiliary;
         this.Action = action;
     }
 }

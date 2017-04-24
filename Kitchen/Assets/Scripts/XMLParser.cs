@@ -26,7 +26,8 @@ public class XMLParser{
         foreach (XmlNode node in nodes)
         {
             XMLErrand errand = new XMLErrand();
-            errand.Name = node.Attributes["name"].Value;
+            errand.ID = node.Attributes["ID"].Value;
+            errand.Name = node.Attributes["name"].Value;            
 
             // Actions in each subtask
             XmlNodeList nodes2 = errandsFile.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
@@ -34,6 +35,8 @@ public class XMLParser{
             {               
                 XMLSubtask subtask = new XMLSubtask();
                 subtask.ID = node2.Attributes["ID"].Value;
+                //Debug.Log("Subtask ID " + subtask.ID);
+
                 XMLPrimitiveAction pAction = new XMLPrimitiveAction();
                 pAction.Name = node2.SelectSingleNode("Name").InnerText;
                 if (node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"] != null)
@@ -55,8 +58,18 @@ public class XMLParser{
                     pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, false);
                 }
                 subtask.Action = pAction;
-              
-                errand.AddSubtask(subtask);
+
+                if (node2.Attributes["Auxiliary"] != null)
+                {
+                    errand.AddAuxSubtask(subtask);
+                    //Debug.Log("Auxiliary true");
+                }
+                else
+                {
+                    errand.AddSubtask(subtask);
+                    //Debug.Log("Auxiliary false");
+                }
+
             }           
             errands.Add(errand);
         }

@@ -13,6 +13,15 @@ public class Subtask{
         set;
     }
 
+    /*/// <summary>
+    /// Whether the action is auxiliary
+    /// </summary>
+    public bool Auxiliary
+    {
+        get;
+        set;
+    }*/
+
     /// <summary>
     /// The primitive action.
     /// </summary>
@@ -25,12 +34,14 @@ public class Subtask{
     public Subtask() 
     {
         this.ID = "";
+        //this.Auxiliary = false;
         this.Action = new PrimitiveAction();
     }
 
-    public Subtask(string ID, PrimitiveAction action) 
+    public Subtask(string ID, bool auxiliary, PrimitiveAction action) 
     {
         this.ID = ID;
+        //this.Auxiliary = auxiliary;
         this.Action = action;
     }
 }

@@ -7,6 +7,15 @@ public class Errand {
     //private List<Subtask> subtasks;
 
     /// <summary>
+    /// The ID of the errand.
+    /// </summary>
+    public string ID
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
     /// The name of the errand.
     /// </summary>
     public string Name
@@ -24,20 +33,40 @@ public class Errand {
         set;
     }
 
-    public Errand()
+    /// <summary>
+    /// The auxiliary subtasks of the errand.
+    /// </summary>
+    public List<Subtask> AuxSubtasks
     {
-        this.Name = "";
-        Subtasks = new List<Subtask>();
+        get;
+        set;
     }
 
-    public Errand(string name)
+
+    public Errand()
     {
+        this.ID = "";
+        this.Name = "";
+        this.Subtasks = new List<Subtask>();
+        this.AuxSubtasks = new List<Subtask>();
+    }
+
+    public Errand(string ID, string name)
+    {
+        this.ID = ID;
         this.Name = name;
         this.Subtasks = new List<Subtask>();
+        this.AuxSubtasks = new List<Subtask>();
     }
 
     public void AddSubtask(Subtask subtask)
     {
         this.Subtasks.Add(subtask);
     }
+
+    public void AddAuxSubtask(Subtask subtask)
+    {
+        this.AuxSubtasks.Add(subtask);
+    }
+
 }

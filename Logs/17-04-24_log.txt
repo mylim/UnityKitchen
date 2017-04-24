@@ -1,0 +1,55 @@
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I4
+Action 5 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 6 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 7 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I4
+Action 8 in SingleTeaBag Mug
+correct Mug: E1_ST5_EM1_I2
+Action 9 pickedUp Player Kettle
+Action 10 in Water Mug
+correct Mug: E1_ST5_EM1_I2
+Action 11 on Kettle KettleBase
+Action 12 on SingleNapkin Sandwich
+Action 13 on SingleNapkin Sandwich
+Action 14 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 15 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Interference : TowelsDialog
+Click : Wall
+Click : Wall
+Click : HandTowel
+Click : Wall
+Action 0 pickedUp Player Kettle
+Action 1 on Kettle Kettle
+Action 2 pickedUp Player Kettle
+Action 3 filled Kettle Water
+Action 4 on Kettle KettleBase
+Action 5 boiled Kettle Water
+Action 6 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 7 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 8 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I4
+Action 9 pickedUp Player Tea
+correct Tea: E1_ST7_EM1_I3
+Action 10 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 11 pickedUp Player Kettle
+Action 12 in Water Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 13 on Kettle KettleBase
+Interference : TowelsDialog
+Click : Wall
+Click : Wall
+Click : Wall
+Click : Wall
+Click : TeaTowel
