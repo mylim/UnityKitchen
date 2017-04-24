@@ -148,15 +148,16 @@ public class PickUpObject : MonoBehaviour
                         Debug.Log("Boiling water");
                         kettle.GetComponent<BoiledWater>().boiledWater = true;
 
-                        // update world 
-                        worldHandler.GetComponent<WorldModelManager>().updateWorldModel("boiled", kettle, water);
+                        // update world model
+                        worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("boiled", kettle, water);
                     }
-                    else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+                    //else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+                    else if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
                     {
                         //Debug.Log("Interference bleach " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
                         //if (collider.tag.Equals("Bleach"))
-                        Debug.Log("Bleach clicked");
-
+                        worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(collider.gameObject);
+                        Debug.Log(collider.gameObject.tag + " clicked");
                     }
                     else
                     {
@@ -184,19 +185,19 @@ public class PickUpObject : MonoBehaviour
                         if (carriedObject == kettle || (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("WashingLiquids") || carriedObject.transform.parent.tag.Equals("Towels") || carriedObject.transform.parent.tag.Equals("BeverageContainers"))))
                         {
                             // update world model
-                            worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, carriedObject);
+                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, carriedObject);
                         }
 
                     }
 
-                    if (p.gameObject.transform.parent != null)
+                    /*if (p.gameObject.transform.parent != null)
                     {
                         objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
                     }
                     else
                     {
                         objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.tag, p.gameObject);
-                    }
+                    }*/
 
                     // Picked the correct item
                     if (p.gameObject.GetComponent<CorrectItem>())
@@ -216,10 +217,10 @@ public class PickUpObject : MonoBehaviour
                     // update world model
                     if (!collider.tag.Equals("Napkin"))
                     {
-                        worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, collider.gameObject);
+                        worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, collider.gameObject);
                     }
 
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
+                    //objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickSingle.gameObject.tag, pickSingle.gameObject.gameObject.tag, pickSingle.gameObject);
 
                     // Picked the correct item
                     if (pickSingle.gameObject.GetComponent<CorrectItem>())
@@ -238,9 +239,9 @@ public class PickUpObject : MonoBehaviour
                     GameObject singleTeaBag = Instantiate(pickTeaBag.singleTeaBag);
                     CarriedObject(singleTeaBag);
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("pickedUp", player, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, collider.gameObject);
 
-                    objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
+                    //objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(pickTeaBag.gameObject.tag, pickTeaBag.gameObject.tag, pickTeaBag.gameObject);
 
                     // Picked the correct item
                     if (pickTeaBag.gameObject.GetComponent<CorrectItem>())
@@ -268,14 +269,14 @@ public class PickUpObject : MonoBehaviour
                                 Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
                                 // update world model
-                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("tied", player, collider.gameObject);
+                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("tied", player, collider.gameObject);
                             }
                             // Player take out the new bin bag
                             else if (bin.GetComponent<NewBag>().newBag)
                             {
                                 bin.GetComponent<NewBag>().newBag = false;
                                 // update world model
-                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("tookOut", player, collider.gameObject);
+                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("tookOut", player, collider.gameObject);
                             }
                         }
                     }
@@ -330,26 +331,26 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Filling water ");
                     kettle.GetComponent<FilledWithWater>().filledWithWater = true;
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("filled", kettle, water);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("filled", kettle, water);
                 }
                 //else if (carriedObject.tag.Equals("Bowl") || carriedObject.tag.Equals("PicnicPlate") || carriedObject.tag.Equals("SmallPlate") || carriedObject.tag.Equals("Saucer"))
                 else if (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Dishes"))
                 {
                     Debug.Log("Rinsing dirty bowl ");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("rinsed", carriedObject, water);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("rinsed", carriedObject, water);
                 }
                 else if (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Towels"))
                 {
                     Debug.Log("Wetting towel ");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", water, carriedObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", water, carriedObject);
                 }
                 else
                 {
                     Debug.Log("Add water onto object ");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("add", water, carriedObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("add", water, carriedObject);
                 }
             }
             //else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
@@ -362,7 +363,7 @@ public class PickUpObject : MonoBehaviour
                     collider.GetComponent<HasContent>().hasWater = true;
 
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", water, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", water, collider.gameObject);
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
@@ -370,7 +371,7 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Tea bag is in");
 
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", carriedObject, collider.gameObject);
                     carrying = false;
                     carriedObject = null;
                 }
@@ -381,7 +382,7 @@ public class PickUpObject : MonoBehaviour
                 if (carriedObject.tag.Equals("Cereal") || carriedObject.tag.Equals("Milk") || carriedObject.tag.Equals("Honey"))
                 {
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", carriedObject, collider.gameObject);
                 }
                 /*if (carriedObject.tag.Equals("Cereal"))
                 {
@@ -399,7 +400,7 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Washing dirty bowl ");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("washed", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("washed", carriedObject, collider.gameObject);
                 }
                 else
                 {
@@ -418,7 +419,7 @@ public class PickUpObject : MonoBehaviour
                     carriedObject.SetActive(false);
 
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", carriedObject, collider.gameObject);
                     carrying = false;
                     carriedObject = null;
                 }
@@ -430,7 +431,7 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Disposing Cereal");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("disposed", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("disposed", carriedObject, collider.gameObject);
                 }
             }
             else if (collider.tag.Equals("Sponge"))
@@ -439,20 +440,23 @@ public class PickUpObject : MonoBehaviour
                 {
                     Debug.Log("Putting dishwashing liquid on sponge");
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, collider.gameObject);
                 }
             }
             else if ((collider.tag.Equals("Table") || collider.tag.Equals("KitchenTop")) && (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("Towels")))
             {
                 Debug.Log("Wiping table ");
                 // update world model
-                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("wiped", carriedObject, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("wiped", carriedObject, collider.gameObject);
             }
             // interference on 
-            else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+            //else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
+            else if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
             {
                 //Debug.Log("Dialog interference " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
-                Debug.Log("Bleach clicked");
+                // update world model
+                worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(collider.gameObject);
+                Debug.Log(collider.gameObject.tag + " clicked");
             }
             else
             {
@@ -473,7 +477,7 @@ public class PickUpObject : MonoBehaviour
                 Debug.Log("Lid distance " + distance);
                 bin.GetComponent<LidOn>().lidOn = true;
                 // update world model
-                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", binLid, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", binLid, collider.gameObject);
                 Debug.Log("Lid on");
             }
             else if (carriedObject == tiedBag)
@@ -483,13 +487,18 @@ public class PickUpObject : MonoBehaviour
                 {
                     bin.GetComponent<BinEmpty>().binEmpty = false;
                     // update world model
-                    worldHandler.GetComponent<WorldModelManager>().updateWorldModel("in", tiedBag, collider.gameObject);
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", tiedBag, collider.gameObject);
                     Debug.Log("Bin is not empty");
                 }
             }
             else if (carriedObject == kettle)
             {
-                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", kettle, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", kettle, collider.gameObject);
+            }
+            else
+            {
+                // update world model - object back in the original position
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("back", carriedObject, collider.gameObject);
             }
             carriedObject.transform.position = originalPosition;
         }
@@ -512,7 +521,7 @@ public class PickUpObject : MonoBehaviour
                 Destroy(carriedObject.GetComponent<Rigidbody>());
                 Destroy(carriedObject.GetComponent<Pickupable>());
                 // update world model with the new position of the object
-                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, sandwich);
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, sandwich);
             }
             else
             {
@@ -588,19 +597,19 @@ public class PickUpObject : MonoBehaviour
                                             {
                                                 //Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
                                                 // update world model
-                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("right", carriedObject, hitCollider.gameObject);
+                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("right", carriedObject, hitCollider.gameObject);
                                             }
                                             else if (angleDir < 0.0f)
                                             {
                                                 //Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
                                                 // update world model
-                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("left", carriedObject, hitCollider.gameObject);
+                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("left", carriedObject, hitCollider.gameObject);
                                             }
                                             else
                                             {
                                                 //Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
                                                 // update world model
-                                                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("front", carriedObject, hitCollider.gameObject);
+                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("front", carriedObject, hitCollider.gameObject);
                                             }
                                         }
                                     }
@@ -610,7 +619,7 @@ public class PickUpObject : MonoBehaviour
                     }
                 }
                 // update world model with the new position of the object
-                worldHandler.GetComponent<WorldModelManager>().updateWorldModel("on", carriedObject, collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, collider.gameObject);
             }
         }
 

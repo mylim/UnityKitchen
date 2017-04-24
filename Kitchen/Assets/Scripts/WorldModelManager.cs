@@ -7,42 +7,56 @@ public class WorldModelManager : MonoBehaviour {
     public InterferenceDialog[] dialogs;
     private int dialogIndex;
     private List<PrimitiveAction> actions;
+    private List<Interference> interferences;
     private int actionIndex;
     private Dictionary<string, GameObject> objects;
     private bool interfering;
     private XMLParser xmlParser;
-    private List<Errand> errands;
+    private List<XMLErrand> xmlErrands;
+    private List<XMLInterference> xmlInterferences;
 
     // Use this for initialization
     void Start() {
         actionIndex = 0;
         dialogIndex = 0;
         actions = new List<PrimitiveAction>();
+        interferences = new List<Interference>();
         objects = new Dictionary<string, GameObject>();
         xmlParser = new XMLParser();
-        errands = xmlParser.ParseXML();
-        foreach (Errand errand in errands)
+        xmlErrands = xmlParser.ParseXMLErrands();
+        xmlInterferences = xmlParser.ParseXMLInterferences();
+        /*foreach (XMLErrand errand in xmlErrands)
         {
             Debug.Log("errand " + errand.Name);
-            foreach (Subtask subtask in errand.Subtasks)
+            foreach (XMLSubtask subtask in errand.Subtasks)
             {
                 Debug.Log("subtask " + subtask.ID);
                 Debug.Log("Name " + subtask.Action.Name);
-                Debug.Log("ElementOne " + subtask.Action.ElementOne.ObjectElement.tag);
-                Debug.Log("ElementTwo " + subtask.Action.ElementTwo.ObjectElement.tag);
+                Debug.Log("ElementOne " + subtask.Action.ElementOne.ObjectElement);
+                Debug.Log("ElementTwo " + subtask.Action.ElementTwo.ObjectElement);
             }
-        }
+        }*/
+        /*foreach (XMLInterference interference in xmlInterferences)
+        {
+            Debug.Log("Interference " + interference.Dialog);
+            List<string> iObjects = interference.iObjects;
+            foreach (string iObject in iObjects)
+            {
+                Debug.Log("Object " + iObject);
+            }
+        }*/
     }
 
     void Update() {
-        if (dialogs[dialogIndex].DialogClosed())
+        if ((dialogIndex < dialogs.Length) && dialogs[dialogIndex].DialogClosed())
         {
+            //Debug.Log("Answer: " + dialogs[dialogIndex].GetAnswer());
             UpdateInterference();
             dialogIndex++;
         }
     }
 
-    public void updateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
+    public void UpdateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
     {
         Debug.Log("action " + pAction);
         Debug.Log("elementOne " + elementOne.tag);
@@ -79,12 +93,15 @@ public class WorldModelManager : MonoBehaviour {
         //if (((actions.Count % interferenceInterval) == 0))
         if ((actions.Count > 0) && (actions.Count % interferenceInterval == 0) && (!interfering))
         {
-            Debug.Log("In update of world model ");
+            //Debug.Log("In update of world model " + dialogIndex);
             if ((dialogIndex < dialogs.Length))
             {
-                //Debug.Log("Dialog index to show" + dialogIndex);
+                Debug.Log("Dialog index to show" + dialogIndex);
                 dialogs[dialogIndex].ShowDialog();
                 UpdateInterference();
+                // adding the interference action
+                //actions.Add(new PrimitiveAction("Interference: " + dialogs[dialogIndex].name, new Element(), new Element()));
+                interferences.Add(new Interference(dialogs[dialogIndex]));
                 //Debug.Log("In show Dialog index " + dialogIndex + " interference " + interfering);
                 //GetInterference();                
                 //dialogs[dialogIndex].GetComponent<InterferenceDialog>().SetInterference();
@@ -92,6 +109,15 @@ public class WorldModelManager : MonoBehaviour {
         }
         printActions();
     }
+
+    public void InterfereWorldModel(GameObject iObject)
+    {
+        if ((dialogIndex < dialogs.Length))
+        {
+            interferences[dialogIndex].AddObject(iObject);
+        }
+    }
+
 
     private void UpdateInterference()
     {
@@ -112,21 +138,47 @@ public class WorldModelManager : MonoBehaviour {
         {
             for (int i = 0; i < actions.Count; i++)
             {
-                Debug.Log("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
-                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + actions[i].ElementTwo.ObjectElement.tag);
-                /*if (actions[i].ElementOne.transform.parent != null && actions[i].ElementOne.transform.parent.GetComponent<SemanticCategory>())
+                //Debug.Log("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
+                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
+                if (!actions[i].Name.Equals("Interference click"))
                 {
-                    if (actions[i].ElementOne.GetComponent<CorrectItem>())
-                        Debug.Log("correct " + actions[i].ElementOne.name);
+                    if (actions[i].ElementOne.SemanticCategory)
+                    {
+                        if (actions[i].ElementOne.ObjectElement.GetComponent<CorrectItem>())
+                        {
+                            //Debug.Log("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                            logFile.WriteLine("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        }
+                        else
+                        {
+                            logFile.WriteLine("wrong " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        }
+                    }
+                    if (actions[i].ElementTwo.SemanticCategory)
+                    {
+                        if (actions[i].ElementTwo.ObjectElement.GetComponent<CorrectItem>())
+                        {
+                            //Debug.Log("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                            logFile.WriteLine("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        }
+                        else
+                        {
+                            logFile.WriteLine("wrong " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        }
+                    }
                 }
-                if (actions[i].ElementTwo.transform.parent != null && actions[i].ElementTwo.transform.parent.GetComponent<SemanticCategory>())
-                {
-                    if(actions[i].ElementTwo.GetComponent<CorrectItem>())
-                        Debug.Log("correct " + actions[i].ElementTwo.name);
-                }*/
             }
 
-            if (objects != null)
+            for (int j = 0; j < interferences.Count; j++)
+            {
+                logFile.WriteLine("Interference : " + interferences[j].Dialog.name);
+                for (int k = 0; k < interferences[j].iObjects.Count; k++)
+                {
+                    logFile.WriteLine("Click : " + interferences[j].iObjects[k].tag);
+                }
+            }
+
+            /*if (objects != null)
             {
                 foreach (KeyValuePair<string, GameObject> item in objects)
                 {
@@ -141,7 +193,7 @@ public class WorldModelManager : MonoBehaviour {
                         logFile.WriteLine("Item " + item.Key + ", value " + item.Value.name + ", wrong");
                     }
                 }
-            }
+            }*/
         }
 
         /*if (errands != null)

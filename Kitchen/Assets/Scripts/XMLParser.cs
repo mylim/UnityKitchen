@@ -5,47 +5,54 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 
 public class XMLParser{
-    private XmlDocument doc;
+    private XmlDocument errandsFile;
+    private XmlDocument interferencesFile;
+
     // Use this for initialization
     public XMLParser() {
-        doc = new XmlDocument();
-        doc.Load(@".\Assets\XML\Tasks.xml");
+        // loading the errands file
+        errandsFile = new XmlDocument();
+        errandsFile.Load(@".\Assets\XML\Tasks.xml");
+
+        // loading the interferences file
+        interferencesFile = new XmlDocument();
+        interferencesFile.Load(@".\Assets\XML\Interferences.xml");
     }
 
-    public List<Errand> ParseXML() { 
+    public List<XMLErrand> ParseXMLErrands() { 
         // Subtasks
-        XmlNodeList nodes = doc.DocumentElement.SelectNodes("/Errands/Errand");
-        List<Errand> errands = new List<Errand>();       
+        XmlNodeList nodes = errandsFile.DocumentElement.SelectNodes("/Errands/Errand");
+        List<XMLErrand> errands = new List<XMLErrand>();       
         foreach (XmlNode node in nodes)
         {
-            Errand errand = new Errand();
+            XMLErrand errand = new XMLErrand();
             errand.Name = node.Attributes["name"].Value;
 
             // Actions in each subtask
-            XmlNodeList nodes2 = doc.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
+            XmlNodeList nodes2 = errandsFile.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
             foreach (XmlNode node2 in nodes2)
             {               
-                Subtask subtask = new Subtask();
+                XMLSubtask subtask = new XMLSubtask();
                 subtask.ID = node2.Attributes["ID"].Value;
-                PrimitiveAction pAction = new PrimitiveAction();
+                XMLPrimitiveAction pAction = new XMLPrimitiveAction();
                 pAction.Name = node2.SelectSingleNode("Name").InnerText;
                 if (node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"] != null)
                 {
                     //bool e1SemanticCategory = bool.Parse(node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"].Value);
-                    pAction.ElementOne = new Element(node2.SelectSingleNode("ElementOne").InnerText, true);
+                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, true);
                 }
                 else
                 {
-                    pAction.ElementOne = new Element(node2.SelectSingleNode("ElementOne").InnerText, false);
+                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, false);
                 }
                 if (node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"] != null)
                 {
                     //bool e2SemanticCategory = bool.Parse(node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"].Value);
-                    pAction.ElementTwo = new Element(node2.SelectSingleNode("ElementTwo").InnerText, true);
+                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, true);
                 }
                 else
                 {
-                    pAction.ElementTwo = new Element(node2.SelectSingleNode("ElementTwo").InnerText, false);
+                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, false);
                 }
                 subtask.Action = pAction;
               
@@ -55,5 +62,32 @@ public class XMLParser{
         }
     
         return errands;
+    }
+
+    public List<XMLInterference> ParseXMLInterferences()
+    {
+        // Interference
+        XmlNodeList nodes = interferencesFile.DocumentElement.SelectNodes("/Interferences/Interference");
+        List<XMLInterference> interferences = new List<XMLInterference>();
+        foreach (XmlNode node in nodes)
+        {
+            XMLInterference interference = new XMLInterference();
+            interference.Dialog = node.Attributes["dialog"].Value;
+
+            // Associated objects with the interference
+            List<string> iObjects = new List<string>();
+            if (node.HasChildNodes)
+            {
+                for (int i = 0; i < node.ChildNodes.Count; i++)
+                {
+                    iObjects.Add(node.ChildNodes[i].InnerText);
+                    //Debug.Log("Object " + node.ChildNodes[i].InnerText);
+                }
+            }
+            interference.iObjects = iObjects;
+            interferences.Add(interference);
+        }
+
+        return interferences;
     }
 }

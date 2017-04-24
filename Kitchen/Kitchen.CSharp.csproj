@@ -136,7 +136,7 @@
     <Compile Include="Assets\Scripts\HasContent.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\InstantiateItem.cs" />
-    <Compile Include="Assets\Scripts\Interfere.cs" />
+    <Compile Include="Assets\Scripts\Interference.cs" />
     <Compile Include="Assets\Scripts\InterferenceDialog.cs" />
     <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
@@ -145,7 +145,6 @@
     <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\MouseHoverObject.cs" />
     <Compile Include="Assets\Scripts\ObjectsHandler.cs" />
-    <Compile Include="Assets\Scripts\OnTable.cs" />
     <Compile Include="Assets\Scripts\OpenCloseDoors.cs" />
     <Compile Include="Assets\Scripts\PickUpObject.cs" />
     <Compile Include="Assets\Scripts\Pickupable.cs" />
@@ -172,7 +171,12 @@
     <Compile Include="Assets\Scripts\WaypointNavigation.cs" />
     <Compile Include="Assets\Scripts\WaypointRotationAngles.cs" />
     <Compile Include="Assets\Scripts\WorldModelManager.cs" />
+    <Compile Include="Assets\Scripts\XMLElement.cs" />
+    <Compile Include="Assets\Scripts\XMLErrand.cs" />
+    <Compile Include="Assets\Scripts\XMLInterference.cs" />
     <Compile Include="Assets\Scripts\XMLParser.cs" />
+    <Compile Include="Assets\Scripts\XMLPrimitiveAction.cs" />
+    <Compile Include="Assets\Scripts\XMLSubtask.cs" />
     <Compile Include="Assets\alive.cs" />
     <Compile Include="Assets\articleRotate.cs" />
   </ItemGroup>
@@ -190,6 +194,7 @@
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+    <None Include="Assets\XML\Interferences.xml" />
     <None Include="Assets\XML\Tasks.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

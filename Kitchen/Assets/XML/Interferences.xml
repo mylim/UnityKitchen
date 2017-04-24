@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Interferences>
+	<Interference dialog = "TowelDialog">
+		
+			<Object>MopTowel</Object>
+			<Object>HandTowel</Object>
+			<Object>CleaningCloth</Object>
+			<Object>TeaTowel</Object>
+	
+	</Interference>		
+	<Interference dialog = "BleachDialog">	
+			
+			<Object>Bleach</Object>
+		
+	</Interference>		
+	<Interference dialog = "CutleryDialog">		
+		
+			<Object>Knife</Object>
+		
+	</Interference>		
+	<Interference dialog = "ShelvesDialog">		
+			
+			<Object>Fridge</Object>
+		
+	</Interference>		
+	<Interference dialog = "CupsDialog">		
+			
+			<Object>Cup</Object>
+		
+	</Interference>		
+</Interferences>
+	
