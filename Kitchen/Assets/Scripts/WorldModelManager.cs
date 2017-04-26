@@ -31,22 +31,25 @@ public class WorldModelManager : MonoBehaviour {
         xmlParser = new XMLParser();
         xmlErrands = xmlParser.ParseXMLErrands();
         xmlInterferences = xmlParser.ParseXMLInterferences();
-        /*foreach (XMLErrand errand in xmlErrands)
+        /*for (int j = 0; j < xmlErrands.Count; j++)
+        //foreach (XMLErrand errand in xmlErrands)
         {
+            XMLErrand errand = xmlErrands[j];
             Debug.Log("errand " + errand.Name + " ID " + errand.ID);
-            foreach (XMLSubtask subtask in errand.Subtasks)
+            for (int k = 0; k < errand.Subtasks.Count; k++)
+            //foreach (XMLSubtask subtask in errand.Subtasks)
             {
+                XMLSubtask subtask = errand.Subtasks[k];
+                Debug.Log("Subtask number " + k);
                 Debug.Log("subtask " + subtask.ID);
-                Debug.Log("Name " + subtask.Action.Name);
-                Debug.Log("ElementOne " + subtask.Action.ElementOne.ObjectElement);
-                Debug.Log("ElementTwo " + subtask.Action.ElementTwo.ObjectElement);
+                Debug.Log("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
             }
-            foreach (XMLSubtask auxSubtask in errand.AuxSubtasks)
+            for (int l = 0; l < errand.AuxSubtasks.Count; l++)
+            //foreach (XMLSubtask auxSubtask in errand.AuxSubtasks)
             {
-                Debug.Log("subtask " + auxSubtask.ID);
-                Debug.Log("Name " + auxSubtask.Action.Name);
-                Debug.Log("ElementOne " + auxSubtask.Action.ElementOne.ObjectElement);
-                Debug.Log("ElementTwo " + auxSubtask.Action.ElementTwo.ObjectElement);
+                XMLSubtask auxSubtask = errand.AuxSubtasks[l];
+                Debug.Log("auxSubtask " + auxSubtask.ID);
+                Debug.Log("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
             }
         }*/
         /*foreach (XMLInterference interference in xmlInterferences)
@@ -190,6 +193,27 @@ public class WorldModelManager : MonoBehaviour {
                 }
             }
 
+            for (int j = 0; j < xmlErrands.Count; j++)
+            //foreach (XMLErrand errand in xmlErrands)
+            {
+                XMLErrand errand = xmlErrands[j];
+                logFile.WriteLine("errand " + errand.Name + " ID " + errand.ID);
+                for (int k = 0; k < errand.Subtasks.Count; k++)
+                //foreach (XMLSubtask subtask in errand.Subtasks)
+                {
+                    XMLSubtask subtask = errand.Subtasks[k];
+                    logFile.WriteLine("Subtask number " + k + "subtask ID " + subtask.ID);
+                    logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
+                }
+                for (int l = 0; l < errand.AuxSubtasks.Count; l++)
+                //foreach (XMLSubtask auxSubtask in errand.AuxSubtasks)
+                {
+                    XMLSubtask auxSubtask = errand.AuxSubtasks[l];
+                    logFile.WriteLine("Subtask number " + l + "auxSubtask ID " + auxSubtask.ID);
+                    logFile.WriteLine("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
+                }
+                logFile.WriteLine("\n");
+            }
             /*if (objects != null)
             {
                 foreach (KeyValuePair<string, GameObject> item in objects)
@@ -235,25 +259,32 @@ public class WorldModelManager : MonoBehaviour {
         for (int i = 0; i < actions.Count; i++)
         {
             PrimitiveAction action = actions[i];
-            for (int j = 0; j < xmlErrands.Count; j++)
+            Debug.Log("Action " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+            taskFound = CheckSubtasks(action);
+            if (!taskFound)
+            {
+                taskFound = CheckAuxSubtasks(action);
+                if (!taskFound)
+                {
+                    taskFound = AddIntrusion();
+                }
+                continue;
+            }
+            /*for (int j = 0; j < xmlErrands.Count; j++)
             {
                 XMLErrand errand = xmlErrands[j];
-
+                Debug.Log("Errand " + errand.Name);
                 taskFound = CheckSubtasks(errand, action);
                 if (!taskFound)
                 {
                     taskFound = CheckAuxSubtasks(errand, action);
                     if (!taskFound)
                     {
-                        AddIntrusion();
+                        taskFound = AddIntrusion();                        
                     }
-                    else
-                    {
-                        continue;
-                    }
+                    continue;
                 }
-            }
-            taskFound = false;
+            }*/
         }
         for (int i = 0; i < executionList.Count; i++)
         {
@@ -262,49 +293,74 @@ public class WorldModelManager : MonoBehaviour {
         }
     }
     
-    private bool CheckSubtasks(XMLErrand errand, PrimitiveAction action)
+    private bool CheckSubtasks(PrimitiveAction action)
     {
-        for (int k = 0; k < errand.Subtasks.Count; k++)
+        for (int j = 0; j < xmlErrands.Count; j++)
         {
-            XMLSubtask subtask = errand.Subtasks[k];
-            if (subtask.Action.Name.Equals(action.Name))
+            XMLErrand errand = xmlErrands[j];
+            //Debug.Log("Errand name " + errand.Name);
+            for (int k = 0; k < errand.Subtasks.Count; k++)
             {
-                if (!executionXMLTasks.Contains(subtask))
+                XMLSubtask subtask = errand.Subtasks[k];
+                //Debug.Log("Subtask " + subtask.Action.Name);
+                if (subtask.Action.Name.Equals(action.Name) && IsSameObject(subtask.Action, action))
                 {
-                    Execution task = new Execution(errand.ID, k, Execution.TaskTypes.Subtask);
-                    executionXMLTasks.Add(subtask);
-                    executionList.Add(task);
-                    return true;
+                    Debug.Log("Errand " + j + " " + errand.Name + " Subtask " + k + " and action name are the same");
+                    if (!executionXMLTasks.Contains(subtask))
+                    {
+                        Debug.Log("Errand ID, k and type " + errand.ID + " " + k + " " + Execution.TaskTypes.Subtask);
+                        Execution task = new Execution(errand.ID, k+1, Execution.TaskTypes.Subtask);
+                        executionXMLTasks.Add(subtask);
+                        executionList.Add(task);
+                        return true;
+                    }
                 }
             }
         }
         return false;
     }   
     
-    private bool CheckAuxSubtasks(XMLErrand errand, PrimitiveAction action)
+    private bool CheckAuxSubtasks(PrimitiveAction action)
     {
-        for (int l = 0; l < errand.Subtasks.Count; l++)
+        for (int j = 0; j < xmlErrands.Count; j++)
         {
-            XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-            if (auxSubtask.Action.Name.Equals(action.Name))
+            XMLErrand errand = xmlErrands[j];
+            Debug.Log("Errand " + errand.Name);
+            for (int l = 0; l < errand.AuxSubtasks.Count; l++)
             {
-                // add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
-                if (!executionXMLTasks.Contains(auxSubtask))
+                XMLSubtask auxSubtask = errand.AuxSubtasks[l];
+                Debug.Log("auxSubtask " + auxSubtask.Action.Name);
+                if (auxSubtask.Action.Name.Equals(action.Name) && IsSameObject(auxSubtask.Action, action))
                 {
-                    Execution task = new Execution(errand.ID, l, Execution.TaskTypes.AuxTask);
-                    executionXMLTasks.Add(auxSubtask);
-                    executionList.Add(task);
-                    return true;               
+                    Debug.Log("Errand " + j + " " + errand.Name + " auxSubtask " + l + " and action name are the same");
+                    // add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
+                    if (!executionXMLTasks.Contains(auxSubtask))
+                    {
+                        Debug.Log("Errand ID, k and type " + errand.ID + " " + l + " " + Execution.TaskTypes.Subtask);
+                        Execution task = new Execution(errand.ID, l+1, Execution.TaskTypes.AuxTask);
+                        executionXMLTasks.Add(auxSubtask);
+                        executionList.Add(task);
+                        return true;
+                    }
                 }
             }
         }
         return false;
     } 
 
-    private void AddIntrusion()
+    private bool AddIntrusion()
     {
+        Debug.Log("Adding intrusion");
         Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion);
         //executionXMLTasks.Add(auxSubtask);
         executionList.Add(task);
+        return false;
+    }
+
+    private bool IsSameObject(XMLPrimitiveAction xmlAction, PrimitiveAction action)
+    {
+        if (xmlAction.ElementOne.ObjectElement.Equals(action.ElementOne.ObjectElement.tag) && xmlAction.ElementTwo.ObjectElement.Equals(action.ElementTwo.ObjectElement.tag))
+            return true;
+        return false;
     }
 }

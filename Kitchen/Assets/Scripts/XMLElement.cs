@@ -32,9 +32,9 @@ public class XMLElement{
         this.SemanticCategory = false;
     }
 
-    public XMLElement(string objectElement)
+    public XMLElement(string tag)
     {
-        this.ObjectElement = objectElement;
+        this.ObjectElement = tag;
         this.SemanticCategory = false;
     }
 

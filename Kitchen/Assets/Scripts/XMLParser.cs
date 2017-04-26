@@ -27,11 +27,12 @@ public class XMLParser{
         {
             XMLErrand errand = new XMLErrand();
             errand.ID = node.Attributes["ID"].Value;
-            errand.Name = node.Attributes["name"].Value;            
+            errand.Name = node.Attributes["name"].Value;
+            Debug.Log("Errand ID " + errand.ID);
 
             // Actions in each subtask
-            XmlNodeList nodes2 = errandsFile.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
-            foreach (XmlNode node2 in nodes2)
+            //XmlNodeList nodes2 = errandsFile.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
+            foreach (XmlNode node2 in node.ChildNodes)
             {               
                 XMLSubtask subtask = new XMLSubtask();
                 subtask.ID = node2.Attributes["ID"].Value;
@@ -58,6 +59,7 @@ public class XMLParser{
                     pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, false);
                 }
                 subtask.Action = pAction;
+                //Debug.Log("Subtask action " + subtask.Action.Name);
 
                 if (node2.Attributes["Auxiliary"] != null)
                 {
@@ -67,10 +69,9 @@ public class XMLParser{
                 else
                 {
                     errand.AddSubtask(subtask);
-                    //Debug.Log("Auxiliary false");
+                    //Debug.Log("subtask count " + errand.Subtasks.Count); 
                 }
-
-            }           
+            }
             errands.Add(errand);
         }
     
