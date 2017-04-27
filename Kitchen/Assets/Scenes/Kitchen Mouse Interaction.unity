@@ -424,6 +424,10 @@ Prefab:
       propertyPath: m_TagString
       value: Sink
       objectReference: {fileID: 0}
+    - target: {fileID: 121326, guid: 5f75d780a48f37b4bb3eaaa8fdfdb7d5, type: 2}
+      propertyPath: m_TagString
+      value: Sink
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f75d780a48f37b4bb3eaaa8fdfdb7d5, type: 2}
   m_IsPrefabParent: 0
@@ -2242,6 +2246,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 394766027}
+--- !u!1 &402437954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402437955}
+  m_Layer: 0
+  m_Name: Drink
+  m_TagString: Drink
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402437955
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402437954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 606.88696, y: 349.60388, z: 13.27417}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 72
 --- !u!1 &405458386 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
@@ -2988,6 +3019,10 @@ Prefab:
       propertyPath: m_TagString
       value: SinkShelf
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1187157d4d49f874fa992158c9dc4bdc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1187157d4d49f874fa992158c9dc4bdc, type: 3}
   m_IsPrefabParent: 0
@@ -3173,7 +3208,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 208752729}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &482308809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3378,48 +3413,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 504494861}
---- !u!1 &514472472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 514472473}
-  - 114: {fileID: 514472474}
-  m_Layer: 0
-  m_Name: ObjectsHandler
-  m_TagString: ObjectHandler
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &514472473
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514472472}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 208752729}
-  m_RootOrder: 2
---- !u!114 &514472474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514472472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aed367075a9f92b448b0e304018c428a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  correctObjectsList:
-  - {fileID: 667511751}
-  - {fileID: 0}
 --- !u!1 &527179696 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: dd597b754e16cda43b263102f3bc31f3, type: 3}
@@ -3779,7 +3772,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 208752729}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &559910440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12304,7 +12297,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 22
 --- !u!1001 &1817587001
 Prefab:
   m_ObjectHideFlags: 0

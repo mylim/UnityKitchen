@@ -40,6 +40,7 @@ public class PickUpObject : MonoBehaviour
 
     private GameObject kettle;
     private GameObject water;
+    private GameObject drink;
     public GameObject sandwich;
     private Object sandwichParent;
     private float sandwichHeight = 0;
@@ -92,6 +93,7 @@ public class PickUpObject : MonoBehaviour
         // Tea making
         kettle = GameObject.FindWithTag("Kettle");
         water = GameObject.FindWithTag("Water");
+        drink = GameObject.FindWithTag("Drink");
         /*if (GameObject.FindWithTag("Kettle"))
         {
             Debug.Log("Kettle");
@@ -182,22 +184,26 @@ public class PickUpObject : MonoBehaviour
 
                         // update world model
                         //manager.updateWorldModel("pickedUp", player, p.gameObject);
-                        if (carriedObject == kettle || (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("WashingLiquids") || carriedObject.transform.parent.tag.Equals("Towels") || carriedObject.transform.parent.tag.Equals("BeverageContainers"))))
+                        if (((carriedObject) == kettle && (kettle.GetComponent<BoiledWater>().boiledWater != true)) || 
+                            (carriedObject.transform.parent != null && 
+                            (carriedObject.transform.parent.tag.Equals("WashingLiquids") || carriedObject.transform.parent.tag.Equals("Towels") || 
+                            ((carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == false)))))
                         {
                             // update world model
                             worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, carriedObject);
+                        } 
+                        else if ((carriedObject) == kettle && (kettle.GetComponent<BoiledWater>().boiledWater == true))
+                        {
+                            // update world model
+                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, water);
+                        }
+                        else if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
+                        {
+                            // update world model
+                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, drink);
                         }
 
                     }
-
-                    /*if (p.gameObject.transform.parent != null)
-                    {
-                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.transform.parent.tag, p.gameObject);
-                    }
-                    else
-                    {
-                        objectsHandler.GetComponent<ObjectsHandler>().addPickedObject(p.gameObject.tag, p.gameObject.tag, p.gameObject);
-                    }*/
 
                     // Picked the correct item
                     if (p.gameObject.GetComponent<CorrectItem>())
@@ -367,7 +373,8 @@ public class PickUpObject : MonoBehaviour
                 }
                 else if (carriedObject.tag.Equals("SingleTeaBag"))
                 {
-                    carriedObject.SetActive(false);                  
+                    carriedObject.SetActive(false);
+                    collider.GetComponent<HasContent>().hasTeaBag = true;
                     Debug.Log("Tea bag is in");
 
                     // update world model
@@ -491,9 +498,13 @@ public class PickUpObject : MonoBehaviour
                     Debug.Log("Bin is not empty");
                 }
             }
-            else if (carriedObject == kettle)
+            else if ((carriedObject) == kettle && (kettle.GetComponent<BoiledWater>().boiledWater != true))
             {
                 worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", kettle, collider.gameObject);
+            }
+            else if ((carriedObject) == kettle && (kettle.GetComponent<BoiledWater>().boiledWater == true))
+            {
+                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", water, collider.gameObject);
             }
             else
             {
@@ -542,7 +553,10 @@ public class PickUpObject : MonoBehaviour
                         }
                     }                   
                 }
-                else if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers")) || carriedObject == sandwich))
+                else if ((carriedObject.transform.parent != null && 
+                    (carriedObject.transform.parent.tag.Equals("Cutlery") || 
+                    (carriedObject.transform.parent.tag.Equals("BeverageContainers")) || 
+                    carriedObject == sandwich)))
                 {
                     //if (carriedObject.transform.parent.tag.Equals("Cutlery") || carriedObject.transform.parent.tag.Equals("BeverageContainers"))                        
                         //|| (carriedObject == sandwich)))// || carriedObject.transform.parent.tag.Equals("Dishes"))
@@ -618,8 +632,18 @@ public class PickUpObject : MonoBehaviour
                         } 
                     }
                 }
-                // update world model with the new position of the object
-                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, collider.gameObject);
+
+                if ((carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
+                {
+                    // update world model with the new position of the object
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);
+                }
+                else
+                {
+                    // update world model with the new position of the object
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, collider.gameObject);
+                }
+               
             }
         }
 

@@ -105,6 +105,7 @@ TagManager:
   - Bags
   - CleaningMaterials
   - Towel
+  - Drink
   layers:
   - Default
   - TransparentFX

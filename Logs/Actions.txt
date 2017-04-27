@@ -1,138 +1,137 @@
 errand Prepare Tea ID E1
-Subtask number 0subtask ID E1-1
+Subtask number 0 subtask ID E1-1
 Action pickedUp Player Kettle
-Subtask number 1subtask ID E1-2
+Subtask number 1 subtask ID E1-2
 Action filled Kettle Water
-Subtask number 2subtask ID E1-3
+Subtask number 2 subtask ID E1-3
 Action on Kettle KettleBase
-Subtask number 3subtask ID E1-4
+Subtask number 3 subtask ID E1-4
 Action boiled Kettle Water
-Subtask number 4subtask ID E1-5
+Subtask number 4 subtask ID E1-5
 Action pickedUp Player Mug
-Subtask number 5subtask ID E1-6
+Subtask number 5 subtask ID E1-6
 Action on Mug KitchenTop
-Subtask number 6subtask ID E1-7
+Subtask number 6 subtask ID E1-7
 Action pickedUp Player Tea
-Subtask number 7subtask ID E1-8
+Subtask number 7 subtask ID E1-8
 Action in SingleTeaBag Mug
-Subtask number 8subtask ID E1-9
-Action pickedUp Player Kettle
-Subtask number 9subtask ID E1-10
+Subtask number 8 subtask ID E1-9
+Action pickedUp Player Water
+Subtask number 9 subtask ID E1-10
 Action in Water Mug
-Subtask number 0auxSubtask ID E1-10-1
-Aux Action on Kettle KettleBase
+Subtask number 10 subtask ID E1-11
+Action on Water KettleBase
 
 
 errand Prepare Sandwich ID E2
-Subtask number 0subtask ID E2-1
+Subtask number 0 subtask ID E2-1
 Action on SingleNapkin Sandwich
-Subtask number 1subtask ID E2-2
+Subtask number 1 subtask ID E2-2
 Action on Cheese KitchenTop
-Subtask number 2subtask ID E2-3
+Subtask number 2 subtask ID E2-3
 Action on Ham KitchenTop
-Subtask number 3subtask ID E2-4
+Subtask number 3 subtask ID E2-4
 Action on Bread KitchenTop
-Subtask number 4subtask ID E2-5
+Subtask number 4 subtask ID E2-5
 Action on SingleSlice Sandwich
-Subtask number 5subtask ID E2-6
+Subtask number 5 subtask ID E2-6
 Action on HamSlice Sandwich
-Subtask number 6subtask ID E2-7
+Subtask number 6 subtask ID E2-7
 Action on HamSlice Sandwich
-Subtask number 7subtask ID E2-8
+Subtask number 7 subtask ID E2-8
 Action on CheeseSlice Sandwich
-Subtask number 8subtask ID E2-9
+Subtask number 8 subtask ID E2-9
 Action on SingleSlice Sandwich
 
 
 errand Prepare Cereal ID E3
-Subtask number 0subtask ID E3-1
+Subtask number 0 subtask ID E3-1
 Action on Bowl KitchenTop
-Subtask number 1subtask ID E3-2
+Subtask number 1 subtask ID E3-2
 Action on TableSpoon Bowl
-Subtask number 2subtask ID E3-3
+Subtask number 2 subtask ID E3-3
 Action on Cereal KitchenTop
-Subtask number 3subtask ID E3-4
+Subtask number 3 subtask ID E3-4
 Action on Milk KitchenTop
-Subtask number 4subtask ID E3-5
+Subtask number 4 subtask ID E3-5
 Action on Honey KitchenTop
-Subtask number 5subtask ID E3-6
+Subtask number 5 subtask ID E3-6
 Action in Cereal Bowl
-Subtask number 6subtask ID E3-7
+Subtask number 6 subtask ID E3-7
 Action in Milk Bowl
-Subtask number 7subtask ID E3-8
+Subtask number 7 subtask ID E3-8
 Action in Honey Bowl
-Subtask number 8subtask ID E3-5
+Subtask number 8 subtask ID E3-5
 Action on TableSpoon KitchenTop
-Subtask number 0auxSubtask ID E3-6-1
+Subtask number 0 auxSubtask ID E3-6-1
 Aux Action on Cereal KitchenTop
-Subtask number 1auxSubtask ID E3-7-1
+Subtask number 1 auxSubtask ID E3-7-1
 Aux Action on Milk KitchenTop
-Subtask number 2auxSubtask ID E3-8-1
+Subtask number 2 auxSubtask ID E3-8-1
 Aux Action on Honey KitchenTop
 
 
 errand Set Table ID E4
-Subtask number 0subtask ID E4-1
+Subtask number 0 subtask ID E4-1
 Action on Placemat Table
-Subtask number 1subtask ID E4-2
+Subtask number 1 subtask ID E4-2
 Action on Bowl Placemat
-Subtask number 2subtask ID E4-3
+Subtask number 2 subtask ID E4-3
 Action right TableSpoon Bowl
-Subtask number 3subtask ID E4-4
-Action front Mug Bowl
-Subtask number 4subtask ID E4-5
+Subtask number 3 subtask ID E4-4
+Action front HotDrink Bowl
+Subtask number 4 subtask ID E4-5
 Action left Sandwich Bowl
-Subtask number 0auxSubtask ID E4-3-1
+Subtask number 0 auxSubtask ID E4-3-1
 Aux Action on TableSpoon Placemat
-Subtask number 1auxSubtask ID E4-4-1
-Aux Action pickedUp Player Mug
-Subtask number 2auxSubtask ID E4-4-2
-Aux Action on Mug Placemat
-Subtask number 3auxSubtask ID E4-5-1
+Subtask number 1 auxSubtask ID E4-4-1
+Aux Action pickedUp Player HotDrink
+Subtask number 2 auxSubtask ID E4-4-2
+Aux Action on HotDrink Placemat
+Subtask number 3 auxSubtask ID E4-5-1
 Aux Action on Sandwich Placemat
 
 
 errand Wash Dishes ID E5
-Subtask number 0subtask ID E5-1
+Subtask number 0 subtask ID E5-1
 Action disposed Bowl BinLid
-Subtask number 1subtask ID E5-2
+Subtask number 1 subtask ID E5-2
 Action on Bowl Sink
-Subtask number 2subtask ID E5-3
+Subtask number 2 subtask ID E5-3
 Action on Sponge Sink
-Subtask number 3subtask ID E5-4
+Subtask number 3 subtask ID E5-4
 Action pickedUp Player DishwashingLiquid
-Subtask number 4subtask ID E5-5
+Subtask number 4 subtask ID E5-5
 Action on DishwashingLiquid Sponge
-Subtask number 5subtask ID E5-6
+Subtask number 5 subtask ID E5-6
 Action washed Sponge Bowl
-Subtask number 6subtask ID E5-7
+Subtask number 6 subtask ID E5-7
 Action rinsed Bowl Water
-Subtask number 7subtask ID E5-8
+Subtask number 7 subtask ID E5-8
 Action on Bowl Dishrack
-Subtask number 0auxSubtask ID E5-6-1
+Subtask number 0 auxSubtask ID E5-6-1
 Aux Action on Sponge Sink
 
 
 errand Clean Kitchen ID E6
-Subtask number 0subtask ID E6-1
+Subtask number 0 subtask ID E6-1
 Action on BinLid Floor
-Subtask number 1subtask ID E6-2
+Subtask number 1 subtask ID E6-2
 Action tied Player BinBag
-Subtask number 2subtask ID E6-3
+Subtask number 2 subtask ID E6-3
 Action on TiedBag Floor
-Subtask number 3subtask ID E6-4
+Subtask number 3 subtask ID E6-4
 Action pickedUp Player BinBags
-Subtask number 4subtask ID E6-5
+Subtask number 4 subtask ID E6-5
 Action in SingleItem BinBody
-Subtask number 5subtask ID E6-6
+Subtask number 5 subtask ID E6-6
 Action on BinLid BinBag
-Subtask number 6subtask ID E6-7
+Subtask number 6 subtask ID E6-7
 Action pickedUp Player Towel
-Subtask number 7subtask ID E6-8
+Subtask number 7 subtask ID E6-8
 Action on Water Towel
-Subtask number 8subtask ID E6-9
+Subtask number 8 subtask ID E6-9
 Action wiped Towel Table
-Subtask number 0auxSubtask ID E6-9-1
+Subtask number 0 auxSubtask ID E6-9-1
 Aux Action on Towel Wall
-
 

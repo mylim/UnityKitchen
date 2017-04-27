@@ -19,6 +19,8 @@ public class WorldModelManager : MonoBehaviour {
     private List<XMLErrand> xmlErrands;
     private List<XMLInterference> xmlInterferences;
 
+    private bool taskFound;
+
     // Use this for initialization
     void Start() {
         actionIndex = 0;
@@ -155,34 +157,32 @@ public class WorldModelManager : MonoBehaviour {
             {
                 //Debug.Log("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
                 logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
-                if (!actions[i].Name.Equals("Interference click"))
+
+                if (HasSemanticCategory(actions[i].ElementOne))
                 {
-                    if (actions[i].ElementOne.SemanticCategory)
+                    if (IsCorrectItem(actions[i].ElementOne.ObjectElement))
                     {
-                        if (actions[i].ElementOne.ObjectElement.GetComponent<CorrectItem>())
-                        {
-                            //Debug.Log("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
-                            logFile.WriteLine("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
-                        }
-                        else
-                        {
-                            logFile.WriteLine("wrong " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
-                        }
+                        //Debug.Log("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        logFile.WriteLine("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
                     }
-                    if (actions[i].ElementTwo.SemanticCategory)
+                    else
                     {
-                        if (actions[i].ElementTwo.ObjectElement.GetComponent<CorrectItem>())
-                        {
-                            //Debug.Log("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
-                            logFile.WriteLine("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
-                        }
-                        else
-                        {
-                            logFile.WriteLine("wrong " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
-                        }
+                        logFile.WriteLine("wrong " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
                     }
                 }
-            }
+                if (HasSemanticCategory(actions[i].ElementTwo))
+                {
+                    if (IsCorrectItem(actions[i].ElementTwo.ObjectElement))
+                    {
+                        //Debug.Log("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        logFile.WriteLine("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                    }
+                    else
+                    {
+                        logFile.WriteLine("wrong " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                    }
+                }
+            }         
 
             for (int j = 0; j < interferences.Count; j++)
             {
@@ -193,7 +193,7 @@ public class WorldModelManager : MonoBehaviour {
                 }
             }
 
-            for (int j = 0; j < xmlErrands.Count; j++)
+            /*for (int j = 0; j < xmlErrands.Count; j++)
             //foreach (XMLErrand errand in xmlErrands)
             {
                 XMLErrand errand = xmlErrands[j];
@@ -202,18 +202,18 @@ public class WorldModelManager : MonoBehaviour {
                 //foreach (XMLSubtask subtask in errand.Subtasks)
                 {
                     XMLSubtask subtask = errand.Subtasks[k];
-                    logFile.WriteLine("Subtask number " + k + "subtask ID " + subtask.ID);
+                    logFile.WriteLine("Subtask number " + k + " subtask ID " + subtask.ID);
                     logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
                 }
                 for (int l = 0; l < errand.AuxSubtasks.Count; l++)
                 //foreach (XMLSubtask auxSubtask in errand.AuxSubtasks)
                 {
                     XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                    logFile.WriteLine("Subtask number " + l + "auxSubtask ID " + auxSubtask.ID);
+                    logFile.WriteLine("Subtask number " + l + " auxSubtask ID " + auxSubtask.ID);
                     logFile.WriteLine("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
                 }
                 logFile.WriteLine("\n");
-            }
+            }*/
             /*if (objects != null)
             {
                 foreach (KeyValuePair<string, GameObject> item in objects)
@@ -253,47 +253,39 @@ public class WorldModelManager : MonoBehaviour {
 
     public void Score()
     {
-        bool taskFound = false;
+        bool taskAdded = false;
 
         printActions();
-        for (int i = 0; i < actions.Count; i++)
+        string fileName = System.DateTime.Today.ToString("yy-MM-dd");
+        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
         {
-            PrimitiveAction action = actions[i];
-            Debug.Log("Action " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
-            taskFound = CheckSubtasks(action);
-            if (!taskFound)
+            for (int i = 0; i < actions.Count; i++)
             {
-                taskFound = CheckAuxSubtasks(action);
-                if (!taskFound)
+                taskFound = false;
+                PrimitiveAction action = actions[i];
+                Debug.Log("Action " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+                scoreFile.WriteLine("\nAction " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+
+                taskAdded = CheckSubtasks(action, scoreFile);
+                if (!taskAdded)
                 {
-                    taskFound = AddIntrusion();
-                }
-                continue;
-            }
-            /*for (int j = 0; j < xmlErrands.Count; j++)
-            {
-                XMLErrand errand = xmlErrands[j];
-                Debug.Log("Errand " + errand.Name);
-                taskFound = CheckSubtasks(errand, action);
-                if (!taskFound)
-                {
-                    taskFound = CheckAuxSubtasks(errand, action);
-                    if (!taskFound)
+                    taskAdded = CheckAuxSubtasks(action, scoreFile);
+                    if (!taskAdded)
                     {
-                        taskFound = AddIntrusion();                        
+                        taskAdded = AddIntrusion(action, scoreFile);
                     }
                     continue;
                 }
-            }*/
-        }
-        for (int i = 0; i < executionList.Count; i++)
-        {
-            Debug.Log("Errand ID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber 
-                + " TaskType " + executionList[i].TaskType.ToString());
+            }
+            for (int i = 0; i < executionList.Count; i++)
+            {
+                scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
+                    + " TaskType " + executionList[i].TaskType.ToString() + " EpisodicError " + executionList[i].EpisodicError);
+            }
         }
     }
     
-    private bool CheckSubtasks(PrimitiveAction action)
+    private bool CheckSubtasks(PrimitiveAction action, System.IO.StreamWriter scoreFile)
     {
         for (int j = 0; j < xmlErrands.Count; j++)
         {
@@ -305,56 +297,104 @@ public class WorldModelManager : MonoBehaviour {
                 //Debug.Log("Subtask " + subtask.Action.Name);
                 if (subtask.Action.Name.Equals(action.Name) && IsSameObject(subtask.Action, action))
                 {
-                    Debug.Log("Errand " + j + " " + errand.Name + " Subtask " + k + " and action name are the same");
+                    Debug.Log("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID +" and action are the same");
+                    scoreFile.WriteLine("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID + " and action are the same ");
                     if (!executionXMLTasks.Contains(subtask))
                     {
-                        Debug.Log("Errand ID, k and type " + errand.ID + " " + k + " " + Execution.TaskTypes.Subtask);
-                        Execution task = new Execution(errand.ID, k+1, Execution.TaskTypes.Subtask);
-                        executionXMLTasks.Add(subtask);
-                        executionList.Add(task);
+                        Debug.Log("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+                      
+                        if (AreCorrectItems(action))
+                        {
+                            Execution task = new Execution(errand.ID, k + 1, Execution.TaskTypes.Subtask, false, false);
+                            executionXMLTasks.Add(subtask);
+                            executionList.Add(task);
+                        } 
+                        else
+                        {
+                            AddIntrusion(action, scoreFile);
+                        }
                         return true;
+                    }
+                    else
+                    {
+                        taskFound = true;
                     }
                 }
             }
-        }
+        }        
         return false;
     }   
     
-    private bool CheckAuxSubtasks(PrimitiveAction action)
-    {
+    private bool CheckAuxSubtasks(PrimitiveAction action, System.IO.StreamWriter scoreFile)
+    {       
         for (int j = 0; j < xmlErrands.Count; j++)
         {
             XMLErrand errand = xmlErrands[j];
-            Debug.Log("Errand " + errand.Name);
+            //Debug.Log("Errand " + errand.Name);
+            //scoreFile.WriteLine("Errand " + errand.Name);
             for (int l = 0; l < errand.AuxSubtasks.Count; l++)
             {
                 XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                Debug.Log("auxSubtask " + auxSubtask.Action.Name);
+                //Debug.Log("auxSubtask " + auxSubtask.Action.Name);
+                //scoreFile.WriteLine("auxSubtask " + auxSubtask.Action.Name);
                 if (auxSubtask.Action.Name.Equals(action.Name) && IsSameObject(auxSubtask.Action, action))
                 {
-                    Debug.Log("Errand " + j + " " + errand.Name + " auxSubtask " + l + " and action name are the same");
+                    Debug.Log("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
+                    scoreFile.WriteLine("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
                     // add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
                     if (!executionXMLTasks.Contains(auxSubtask))
                     {
-                        Debug.Log("Errand ID, k and type " + errand.ID + " " + l + " " + Execution.TaskTypes.Subtask);
-                        Execution task = new Execution(errand.ID, l+1, Execution.TaskTypes.AuxTask);
+                        Debug.Log("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
+                        Execution task = new Execution(errand.ID, l + 1, Execution.TaskTypes.AuxTask, false, false);
                         executionXMLTasks.Add(auxSubtask);
                         executionList.Add(task);
                         return true;
                     }
+                    else
+                    {
+                        taskFound = true;
+                    }
                 }
             }
-        }
+        }       
         return false;
     } 
 
-    private bool AddIntrusion()
+    private bool AddIntrusion(PrimitiveAction action, System.IO.StreamWriter scoreFile)
+    {      
+        if (taskFound)
+        {
+            AddRepetition(scoreFile);
+        }
+        else
+        {
+            Debug.Log("Adding intrusion");
+            scoreFile.WriteLine("Adding intrusion");
+            Execution task;
+            if (AreCorrectItems(action))
+            {
+                task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, false);
+            }
+            else
+            {
+                task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, true);
+            }
+            //executionXMLTasks.Add(auxSubtask);
+            executionList.Add(task);
+        }      
+       
+        return false;
+    }
+
+    private void AddRepetition(System.IO.StreamWriter scoreFile)
     {
-        Debug.Log("Adding intrusion");
-        Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion);
+        Debug.Log("Adding repetition");
+        scoreFile.WriteLine("Adding repetition");
+        Execution task = new Execution("R", 0, Execution.TaskTypes.Repetition, false, false);
         //executionXMLTasks.Add(auxSubtask);
         executionList.Add(task);
-        return false;
     }
 
     private bool IsSameObject(XMLPrimitiveAction xmlAction, PrimitiveAction action)
@@ -362,5 +402,55 @@ public class WorldModelManager : MonoBehaviour {
         if (xmlAction.ElementOne.ObjectElement.Equals(action.ElementOne.ObjectElement.tag) && xmlAction.ElementTwo.ObjectElement.Equals(action.ElementTwo.ObjectElement.tag))
             return true;
         return false;
+    }
+
+    private bool HasSemanticCategory(Element element)
+    {
+        if (element.SemanticCategory)
+            return true;
+        return false;
+    }
+
+    private bool IsCorrectItem(GameObject gObject)
+    {
+        if (gObject.GetComponent<CorrectItem>())
+            return true;
+        return false;
+    }
+
+    private bool AreCorrectItems(PrimitiveAction action)
+    {
+        bool correctItems = false;
+        // if the objects have semantic category
+        if (HasSemanticCategory(action.ElementOne) || HasSemanticCategory(action.ElementTwo))
+        {
+            if (HasSemanticCategory(action.ElementOne))
+            {
+                if (IsCorrectItem(action.ElementOne.ObjectElement))
+                {
+                    correctItems = true;
+                }
+                else
+                {
+                    correctItems = false;
+                }
+            }
+            if (HasSemanticCategory(action.ElementTwo))
+            {
+                if (IsCorrectItem(action.ElementTwo.ObjectElement))
+                {
+                    correctItems = true;
+                }
+                else
+                {
+                    correctItems = false;
+                }
+            }
+        }
+        else
+        {
+            correctItems = true;
+        }
+        return correctItems;
     }
 }

@@ -31,6 +31,24 @@ public class Execution {
         set;
     }
 
+    /// <summary>
+    /// Semantic Error
+    /// </summary>
+    public bool SemanticError
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// Episodic Error
+    /// </summary>
+    public bool EpisodicError
+    {
+        get;
+        set;
+    }
+
     public Execution()
     {
         this.ErrandID = "";
@@ -38,10 +56,12 @@ public class Execution {
         this.TaskType = Execution.TaskTypes.None;
     }
 
-    public Execution(string errandID, int subtaskNumber, Execution.TaskTypes taskType)
+    public Execution(string errandID, int subtaskNumber, Execution.TaskTypes taskType, bool SemanticError, bool EpisodicError)
     {
         this.ErrandID = errandID;
         this.SubtaskNumber = subtaskNumber;
         this.TaskType = taskType;
+        this.SemanticError = SemanticError;
+        this.EpisodicError = EpisodicError;
     }
 }

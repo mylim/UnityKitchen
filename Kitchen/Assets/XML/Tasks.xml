@@ -44,16 +44,16 @@
 		<Subtask ID = "E1-9">
 			<Name>pickedUp</Name>
 			<ElementOne>Player</ElementOne>
-			<ElementTwo>Kettle</ElementTwo>
+			<ElementTwo>Water</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E1-10">
 			<Name>in</Name>
 			<ElementOne>Water</ElementOne>
 			<ElementTwo semanticCategory = "true">Mug</ElementTwo>
 		</Subtask>
-		<Subtask ID = "E1-10-1" Auxiliary = "true">
+		<Subtask ID = "E1-11">
 			<Name>on</Name>
-			<ElementOne>Kettle</ElementOne>
+			<ElementOne>Water</ElementOne>
 			<ElementTwo>KettleBase</ElementTwo>
 		</Subtask>
 	</Errand>
@@ -190,16 +190,16 @@
 		<Subtask ID = "E4-4-1" Auxiliary = "true">
 			<Name>pickedUp</Name>
 			<ElementOne>Player</ElementOne>
-			<ElementTwo semanticCategory = "true">Mug</ElementTwo>
+			<ElementTwo>HotDrink</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-4">
 			<Name>front</Name>
-			<ElementOne semanticCategory = "true">Mug</ElementOne>
+			<ElementOne>HotDrink</ElementOne>
 			<ElementTwo>Bowl</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-4-2" Auxiliary = "true">
 			<Name>on</Name>
-			<ElementOne semanticCategory = "true">Mug</ElementOne>
+			<ElementOne>HotDrink</ElementOne>
 			<ElementTwo>Placemat</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-5">
@@ -238,6 +238,11 @@
 			<Name>on</Name>
 			<ElementOne semanticCategory = "true">DishwashingLiquid</ElementOne>
 			<ElementTwo semanticCategory = "true">Sponge</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-5-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "true">DishwashingLiquid</ElementOne>
+			<ElementTwo semanticCategory = "true">Sink</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E5-6">
 			<Name>washed</Name>

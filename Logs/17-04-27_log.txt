@@ -1,0 +1,383 @@
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 5 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 6 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 7 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I1
+Action 8 in SingleTeaBag Mug
+correct Mug: E1_ST5_EM1_I2
+Action 9 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 10 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 11 pickedUp Player Water
+Action 12 in Water Mug
+correct Mug: E1_ST5_EM1_I2
+Action 13 on Water KettleBase
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+correct Bread: E2_ST4_EM2_I4
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on SingleSlice Sandwich
+Interference : TowelsDialog
+Click : Wall
+Click : HandTowel
+Click : Wall
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 4 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 5 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 6 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I4
+Action 7 in SingleTeaBag Mug
+correct Mug: E1_ST5_EM1_I2
+Action 8 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 9 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 10 boiled Kettle Water
+Action 11 pickedUp Player Water
+Action 12 in Water Mug
+correct Mug: E1_ST5_EM1_I2
+Action 13 on Water KettleBase
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+correct Bread: E2_ST4_EM2_I4
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on SingleSlice Sandwich
+Interference : TowelsDialog
+Click : Towel
+Click : MopTowel
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 6 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I4
+Action 7 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 8 pickedUp Player Water
+Action 9 in Water Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 10 in Water Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 11 on Water KettleBase
+Action 12 pickedUp Player HotDrink
+Action 13 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+wrong Bread: E2_ST4_EM2_I2
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on SingleSlice Sandwich
+Interference : TowelsDialog
+Click : Wall
+Click : Wall
+Click : HandTowel
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 6 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I4
+Action 7 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 8 pickedUp Player Water
+Action 9 in Water Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 10 in Water Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 11 on Water KettleBase
+Action 12 pickedUp Player HotDrink
+Action 13 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+wrong Bread: E2_ST4_EM2_I2
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on SingleSlice Sandwich
+Interference : TowelsDialog
+Click : Wall
+Click : Wall
+Click : HandTowel
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 6 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 7 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I1
+Action 8 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 9 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 10 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I1
+Action 11 pickedUp Player Water
+Action 12 in Water Mug
+wrong Mug: E1_ST5_EM1_I1
+Action 13 on Water KettleBase
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+wrong Bread: E2_ST4_EM2_I3
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on SingleSlice Sandwich
+Interference : TowelsDialog
+Click : HandTowel
+Click : Wall
+Click : Wall
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 6 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I4
+Action 7 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 8 boiled Kettle Water
+Action 9 pickedUp Player Water
+Action 10 in Water Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 11 on Water KettleBase
+Action 12 pickedUp Player HotDrink
+Action 13 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+correct Bread: E2_ST4_EM2_I4
+Action 18 on SingleSlice Sandwich
+Action 19 on HamSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on CheeseSlice Sandwich
+Action 22 on CheeseSlice Sandwich
+Action 23 on SingleSlice Sandwich
+Action 24 on Sandwich KitchenTop
+Interference : TowelsDialog
+Click : HandTowel
+Click : HandTowel
+Click : Wall
+Click : Wall
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 6 pickedUp Player Tea
+correct Tea: E1_ST7_EM1_I3
+Action 7 in SingleTeaBag Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 8 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 9 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 10 boiled Kettle Water
+Action 11 pickedUp Player Water
+Action 12 in Water Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 13 on Water KettleBase
+Action 14 on SingleNapkin Sandwich
+Action 15 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 16 on Ham KitchenTop
+Action 17 on Bread KitchenTop
+correct Bread: E2_ST4_EM2_I4
+Action 18 on SingleSlice Sandwich
+Action 19 on SingleSlice Sandwich
+Action 20 on HamSlice Sandwich
+Action 21 on HamSlice Sandwich
+Action 22 on CheeseSlice Sandwich
+Action 23 on CheeseSlice Sandwich
+Interference : TowelsDialog
+Interference : BleachDialog
+Click : Bleach
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 on DisinfectantWipes KitchenTop
+wrong DisinfectantWipes: E4_ST5_EM3_I1
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 6 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 7 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 8 pickedUp Player Tea
+correct Tea: E1_ST7_EM1_I3
+Action 9 in SingleTeaBag Mug
+correct Mug: E1_ST5_EM1_I2
+Action 10 boiled Kettle Water
+Action 11 pickedUp Player Water
+Action 12 in Water Mug
+correct Mug: E1_ST5_EM1_I2
+Action 13 on Water KettleBase
+Action 14 on SingleNapkin Sandwich
+Action 15 pickedUp Player HotDrink
+Action 16 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 17 on Cheese KitchenTop
+correct Cheese: E2_ST2_EM1_I2
+Action 18 on Ham KitchenTop
+Action 19 on Bread KitchenTop
+wrong Bread: E2_ST4_EM2_I3
+Action 20 on SingleSlice Sandwich
+Action 21 back SingleSlice Bread
+wrong Bread: E2_ST4_EM2_I3
+Action 22 on HamSlice Sandwich
+Action 23 on HamSlice Sandwich
+Action 24 on CheeseSlice Sandwich
+Action 25 on CheeseSlice Sandwich
+Action 26 on SingleSlice Sandwich
+Action 27 on Placemat Table
+Action 28 pickedUp Player HotDrink
+Action 29 on Mug Placemat
+correct Mug: E1_ST5_EM1_I2
+Action 30 on Sandwich Placemat
+Interference : TowelsDialog
+Click : TeaTowel
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Click : Bleach
+Interference : CutleryDialog
+Click : Knife
+Click : Knife
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KitchenTop
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Water
+Action 5 on Water KettleBase
+Action 6 pickedUp Player Water
+Action 7 on Water KettleBase
+Action 8 pickedUp Player Water
+Action 9 on Water KettleBase
+Action 10 pickedUp Player Mug
+correct Mug: E1_ST5_EM1_I2
+Action 11 on Mug KitchenTop
+correct Mug: E1_ST5_EM1_I2
+Action 12 pickedUp Player Tea
+wrong Tea: E1_ST7_EM1_I1
+Action 13 in SingleTeaBag Mug
+correct Mug: E1_ST5_EM1_I2
+Action 14 pickedUp Player Water
+Action 15 in Water Mug
+correct Mug: E1_ST5_EM1_I2
+Action 16 on Water KettleBase
+Action 17 pickedUp Player HotDrink
+Action 18 on HotDrink KitchenTop
+Interference : TowelsDialog
+Click : TeaTowel
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 pickedUp Player Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 5 on Mug KitchenTop
+wrong Mug: E1_ST5_EM1_I4
+Action 6 pickedUp Player Water
+Action 7 in Water Mug
+wrong Mug: E1_ST5_EM1_I4
+Action 8 on Water KettleBase
+Action 9 pickedUp Player Drink
+Action 10 on Drink KitchenTop
+Interference : TowelsDialog
+Click : HandTowel
+Click : Wall
+Click : Wall
