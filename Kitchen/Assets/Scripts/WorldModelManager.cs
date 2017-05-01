@@ -19,7 +19,9 @@ public class WorldModelManager : MonoBehaviour {
     private List<XMLErrand> xmlErrands;
     private List<XMLInterference> xmlInterferences;
 
+    // Scoring variables
     private bool taskFound;
+    private int taskID;
 
     // Use this for initialization
     void Start() {
@@ -85,7 +87,13 @@ public class WorldModelManager : MonoBehaviour {
         Element eTwo = new Element(elementTwo);        
         if (elementOne.transform.parent != null && elementOne.transform.parent.GetComponent<SemanticCategory>())
         {
-            eOne.SemanticCategory = true;
+            // element one has a semantic category
+            eOne.SemanticCategory = elementOne.transform.parent.tag;
+            // element one belongs to the right semantic category
+            if(elementOne.transform.parent.GetComponent<CorrectSemanticCategory>())
+            {
+                eOne.CorrectSemanticCategory = true;
+            }
             if (!objects.ContainsKey(elementOne.transform.parent.tag))
                 objects.Add(elementOne.transform.parent.tag, elementOne);
             else
@@ -95,7 +103,13 @@ public class WorldModelManager : MonoBehaviour {
         }
         if (elementTwo.transform.parent != null && elementTwo.transform.parent.GetComponent<SemanticCategory>())
         {
-            eTwo.SemanticCategory = true;
+            // element two has a semantic category
+            eTwo.SemanticCategory = elementTwo.transform.parent.tag;
+            // element two belongs to the right semantic category
+            if (elementTwo.transform.parent.GetComponent<CorrectSemanticCategory>())
+            {
+                eTwo.CorrectSemanticCategory = true;
+            }
             if (!objects.ContainsKey(elementTwo.transform.parent.tag))
                 objects.Add(elementTwo.transform.parent.tag, elementTwo);
             else
@@ -160,26 +174,40 @@ public class WorldModelManager : MonoBehaviour {
 
                 if (HasSemanticCategory(actions[i].ElementOne))
                 {
-                    if (IsCorrectItem(actions[i].ElementOne.ObjectElement))
+                    if (IsCorrectSemanticCategory(actions[i].ElementOne))
                     {
-                        //Debug.Log("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
-                        logFile.WriteLine("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        if (IsCorrectItem(actions[i].ElementOne.ObjectElement))
+                        {
+                            //Debug.Log("correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                            logFile.WriteLine("correct semantic category and correct " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        }
+                        else
+                        {
+                            logFile.WriteLine("correct semantic cateogry but wrong " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        }
                     }
                     else
                     {
-                        logFile.WriteLine("wrong " + actions[i].ElementOne.ObjectElement.tag + ": " + actions[i].ElementOne.ObjectElement.name);
+                        logFile.WriteLine("Incorrect semantic category " + actions[i].ElementOne.ObjectElement.tag);
                     }
                 }
                 if (HasSemanticCategory(actions[i].ElementTwo))
                 {
-                    if (IsCorrectItem(actions[i].ElementTwo.ObjectElement))
+                    if (IsCorrectSemanticCategory(actions[i].ElementTwo))
                     {
-                        //Debug.Log("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
-                        logFile.WriteLine("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        if (IsCorrectItem(actions[i].ElementTwo.ObjectElement))
+                        {
+                            //Debug.Log("correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                            logFile.WriteLine("Correct semantic category and correct " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        }
+                        else
+                        {
+                            logFile.WriteLine("Correct semantic category but wrong " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        }
                     }
                     else
                     {
-                        logFile.WriteLine("wrong " + actions[i].ElementTwo.ObjectElement.tag + ": " + actions[i].ElementTwo.ObjectElement.name);
+                        logFile.WriteLine("Incorrect semantic category " + actions[i].ElementTwo.ObjectElement.tag);
                     }
                 }
             }         
@@ -262,6 +290,7 @@ public class WorldModelManager : MonoBehaviour {
             for (int i = 0; i < actions.Count; i++)
             {
                 taskFound = false;
+                taskID = 0;
                 PrimitiveAction action = actions[i];
                 Debug.Log("Action " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
                 scoreFile.WriteLine("\nAction " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
@@ -272,7 +301,14 @@ public class WorldModelManager : MonoBehaviour {
                     taskAdded = CheckAuxSubtasks(action, scoreFile);
                     if (!taskAdded)
                     {
-                        taskAdded = AddIntrusion(action, scoreFile);
+                        if (taskFound)
+                        {
+                            AddRepetition(taskID, scoreFile);
+                        }
+                        else
+                        {
+                            AddUnknownIntrusion(scoreFile);
+                        }                        
                     }
                     continue;
                 }
@@ -280,7 +316,8 @@ public class WorldModelManager : MonoBehaviour {
             for (int i = 0; i < executionList.Count; i++)
             {
                 scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
-                    + " TaskType " + executionList[i].TaskType.ToString() + " EpisodicError " + executionList[i].EpisodicError);
+                    + " TaskType " + executionList[i].TaskType.ToString() + (executionList[i].SemanticError ? " semanticError" : "") + 
+                    (executionList[i].EpisodicError ? " episodicError": ""));
             }
         }
     }
@@ -289,13 +326,67 @@ public class WorldModelManager : MonoBehaviour {
     {
         for (int j = 0; j < xmlErrands.Count; j++)
         {
-            XMLErrand errand = xmlErrands[j];
-            //Debug.Log("Errand name " + errand.Name);
+            XMLErrand errand = xmlErrands[j];         
             for (int k = 0; k < errand.Subtasks.Count; k++)
             {
                 XMLSubtask subtask = errand.Subtasks[k];
-                //Debug.Log("Subtask " + subtask.Action.Name);
-                if (subtask.Action.Name.Equals(action.Name) && IsSameObject(subtask.Action, action))
+                bool semanticError; // should be always false since the semantic categories are the same
+                bool episodicError;
+                // subtask with objects from same semantic category               
+                //if (subtask.Action.Name.Equals(action.Name) && AreSameSemanticCategories(subtask.Action, action))
+                if (subtask.Action.Name.Equals(action.Name) && AreSimilarObjects(subtask.Action, action))
+                {
+                    //Debug.Log("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID + " and action are the same");
+                    scoreFile.WriteLine("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID + " and action are the same ");
+                    //scoreFile.WriteLine("Objects " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement
+                    // + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+                    // similar objects
+                    //if (AreSimilarObjects(subtask.Action, action))
+                
+                    //scoreFile.WriteLine("Objects are similar");
+                    if (!executionXMLTasks.Contains(subtask))
+                    {
+                        //Debug.Log("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+
+                        semanticError = CheckSemanticError(action); 
+                        episodicError = CheckEpisodicError(action);
+                        if (!semanticError && !episodicError)
+                        {
+                            Execution task = new Execution(errand.ID, k + 1, Execution.TaskTypes.Subtask, semanticError, episodicError);
+                            executionXMLTasks.Add(subtask);
+                            executionList.Add(task);
+                        }
+                        else
+                        {
+                            scoreFile.WriteLine("There are some errors");
+                            AddKnownIntrusion(scoreFile, semanticError, episodicError);
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        taskFound = true;
+                        taskID = k + 1;
+                    }
+                    
+                }
+                // different objects, which means there is semantic error
+                else if (subtask.Action.Name.Equals(action.Name) && AreSameSemanticCategories(subtask.Action, action))
+                {
+                    semanticError = CheckSemanticError(action);
+                    episodicError = CheckEpisodicError(action);
+                    scoreFile.WriteLine("Objects " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement
+                     + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+                    /*scoreFile.WriteLine("Semantic categories " + subtask.Action.ElementOne.SemanticCategory + " " + subtask.Action.ElementTwo.SemanticCategory
+                   + " " + action.ElementOne.SemanticCategory + " " + action.ElementTwo.SemanticCategory);
+                    scoreFile.WriteLine("Objects are disimilar");*/
+                    scoreFile.WriteLine("Objects has same semantic categories but are disimilar");
+                    AddKnownIntrusion(scoreFile, semanticError, episodicError);
+                    return true;
+                }
+              
+                /*if (subtask.Action.Name.Equals(action.Name) && AreSimilarObjects(subtask.Action, action))
                 {
                     Debug.Log("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID +" and action are the same");
                     scoreFile.WriteLine("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID + " and action are the same ");
@@ -303,24 +394,27 @@ public class WorldModelManager : MonoBehaviour {
                     {
                         Debug.Log("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
                         scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
-                      
-                        if (AreCorrectItems(action))
+
+                        semanticError = CheckSemanticError(action);
+                        episodicError = CheckEpisodicError(action);
+                        if (!semanticError && !episodicError)
                         {
-                            Execution task = new Execution(errand.ID, k + 1, Execution.TaskTypes.Subtask, false, false);
+                            Execution task = new Execution(errand.ID, k + 1, Execution.TaskTypes.Subtask, semanticError, episodicError);
                             executionXMLTasks.Add(subtask);
                             executionList.Add(task);
                         } 
                         else
                         {
-                            AddIntrusion(action, scoreFile);
+                            AddKnownIntrusion(scoreFile, semanticError, episodicError);
                         }
                         return true;
                     }
                     else
                     {
                         taskFound = true;
+                        taskID = k + 1;
                     }
-                }
+                }*/
             }
         }        
         return false;
@@ -331,14 +425,40 @@ public class WorldModelManager : MonoBehaviour {
         for (int j = 0; j < xmlErrands.Count; j++)
         {
             XMLErrand errand = xmlErrands[j];
-            //Debug.Log("Errand " + errand.Name);
-            //scoreFile.WriteLine("Errand " + errand.Name);
             for (int l = 0; l < errand.AuxSubtasks.Count; l++)
             {
                 XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                //Debug.Log("auxSubtask " + auxSubtask.Action.Name);
-                //scoreFile.WriteLine("auxSubtask " + auxSubtask.Action.Name);
-                if (auxSubtask.Action.Name.Equals(action.Name) && IsSameObject(auxSubtask.Action, action))
+                if (auxSubtask.Action.Name.Equals(action.Name) && AreSimilarObjects(auxSubtask.Action, action))
+                {
+                    //Debug.Log("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
+                    scoreFile.WriteLine("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
+                    // add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
+                    if (!executionXMLTasks.Contains(auxSubtask))
+                    {
+                        //Debug.Log("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
+
+                        bool semanticError = CheckSemanticError(action);
+                        bool episodicError = CheckEpisodicError(action);
+                        if (!semanticError && !episodicError)
+                        {
+                            Execution task = new Execution(errand.ID, l + 1, Execution.TaskTypes.AuxTask, semanticError, episodicError);
+                            executionXMLTasks.Add(auxSubtask);
+                            executionList.Add(task);
+                        }
+                        else
+                        {
+                            AddKnownIntrusion(scoreFile, semanticError, episodicError);
+                        }
+                        return true;
+                    }
+                    else
+                    {
+                        taskFound = true;
+                        taskID = l + 1;
+                    }
+                }
+                /*if (auxSubtask.Action.Name.Equals(action.Name) && IsSameObject(auxSubtask.Action, action))
                 {
                     Debug.Log("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
                     scoreFile.WriteLine("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");
@@ -347,66 +467,141 @@ public class WorldModelManager : MonoBehaviour {
                     {
                         Debug.Log("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
                         scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.Subtask);
-                        Execution task = new Execution(errand.ID, l + 1, Execution.TaskTypes.AuxTask, false, false);
-                        executionXMLTasks.Add(auxSubtask);
-                        executionList.Add(task);
+
+                        bool semanticError = CheckSemanticError(action);
+                        bool episodicError = CheckEpisodicError(action);
+                        if (!semanticError && !episodicError)
+                        {
+                            Execution task = new Execution(errand.ID, l + 1, Execution.TaskTypes.AuxTask, semanticError, episodicError);
+                            executionXMLTasks.Add(auxSubtask);
+                            executionList.Add(task);
+                        }
+                        else
+                        {
+                            AddKnownIntrusion(scoreFile, semanticError, episodicError);
+                        }
                         return true;
                     }
                     else
                     {
                         taskFound = true;
+                        taskID = l + 1;
                     }
-                }
+                }*/
             }
         }       
         return false;
     } 
 
-    private bool AddIntrusion(PrimitiveAction action, System.IO.StreamWriter scoreFile)
+    private void AddKnownIntrusion(System.IO.StreamWriter scoreFile, bool semanticError, bool episodicError)
     {      
-        if (taskFound)
-        {
-            AddRepetition(scoreFile);
-        }
-        else
-        {
-            Debug.Log("Adding intrusion");
-            scoreFile.WriteLine("Adding intrusion");
-            Execution task;
-            if (AreCorrectItems(action))
-            {
-                task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, false);
-            }
-            else
-            {
-                task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, true);
-            }
-            //executionXMLTasks.Add(auxSubtask);
-            executionList.Add(task);
-        }      
-       
-        return false;
+        //Debug.Log("Adding known intrusion: semanticError " + semanticError + " episodicError " + episodicError);
+        scoreFile.WriteLine("Adding known intrusion: semanticError " + semanticError + " episodicError " + episodicError);
+        Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion, semanticError, episodicError);
+        executionList.Add(task);        
     }
 
-    private void AddRepetition(System.IO.StreamWriter scoreFile)
+    private void AddUnknownIntrusion(System.IO.StreamWriter scoreFile)
     {
-        Debug.Log("Adding repetition");
+        //Debug.Log("Adding unknown intrusion");
+        scoreFile.WriteLine("Adding unknown intrusion");
+        Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, false);
+        executionList.Add(task);
+    }
+
+    private void AddRepetition(int taskID, System.IO.StreamWriter scoreFile)
+    {
+        //Debug.Log("Adding repetition");
         scoreFile.WriteLine("Adding repetition");
-        Execution task = new Execution("R", 0, Execution.TaskTypes.Repetition, false, false);
+        Execution task = new Execution("R", taskID, Execution.TaskTypes.Repetition, false, false);
         //executionXMLTasks.Add(auxSubtask);
         executionList.Add(task);
     }
 
-    private bool IsSameObject(XMLPrimitiveAction xmlAction, PrimitiveAction action)
+    private bool AreSameSemanticCategories(XMLPrimitiveAction xmlAction, PrimitiveAction action)
     {
+        /*bool sameSemanticCategories = false;
+        if (HasSemanticCategory(action.ElementOne)) {
+            if (xmlAction.ElementOne.SemanticCategory.Equals(action.ElementOne.SemanticCategory))
+            {
+                sameSemanticCategories = true;
+            }
+        }
+        if (HasSemanticCategory(action.ElementTwo))
+        {
+            if (xmlAction.ElementTwo.SemanticCategory.Equals(action.ElementTwo.SemanticCategory))
+            {
+                sameSemanticCategories = true;
+            }
+        }*/
+        if (((HasSemanticCategory(action.ElementOne)) && (xmlAction.ElementOne.SemanticCategory.Equals(action.ElementOne.SemanticCategory)))
+            && ((HasSemanticCategory(action.ElementTwo)) && (xmlAction.ElementTwo.SemanticCategory.Equals(action.ElementTwo.SemanticCategory))))
+            return true;
+        return false;
+    }
+
+    private bool AreSimilarObjects(XMLPrimitiveAction xmlAction, PrimitiveAction action)
+    {
+        //Debug.Log("xmlElementOne " + xmlAction.ElementOne.ObjectElement + " actionElementOne " + action.ElementOne.ObjectElement.tag + " xmlElementTwo " 
+        //    + xmlAction.ElementTwo.ObjectElement + " actionElementTwo " + action.ElementTwo.ObjectElement.tag);
         if (xmlAction.ElementOne.ObjectElement.Equals(action.ElementOne.ObjectElement.tag) && xmlAction.ElementTwo.ObjectElement.Equals(action.ElementTwo.ObjectElement.tag))
             return true;
         return false;
     }
 
+    private bool CheckSemanticError(PrimitiveAction action)
+    {
+        bool semanticError = false;
+        // if the objects have semantic category
+        if (HasSemanticCategory(action.ElementOne))
+        {
+            if (!IsCorrectSemanticCategory(action.ElementOne))
+            {
+                semanticError = true;
+            }
+        }
+        if (HasSemanticCategory(action.ElementTwo))
+        {
+            if (!IsCorrectSemanticCategory(action.ElementTwo))
+            {
+                semanticError = true;
+            }
+        }      
+        return semanticError;
+    }
+
+    private bool CheckEpisodicError(PrimitiveAction action)
+    {
+        bool episodicError = false;
+        // if the objects have semantic category
+      
+        if (HasSemanticCategory(action.ElementOne))
+        {
+            if (!IsCorrectItem(action.ElementOne.ObjectElement))
+            {
+                episodicError = true;
+            }
+        }
+        if (HasSemanticCategory(action.ElementTwo))
+        {
+            if (!IsCorrectItem(action.ElementTwo.ObjectElement))
+            {
+                episodicError = true;
+            }
+        }
+     
+        return episodicError;
+    }
     private bool HasSemanticCategory(Element element)
     {
-        if (element.SemanticCategory)
+        if (!element.SemanticCategory.Equals(""))
+            return true;
+        return false;
+    }
+
+    private bool IsCorrectSemanticCategory(Element element)
+    {
+        if (element.CorrectSemanticCategory)
             return true;
         return false;
     }
@@ -416,41 +611,5 @@ public class WorldModelManager : MonoBehaviour {
         if (gObject.GetComponent<CorrectItem>())
             return true;
         return false;
-    }
-
-    private bool AreCorrectItems(PrimitiveAction action)
-    {
-        bool correctItems = false;
-        // if the objects have semantic category
-        if (HasSemanticCategory(action.ElementOne) || HasSemanticCategory(action.ElementTwo))
-        {
-            if (HasSemanticCategory(action.ElementOne))
-            {
-                if (IsCorrectItem(action.ElementOne.ObjectElement))
-                {
-                    correctItems = true;
-                }
-                else
-                {
-                    correctItems = false;
-                }
-            }
-            if (HasSemanticCategory(action.ElementTwo))
-            {
-                if (IsCorrectItem(action.ElementTwo.ObjectElement))
-                {
-                    correctItems = true;
-                }
-                else
-                {
-                    correctItems = false;
-                }
-            }
-        }
-        else
-        {
-            correctItems = true;
-        }
-        return correctItems;
     }
 }

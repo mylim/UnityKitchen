@@ -1,0 +1,66 @@
+
+Action pickedUp Player Kettle
+Errand 0 Prepare Tea Subtask 1 ID E1-1 and action are the same 
+Errand ID, k and type E1 1 Subtask
+
+Action filled Kettle Water
+Errand 0 Prepare Tea Subtask 2 ID E1-2 and action are the same 
+Errand ID, k and type E1 2 Subtask
+
+Action on Kettle KettleBase
+Errand 0 Prepare Tea Subtask 3 ID E1-3 and action are the same 
+Errand ID, k and type E1 3 Subtask
+
+Action boiled Kettle Water
+Errand 0 Prepare Tea Subtask 4 ID E1-4 and action are the same 
+Errand ID, k and type E1 4 Subtask
+
+Action on DisinfectantWipes KitchenTop
+Adding unknown intrusion
+
+Action pickedUp Player CoffeeMug
+Adding unknown intrusion
+
+Action on CoffeeMug KitchenTop
+Adding unknown intrusion
+
+Action pickedUp Player Mug
+Errand 0 Prepare Tea Subtask 5 ID E1-5 and action are the same 
+Errand ID, k and type E1 5 Subtask
+
+Action on Mug KitchenTop
+Errand 0 Prepare Tea Subtask 6 ID E1-6 and action are the same 
+Errand ID, k and type E1 6 Subtask
+
+Action pickedUp Player Water
+Errand 0 Prepare Tea Subtask 9 ID E1-9 and action are the same 
+Errand ID, k and type E1 9 Subtask
+
+Action in Water Mug
+Errand 0 Prepare Tea Subtask 10 ID E1-10 and action are the same 
+Errand ID, k and type E1 10 Subtask
+
+Action on Water KettleBase
+Errand 0 Prepare Tea Subtask 11 ID E1-11 and action are the same 
+Errand ID, k and type E1 11 Subtask
+
+Action pickedUp Player Drink
+Errand 3 Set Table auxSubtask 2 ID E4-4-1 and action are the same
+Errand ID, k and type E4 2 Subtask
+
+Action on Drink Sandwich
+Adding unknown intrusion
+ErrandID E1 SubtaskNumber 1 TaskType Subtask
+ErrandID E1 SubtaskNumber 2 TaskType Subtask
+ErrandID E1 SubtaskNumber 3 TaskType Subtask
+ErrandID E1 SubtaskNumber 4 TaskType Subtask
+ErrandID I SubtaskNumber 0 TaskType Intrusion
+ErrandID I SubtaskNumber 0 TaskType Intrusion
+ErrandID I SubtaskNumber 0 TaskType Intrusion
+ErrandID E1 SubtaskNumber 5 TaskType Subtask
+ErrandID E1 SubtaskNumber 6 TaskType Subtask
+ErrandID E1 SubtaskNumber 9 TaskType Subtask
+ErrandID E1 SubtaskNumber 10 TaskType Subtask
+ErrandID E1 SubtaskNumber 11 TaskType Subtask
+ErrandID E4 SubtaskNumber 2 TaskType AuxTask
+ErrandID I SubtaskNumber 0 TaskType Intrusion

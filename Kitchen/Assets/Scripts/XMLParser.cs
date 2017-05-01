@@ -40,23 +40,27 @@ public class XMLParser{
 
                 XMLPrimitiveAction pAction = new XMLPrimitiveAction();
                 pAction.Name = node2.SelectSingleNode("Name").InnerText;
+                //string semanticCategoryOne = "";
+                //string semanticCategoryTwo = "";
                 if (node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"] != null)
                 {
+                    //semanticCategoryOne = node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"].InnerText;
                     //bool e1SemanticCategory = bool.Parse(node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"].Value);
-                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, true);
+                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, node2.SelectSingleNode("ElementOne").Attributes["semanticCategory"].InnerText);
                 }
                 else
                 {
-                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, false);
+                    pAction.ElementOne = new XMLElement(node2.SelectSingleNode("ElementOne").InnerText, "");
                 }
                 if (node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"] != null)
                 {
+                    //semanticCategoryTwo = node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"].InnerText;
                     //bool e2SemanticCategory = bool.Parse(node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"].Value);
-                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, true);
+                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, node2.SelectSingleNode("ElementTwo").Attributes["semanticCategory"].InnerText);
                 }
                 else
                 {
-                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, false);
+                    pAction.ElementTwo = new XMLElement(node2.SelectSingleNode("ElementTwo").InnerText, "");
                 }
                 subtask.Action = pAction;
                 //Debug.Log("Subtask action " + subtask.Action.Name);

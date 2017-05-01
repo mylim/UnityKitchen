@@ -13,9 +13,18 @@ public class Element{
     }
 
     /// <summary>
-    /// The first element of the primitive action.
+    /// Whether the element has semantic category
     /// </summary>
-    public bool SemanticCategory
+    public string SemanticCategory
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// Whether the element belongs to the right semantic category
+    /// </summary>
+    public bool CorrectSemanticCategory
     {
         get;
         set;
@@ -29,26 +38,21 @@ public class Element{
     public Element()
     {
         this.ObjectElement = new GameObject();
-        this.SemanticCategory = false;
+        this.SemanticCategory = "";
+        this.CorrectSemanticCategory = false;
     }
 
     public Element(GameObject objectElement)
     {
         this.ObjectElement = objectElement;
-        this.SemanticCategory = false;
+        this.SemanticCategory = "";
+        this.CorrectSemanticCategory = false;
     }
 
-    public Element(string tag, bool semanticCategory)
+    public Element(GameObject element, string semanticCategory, bool correctSemanticCategory)
     {
-        this.ObjectElement = new GameObject();
-        this.ObjectElement.tag = tag;
-        if (semanticCategory)
-        {
-            this.SemanticCategory = true;
-        }
-        else
-        {            
-            this.SemanticCategory = false;
-        }
+        this.ObjectElement = element;
+        this.SemanticCategory = semanticCategory;
+        this.CorrectSemanticCategory = correctSemanticCategory;
     }
 }

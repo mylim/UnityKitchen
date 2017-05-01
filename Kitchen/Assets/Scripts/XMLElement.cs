@@ -15,7 +15,7 @@ public class XMLElement{
     /// <summary>
     /// The first element of the primitive action.
     /// </summary>
-    public bool SemanticCategory
+    public string SemanticCategory
     {
         get;
         set;
@@ -29,25 +29,18 @@ public class XMLElement{
     public XMLElement()
     {
         this.ObjectElement = "";
-        this.SemanticCategory = false;
+        this.SemanticCategory = "";
     }
 
     public XMLElement(string tag)
     {
         this.ObjectElement = tag;
-        this.SemanticCategory = false;
+        this.SemanticCategory = "";
     }
 
-    public XMLElement(string tag, bool semanticCategory)
+    public XMLElement(string tag, string semanticCategory)
     {
         this.ObjectElement = tag;
-        if (semanticCategory)
-        {
-            this.SemanticCategory = true;
-        }
-        else
-        {            
-            this.SemanticCategory = false;
-        }
+        this.SemanticCategory = semanticCategory;
     }
 }

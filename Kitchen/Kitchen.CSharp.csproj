@@ -130,6 +130,7 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\PinchDraw.cs" />
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Scripts\CorrectItem.cs" />
+    <Compile Include="Assets\Scripts\CorrectSemanticCategory.cs" />
     <Compile Include="Assets\Scripts\Element.cs" />
     <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\Execution.cs" />
