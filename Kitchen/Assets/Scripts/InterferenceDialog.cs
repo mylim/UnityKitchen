@@ -21,16 +21,7 @@ public class InterferenceDialog : MonoBehaviour {
     {
         answer = "";
         interfering = true;
-        //Debug.Log("Interference dialog " + dialog.name + " set to " + interfering);
-        dialog.SetActive(true);
-        /*if (dialog.GetComponentInChildren<InputField>())
-        {
-            dialog.GetComponentInChildren<InputField>().ActivateInputField();
-            dialog.GetComponentInChildren<InputField>().Select();
-            dialog.GetComponentInChildren<InputField>().IsInteractable();
-
-            Debug.Log("Answer field available");
-        }*/
+        dialog.SetActive(true);    
     }
 
     public void ShowAnswer()

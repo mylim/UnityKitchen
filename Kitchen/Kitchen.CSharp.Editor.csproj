@@ -130,6 +130,7 @@
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\XML\Interferences.xml" />
     <None Include="Assets\XML\Tasks.xml" />
+    <None Include="Assets\XML\TasksSC.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

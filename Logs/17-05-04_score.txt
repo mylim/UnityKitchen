@@ -1,0 +1,64 @@
+
+Action pickedUp Player Kettle
+Errand ID, k and type E1 1 Subtask
+
+Action filled Kettle Water
+Errand ID, k and type E1 2 Subtask
+
+Action on Kettle KettleBase
+Errand ID, k and type E1 3 Subtask
+
+Action boiled Kettle Water
+Errand ID, k and type E1 4 Subtask
+
+Action pickedUp Player Mug
+Errand ID, k and type E1 5 Subtask
+
+Action on Mug KitchenTop
+Errand ID, k and type E1 6 Subtask
+
+Action pickedUp Player Water
+Errand ID, k and type E1 9 Subtask
+
+Action in Water Mug
+Errand ID, k and type E1 10 Subtask
+
+Action on Water KettleBase
+Errand ID, k and type E1 11 Subtask
+
+Action on Placemat Table
+Errand ID, k and type E4 1 Subtask
+
+Action on Bowl Placemat
+Errand ID, k and type E4 2 Subtask
+
+Action pickedUp Player Drink
+Errand ID, k and type E4 2 AuxTask
+
+Action on Drink Bowl
+Adding unknown intrusion
+
+Action pickedUp Player Drink
+Adding repetition
+
+Action front Drink Bowl
+Errand ID, k and type E4 4 Subtask
+
+Action on Drink Placemat
+Errand ID, k and type E4 3 AuxTask
+ErrandID E1 SubtaskNumber 1 TaskType Subtask
+ErrandID E1 SubtaskNumber 2 TaskType Subtask
+ErrandID E1 SubtaskNumber 3 TaskType Subtask
+ErrandID E1 SubtaskNumber 4 TaskType Subtask
+ErrandID E1 SubtaskNumber 5 TaskType Subtask
+ErrandID E1 SubtaskNumber 6 TaskType Subtask
+ErrandID E1 SubtaskNumber 9 TaskType Subtask
+ErrandID E1 SubtaskNumber 10 TaskType Subtask
+ErrandID E1 SubtaskNumber 11 TaskType Subtask
+ErrandID E4 SubtaskNumber 1 TaskType Subtask
+ErrandID E4 SubtaskNumber 2 TaskType Subtask
+ErrandID E4 SubtaskNumber 2 TaskType AuxTask
+ErrandID I SubtaskNumber 0 TaskType Intrusion
+ErrandID R SubtaskNumber 2 TaskType Repetition
+ErrandID E4 SubtaskNumber 4 TaskType Subtask
+ErrandID E4 SubtaskNumber 3 TaskType AuxTask

@@ -24,6 +24,15 @@ public class Interference {
         set;
     }
 
+    /// <summary>
+    /// The answer to the interference question
+    /// </summary>
+    public string Answer
+    {
+        get;
+        set;
+    }
+
     // CONSTRUCTORS
 
     /// <summary>
@@ -33,6 +42,7 @@ public class Interference {
     {
         this.Dialog = new InterferenceDialog();
         this.iObjects = new List<GameObject>();
+        this.Answer = "";
     }
 
     /// <summary>
@@ -43,6 +53,7 @@ public class Interference {
     {
         this.Dialog = dialog;
         this.iObjects = new List<GameObject>();
+        this.Answer = "";
     }
 
 
@@ -75,5 +86,4 @@ public class Interference {
     {
         this.iObjects.Add(iObject);
     }
-
 }

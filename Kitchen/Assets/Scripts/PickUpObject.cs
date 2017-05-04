@@ -570,70 +570,48 @@ public class PickUpObject : MonoBehaviour
                                 {
                                     //if (!hitCollider.transform.parent.tag.Equals(carriedObject.transform.parent.tag))
                                     if (hitCollider.transform.parent.tag.Equals("Dishes"))
-                                    {
-                                        //if (hitCollider.tag.Equals("Bowl") || hitCollider.tag.Equals("PicnicPlate") || hitCollider.tag.Equals("SmallPlate") || hitCollider.tag.Equals("Saucer"))
-                                        //if (hitCollider.transform.parent.tag.Equals("Cutlery") || hitCollider.transform.parent.tag.Equals("BeverageContainers") || hitCollider.transform.parent.tag.Equals("Sandwich") || hitCollider.transform.parent.tag.Equals("Dishes"))
+                                    {               
+                                        // direction from the dish to the cutlery
+                                        Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
+                                        float angle = Vector3.Angle(dir, mainCamera.transform.forward);
+
+                                        //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
+                                        //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
+                                        Debug.Log("Angle + collider " + angle + hitCollider.tag);
+                                        float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
+                                        Debug.Log("AngleDir " + angleDir);
+                                        if (angleDir > 0.0f && (angle > 45f && angle < 135f))
                                         {
-                                            // direction from the cutlery to the dish
-                                            /*Vector3 dir = (hitCollider.transform.position - carriedObject.transform.position);
-                                            float angle = Vector3.Angle(dir, mainCamera.transform.forward);
-
-
-                                            Debug.DrawLine(carriedObject.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                            Debug.DrawLine(hitCollider.transform.position, carriedObject.transform.position, Color.green, 2f);
-
-                                            Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                            float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                            Debug.Log("AngleDir " + angleDir);
-                                            if (angleDir < 0f)
+                                            //Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
+                                            // update world model
+                                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("right", carriedObject, hitCollider.gameObject);
+                                        }
+                                        else if (angleDir < 0.0f)
+                                        {
+                                            //Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
+                                            // update world model
+                                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("left", carriedObject, hitCollider.gameObject);
+                                        }
+                                        else
+                                        {
+                                            //Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
+                                            // update world model
+                                            if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
                                             {
-                                                Debug.Log("Cutlery is at the right of dishes " + hitCollider.tag);
-                                            }
-                                            else if (angleDir > 0f)
-                                            {
-                                                Debug.Log("Cutlery is at the wrong side of " + hitCollider.tag);
-                                            }
-                                            else
-                                            {
-                                                Debug.Log("Cutlery is at the front or back of " + hitCollider.tag);
-                                            }*/
-
-                                            // direction from the dish to the cutlery
-                                            Vector3 dir = (carriedObject.transform.position - hitCollider.transform.position);
-                                            float angle = Vector3.Angle(dir, mainCamera.transform.forward);
-
-                                            //Debug.DrawLine(hitCollider.transform.position, mainCamera.transform.forward, Color.red, 2f);
-                                            //Debug.DrawLine(carriedObject.transform.position, hitCollider.transform.position, Color.green, 2f);
-                                            Debug.Log("Angle + collider " + angle + hitCollider.tag);
-                                            float angleDir = AngleDir(mainCamera.transform.forward, dir, mainCamera.transform.up);
-                                            Debug.Log("AngleDir " + angleDir);
-                                            if (angleDir > 0.0f && (angle > 45f && angle < 135f))
-                                            {
-                                                //Debug.Log(carriedObject.transform.parent.tag + " is at the right of " + hitCollider.tag);
-                                                // update world model
-                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("right", carriedObject, hitCollider.gameObject);
-                                            }
-                                            else if (angleDir < 0.0f)
-                                            {
-                                                //Debug.Log(carriedObject.transform.parent.tag + "  is at the left side of " + hitCollider.tag);
-                                                // update world model
-                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("left", carriedObject, hitCollider.gameObject);
+                                                worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("front", drink, hitCollider.gameObject);
                                             }
                                             else
                                             {
-                                                //Debug.Log(carriedObject.transform.parent.tag + " is at the front or back of " + hitCollider.tag);
-                                                // update world model
                                                 worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("front", carriedObject, hitCollider.gameObject);
                                             }
-                                        }
+                                        }                                        
                                     }
                                 }
                             }
-                        } 
+                        }
                     }
                 }
-
-                if ((carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
+                if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
                 {
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);
@@ -643,7 +621,6 @@ public class PickUpObject : MonoBehaviour
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, collider.gameObject);
                 }
-               
             }
         }
 
