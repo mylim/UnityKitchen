@@ -113,7 +113,7 @@
 		<Subtask ID = "E3-2">
 			<Name>on</Name>
 			<ElementOne semanticCategory = "Cutlery">TableSpoon</ElementOne>
-			<ElementTwo>KitchenTop</ElementTwo>
+			<ElementTwo>Bowl</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E3-3">
 			<Name>on</Name>

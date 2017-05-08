@@ -1,0 +1,17 @@
+Interference : TowelsDialog
+Click : TeaTowel
+Answer : 16
+Interference : BleachDialog
+Click : Bleach
+Click : Bleach
+Answer : 
+Interference : CutleryDialog
+Answer : 4
+Interference : ShelvesDialog
+Answer : 5
+Interference : CupsDialog
+Click : Cup
+Click : Cup
+Click : Cup
+Click : Cup
+Answer : 8

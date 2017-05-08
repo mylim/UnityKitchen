@@ -285,24 +285,171 @@ public class WorldModelManager : MonoBehaviour {
                         else
                         {
                             AddUnknownIntrusion(scoreFile);
-                        }                        
+                        }
                     }
                     continue;
                 }
             }
+            
+            for (int i = 0; i < executionList.Count; i++)
+            {
+                scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
+                + " TaskType " + executionList[i].TaskType.ToString() + (executionList[i].SemanticError ? " semanticError" : "") +
+                (executionList[i].EpisodicError ? " episodicError" : ""));
+            }
 
+
+            // Separate the task in the execution list into errands
+            List<ErrandExecution> errandsExecutionList = new List<ErrandExecution>();
+            ErrandExecution errandsExecution = new ErrandExecution();
+            errandsExecutionList.Add(errandsExecution);
             string errandID = executionList[0].ErrandID;
+            string tempErrandID = "";
 
             for (int i = 0; i < executionList.Count; i++)
             {
-                if (errandID.Equals(executionList[i].ErrandID))
-                {
+                Execution exe = new Execution();
+                exe.CopyExecution(executionList[i]);
 
+                // if the execution list errandID is the same as the current errandID, add the subtask to the current errand
+                if (executionList[i].ErrandID.Equals(errandID))
+                {
+                    errandsExecution.ExecutionList.Add(exe);
                 }
-                scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
+                // if the execution list errandID is I (intrusion) or R (repetition), add the subtask to the current errand
+                else if (executionList[i].ErrandID.Equals("I") || executionList[i].ErrandID.Equals("R"))
+                {
+                    errandsExecution.ExecutionList.Add(exe);
+                }
+                // if the execution list errandID is different from the current errandID
+                else if (!executionList[i].ErrandID.Equals(errandID))
+                {
+                    // the subtask errandID is the same as the tempErrandID, so, this is a task that follows the errand order subtask
+                    if (executionList[i].ErrandID.Equals(tempErrandID))
+                    {
+                        errandsExecution.ExecutionList.Add(exe);
+                    }
+                    // the subtask errandID is different from the tempErrandID, user switch to another errand again
+                    else if (!executionList[i].ErrandID.Equals(tempErrandID))
+                    {
+                        Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
+                            executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
+                        errandsExecution.ExecutionList.Add(eoSubtask);
+                    }
+                    else if ((i + 1) < executionList.Count)
+                    {
+                        // if the next subtask in the execution list has the same errandID as the current errandID, this subtask is an errand order error
+                        if (executionList[i + 1].ErrandID.Equals(errandID))
+                        {
+                            Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
+                                executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
+                            errandsExecution.ExecutionList.Add(eoSubtask);
+                        }
+                        // if the 2nd next subtask errandID in the execution list is different from the current errandID
+                        else if (!executionList[i + 1].ErrandID.Equals(errandID))
+                        {
+                            if ((i + 2) < executionList.Count)
+                            {
+                                // if the 3rd next subtask errandID in the execution list is the same as the current errandID, 
+                                // this subtask is an errand order error
+                                if (executionList[i + 2].ErrandID.Equals(errandID))
+                                {
+                                    tempErrandID = executionList[i].ErrandID;
+                                    Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
+                                   executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
+                                    errandsExecution.ExecutionList.Add(eoSubtask);
+                                }
+                                // if the 3rd next subtask errandID in the execution list is also different from the current errandID, 
+                                // assume that the participant has switched errand
+                                else if (!executionList[i + 2].ErrandID.Equals(errandID))
+                                {
+                                    errandID = executionList[i].ErrandID;
+                                    tempErrandID = "";
+                                    errandsExecution = new ErrandExecution();
+                                    errandsExecutionList.Add(errandsExecution);
+                                    errandsExecution.ExecutionList.Add(executionList[i]);
+                                }
+                            }
+                            else
+                            {
+                                errandID = executionList[i].ErrandID;
+                                tempErrandID = "";                                
+                                errandsExecution = new ErrandExecution();
+                                errandsExecutionList.Add(errandsExecution);
+                                errandsExecution.ExecutionList.Add(executionList[i]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        errandID = executionList[i].ErrandID;
+                        tempErrandID = "";
+                        errandsExecution = new ErrandExecution();
+                        errandsExecutionList.Add(errandsExecution);
+                        errandsExecution.ExecutionList.Add(executionList[i]);
+                    }
+                }
+            }
+
+            scoreFile.WriteLine("Count " + errandsExecutionList.Count);
+
+            for (int i = 0; i < errandsExecutionList.Count; i++)
+            {
+                ErrandExecution errand = errandsExecutionList[i];
+                for (int j = 0; j < errand.ExecutionList.Count; j++)
+                {
+                    scoreFile.WriteLine("ErrandID " + errand.ExecutionList[j].ErrandID + " SubtaskNumber " + errand.ExecutionList[j].SubtaskNumber
+                    + " TaskType " + errand.ExecutionList[j].TaskType.ToString() + (errand.ExecutionList[j].SemanticError ? " semanticError" : "") +
+                    (errand.ExecutionList[j].EpisodicError ? " episodicError" : ""));
+                }
+            }
+
+           /* List<ErrandErrors> errands = new List<ErrandErrors>();
+            for (int i = 0; i < xmlErrands.Count; i++)
+            {
+                errands[i] = new ErrandErrors();
+            }
+            errands[errandIndex].ErrandID = errandID;
+
+            for (int i = 0; i < executionList.Count; i++)
+            {
+                if (errandID.Equals("I"))
+                {
+                    errands[errandIndex].IntrusionError += 1;
+                }
+                else if (errandID.Equals("R"))
+                {
+                    errands[errandIndex].RepetitionError += 1;
+                }
+                else if (errandID.Equals(executionList[i].ErrandID))
+                {
+                    if (subtaskIndex == executionList[i].SubtaskNumber)
+                    {
+                        subtaskIndex++;
+                    }
+                    else if (tempIndex == executionList[i].SubtaskNumber)
+                    {
+                        tempIndex++;
+                    }
+                    else
+                    {
+                        errands[errandIndex].OrderError += 1;
+                        tempIndex = executionList[i].SubtaskNumber + 1;
+                    }
+                }
+                else if (!errandID.Equals(executionList[i].ErrandID))
+                {
+                    if (i >= xmlErrands[errandIndex].Subtasks.Count)
+                    {
+
+                    }
+                }
+
+
+                    scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
                     + " TaskType " + executionList[i].TaskType.ToString() + (executionList[i].SemanticError ? " semanticError" : "") + 
                     (executionList[i].EpisodicError ? " episodicError": ""));
-            }
+            }*/
         }
     }
     

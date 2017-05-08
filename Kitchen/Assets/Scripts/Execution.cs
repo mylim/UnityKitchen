@@ -64,4 +64,13 @@ public class Execution {
         this.SemanticError = SemanticError;
         this.EpisodicError = EpisodicError;
     }
+
+    public void CopyExecution(Execution execution)
+    {
+        this.ErrandID = execution.ErrandID;
+        this.SubtaskNumber = execution.SubtaskNumber;
+        this.TaskType = execution.TaskType;
+        this.SemanticError = execution.SemanticError;
+        this.EpisodicError = execution.EpisodicError;
+    }
 }
