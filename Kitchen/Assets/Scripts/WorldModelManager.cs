@@ -10,8 +10,10 @@ public class WorldModelManager : MonoBehaviour {
     private List<PrimitiveAction> actions;
     private List<Interference> interferences;
     // Ordered list of execution 
-    private List<Execution> executionList;
     private List<XMLSubtask> executionXMLTasks;
+    private List<Execution> intrusionRepetitionErrors;  
+    private List<Execution> errandOrderErrors;
+    private List<Execution> orderErrors;
     private int actionIndex;
     private Dictionary<string, GameObject> objects;
     private bool interfering;
@@ -21,6 +23,7 @@ public class WorldModelManager : MonoBehaviour {
 
     // Scoring variables
     private bool taskFound;
+    private string errandID;
     private int taskID;
 
     // Use this for initialization
@@ -28,9 +31,7 @@ public class WorldModelManager : MonoBehaviour {
         actionIndex = 0;
         dialogIndex = 0;
         actions = new List<PrimitiveAction>();
-        interferences = new List<Interference>();
-        executionList = new List<Execution>();
-        executionXMLTasks = new List<XMLSubtask>();
+        interferences = new List<Interference>();       
         objects = new Dictionary<string, GameObject>();
         xmlParser = new XMLParser();
         xmlErrands = xmlParser.ParseXMLErrands();
@@ -258,51 +259,27 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     public void Score()
     {
-        bool taskAdded = false;
-
         LogActions();
         LogInterferences();
         string fileName = System.DateTime.Today.ToString("yy-MM-dd");
         using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
         {
-            for (int i = 0; i < actions.Count; i++)
-            {
-                taskFound = false;
-                taskID = 0;
-                PrimitiveAction action = actions[i];
-                scoreFile.WriteLine("\nAction " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+            // Checking for intrusion and repetition
+            CheckIntrusionRepetition(scoreFile);
 
-                taskAdded = CheckSubtasks(action, scoreFile);
-                if (!taskAdded)
-                {
-                    taskAdded = CheckAuxSubtasks(action, scoreFile);
-                    if (!taskAdded)
-                    {
-                        if (taskFound)
-                        {
-                            AddRepetition(taskID, scoreFile);
-                        }
-                        else
-                        {
-                            AddUnknownIntrusion(scoreFile);
-                        }
-                    }
-                    continue;
-                }
-            }
-            
-            for (int i = 0; i < executionList.Count; i++)
-            {
-                scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
-                + " TaskType " + executionList[i].TaskType.ToString() + (executionList[i].SemanticError ? " semanticError" : "") +
-                (executionList[i].EpisodicError ? " episodicError" : ""));
-            }
+            // Checking for errand order error
+            CheckErrandOrderError(scoreFile);
 
+            // Checking the order error
+            CheckOrderError(scoreFile);
 
-            // Separate the task in the execution list into errands
+            /*// Separate the task in the execution list into errands
             List<ErrandExecution> errandsExecutionList = new List<ErrandExecution>();
             ErrandExecution errandsExecution = new ErrandExecution();
             errandsExecutionList.Add(errandsExecution);
+            // the first errand id should be the id of the first errand
+            //int errandIndex = 0;
+            //string errandID = xmlErrands[errandIndex++].ID;
             string errandID = executionList[0].ErrandID;
             string tempErrandID = "";
 
@@ -315,34 +292,30 @@ public class WorldModelManager : MonoBehaviour {
                 if (executionList[i].ErrandID.Equals(errandID))
                 {
                     errandsExecution.ExecutionList.Add(exe);
+                    tempErrandID = "";
                 }
                 // if the execution list errandID is I (intrusion) or R (repetition), add the subtask to the current errand
-                else if (executionList[i].ErrandID.Equals("I") || executionList[i].ErrandID.Equals("R"))
+                else if (executionList[i].TaskType.Equals(Execution.TaskTypes.Intrusion) || executionList[i].TaskType.Equals(Execution.TaskTypes.Repetition))
                 {
                     errandsExecution.ExecutionList.Add(exe);
                 }
-                // if the execution list errandID is different from the current errandID
+                // if the execution list errandID is different from the current errandID and it is not the next errand index
                 else if (!executionList[i].ErrandID.Equals(errandID))
+                    //&& !executionList[i].ErrandID.Equals(xmlErrands[errandIndex].ID))
                 {
                     // the subtask errandID is the same as the tempErrandID, so, this is a task that follows the errand order subtask
                     if (executionList[i].ErrandID.Equals(tempErrandID))
                     {
+                        exe.TaskType = Execution.TaskTypes.ErrandOrder;
                         errandsExecution.ExecutionList.Add(exe);
-                    }
-                    // the subtask errandID is different from the tempErrandID, user switch to another errand again
-                    else if (!executionList[i].ErrandID.Equals(tempErrandID))
-                    {
-                        Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
-                            executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
-                        errandsExecution.ExecutionList.Add(eoSubtask);
                     }
                     else if ((i + 1) < executionList.Count)
                     {
                         // if the next subtask in the execution list has the same errandID as the current errandID, this subtask is an errand order error
-                        if (executionList[i + 1].ErrandID.Equals(errandID))
+                        if (executionList[i + 1].ErrandID.Equals(errandID) || executionList[i + 1].TaskType.Equals(Execution.TaskTypes.Intrusion) || executionList[i + 1].TaskType.Equals(Execution.TaskTypes.Repetition))
                         {
                             Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
-                                executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
+                                Execution.TaskTypes.ErrandOrder, executionList[i].SemanticError, executionList[i].EpisodicError);
                             errandsExecution.ExecutionList.Add(eoSubtask);
                         }
                         // if the 2nd next subtask errandID in the execution list is different from the current errandID
@@ -352,41 +325,43 @@ public class WorldModelManager : MonoBehaviour {
                             {
                                 // if the 3rd next subtask errandID in the execution list is the same as the current errandID, 
                                 // this subtask is an errand order error
-                                if (executionList[i + 2].ErrandID.Equals(errandID))
+                                if (executionList[i + 2].ErrandID.Equals(errandID) || executionList[i + 2].TaskType.Equals(Execution.TaskTypes.Intrusion) || executionList[i + 2].TaskType.Equals(Execution.TaskTypes.Repetition))
                                 {
                                     tempErrandID = executionList[i].ErrandID;
                                     Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
-                                   executionList[i].TaskType, executionList[i].SemanticError, executionList[i].EpisodicError);
+                                   Execution.TaskTypes.ErrandOrder, executionList[i].SemanticError, executionList[i].EpisodicError);
                                     errandsExecution.ExecutionList.Add(eoSubtask);
                                 }
                                 // if the 3rd next subtask errandID in the execution list is also different from the current errandID, 
                                 // assume that the participant has switched errand
                                 else if (!executionList[i + 2].ErrandID.Equals(errandID))
-                                {
+                                {                                  
+                                    scoreFile.WriteLine("New errand " + exe.ErrandID + " SubtaskNumber " + exe.SubtaskNumber
+                                        + " TaskType " + exe.TaskType.ToString() + (exe.SemanticError ? " semanticError" : "") +
+                                        (exe.EpisodicError ? " episodicError" : ""));
                                     errandID = executionList[i].ErrandID;
                                     tempErrandID = "";
                                     errandsExecution = new ErrandExecution();
                                     errandsExecutionList.Add(errandsExecution);
-                                    errandsExecution.ExecutionList.Add(executionList[i]);
+                                    errandsExecution.ExecutionList.Add(exe);                                 
                                 }
                             }
+                            // this is the second last subtask
                             else
                             {
-                                errandID = executionList[i].ErrandID;
-                                tempErrandID = "";                                
-                                errandsExecution = new ErrandExecution();
-                                errandsExecutionList.Add(errandsExecution);
-                                errandsExecution.ExecutionList.Add(executionList[i]);
-                            }
+                                tempErrandID = executionList[i].ErrandID;
+                                Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
+                                    Execution.TaskTypes.ErrandOrder, executionList[i].SemanticError, executionList[i].EpisodicError);
+                                errandsExecution.ExecutionList.Add(eoSubtask);
+                            }   
                         }
                     }
+                    // this is the last subtask
                     else
                     {
-                        errandID = executionList[i].ErrandID;
-                        tempErrandID = "";
-                        errandsExecution = new ErrandExecution();
-                        errandsExecutionList.Add(errandsExecution);
-                        errandsExecution.ExecutionList.Add(executionList[i]);
+                        Execution eoSubtask = new Execution("EO", executionList[i].SubtaskNumber,
+                            Execution.TaskTypes.ErrandOrder, executionList[i].SemanticError, executionList[i].EpisodicError);
+                        errandsExecution.ExecutionList.Add(eoSubtask);
                     }
                 }
             }
@@ -402,57 +377,60 @@ public class WorldModelManager : MonoBehaviour {
                     + " TaskType " + errand.ExecutionList[j].TaskType.ToString() + (errand.ExecutionList[j].SemanticError ? " semanticError" : "") +
                     (errand.ExecutionList[j].EpisodicError ? " episodicError" : ""));
                 }
-            }
-
-           /* List<ErrandErrors> errands = new List<ErrandErrors>();
-            for (int i = 0; i < xmlErrands.Count; i++)
-            {
-                errands[i] = new ErrandErrors();
-            }
-            errands[errandIndex].ErrandID = errandID;
-
-            for (int i = 0; i < executionList.Count; i++)
-            {
-                if (errandID.Equals("I"))
-                {
-                    errands[errandIndex].IntrusionError += 1;
-                }
-                else if (errandID.Equals("R"))
-                {
-                    errands[errandIndex].RepetitionError += 1;
-                }
-                else if (errandID.Equals(executionList[i].ErrandID))
-                {
-                    if (subtaskIndex == executionList[i].SubtaskNumber)
-                    {
-                        subtaskIndex++;
-                    }
-                    else if (tempIndex == executionList[i].SubtaskNumber)
-                    {
-                        tempIndex++;
-                    }
-                    else
-                    {
-                        errands[errandIndex].OrderError += 1;
-                        tempIndex = executionList[i].SubtaskNumber + 1;
-                    }
-                }
-                else if (!errandID.Equals(executionList[i].ErrandID))
-                {
-                    if (i >= xmlErrands[errandIndex].Subtasks.Count)
-                    {
-
-                    }
-                }
-
-
-                    scoreFile.WriteLine("ErrandID " + executionList[i].ErrandID + " SubtaskNumber " + executionList[i].SubtaskNumber
-                    + " TaskType " + executionList[i].TaskType.ToString() + (executionList[i].SemanticError ? " semanticError" : "") + 
-                    (executionList[i].EpisodicError ? " episodicError": ""));
             }*/
         }
     }
-    
+
+    /// <summary>
+    /// Check for intrusion and repetition
+    /// </summary>
+    /// <param name="scoreFile"></param>
+    private void CheckIntrusionRepetition(System.IO.StreamWriter scoreFile)
+    {
+        intrusionRepetitionErrors = new List<Execution>();
+        executionXMLTasks = new List<XMLSubtask>();
+        bool taskAdded = false;
+
+        for (int i = 0; i < actions.Count; i++)
+        {
+            taskFound = false;
+            taskID = 0;
+            PrimitiveAction action = actions[i];
+            scoreFile.WriteLine("\nAction " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
+
+            // check is a subtask exists
+            taskAdded = CheckSubtasks(action, scoreFile);
+            // if subtask does not exist
+            if (!taskAdded)
+            {
+                // check the auxSubtask list
+                taskAdded = CheckAuxSubtasks(action, scoreFile);
+                if (!taskAdded)
+                {
+                    // if subtask was found but not added, that means it is a repetition of an already added task
+                    if (taskFound)
+                    {
+                        AddRepetition(scoreFile);
+                    }
+                    // if the subtask was not found, it is an intrusion
+                    else
+                    {
+                        AddUnknownIntrusion(scoreFile);
+                    }
+                }
+                continue;
+            }
+        }
+
+        scoreFile.WriteLine();
+        for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
+        {
+            scoreFile.WriteLine("ErrandID " + intrusionRepetitionErrors[i].ErrandID + " SubtaskNumber " + intrusionRepetitionErrors[i].SubtaskNumber
+            + " TaskType " + intrusionRepetitionErrors[i].TaskType.ToString() + (intrusionRepetitionErrors[i].SemanticError ? " semanticError" : "") +
+            (intrusionRepetitionErrors[i].EpisodicError ? " episodicError" : ""));
+        }
+    }
+
     /// <summary>
     /// Checking if the action performed is a subtask of an errand
     /// </summary>
@@ -484,18 +462,20 @@ public class WorldModelManager : MonoBehaviour {
                     //scoreFile.WriteLine("Errand " + j + " " + errand.Name + " Subtask " + (k + 1) + " ID " + subtask.ID + " and action are the same ");
                     if (!executionXMLTasks.Contains(subtask))
                     {
-                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k+1) + " " + Execution.TaskTypes.Subtask);
                         // If no error, add the task
                         if (!semanticError && !episodicError)
                         {
-                            Execution task = new Execution(errand.ID, k + 1, Execution.TaskTypes.Subtask, semanticError, episodicError);
+                            Execution task = new Execution(errand.ID, (k+1), Execution.TaskTypes.Subtask, semanticError, episodicError);
                             executionXMLTasks.Add(subtask);
-                            executionList.Add(task);
+                            intrusionRepetitionErrors.Add(task);
                         }
                         // Different objects from the same category is picked
                         else
                         {
                             scoreFile.WriteLine("There is an error in the subtask");
+                            errandID = errand.ID;
+                            taskID = k + 1;
                             AddKnownIntrusion(scoreFile, semanticError, episodicError);
                         }
                         return true;
@@ -503,13 +483,14 @@ public class WorldModelManager : MonoBehaviour {
                     else
                     {
                         taskFound = true;
+                        errandID = errand.ID;
                         taskID = k + 1;
                     }                    
                 }
                 // objects are from different categories under the same semantic family, e.g. Mug vs CoffeeMug, hence there is semantic error
                 else if (subtask.Action.Name.Equals(action.Name) && AreSameSemanticCategories(subtask.Action, action))
                 {
-                    scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k + 1) + " " + Execution.TaskTypes.Subtask);
+                    scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (k+1) + " " + Execution.TaskTypes.Subtask);
                     scoreFile.WriteLine("Subtask objects has same semantic categories but are disimilar");
                     AddKnownIntrusion(scoreFile, semanticError, episodicError);
                     return true;
@@ -533,9 +514,6 @@ public class WorldModelManager : MonoBehaviour {
             for (int l = 0; l < errand.AuxSubtasks.Count; l++)
             {
                 XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                // check whether there is semantic or episodic error
-                //bool semanticError = CheckSemanticError(action);
-                //bool episodicError = CheckEpisodicError(action);
                 bool semanticError = false;
                 bool episodicError = false;
                 // if the subtask has semantic category
@@ -550,22 +528,41 @@ public class WorldModelManager : MonoBehaviour {
                 // there can still be episodic error if a different object from the same category is , e.g. blue mug vs green mug
                 if (auxSubtask.Action.Name.Equals(action.Name) && AreSimilarObjects(auxSubtask.Action, action))
                 {
-                    //scoreFile.WriteLine("Errand " + j + " " + errand.Name + " auxSubtask " + (l + 1) + " ID " + auxSubtask.ID + " and action are the same");  
-                    // add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
+                    scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.AuxTask);
+                    // If no error, add the auxSubtask
+                    if (!semanticError && !episodicError)
+                    {
+                        Execution task = new Execution(errand.ID, (l + 1), Execution.TaskTypes.AuxTask, semanticError, episodicError);
+                        if (!executionXMLTasks.Contains(auxSubtask))
+                            executionXMLTasks.Add(auxSubtask);
+                        intrusionRepetitionErrors.Add(task);
+                    }
+                    // Different objects from the same category is picked
+                    else
+                    {
+                        scoreFile.WriteLine("There is an error in the auxSubtask");
+                        errandID = errand.ID;
+                        taskID = l + 1;
+                        AddKnownIntrusion(scoreFile, semanticError, episodicError);
+                    }
+                    return true;
+                    /*// add the auxSubtask to the checklist, auxSubtask will be ignored during scoring
                     if (!executionXMLTasks.Contains(auxSubtask))
                     {
-                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.AuxTask);
+                        scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + l+1 + " " + Execution.TaskTypes.AuxTask);
                         // If no error, add the auxSubtask
                         if (!semanticError && !episodicError)
                         {
-                            Execution task = new Execution(errand.ID, l + 1, Execution.TaskTypes.AuxTask, semanticError, episodicError);
+                            Execution task = new Execution(errand.ID, l+1, Execution.TaskTypes.AuxTask, semanticError, episodicError);
                             executionXMLTasks.Add(auxSubtask);
-                            executionList.Add(task);
+                            intrusionRepetitionErrors.Add(task);
                         }
                         // Different objects from the same category is picked
                         else
                         {
                             scoreFile.WriteLine("There is an error in the auxSubtask");
+                            errandID = errand.ID;
+                            taskID = l + 1;
                             AddKnownIntrusion(scoreFile, semanticError, episodicError);
                         }
                         return true;
@@ -573,13 +570,14 @@ public class WorldModelManager : MonoBehaviour {
                     else
                     {
                         taskFound = true;
+                        errandID = errand.ID;
                         taskID = l + 1;
-                    }
+                    }*/
                 }
                 // objects are from different categories under the same semantic family, e.g. Mug vs CoffeeMug, hence there is semantic error
                 else if (auxSubtask.Action.Name.Equals(action.Name) && AreSameSemanticCategories(auxSubtask.Action, action))
                 {
-                    scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l + 1) + " " + Execution.TaskTypes.AuxTask);
+                    scoreFile.WriteLine("Errand ID, k and type " + errand.ID + " " + (l+1) + " " + Execution.TaskTypes.AuxTask);
                     scoreFile.WriteLine("AuxSubtask objects has same semantic categories but are disimilar");
                     AddKnownIntrusion(scoreFile, semanticError, episodicError);
                     return true;
@@ -598,8 +596,8 @@ public class WorldModelManager : MonoBehaviour {
     private void AddKnownIntrusion(System.IO.StreamWriter scoreFile, bool semanticError, bool episodicError)
     {      
         scoreFile.WriteLine("Adding known intrusion: semanticError " + semanticError + " episodicError " + episodicError);
-        Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion, semanticError, episodicError);
-        executionList.Add(task);        
+        Execution task = new Execution("I-" + errandID, taskID, Execution.TaskTypes.Intrusion, semanticError, episodicError);
+        intrusionRepetitionErrors.Add(task);        
     }
 
     /// <summary>
@@ -610,7 +608,7 @@ public class WorldModelManager : MonoBehaviour {
     {
         scoreFile.WriteLine("Adding unknown intrusion");
         Execution task = new Execution("I", 0, Execution.TaskTypes.Intrusion, false, false);
-        executionList.Add(task);
+        intrusionRepetitionErrors.Add(task);
     }
 
     /// <summary>
@@ -618,11 +616,11 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     /// <param name="taskID">the repeated task</param>
     /// <param name="scoreFile">the file to be written to</param>
-    private void AddRepetition(int taskID, System.IO.StreamWriter scoreFile)
+    private void AddRepetition(System.IO.StreamWriter scoreFile)
     {
         scoreFile.WriteLine("Adding repetition");
-        Execution task = new Execution("R", taskID, Execution.TaskTypes.Repetition, false, false);
-        executionList.Add(task);
+        Execution task = new Execution("R-" + errandID, taskID, Execution.TaskTypes.Repetition, false, false);
+        intrusionRepetitionErrors.Add(task);
     }
 
     /// <summary>
@@ -753,5 +751,138 @@ public class WorldModelManager : MonoBehaviour {
         if (gObject.GetComponent<CorrectItem>())
             return true;
         return false;
+    }
+
+
+    /// <summary>
+    /// Check and label all errand order error
+    /// </summary>
+    /// <param name="scoreFile"></param>
+    private void CheckErrandOrderError(System.IO.StreamWriter scoreFile)
+    {
+        errandOrderErrors = new List<Execution>();
+        // the first errand id should be the id of the first errand
+        int errandIndex = 0;
+        int maxIndex = 0;
+        string errandID = xmlErrands[errandIndex++].ID;
+
+        for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
+        {
+            Execution exe = new Execution();
+            exe.CopyExecution(intrusionRepetitionErrors[i]);
+
+            // if the execution list errandID is the same as the current errandID
+            if (intrusionRepetitionErrors[i].ErrandID.Equals(errandID))
+            {
+                errandOrderErrors.Add(exe);
+            }
+            // if the task is an intrusion or repetition, add the subtask as it is
+            else if (intrusionRepetitionErrors[i].TaskType.Equals(Execution.TaskTypes.Intrusion) || intrusionRepetitionErrors[i].TaskType.Equals(Execution.TaskTypes.Repetition))
+            {
+                errandOrderErrors.Add(exe);
+            }
+            // if the execution list errandID is different from the current errandID and it is not the next errand index
+            else if (!intrusionRepetitionErrors[i].ErrandID.Equals(errandID))
+            {
+                // if maxIndex is less or equal to errand count
+                if (maxIndex < xmlErrands.Count)
+                {
+                    // the errandID is the same as the next ID in the maximum errand sequence
+                    if (intrusionRepetitionErrors[i].ErrandID.Equals(xmlErrands[maxIndex].ID))
+                    {
+                        errandID = xmlErrands[maxIndex++].ID;
+                        errandOrderErrors.Add(exe);
+                    }
+                    // errand ID is not for the next errand in the maximum sequence
+                    else
+                    {
+                        errandID = intrusionRepetitionErrors[i].ErrandID;
+                        // get the index for the current errand
+                        for (int j = 0; j < xmlErrands.Count; j++)
+                        {
+                            if (errandID.Equals(xmlErrands[j].ID))
+                            {
+                                errandIndex = j + 1;
+                                break;
+                            }
+                        }
+                        // if the errandIndex is higher, update the maxIndex to the new index
+                        if (maxIndex < errandIndex)
+                        {
+                            maxIndex = errandIndex;
+                        }
+                        // Add errand order error
+                        Execution eoSubtask = new Execution(errandID, intrusionRepetitionErrors[i].SubtaskNumber,
+                                        Execution.TaskTypes.ErrandOrder, intrusionRepetitionErrors[i].SemanticError, intrusionRepetitionErrors[i].EpisodicError);
+                        errandOrderErrors.Add(eoSubtask);
+                    }
+                }
+                else
+                {
+                    errandID = intrusionRepetitionErrors[i].ErrandID;
+                    // Add errand order error
+                    Execution eoSubtask = new Execution(errandID, intrusionRepetitionErrors[i].SubtaskNumber,
+                                    Execution.TaskTypes.ErrandOrder, intrusionRepetitionErrors[i].SemanticError, intrusionRepetitionErrors[i].EpisodicError);
+                    errandOrderErrors.Add(eoSubtask);
+                }
+            }
+        }
+
+        scoreFile.WriteLine();
+        for (int i = 0; i < errandOrderErrors.Count; i++)
+        {
+            Execution execution = errandOrderErrors[i];
+            scoreFile.WriteLine("ErrandID " + execution.ErrandID + " SubtaskNumber " + execution.SubtaskNumber
+                + " TaskType " + execution.TaskType.ToString() + (execution.SemanticError ? " semanticError" : "") +
+                (execution.EpisodicError ? " episodicError" : ""));
+        }
+    }
+
+    private void CheckOrderError(System.IO.StreamWriter scoreFile)
+    {
+        orderErrors = new List<Execution>();        
+        int taskIndex = 0;
+        int maxIndex = 1;
+        string errandID = "";   
+
+        for (int i = 0; i < xmlErrands.Count; i++)
+        {
+            errandID = xmlErrands[i].ID;
+            maxIndex = 0;
+            for (int j = 0; j < errandOrderErrors.Count; j++)
+            {
+                Execution exe = new Execution();
+                exe.CopyExecution(errandOrderErrors[j]);
+
+                if (errandOrderErrors[j].ErrandID.Equals(errandID) && !errandOrderErrors[j].TaskType.Equals(Execution.TaskTypes.AuxTask))
+                {
+                    if (maxIndex < xmlErrands[i].Subtasks.Count)
+                    {
+                        // the subtask is the next in the max sequence, no error, add the task as it is
+                        if (errandOrderErrors[j].SubtaskNumber == maxIndex)
+                        {
+                            orderErrors.Add(exe);
+                            maxIndex += 1;
+                        } 
+                        else
+                        {
+                            taskIndex = errandOrderErrors[j].SubtaskNumber + 1;
+                            if (maxIndex < taskIndex)
+                            {
+                                maxIndex = taskIndex;
+                            }
+                            // Add order error
+                            Execution oSubtask = new Execution(errandID, errandOrderErrors[j].SubtaskNumber,
+                                            Execution.TaskTypes.Order, errandOrderErrors[j].SemanticError, errandOrderErrors[j].EpisodicError);
+                            orderErrors.Add(oSubtask);
+                        }
+                    }
+                }
+                else
+                {
+                    orderErrors.Add(exe);
+                }
+            }
+        }       
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Execution {
 
-    public enum TaskTypes {None, Subtask, AuxTask, Intrusion, Repetition};
+    public enum TaskTypes {None, Subtask, AuxTask, Intrusion, Repetition, ErrandOrder, Order};
     /// <summary>
     /// The ID of the errand.
     /// </summary>
