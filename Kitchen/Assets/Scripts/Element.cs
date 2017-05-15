@@ -13,7 +13,7 @@ public class Element{
     }
 
     /// <summary>
-    /// Whether the element has semantic category
+    /// The semantic category of the element
     /// </summary>
     public string SemanticCategory
     {

@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Execution {
 
-    public enum TaskTypes {None, Subtask, AuxTask, Intrusion, Repetition, ErrandOrder, Order};
+    public enum TaskTypes {None, Subtask, AuxTask};
+    public enum ErrorTypes {Intrusion, Semantic, Episodic, Repetition, ErrandOrder, Order, Miss};
     /// <summary>
     /// The ID of the errand.
     /// </summary>
@@ -23,7 +25,7 @@ public class Execution {
     }
 
     /// <summary>
-    /// The ID of the auxSubtask.
+    /// The type of the subtask.
     /// </summary>
     public Execution.TaskTypes TaskType
     {
@@ -32,6 +34,15 @@ public class Execution {
     }
 
     /// <summary>
+    /// The error in the subtask.
+    /// </summary>
+    public List<Execution.ErrorTypes> Errors
+    {
+        get;
+        set;
+    }
+
+    /*/// <summary>
     /// Semantic Error
     /// </summary>
     public bool SemanticError
@@ -47,7 +58,7 @@ public class Execution {
     {
         get;
         set;
-    }
+    }*/
 
     public Execution()
     {
@@ -56,13 +67,17 @@ public class Execution {
         this.TaskType = Execution.TaskTypes.None;
     }
 
-    public Execution(string errandID, int subtaskNumber, Execution.TaskTypes taskType, bool SemanticError, bool EpisodicError)
+    public Execution(string errandID, int subtaskNumber, Execution.TaskTypes taskType)
     {
         this.ErrandID = errandID;
         this.SubtaskNumber = subtaskNumber;
         this.TaskType = taskType;
-        this.SemanticError = SemanticError;
-        this.EpisodicError = EpisodicError;
+        this.Errors = new List<ErrorTypes>();
+    }
+
+    public void AddError(Execution.ErrorTypes error)
+    {
+        this.Errors.Add(error);
     }
 
     public void CopyExecution(Execution execution)
@@ -70,7 +85,6 @@ public class Execution {
         this.ErrandID = execution.ErrandID;
         this.SubtaskNumber = execution.SubtaskNumber;
         this.TaskType = execution.TaskType;
-        this.SemanticError = execution.SemanticError;
-        this.EpisodicError = execution.EpisodicError;
+        this.Errors = execution.Errors;
     }
 }
