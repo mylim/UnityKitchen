@@ -266,13 +266,13 @@ public class PickUpObject : MonoBehaviour
                         if (!bin.GetComponent<LidOn>().lidOn)
                         {
                             //Make the bin bag invisible
-                            Debug.Log("Bin Bag clicked");
+                            //Debug.Log("Bin Bag clicked");
                             binBag.SetActive(false);
 
                             // Make tied bag visible 
                             if (!bin.GetComponent<NewBag>().newBag && tiedBag)
                             {
-                                Debug.Log("Tied Bag found");
+                                //Debug.Log("Tied Bag found");
                                 tiedBag.SetActive(true);
                                 // update world model
                                 worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("tied", player, collider.gameObject);
@@ -460,7 +460,6 @@ public class PickUpObject : MonoBehaviour
             //else if (collider.tag.Equals("Bleach") && worldHandler.GetComponent<WorldModelManager>().GetInterference())
             else if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
             {
-                //Debug.Log("Dialog interference " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
                 // update world model
                 worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(collider.gameObject);
                 Debug.Log(collider.gameObject.tag + " clicked");

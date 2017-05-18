@@ -1,0 +1,260 @@
+
+Action pickedUp Player Kettle
+Errand ID, k and type E1 1 Subtask
+
+Action filled Kettle Water
+Errand ID, k and type E1 2 Subtask
+
+Action on Kettle KitchenTop
+Adding unknown intrusion
+
+Action boiled Kettle Water
+Errand ID, k and type E1 4 Subtask
+
+Action pickedUp Player Water
+Errand ID, k and type E1 9 Subtask
+
+Action on Water KettleBase
+Errand ID, k and type E1 11 Subtask
+
+Action on SingleNapkin Sandwich
+Errand ID, k and type E2 1 Subtask
+
+Action on Bowl KitchenTop
+Errand ID, k and type E3 1 Subtask
+There is an error in the subtask
+Adding episodicError 
+
+Action on TableSpoon Bowl
+Errand ID, k and type E3 2 Subtask
+
+Action on Placemat Table
+Errand ID, k and type E4 1 Subtask
+
+Action on Ham KitchenTop
+Errand ID, k and type E2 3 Subtask
+
+Action on Cheese KitchenTop
+Errand ID, k and type E2 2 Subtask
+
+Action on Cereal KitchenTop
+Errand ID, k and type E3 3 Subtask
+
+Action on Milk KitchenTop
+Errand ID, k and type E3 4 Subtask
+
+Action on Honey KitchenTop
+Errand ID, k and type E3 5 Subtask
+
+Action on Bread KitchenTop
+Errand ID, k and type E2 4 Subtask
+
+Action on SingleSlice Sandwich
+Errand ID, k and type E2 5 Subtask
+
+Action on HamSlice Sandwich
+Errand ID, k and type E2 6 Subtask
+
+Action on HamSlice Sandwich
+Errand ID, k and type E2 7 Subtask
+
+Action on CheeseSlice Sandwich
+Errand ID, k and type E2 8 Subtask
+
+Action on SingleSlice Sandwich
+Errand ID, k and type E2 9 Subtask
+
+Action pickedUp Player Mug
+Errand ID, k and type E1 5 Subtask
+
+Action on Mug KitchenTop
+Errand ID, k and type E1 6 Subtask
+
+Action pickedUp Player Water
+Adding repetition
+
+Action in Water Mug
+Errand ID, k and type E1 10 Subtask
+
+Action on Water KettleBase
+Adding repetition
+
+Action in Cereal Bowl
+Errand ID, k and type E3 6 Subtask
+
+Action on Cereal KitchenTop
+Errand ID, k and type E3 1 AuxTask
+
+Action in Milk Bowl
+Errand ID, k and type E3 7 Subtask
+
+Action on Milk Untagged
+Adding unknown intrusion
+
+Action in Honey Bowl
+Errand ID, k and type E3 8 Subtask
+
+Action on Honey KitchenTop
+Errand ID, k and type E3 3 AuxTask
+
+Action on Bowl Placemat
+Errand ID, k and type E4 2 Subtask
+
+Action on BinLid Floor
+Errand ID, k and type E6 1 Subtask
+
+Action tied Player BinBag
+Errand ID, k and type E6 2 Subtask
+
+Action on TiedBag Floor
+Errand ID, k and type E6 3 Subtask
+
+Intrusion Repetition Error
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 1 TaskType Subtask Errors:  Episodic
+ErrandID E3 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E4 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 9 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors:  Repetition
+ErrandID E1 SubtaskNumber 10 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors:  Repetition
+ErrandID E3 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 1 TaskType AuxTask Errors: 
+ErrandID E3 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E3 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 3 TaskType AuxTask Errors: 
+ErrandID E4 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E6 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E6 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E6 SubtaskNumber 3 TaskType Subtask Errors: 
+
+Errand order errors
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 1 TaskType Subtask Errors:  ErrandOrder
+ErrandID E3 SubtaskNumber 1 TaskType Subtask Errors:  Episodic
+ErrandID E3 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E4 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 3 TaskType Subtask Errors:  ErrandOrder SplitErrand
+ErrandID E2 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 3 TaskType Subtask Errors:  SplitErrand
+ErrandID E3 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 4 TaskType Subtask Errors:  ErrandOrder SplitErrand
+ErrandID E2 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 9 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 5 TaskType Subtask Errors:  ErrandOrder
+ErrandID E1 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors:  Repetition
+ErrandID E1 SubtaskNumber 10 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors:  Repetition
+ErrandID E3 SubtaskNumber 6 TaskType Subtask Errors:  ErrandOrder SplitErrand
+ErrandID E3 SubtaskNumber 1 TaskType AuxTask Errors: 
+ErrandID E3 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E3 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 3 TaskType AuxTask Errors: 
+ErrandID E4 SubtaskNumber 2 TaskType Subtask Errors:  SplitErrand
+ErrandID E6 SubtaskNumber 1 TaskType Subtask Errors:  ErrandOrder
+ErrandID E6 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E6 SubtaskNumber 3 TaskType Subtask Errors: 
+
+Order Errors
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors:  Order
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors:  Order
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors:  Order
+ErrandID E2 SubtaskNumber 1 TaskType Subtask Errors:  ErrandOrder
+ErrandID E3 SubtaskNumber 1 TaskType Subtask Errors:  Episodic
+ErrandID E3 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E4 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 3 TaskType Subtask Errors:  ErrandOrder SplitErrand Order
+ErrandID E2 SubtaskNumber 2 TaskType Subtask Errors:  Order
+ErrandID E3 SubtaskNumber 3 TaskType Subtask Errors:  SplitErrand
+ErrandID E3 SubtaskNumber 4 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 4 TaskType Subtask Errors:  ErrandOrder SplitErrand
+ErrandID E2 SubtaskNumber 5 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E2 SubtaskNumber 9 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 5 TaskType Subtask Errors:  ErrandOrder Order
+ErrandID E1 SubtaskNumber 6 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 9 TaskType Subtask Errors:  Repetition Order
+ErrandID E1 SubtaskNumber 10 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 11 TaskType Subtask Errors:  Repetition
+ErrandID E3 SubtaskNumber 6 TaskType Subtask Errors:  ErrandOrder SplitErrand
+ErrandID E3 SubtaskNumber 1 TaskType AuxTask Errors: 
+ErrandID E3 SubtaskNumber 7 TaskType Subtask Errors: 
+ErrandID I SubtaskNumber 0 TaskType None Errors:  Intrusion
+ErrandID E3 SubtaskNumber 8 TaskType Subtask Errors: 
+ErrandID E3 SubtaskNumber 3 TaskType AuxTask Errors: 
+ErrandID E4 SubtaskNumber 2 TaskType Subtask Errors:  SplitErrand
+ErrandID E6 SubtaskNumber 1 TaskType Subtask Errors:  ErrandOrder
+ErrandID E6 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E6 SubtaskNumber 3 TaskType Subtask Errors: 
+
+Miss Errors
+ErrandID E1 Subtask number 3
+ErrandID E1 Subtask number 7
+ErrandID E1 Subtask number 8
+ErrandID E3 Subtask number 1
+ErrandID E3 Subtask number 9
+ErrandID E4 Subtask number 3
+ErrandID E4 Subtask number 4
+ErrandID E4 Subtask number 5
+ErrandID E5 Subtask number 1
+ErrandID E5 Subtask number 2
+ErrandID E5 Subtask number 3
+ErrandID E5 Subtask number 4
+ErrandID E5 Subtask number 5
+ErrandID E5 Subtask number 6
+ErrandID E5 Subtask number 7
+ErrandID E5 Subtask number 8
+ErrandID E6 Subtask number 4
+ErrandID E6 Subtask number 5
+ErrandID E6 Subtask number 6
+ErrandID E6 Subtask number 7
+ErrandID E6 Subtask number 8
+ErrandID E6 Subtask number 9
+
+Interference error: BleachDialog
+Total Intrusion: 2
+Total Semantic: 0
+Total Episodic: 1
+Total Repetition: 2
+Total Order: 7
+Total Miss: 22
+Total ErrandOrder: 6
+Total SplitErrand: 5
+Total RepeatErrand: 0
+Total Interference: 1

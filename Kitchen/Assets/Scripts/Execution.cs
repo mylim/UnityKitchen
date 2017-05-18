@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Execution {
 
     public enum TaskTypes {None, Subtask, AuxTask};
-    public enum ErrorTypes {Intrusion, Semantic, Episodic, Repetition, ErrandOrder, Order, Miss};
+    public enum ErrorTypes {Intrusion, Semantic, Episodic, Repetition, Order, Miss, ErrandOrder, SplitErrand, RepeatErrand, Interference};
     /// <summary>
     /// The ID of the errand.
     /// </summary>
