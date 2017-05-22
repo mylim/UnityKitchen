@@ -135,6 +135,7 @@
     <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\ErrandErrors.cs" />
     <Compile Include="Assets\Scripts\ErrandExecution.cs" />
+    <Compile Include="Assets\Scripts\ErrorChecker.cs" />
     <Compile Include="Assets\Scripts\Execution.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\HasContent.cs" />

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4cb4b6d18689c7d4da0b253a711dcc84
-timeCreated: 1482155129
+timeCreated: 1495454825
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,9 +23,9 @@ ModelImporter:
     3300002: E3_ST3_EM1_I2
     3300004: E3_ST3_EM1_I3
     3300006: E3_ST3_EM1_I4
-    4300000: E3_ST3_EM1_I3
+    4300000: E3_ST3_EM1_I4
     4300002: E3_ST3_EM1_I2
-    4300004: E3_ST3_EM1_I4
+    4300004: E3_ST3_EM1_I3
     4300006: E3_ST3_EM1_I1
   materials:
     importMaterials: 1
