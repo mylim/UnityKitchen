@@ -529,7 +529,7 @@ public class WorldModelManager : MonoBehaviour {
     private void AddUnknownIntrusion(System.IO.StreamWriter scoreFile)
     {
         scoreFile.WriteLine("Adding unknown intrusion");
-        Execution task = new Execution("I", 0, Execution.TaskTypes.None);
+        Execution task = new Execution("IN", 0, Execution.TaskTypes.None);
         task.Errors.Add(Execution.ErrorTypes.Intrusion);
         intrusionRepetitionErrors.Add(task);
     }
@@ -686,10 +686,11 @@ public class WorldModelManager : MonoBehaviour {
         List<string> errandIDs = new List<string>();
         List<Execution> executions = new List<Execution>();
         errandOrderErrors = new List<Execution>();
-        // the first errand id should be the id of the first errand
+        // index for the next errand    
         int errandIndex = 0;
         //int maxIndex = 1;
-        string errandID = xmlErrands[errandIndex].ID;
+        // the first errand id should be the id of the first errand
+        string errandID = xmlErrands[errandIndex++].ID;
 
         for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
         {
