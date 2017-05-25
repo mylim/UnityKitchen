@@ -131,6 +131,7 @@
     <Compile Include="Assets\LeapMotionModules\DetectionExamples\Scripts\SpawnBalls.cs" />
     <Compile Include="Assets\Scripts\CorrectItem.cs" />
     <Compile Include="Assets\Scripts\CorrectSemanticCategory.cs" />
+    <Compile Include="Assets\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scripts\Element.cs" />
     <Compile Include="Assets\Scripts\Errand.cs" />
     <Compile Include="Assets\Scripts\ErrandErrors.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="Assets\Scripts\Interference.cs" />
     <Compile Include="Assets\Scripts\InterferenceDialog.cs" />
     <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
+    <Compile Include="Assets\Scripts\InterferenceVersion.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\LoadOnClick.cs" />
@@ -199,6 +201,7 @@
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\XML\Errands.xml" />
+    <None Include="Assets\XML\InterferenceVersions.xml" />
     <None Include="Assets\XML\Interferences.xml" />
     <None Include="Assets\XML\Tasks.xml" />
     <None Include="Assets\XML\TasksSC.xml" />

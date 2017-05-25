@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class XMLParser{
     private XmlDocument errandsFile;
     private XmlDocument interferencesFile;
+    private XmlDocument interferenceVersionsFile;
 
     // Use this for initialization
     public XMLParser() {
@@ -17,6 +18,10 @@ public class XMLParser{
         // loading the interferences file
         interferencesFile = new XmlDocument();
         interferencesFile.Load(@".\Assets\XML\Interferences.xml");
+
+        // loading the interference versions file
+        interferenceVersionsFile = new XmlDocument();
+        interferenceVersionsFile.Load(@".\Assets\XML\InterferenceVersions.xml");
     }
 
     public List<XMLErrand> ParseXMLErrands() { 
@@ -28,7 +33,7 @@ public class XMLParser{
             XMLErrand errand = new XMLErrand();
             errand.ID = node.Attributes["ID"].Value;
             errand.Name = node.Attributes["name"].Value;
-            Debug.Log("Errand ID " + errand.ID);
+            //Debug.Log("Errand ID " + errand.ID);
 
             // Actions in each subtask
             //XmlNodeList nodes2 = errandsFile.DocumentElement.SelectNodes("/Errands/Errand/Subtask");
@@ -102,10 +107,40 @@ public class XMLParser{
                     //Debug.Log("Object " + node.ChildNodes[i].InnerText);
                 }
             }
-            interference.iObjects = iObjects;
+            interference.IObjects = iObjects;
             interferences.Add(interference);
         }
 
         return interferences;
+    }
+
+    public List<XMLInterferenceVersion> ParseXMLInterferenceVersions()
+    {
+        //Debug.Log("parsing xml interference version");
+        // Interference
+        XmlNodeList nodes = interferenceVersionsFile.DocumentElement.SelectNodes("/IVersions/IVersion");
+        List<XMLInterferenceVersion> interferenceVersions = new List<XMLInterferenceVersion>();
+        foreach (XmlNode node in nodes)
+        {
+            XMLInterferenceVersion interferenceVersion = new XMLInterferenceVersion();
+            interferenceVersion.Number = int.Parse(node.Attributes["number"].Value);
+            //Debug.Log("Number " + interferenceVersion.Number);
+
+            // Associated objects with the interference
+            List<string> dialogs = new List<string>();
+            if (node.HasChildNodes)
+            {
+                for (int i = 0; i < node.ChildNodes.Count; i++)
+                {
+                    dialogs.Add(node.ChildNodes[i].InnerText);
+                    //Debug.Log("Dialog " + node.ChildNodes[i].InnerText);
+                    //Debug.Log("Object " + node.ChildNodes[i].InnerText);
+                }
+            }
+            interferenceVersion.Dialogs = dialogs;
+            interferenceVersions.Add(interferenceVersion);
+        }
+
+        return interferenceVersions;
     }
 }

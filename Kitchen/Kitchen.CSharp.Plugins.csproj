@@ -122,6 +122,7 @@
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\XML\Errands.xml" />
+    <None Include="Assets\XML\InterferenceVersions.xml" />
     <None Include="Assets\XML\Interferences.xml" />
     <None Include="Assets\XML\Tasks.xml" />
     <None Include="Assets\XML\TasksSC.xml" />

@@ -1,0 +1,186 @@
+errand Prepare Tea ID E1
+sSubtask ID E1-1 Subtask number 0
+Action pickedUp Player  Kettle 
+sSubtask ID E1-2 Subtask number 1
+Action filled Kettle  Water 
+sSubtask ID E1-3 Subtask number 2
+Action on Kettle  KettleBase 
+sSubtask ID E1-4 Subtask number 3
+Action boiled Kettle  Water 
+sSubtask ID E1-5 Subtask number 4
+Action pickedUp Player  Mug BeverageContainers
+sSubtask ID E1-6 Subtask number 5
+Action on Mug  KitchenTop 
+sSubtask ID E1-7 Subtask number 6
+Action pickedUp Player  Tea Beverage
+sSubtask ID E1-8 Subtask number 7
+Action in SingleTeaBag  Mug 
+sSubtask ID E1-9 Subtask number 8
+Action pickedUp Player  Water 
+sSubtask ID E1-10 Subtask number 9
+Action in Water  Mug 
+sSubtask ID E1-11 Subtask number 10
+Action on Water  KettleBase 
+errand Prepare Sandwich ID E2
+sSubtask ID E2-1 Subtask number 0
+Action on SingleNapkin  Sandwich 
+sSubtask ID E2-2 Subtask number 1
+Action on Cheese SandwichFilling KitchenTop 
+sSubtask ID E2-3 Subtask number 2
+Action on Ham  KitchenTop 
+sSubtask ID E2-4 Subtask number 3
+Action on Bread Dough KitchenTop 
+sSubtask ID E2-5 Subtask number 4
+Action on SingleSlice  Sandwich 
+sSubtask ID E2-6 Subtask number 5
+Action on HamSlice  Sandwich 
+sSubtask ID E2-7 Subtask number 6
+Action on HamSlice  Sandwich 
+sSubtask ID E2-8 Subtask number 7
+Action on CheeseSlice  Sandwich 
+sSubtask ID E2-9 Subtask number 8
+Action on SingleSlice  Sandwich 
+errand Prepare Cereal ID E3
+sSubtask ID E3-1 Subtask number 0
+Action on Bowl Dishes KitchenTop 
+sSubtask ID E3-2 Subtask number 1
+Action on TableSpoon Cutlery Bowl 
+sSubtask ID E3-3 Subtask number 2
+Action on Cereal  KitchenTop 
+sSubtask ID E3-4 Subtask number 3
+Action on Milk  KitchenTop 
+sSubtask ID E3-5 Subtask number 4
+Action on Honey  KitchenTop 
+sSubtask ID E3-6 Subtask number 5
+Action in Cereal  Bowl 
+sSubtask ID E3-7 Subtask number 6
+Action in Milk  Bowl 
+sSubtask ID E3-8 Subtask number 7
+Action in Honey  Bowl 
+sSubtask ID E3-5 Subtask number 8
+Action on TableSpoon  KitchenTop 
+auxSubtask E3-6-1
+Aux Action on Cereal KitchenTop
+auxSubtask E3-7-1
+Aux Action on Milk KitchenTop
+auxSubtask E3-8-1
+Aux Action on Honey KitchenTop
+errand Set Table ID E4
+sSubtask ID E4-1 Subtask number 0
+Action on Placemat  Table 
+sSubtask ID E4-2 Subtask number 1
+Action on Bowl  Placemat 
+sSubtask ID E4-3 Subtask number 2
+Action right TableSpoon  Bowl 
+sSubtask ID E4-4 Subtask number 3
+Action front Drink  Bowl 
+sSubtask ID E4-5 Subtask number 4
+Action left Sandwich  Bowl 
+auxSubtask E4-3-1
+Aux Action on TableSpoon Placemat
+auxSubtask E4-4-1
+Aux Action pickedUp Player Drink
+auxSubtask E4-4-2
+Aux Action on Drink Placemat
+auxSubtask E4-5-1
+Aux Action on Sandwich Placemat
+errand Wash Dishes ID E5
+sSubtask ID E5-1 Subtask number 0
+Action disposed Bowl  BinLid 
+sSubtask ID E5-2 Subtask number 1
+Action on Bowl  Sink 
+sSubtask ID E5-3 Subtask number 2
+Action on Sponge CleaningMaterials Sink 
+sSubtask ID E5-4 Subtask number 3
+Action pickedUp Player  DishwashingLiquid WashingLiquids
+sSubtask ID E5-5 Subtask number 4
+Action on DishwashingLiquid  Sponge 
+sSubtask ID E5-6 Subtask number 5
+Action washed Sponge  Bowl 
+sSubtask ID E5-7 Subtask number 6
+Action rinsed Bowl  Water 
+sSubtask ID E5-8 Subtask number 7
+Action on Bowl  Dishrack 
+auxSubtask E5-5-1
+Aux Action back DishwashingLiquid Sink
+auxSubtask E5-6-1
+Aux Action on Sponge Sink
+errand Clean Kitchen ID E6
+sSubtask ID E6-1 Subtask number 0
+Action on BinLid  Floor 
+sSubtask ID E6-2 Subtask number 1
+Action tied Player  BinBag 
+sSubtask ID E6-3 Subtask number 2
+Action on TiedBag  Floor 
+sSubtask ID E6-4 Subtask number 3
+Action pickedUp Player  BinBags Bags
+sSubtask ID E6-5 Subtask number 4
+Action in SingleItem  BinBody 
+sSubtask ID E6-6 Subtask number 5
+Action on BinLid  BinBag 
+sSubtask ID E6-7 Subtask number 6
+Action pickedUp Player  DishTowel Towels
+sSubtask ID E6-8 Subtask number 7
+Action on Water  DishTowel 
+sSubtask ID E6-9 Subtask number 8
+Action wiped DishTowel  Table 
+auxSubtask E6-9-1
+Aux Action on DishTowel Wall
+
+Action 0 pickedUp Player Kettle
+Action 1 filled Kettle Water
+Action 2 on Kettle KettleBase
+Action 3 boiled Kettle Water
+Action 4 on DisinfectantWipes KitchenTop
+Action 5 pickedUp Player Mug
+Action 6 on Mug KitchenTop
+Action 7 on SingleNapkin Sandwich
+Action 8 on Bowl KitchenTop
+Action 9 on Bowl KitchenTop
+Action 10 pickedUp Player DishwashingLiquid
+Action 11 back DishwashingLiquid Sink
+Action 12 on TableSpoon Bowl
+Action 13 pickedUp Player Tea
+Action 14 in SingleTeaBag Mug
+Action 15 pickedUp Player Water
+Action 16 in Water Mug
+Action 17 in Water Mug
+Action 18 on Water KettleBase
+Action 19 pickedUp Player Drink
+Action 20 on Drink KitchenTop
+Action 21 on Bread KitchenTop
+Action 22 on Cheese KitchenTop
+Action 23 on Ham KitchenTop
+Action 24 on Milk KitchenTop
+Action 25 on Honey KitchenTop
+Action 26 on Cereal KitchenTop
+Action 27 on SingleSlice Sandwich
+Action 28 on HamSlice Sandwich
+Action 29 on HamSlice Sandwich
+Action 30 on CheeseSlice Sandwich
+Action 31 on SingleSlice Sandwich
+Action 32 in Cereal Bowl
+Action 33 on Cereal KitchenTop
+Action 34 in Milk Bowl
+Action 35 on Milk KitchenTop
+Action 36 in Honey Bowl
+Action 37 on Honey KitchenTop
+Action 38 on TableSpoon KitchenTop
+Action 39 on Bowl Table
+Action 40 on Placemat Table
+Action 41 on Bowl Placemat
+Action 42 on TableSpoon KitchenTop
+Action 43 front TableSpoon Bowl
+Action 44 on TableSpoon Placemat
+Action 45 front TableSpoon Bowl
+Action 46 on TableSpoon Placemat
+Action 47 pickedUp Player Drink
+Action 48 front Drink Bowl
+Action 49 on Drink Placemat
+Action 50 on Sandwich Placemat
+Action 51 on BinLid Floor
+Action 52 tied Player BinBag
+Action 53 on TiedBag Floor
+Action 54 pickedUp Player BinBags
+Action 55 in SingleItem BinBody
+Action 56 on BinLid BinBag

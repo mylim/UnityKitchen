@@ -633,9 +633,9 @@ public class ErrorChecker {
 
             if (dialogFound)
             {
-                for (int j = 0; j < xmlInterferences[i].iObjects.Count && (error); j++)
+                for (int j = 0; j < xmlInterferences[i].IObjects.Count && (error); j++)
                 {
-                    string xmlObj = xmlInterferences[i].iObjects[j];
+                    string xmlObj = xmlInterferences[i].IObjects[j];
                     for (int l = 0; (l < interferences[index].iObjects.Count) && (error); l++)
                     {
                         string obj = interferences[index].iObjects[l].tag;
@@ -648,7 +648,7 @@ public class ErrorChecker {
 
                 if (error)
                 {
-                    interferenceError.Add(interferences[i].Dialog.name);
+                    interferenceError.Add(interferences[index].Dialog.name);
                 }
             }
         }

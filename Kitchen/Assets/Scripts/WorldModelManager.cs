@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public class WorldModelManager : MonoBehaviour {
     // Interference dialog and variable
     public int interferenceInterval;
+    public int interferenceVersion;
     public InterferenceDialog[] dialogs;
+    private InterferenceDialog currentDialog;
     private int dialogIndex;
     private bool interfering;
 
@@ -17,6 +19,8 @@ public class WorldModelManager : MonoBehaviour {
     private XMLParser xmlParser;
     private List<XMLErrand> xmlErrands;
     private List<XMLInterference> xmlInterferences;
+    private List<XMLInterferenceVersion> xmlInterferenceVersions;
+    private List<string> dialogList;
 
     private ErrorChecker errorChecker;
 
@@ -28,7 +32,10 @@ public class WorldModelManager : MonoBehaviour {
         xmlParser = new XMLParser();
         xmlErrands = xmlParser.ParseXMLErrands();
         xmlInterferences = xmlParser.ParseXMLInterferences();
-   
+
+        // parse the interference versions from xml and get the right interference dialogs list
+        xmlInterferenceVersions = xmlParser.ParseXMLInterferenceVersions();
+        dialogList = xmlInterferenceVersions[interferenceVersion].Dialogs;
         /*for (int j = 0; j < xmlErrands.Count; j++)
         //foreach (XMLErrand errand in xmlErrands)
         {
@@ -59,6 +66,16 @@ public class WorldModelManager : MonoBehaviour {
                 Debug.Log("Object " + iObject);
             }
         }*/
+
+        /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
+        {
+            Debug.Log("InterferenceVersion " + iVersion.Number);
+            List<string> dialogs = iVersion.Dialogs;
+            foreach (string dialog in dialogs)
+            {
+                Debug.Log("Dialog " + dialog);
+            }
+        }*/
     }
 
     /// <summary>
@@ -66,11 +83,20 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        if ((dialogIndex < dialogs.Length) && dialogs[dialogIndex].DialogClosed())
+        /*if ((dialogIndex < dialogs.Length) && dialogs[dialogIndex].DialogClosed())
         {
             UpdateInterference();
             interferences[dialogIndex].Answer = dialogs[dialogIndex].GetAnswer();
             dialogIndex++;
+        }*/
+
+        if ((dialogIndex < dialogs.Length) && ((currentDialog != null) && (currentDialog.DialogClosed())))
+        {
+            Debug.Log("dialog index " + dialogIndex);
+            UpdateInterference();
+            interferences[dialogIndex].Answer = currentDialog.GetAnswer();
+            dialogIndex++;
+            currentDialog = null;
         }
     }
 
@@ -114,10 +140,26 @@ public class WorldModelManager : MonoBehaviour {
             if ((dialogIndex < dialogs.Length))
             {
                 Debug.Log("Dialog index to show" + dialogIndex);
-                dialogs[dialogIndex].ShowDialog();
+                for (int i = 0; i < dialogs.Length; i++)
+                {
+                    if (dialogs[i].name.Equals(dialogList[dialogIndex]))
+                    {
+                        currentDialog = dialogs[i];
+                        break;
+                    }                    
+                }
+
+                if (currentDialog != null)
+                {
+                    currentDialog.ShowDialog();
+                    UpdateInterference();
+                    //adding the interference action
+                    interferences.Add(new Interference(currentDialog));
+                }
+                /*dialogs[dialogIndex].ShowDialog();
                 UpdateInterference();
                 // adding the interference action            
-                interferences.Add(new Interference(dialogs[dialogIndex]));             
+                interferences.Add(new Interference(dialogs[dialogIndex]));      */
             }
         }
     }
@@ -139,7 +181,8 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     private void UpdateInterference()
     {
-        interfering = dialogs[dialogIndex].GetInterference();
+        //interfering = dialogs[dialogIndex].GetInterference();
+        interfering = currentDialog.GetInterference();
     }
 
     /// <summary>
@@ -196,6 +239,15 @@ public class WorldModelManager : MonoBehaviour {
         //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
         using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
         {
+            /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
+            {
+                interferenceFile.WriteLine("InterferenceVersion " + iVersion.Number);
+                List<string> dialogs = iVersion.Dialogs;
+                foreach (string dialog in dialogs)
+                {
+                    interferenceFile.WriteLine("Dialog " + dialog);
+                }
+            }*/
             for (int j = 0; j < interferences.Count; j++)
             {
                 interferenceFile.WriteLine("Interference : " + interferences[j].Dialog.name);
