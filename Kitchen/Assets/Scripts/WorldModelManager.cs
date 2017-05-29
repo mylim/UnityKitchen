@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WorldModelManager : MonoBehaviour {
     // Interference dialog and variable
     public int interferenceInterval;
-    public int interferenceVersion;
+    private int interferenceVersion;
     public InterferenceDialog[] dialogs;
     private InterferenceDialog currentDialog;
     private int dialogIndex;
@@ -35,7 +35,7 @@ public class WorldModelManager : MonoBehaviour {
 
         // parse the interference versions from xml and get the right interference dialogs list
         xmlInterferenceVersions = xmlParser.ParseXMLInterferenceVersions();
-        dialogList = xmlInterferenceVersions[interferenceVersion].Dialogs;
+        dialogList = xmlInterferenceVersions[DataManager.Instance.InterferenceVersion].Dialogs;
         /*for (int j = 0; j < xmlErrands.Count; j++)
         //foreach (XMLErrand errand in xmlErrands)
         {

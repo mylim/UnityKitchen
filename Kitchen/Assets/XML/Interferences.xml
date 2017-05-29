@@ -21,7 +21,6 @@
 	<Interference dialog = "ShelvesDialog">		
 			
 			<Object>Fridge</Object>
-			<Object>FridgeBody</Object>
 		
 	</Interference>		
 	<Interference dialog = "CupsDialog">		
