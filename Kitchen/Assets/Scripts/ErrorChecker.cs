@@ -18,10 +18,9 @@ public class ErrorChecker {
     private List<Execution> errandOrderErrors;
     private List<Execution> orderErrors;
     private List<Execution> missErrors;
-    private bool taskFound;
     private string errandID;
     private int taskID;
-    private int[] errorCount = new int[10];
+    private int[] errorCount = new int[System.Enum.GetNames(typeof(Execution.ErrorTypes)).Length];
 
     /// <summary>
     /// Contructor for Error Checker
@@ -47,8 +46,7 @@ public class ErrorChecker {
         bool taskAdded = false;
 
         for (int i = 0; i < actions.Count; i++)
-        {
-            taskFound = false;
+        {            
             taskID = 0;
             PrimitiveAction action = actions[i];
             scoreFile.WriteLine("\nAction " + action.Name + " " + action.ElementOne.ObjectElement.tag + " " + action.ElementTwo.ObjectElement.tag);
@@ -63,15 +61,20 @@ public class ErrorChecker {
                 if (!taskAdded)
                 {
                     // if subtask was found but not added, that means it is a repetition of an already added task
-                    if (taskFound)
+                    /*if (taskFound)
                     {
                         AddRepetition(scoreFile);
                     }
                     // if the subtask was not found, it is an intrusion
                     else
+                    {*/
+                    taskAdded = CheckIntrusionItemTask(action, scoreFile);
+                    if (!taskAdded)
                     {
-                        AddUnknownIntrusion(scoreFile);
-                    }
+                        List<Execution.ErrorTypes> errors = new List<Execution.ErrorTypes>();
+                        errors.Add(Execution.ErrorTypes.Intrusion);
+                        AddUnknownIntrusion(scoreFile, errors);
+                    }                  
                 }
                 continue;
             }
@@ -136,14 +139,12 @@ public class ErrorChecker {
                             scoreFile.WriteLine("There is an error in the subtask");
                             AddKnownIntrusion(scoreFile, errand.ID, (k + 1), Execution.TaskTypes.Subtask, semanticError, episodicError);
                         }
-                        return true;
                     }
                     else
-                    {
-                        taskFound = true;
-                        errandID = errand.ID;
-                        taskID = k + 1;
+                    {                    
+                         AddRepetition(scoreFile, errand.ID, (k + 1), Execution.TaskTypes.Subtask, semanticError, episodicError);                                              
                     }
+                    return true;
                 }
                 // objects are from different categories under the same semantic family, e.g. Mug vs CoffeeMug, hence there is semantic error
                 else if (subtask.Action.Name.Equals(action.Name) && AreSameSemanticCategories(subtask.Action, action))
@@ -152,7 +153,7 @@ public class ErrorChecker {
                     scoreFile.WriteLine("Subtask objects has same semantic categories but are disimilar");
                     AddKnownIntrusion(scoreFile, errand.ID, (k + 1), Execution.TaskTypes.Subtask, semanticError, episodicError);
                     return true;
-                }
+                }                  
             }
         }
         return false;
@@ -223,12 +224,46 @@ public class ErrorChecker {
                     scoreFile.WriteLine("AuxSubtask objects has same semantic categories but are disimilar");
                     AddKnownIntrusion(scoreFile, errand.ID, (l + 1), Execution.TaskTypes.AuxTask, semanticError, episodicError);
                     return true;
-                }
+                }              
             }
         }
         return false;
     }
 
+    /// <summary>
+    /// Check for correct subtask performed with the wrong item or random subtask performed with item from the correct semantic or episodic category
+    /// </summary>
+    /// <param name="action"></param>
+    /// <param name="scoreFile"></param>
+    /// <returns></returns>
+    private bool CheckIntrusionItemTask(PrimitiveAction action, System.IO.StreamWriter scoreFile)
+    {
+        List<Execution.ErrorTypes> errors = new List<Execution.ErrorTypes>();
+        if (HasSemanticCategory(action.ElementOne) || HasSemanticCategory(action.ElementTwo))
+        {
+            errors.Add(Execution.ErrorTypes.IntrusionTask);
+        }
+
+        for (int j = 0; j < xmlErrands.Count; j++)
+        {
+            XMLErrand errand = xmlErrands[j];
+            for (int k = 0; k < errand.Subtasks.Count; k++)
+            {
+                XMLSubtask subtask = errand.Subtasks[k];
+                {                             
+                    if (subtask.Action.Name.Equals(action.Name) && 
+                        (((!HasSemanticCategory(action.ElementOne)) && action.ElementOne.ObjectElement.tag.Equals(subtask.Action.ElementOne.ObjectElement)) 
+                        || ((!HasSemanticCategory(action.ElementTwo)) && action.ElementTwo.ObjectElement.tag.Equals(subtask.Action.ElementTwo.ObjectElement))))
+                    {
+                        errors.Add(Execution.ErrorTypes.IntrusionItem);
+                        AddUnknownIntrusion(scoreFile, errors);
+                        return true;
+                    }                            
+                }
+            }
+        }
+        return false;
+    }
     /// <summary>
     ///  Adding intrusion of known task with semantic and/or episodic error
     /// </summary>
@@ -255,11 +290,14 @@ public class ErrorChecker {
     /// Adding unknown intrusion
     /// </summary>
     /// <param name="scoreFile">the file to be written to</param>
-    private void AddUnknownIntrusion(System.IO.StreamWriter scoreFile)
+    private void AddUnknownIntrusion(System.IO.StreamWriter scoreFile, List<Execution.ErrorTypes> errors)
     {
         scoreFile.WriteLine("Adding unknown intrusion");
         Execution task = new Execution("IN", 0, Execution.TaskTypes.None);
-        task.Errors.Add(Execution.ErrorTypes.Intrusion);
+        for (int i = 0; i < errors.Count; i++)
+        {
+            task.Errors.Add(errors[i]);
+        }        
         intrusionRepetitionErrors.Add(task);
     }
 
@@ -268,12 +306,23 @@ public class ErrorChecker {
     /// </summary>
     /// <param name="taskID">the repeated task</param>
     /// <param name="scoreFile">the file to be written to</param>
-    private void AddRepetition(System.IO.StreamWriter scoreFile)
+    private Execution AddRepetition(System.IO.StreamWriter scoreFile, string errandID, int subtaskNumber, Execution.TaskTypes taskType, bool semanticError, bool episodicError)
     {
         scoreFile.WriteLine("Adding repetition");
         Execution task = new Execution(errandID, taskID, Execution.TaskTypes.Subtask);
         task.Errors.Add(Execution.ErrorTypes.Repetition);
+        if (semanticError)
+        {
+            scoreFile.WriteLine("Adding semanticError ");
+            task.Errors.Add(Execution.ErrorTypes.Semantic);
+        }
+        else if (episodicError)
+        {
+            scoreFile.WriteLine("Adding episodicError ");
+            task.Errors.Add(Execution.ErrorTypes.Episodic);
+        }
         intrusionRepetitionErrors.Add(task);
+        return task;
     }
 
     /// <summary>

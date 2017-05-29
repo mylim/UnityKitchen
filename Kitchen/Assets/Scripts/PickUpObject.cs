@@ -210,7 +210,6 @@ public class PickUpObject : MonoBehaviour
                                 // update world model
                                 worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("pickedUp", player, drink);
                             }
-
                         }
 
                         // Picked the correct item
