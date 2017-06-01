@@ -567,7 +567,7 @@ public class PickUpObject : MonoBehaviour
                         {
                             carriedObject.GetComponent<InstantiateItem>().Instantiate((carriedObject.transform.position + (transform.up * (carriedObject.GetComponent<Collider>().bounds.size.y))), 2);
                         }
-                    }                   
+                    }                      
                 }
                 else if ((carriedObject.transform.parent != null && 
                     (carriedObject.transform.parent.tag.Equals("Cutlery") || 
@@ -631,6 +631,14 @@ public class PickUpObject : MonoBehaviour
                 {
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);
+                }
+                else if (collider.transform.parent != null && collider.transform.parent.tag.Equals("Sandwich"))
+                {
+                    carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
+                    carriedObject.transform.parent = sandwich.transform;
+                    sandwichHeight += carriedObject.GetComponent<Collider>().bounds.size.y;
+                    // update world model with the new position of the object
+                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, sandwich);
                 }
                 else
                 {

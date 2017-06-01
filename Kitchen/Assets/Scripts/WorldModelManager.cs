@@ -229,7 +229,9 @@ public class WorldModelManager : MonoBehaviour {
             logFile.WriteLine();
             for (int i = 0; i < actions.Count; i++)
             {
-                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
+                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + 
+                    actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " + 
+                    actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);
             }
         }
     }
