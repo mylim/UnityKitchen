@@ -106,6 +106,8 @@ TagManager:
   - CleaningMaterials
   - Towel
   - Drink
+  - Toaster
+  - Biscuits
   layers:
   - Default
   - TransparentFX
