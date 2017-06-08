@@ -16,6 +16,7 @@ public class ErrorChecker {
 
     // Scoring variables
     private List<Execution> intrusionRepetitionErrors;
+    private List<Execution> swappingMixedErrors;
     private List<Execution> errandOrderErrors;
     private List<Execution> orderErrors;
     private List<Execution> missErrors;
@@ -79,11 +80,11 @@ public class ErrorChecker {
                         taskAdded = CheckIntrusionTask(action, scoreFile);
                         if (!taskAdded)
                         {
-                            taskAdded = CheckIntrusionItem(action, scoreFile);
-                            if (!taskAdded)
+                            //taskAdded = CheckIntrusionItem(action, scoreFile);
+                            //if (!taskAdded)
                             {
                                 List<Execution.ErrorTypes> errors = new List<Execution.ErrorTypes>();
-                                errors.Add(Execution.ErrorTypes.Intrusion);
+                                errors.Add(Execution.ErrorTypes.IntrusionFull);
                                 AddUnknownIntrusion(scoreFile, errors);
                             }
                         }
@@ -266,7 +267,7 @@ public class ErrorChecker {
     /// <param name="action"></param>
     /// <param name="scoreFile"></param>
     /// <returns></returns>
-    private bool CheckIntrusionItem(PrimitiveAction action, System.IO.StreamWriter scoreFile)
+    /*private bool CheckIntrusionItem(PrimitiveAction action, System.IO.StreamWriter scoreFile)
     {
         List<Execution.ErrorTypes> errors = new List<Execution.ErrorTypes>();       
 
@@ -290,7 +291,7 @@ public class ErrorChecker {
             }
         }
         return false;
-    }
+    }*/
 
     /// <summary>
     /// Check for random subtask performed with the correct item they were instructed to use
@@ -504,7 +505,71 @@ public class ErrorChecker {
     }
 
     /// <summary>
-    /// Check and label all errand order error
+    /// Check and label all swapping and mixed errors
+    /// </summary>
+    /// <param name="scoreFile"></param>
+    public void CheckSwappingMixedError(System.IO.StreamWriter scoreFile)
+    {
+        List<string> errandIDs = new List<string>();
+        List<Execution> executions = new List<Execution>();
+        swappingMixedErrors = new List<Execution>();
+        // index for the next errand    
+        int errandIndex = 0;
+        int taskIndex = -1;
+        // the first errand id should be the id of the first errand
+        string errandID = xmlErrands[errandIndex++].ID;
+
+        for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
+        {
+            Execution exe = new Execution();
+            exe.CopyExecution(intrusionRepetitionErrors[i]);
+
+            // if the execution list errandID is different from the current errandID and it is not the next errand index
+            if (!intrusionRepetitionErrors[i].ErrandID.Equals(errandID)
+                && !intrusionRepetitionErrors[i].TaskType.Equals(Execution.TaskTypes.AuxTask)
+                && !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionFull)
+                //&& !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionItem)
+                && !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionTask))
+            {
+                if((taskIndex > 0) && (exe.SubtaskNumber == taskIndex))
+                {
+                    if (exe.Errors.Contains(Execution.ErrorTypes.Repetition))
+                    {
+                        // Add mixed error - swapping and repetition
+                        exe.Errors.Add(Execution.ErrorTypes.Mixed);
+                    }
+                    else
+                    {
+                        // Add swapping error
+                        exe.Errors.Add(Execution.ErrorTypes.Swapping);                        
+                    }
+                    taskIndex = -1;
+                }
+            }
+            else if (intrusionRepetitionErrors[i].ErrandID.Equals(errandID))
+            {
+                taskIndex = exe.SubtaskNumber + 1;
+            }
+            swappingMixedErrors.Add(exe);
+        }
+
+        scoreFile.WriteLine();
+        scoreFile.WriteLine("Swapping and mixed errors");
+        for (int i = 0; i < swappingMixedErrors.Count; i++)
+        {
+            Execution execution = swappingMixedErrors[i];
+            string error = "";
+            for (int j = 0; j < execution.Errors.Count; j++)
+            {
+                error += " " + execution.Errors[j];
+            }
+            scoreFile.WriteLine("ErrandID " + execution.ErrandID + " SubtaskNumber " + execution.SubtaskNumber
+                + " TaskType " + execution.TaskType.ToString() + " Errors: " + error);
+        }
+    }
+
+    /// <summary>
+    /// Check and label all errand level errors
     /// </summary>
     /// <param name="scoreFile"></param>
     public void CheckErrandError(System.IO.StreamWriter scoreFile)
@@ -518,27 +583,27 @@ public class ErrorChecker {
         // the first errand id should be the id of the first errand
         string errandID = xmlErrands[errandIndex++].ID;
 
-        for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
+        for (int i = 0; i < swappingMixedErrors.Count; i++)
         {
             Execution exe = new Execution();
-            exe.CopyExecution(intrusionRepetitionErrors[i]);
+            exe.CopyExecution(swappingMixedErrors[i]);
 
             // if the execution list errandID is different from the current errandID and it is not the next errand index
-            if (!intrusionRepetitionErrors[i].ErrandID.Equals(errandID)
-                && !intrusionRepetitionErrors[i].TaskType.Equals(Execution.TaskTypes.AuxTask)
-                && !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.Intrusion)
-                && !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionItem)
-                && !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionTask))
+            if (!swappingMixedErrors[i].ErrandID.Equals(errandID)
+                && !swappingMixedErrors[i].TaskType.Equals(Execution.TaskTypes.AuxTask)
+                && !swappingMixedErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionFull)
+                //&& !intrusionRepetitionErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionItem)
+                && !swappingMixedErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionTask))
             {
                 // if maxIndex is less or equal to errand count and the errandID is the same as the next ID in the maximum errand sequence
-                if ((i != 0) && (errandIndex < xmlErrands.Count) && (intrusionRepetitionErrors[i].ErrandID.Equals(xmlErrands[errandIndex].ID)))
+                if ((i != 0) && (errandIndex < xmlErrands.Count) && (swappingMixedErrors[i].ErrandID.Equals(xmlErrands[errandIndex].ID)))
                 {
                     errandID = xmlErrands[errandIndex++].ID;
                 }
                 // errand ID is not for the next errand in the maximum sequence
                 else
                 {
-                    errandID = intrusionRepetitionErrors[i].ErrandID;
+                    errandID = swappingMixedErrors[i].ErrandID;
                     // get the index for the current errand
                     for (int j = 0; j < xmlErrands.Count; j++)
                     {
@@ -564,9 +629,9 @@ public class ErrorChecker {
                     int k = i;
                     string id = exe.ErrandID;
                     bool repeat = false;
-                    while (k < intrusionRepetitionErrors.Count && intrusionRepetitionErrors[k].ErrandID.Equals(id) && !repeat)
+                    while (k < swappingMixedErrors.Count && swappingMixedErrors[k].ErrandID.Equals(id) && !repeat)
                     {
-                        if (intrusionRepetitionErrors[k++].Errors.Contains(Execution.ErrorTypes.Repetition))
+                        if (swappingMixedErrors[k++].Errors.Contains(Execution.ErrorTypes.Repetition))
                         {
                             // Add repeat errand error
                             exe.Errors.Add(Execution.ErrorTypes.RepeatErrand);
@@ -611,7 +676,7 @@ public class ErrorChecker {
         int[] maxErrandTaskIndex = new int[xmlErrands.Count];
         int[] errandTaskIndex = new int[xmlErrands.Count];
 
-        // Initialise the each errand task and maximum index
+        // Initialise each errand task and maximum indexes
         for (int i = 0; i < xmlErrands.Count; i++)
         {
             errandTaskIndex[i] = 0;
@@ -631,8 +696,8 @@ public class ErrorChecker {
         {
             errandID = orderErrors[i].ErrandID;
             // ignore intrusion, repetition and auxTask
-            if (!orderErrors[i].Errors.Contains(Execution.ErrorTypes.Intrusion)
-                &&!orderErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionItem)
+            if (!orderErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionFull)
+                //&&!orderErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionItem)
                 && !orderErrors[i].Errors.Contains(Execution.ErrorTypes.IntrusionTask)
                 && !orderErrors[i].Errors.Contains(Execution.ErrorTypes.Repetition) 
                 && !orderErrors[i].TaskType.Equals(Execution.TaskTypes.AuxTask))
@@ -705,7 +770,7 @@ public class ErrorChecker {
                 XMLSubtask subtask = errand.Subtasks[j];
                 if (!executionXMLTasks.Contains(subtask))
                 {
-                    errorCount[(int)Execution.ErrorTypes.Miss]++;
+                    errorCount[(int)Execution.ErrorTypes.Misses]++;
                     scoreFile.WriteLine("ErrandID E" + (i + 1) + " Subtask number " + (j + 1));
                 }
             }
@@ -716,9 +781,9 @@ public class ErrorChecker {
     /// Checking interference error
     /// </summary>
     /// <param name="scoreFile"></param>
-    public void CheckInterferenceError(System.IO.StreamWriter scoreFile)
+    public void CheckExecutiveError(System.IO.StreamWriter scoreFile)
     {
-        List<string> interferenceError = new List<string>();
+        List<string> executiveError = new List<string>();
         int index = 0;
 
         for (int i = 0; i < xmlInterferences.Count; i++)
@@ -752,17 +817,17 @@ public class ErrorChecker {
 
                 if (error)
                 {
-                    interferenceError.Add(interferences[index].Dialog.name);
+                    executiveError.Add(interferences[index].Dialog.name);
                 }
             }
         }
 
         scoreFile.WriteLine();
-        for (int i = 0; i < interferenceError.Count; i++)
+        for (int i = 0; i < executiveError.Count; i++)
         {
-            scoreFile.WriteLine("Interference error: " + interferenceError[i]);
+            scoreFile.WriteLine("Interference error: " + executiveError[i]);
         }
-        errorCount[(int)Execution.ErrorTypes.Interference] = interferenceError.Count;
+        errorCount[(int)Execution.ErrorTypes.Executive] = executiveError.Count;
     }
 
     public void CountErrors(System.IO.StreamWriter scoreFile)

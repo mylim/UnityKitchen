@@ -61,6 +61,7 @@ GameObject:
   - 224: {fileID: 22430696}
   - 222: {fileID: 22276894}
   - 114: {fileID: 11408216}
+  - 114: {fileID: 11436914}
   m_Layer: 5
   m_Name: BleachDialog
   m_TagString: Untagged
@@ -192,8 +193,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
-    m_FontStyle: 1
+    m_FontSize: 25
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 50
@@ -270,8 +271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 11436914}
+        m_MethodName: CloseDialog
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -345,6 +346,18 @@ MonoBehaviour:
   m_Text: 'Close
 
 '
+--- !u!114 &11436914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f65e1ca0cb0044f9cb3919ad5f7453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog: {fileID: 157222}
 --- !u!222 &22234436
 CanvasRenderer:
   m_ObjectHideFlags: 1
