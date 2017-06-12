@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Interferences>
-	<Interference dialog = "TowelDialog">
+	<Interference dialog = "TowelsDialog">
 		
 			<Object>MopTowel</Object>
 			<Object>HandTowel</Object>

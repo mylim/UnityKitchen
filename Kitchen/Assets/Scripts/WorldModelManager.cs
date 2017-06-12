@@ -204,8 +204,8 @@ public class WorldModelManager : MonoBehaviour {
     private void LogActions()
     {
         string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
-        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
+        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_log.txt", true))
+        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_log.txt", true))
         {
             for (int j = 0; j < xmlErrands.Count; j++)
             {
@@ -242,8 +242,8 @@ public class WorldModelManager : MonoBehaviour {
     private void LogInterferences()
     {
         string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
-        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
+        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_interference.txt", true))
+        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_interference.txt", true))
         {
             /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
             {
@@ -276,8 +276,8 @@ public class WorldModelManager : MonoBehaviour {
 
         errorChecker = new ErrorChecker(actions, xmlErrands, interferences, xmlInterferences);
         string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
-        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
+        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_score.txt", true))
+        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_score.txt", true))
         {
             // Checking for intrusion and repetition
             errorChecker.CheckIntrusionRepetition(scoreFile);

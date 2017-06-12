@@ -51,7 +51,7 @@
 			<ElementOne>Water</ElementOne>
 			<ElementTwo>Mug</ElementTwo>
 		</Subtask>
-		<Subtask ID = "E1-11">
+		<Subtask ID = "E1-10-1">
 			<Name>on</Name>
 			<ElementOne>Water</ElementOne>
 			<ElementTwo>KettleBase</ElementTwo>
@@ -160,7 +160,7 @@
 			<ElementOne>Honey</ElementOne>
 			<ElementTwo>KitchenTop</ElementTwo>
 		</Subtask>
-		<Subtask ID = "E3-5">
+		<Subtask ID = "E3-9">
 			<Name>on</Name>
 			<ElementOne>TableSpoon</ElementOne>
 			<ElementTwo>KitchenTop</ElementTwo>

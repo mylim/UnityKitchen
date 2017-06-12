@@ -534,12 +534,14 @@ public class PickUpObject : MonoBehaviour
             carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
 
             // update world model with the new position of the object
-            // manager.updateWorldModel("on", carriedObject, collider.gameObject);
-
             if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
                 carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
                 carriedObject.tag.Equals("HamSlice") || carriedObject.tag.Equals("CheeseSlice"))
             {
+                if (carriedObject.tag.Equals("SingleNapkin"))
+                {
+                    sandwich.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
+                }
                 carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
                 carriedObject.transform.parent = sandwich.transform;
                 sandwichHeight += carriedObject.GetComponent<Collider>().bounds.size.y;
@@ -632,6 +634,7 @@ public class PickUpObject : MonoBehaviour
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);
                 }
+                // for objects other than bread, cheese and ham that are put on the sandwich
                 else if (collider.transform.parent != null && collider.transform.parent.tag.Equals("Sandwich"))
                 {
                     carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);

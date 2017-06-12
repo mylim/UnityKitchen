@@ -39,6 +39,11 @@ public class ErrorChecker {
         this.xmlErrands = xmlErrands;
         this.interferences = interferences;
         this.xmlInterferences = xmlInterferences;
+
+        for (int i = 0; i < interferences.Count; i++)
+        {
+            Debug.Log(interferences[i].Dialog.name);
+        }
     }
 
     /// <summary>
@@ -514,10 +519,9 @@ public class ErrorChecker {
         List<Execution> executions = new List<Execution>();
         swappingMixedErrors = new List<Execution>();
         // index for the next errand    
-        int errandIndex = 0;
         int taskIndex = -1;
-        // the first errand id should be the id of the first errand
-        string errandID = xmlErrands[errandIndex++].ID;
+        // the first errand id should be the id of the first task
+        string errandID = intrusionRepetitionErrors[0].ErrandID;
 
         for (int i = 0; i < intrusionRepetitionErrors.Count; i++)
         {
@@ -542,9 +546,10 @@ public class ErrorChecker {
                     {
                         // Add swapping error
                         exe.Errors.Add(Execution.ErrorTypes.Swapping);                        
-                    }
-                    taskIndex = -1;
+                    }                    
                 }
+                taskIndex = -1;
+                errandID = intrusionRepetitionErrors[i].ErrandID;
             }
             else if (intrusionRepetitionErrors[i].ErrandID.Equals(errandID))
             {
@@ -650,7 +655,7 @@ public class ErrorChecker {
         }
 
         scoreFile.WriteLine();
-        scoreFile.WriteLine("Errand order errors");
+        scoreFile.WriteLine("Errand level errors");
         for (int i = 0; i < errandOrderErrors.Count; i++)
         {
             Execution execution = errandOrderErrors[i];
@@ -796,6 +801,7 @@ public class ErrorChecker {
                 {
                     index = k;
                     dialogFound = true;
+                    //scoreFile.WriteLine("Dialog found");
                     break;
                 }
             }
@@ -823,9 +829,10 @@ public class ErrorChecker {
         }
 
         scoreFile.WriteLine();
+        scoreFile.WriteLine("Executive errors");
         for (int i = 0; i < executiveError.Count; i++)
         {
-            scoreFile.WriteLine("Interference error: " + executiveError[i]);
+            scoreFile.WriteLine(executiveError[i]);
         }
         errorCount[(int)Execution.ErrorTypes.Executive] = executiveError.Count;
     }
