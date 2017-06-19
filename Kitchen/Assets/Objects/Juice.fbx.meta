@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 00b33f52a7272d744b8725fac7311fe4
-timeCreated: 1496662612
+timeCreated: 1497871733
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -15,8 +15,8 @@ ModelImporter:
     2300002: Tropicana
     3300000: TescoOrange
     3300002: Tropicana
-    4300000: TescoOrange
-    4300002: Tropicana
+    4300000: Tropicana
+    4300002: TescoOrange
   materials:
     importMaterials: 1
     materialName: 0

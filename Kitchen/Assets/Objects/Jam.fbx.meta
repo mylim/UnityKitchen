@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 809c4abe1cd60b443a795f7c1f039c0d
-timeCreated: 1477485658
+timeCreated: 1497873462
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -23,10 +23,10 @@ ModelImporter:
     3300002: E2_ST2_EM3_I2
     3300004: E2_ST2_EM3_I3
     3300006: E2_ST2_EM3_I4
-    4300000: E2_ST2_EM3_I4
-    4300002: E2_ST2_EM3_I3
-    4300004: E2_ST2_EM3_I2
-    4300006: E2_ST2_EM3_I1
+    4300000: E2_ST2_EM3_I3
+    4300002: E2_ST2_EM3_I1
+    4300004: E2_ST2_EM3_I4
+    4300006: E2_ST2_EM3_I2
   materials:
     importMaterials: 1
     materialName: 0

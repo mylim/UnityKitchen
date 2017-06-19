@@ -108,6 +108,7 @@ TagManager:
   - Drink
   - Toaster
   - Biscuits
+  - Juice
   layers:
   - Default
   - TransparentFX
