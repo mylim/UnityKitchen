@@ -144,11 +144,8 @@
     <Compile Include="Assets\Scripts\InstantiateItem.cs" />
     <Compile Include="Assets\Scripts\Interference.cs" />
     <Compile Include="Assets\Scripts\InterferenceDialog.cs" />
-    <Compile Include="Assets\Scripts\InterferenceHandler.cs" />
-    <Compile Include="Assets\Scripts\InterferenceVersion.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
-    <Compile Include="Assets\Scripts\LoadOnClick.cs" />
     <Compile Include="Assets\Scripts\LookAt.cs" />
     <Compile Include="Assets\Scripts\MouseHoverObject.cs" />
     <Compile Include="Assets\Scripts\OpenCloseDoors.cs" />
@@ -164,6 +161,7 @@
     <Compile Include="Assets\Scripts\Properties\FilledWithWater.cs" />
     <Compile Include="Assets\Scripts\Properties\LidOn.cs" />
     <Compile Include="Assets\Scripts\Properties\NewBag.cs" />
+    <Compile Include="Assets\Scripts\SaveDialog.cs" />
     <Compile Include="Assets\Scripts\SemanticCategory.cs" />
     <Compile Include="Assets\Scripts\SpawnBag.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
@@ -180,6 +178,7 @@
     <Compile Include="Assets\Scripts\XMLElement.cs" />
     <Compile Include="Assets\Scripts\XMLErrand.cs" />
     <Compile Include="Assets\Scripts\XMLInterference.cs" />
+    <Compile Include="Assets\Scripts\XMLInterferenceVersion.cs" />
     <Compile Include="Assets\Scripts\XMLParser.cs" />
     <Compile Include="Assets\Scripts\XMLPrimitiveAction.cs" />
     <Compile Include="Assets\Scripts\XMLSubtask.cs" />

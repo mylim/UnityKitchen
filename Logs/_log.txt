@@ -1,0 +1,15 @@
+Action 0 pickedUp Player  Kettle 
+Action 1 on Kettle  KettleBase 
+Action 2 wash Water  Player 
+Action 3 on Toaster  KitchenTop 
+Action 0 pickedUp Player  Kettle 
+Action 1 filled Kettle  Water 
+Action 2 on Kettle  KettleBase 
+Action 3 boiled Kettle  Water 
+Action 4 on Toaster  Toaster 
+Action 5 on Toaster  KitchenTop 
+Action 0 pickedUp Player  Kettle 
+Action 1 filled Kettle  Water 
+Action 2 on Kettle  KettleBase 
+Action 3 boiled Kettle  Water 
+Action 4 on Toaster  KitchenTop 

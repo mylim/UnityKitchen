@@ -12,7 +12,8 @@ public class Unit : MonoBehaviour {
     public float cameraPitchMax = 30.0f;
     public float gravity = 20.0f;
     public float cameraRotX = 0.0f;
-    
+    private SaveDialog saveDialog;
+
     // Use this for initialization
     public virtual void Start () {
         charControl = GetComponent<CharacterController>();
@@ -30,6 +31,7 @@ public class Unit : MonoBehaviour {
         charControl.Move(move * moveSpeed);
 
         if (Input.GetKey("escape"))
-            Application.Quit();
+            //Application.Quit();
+            saveDialog.ShowDialog();
     }
 }

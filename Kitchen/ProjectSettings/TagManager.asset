@@ -109,6 +109,7 @@ TagManager:
   - Toaster
   - Biscuits
   - Juice
+  - Mop
   layers:
   - Default
   - TransparentFX

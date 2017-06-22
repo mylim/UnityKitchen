@@ -303,6 +303,12 @@ public class PickUpObject : MonoBehaviour
                                 CarriedObject(sandwich);
                             }
                         }
+                        else if (collider.tag.Equals("Tap"))
+                        {
+                            Debug.Log("Wash hands");
+                            // update world model
+                            worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("wash", water, player);
+                        }
                     }
                 }
             }
@@ -367,12 +373,22 @@ public class PickUpObject : MonoBehaviour
                         Debug.Log("Wetting towel ");
                         // update world model
                         worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", water, carriedObject);
-                    }
+                    }                   
                     else
                     {
                         Debug.Log("Add water onto object ");
                         // update world model
                         worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("add", water, carriedObject);
+                    }
+                }
+                else if (collider.tag.Equals("Floor"))
+                {
+                    if (carriedObject.tag.Equals("Mop"))
+                    {
+                        // Practice trial
+                        Debug.Log("Mopping the floor ");
+                        // update world model
+                        worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("mop", player, collider.gameObject);
                     }
                 }
                 //else if (collider.tag.Equals("Mug") || collider.tag.Equals("Cup") || collider.tag.Equals("Jar") || collider.tag.Equals("CoffeeMug"))
@@ -386,6 +402,12 @@ public class PickUpObject : MonoBehaviour
 
                         // update world model
                         worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", water, collider.gameObject);
+                    }
+                    else if (carriedObject.tag.Equals("Juice"))
+                    {
+                        Debug.Log("Pouring juice ");
+                        // update world model
+                        worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("in", carriedObject, collider.gameObject);
                     }
                     else if (carriedObject.tag.Equals("SingleTeaBag"))
                     {

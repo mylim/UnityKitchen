@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Pilot 3.unity
+- path: Assets/Scenes/Pilot 2.unity
   isLoaded: 1
   isActive: 1

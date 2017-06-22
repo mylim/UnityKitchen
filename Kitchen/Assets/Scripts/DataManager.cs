@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour {
 
@@ -24,7 +25,25 @@ public class DataManager : MonoBehaviour {
     {
         get;
         set;
-    }   
+    }
+
+    /// <summary>
+    /// The participant ID
+    /// </summary>
+    public string ParticipantID
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// The Assessment Number
+    /// </summary>
+    public string AssessmentNo
+    {
+        get;
+        set;
+    }
 
     // Use this for initialization
     void Start()
@@ -39,20 +58,38 @@ public class DataManager : MonoBehaviour {
             Instance = this;
         }
 
-        this.VRAISVersion = 1;
-        this.InterferenceVersion = 1;
+        this.VRAISVersion = 0;
+        this.InterferenceVersion = 0;
     }
 
     public void setVRAISVersion(int VRAISVersion)
     {
-        this.VRAISVersion = VRAISVersion;
+        if (VRAISVersion >= 0)
+        {
+            this.VRAISVersion = VRAISVersion;
+        }
         Debug.Log("VRAISVersion " + this.VRAISVersion);
     }
 
     public void setInterferenceVersion(int interferenceVersion)
     {
-        this.InterferenceVersion = interferenceVersion;
+        if (interferenceVersion >= 0)
+        {
+            this.InterferenceVersion = interferenceVersion;
+        }
         Debug.Log("InterferenceVersion " + this.InterferenceVersion);
+    }
+
+    public void setParticipantID(string ParticipantID)
+    {
+        this.ParticipantID = ParticipantID;
+        Debug.Log("Participant ID " + this.ParticipantID);
+    }
+
+    public void setAssessmentNo(string AssessmentNo)
+    {
+        this.AssessmentNo = AssessmentNo;
+        Debug.Log("Assessment No " + this.AssessmentNo);
     }
 
     public void LoadScene()

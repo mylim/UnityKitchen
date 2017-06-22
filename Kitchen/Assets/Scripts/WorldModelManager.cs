@@ -3,9 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WorldModelManager : MonoBehaviour {
+
+    //public enum VRAISVersion { Practice, Pilot1, Pilot2, Pilot3 };
+    //public enum InterferenceVersion { V1, V2, V3, V4, V5 }
+
     // Interference dialog and variable
     public int interferenceInterval;
-    public int interferenceVersion;
+    //public int interferenceVersion;
     // when main menu is used, get the version from user input
     //private int interferenceVersion;
     public InterferenceDialog[] dialogs;
@@ -23,6 +27,9 @@ public class WorldModelManager : MonoBehaviour {
     private List<XMLInterference> xmlInterferences;
     private List<XMLInterferenceVersion> xmlInterferenceVersions;
     private List<string> dialogList;
+    private string[] VRAISVersion = { "Practice", "Pilot1", "Pilot2", "Pilot3" };
+    private string[] InterferenceVersion = { "None", "V1", "V2", "V3", "V4", "V5" };
+    private string fileName;
 
     private ErrorChecker errorChecker;
 
@@ -37,49 +44,14 @@ public class WorldModelManager : MonoBehaviour {
 
         // parse the interference versions from xml and get the right interference dialogs list
         xmlInterferenceVersions = xmlParser.ParseXMLInterferenceVersions();
-        //dialogList = xmlInterferenceVersions[DataManager.Instance.InterferenceVersion].Dialogs;
-        dialogList = xmlInterferenceVersions[interferenceVersion].Dialogs;
+        if (DataManager.Instance.InterferenceVersion > 0)
+        {
+            dialogList = xmlInterferenceVersions[DataManager.Instance.InterferenceVersion].Dialogs;
+        }       
+        //dialogList = xmlInterferenceVersions[interferenceVersion].Dialogs;
 
-        /*for (int j = 0; j < xmlErrands.Count; j++)
-        //foreach (XMLErrand errand in xmlErrands)
-        {
-            XMLErrand errand = xmlErrands[j];
-            Debug.Log("errand " + errand.Name + " ID " + errand.ID);
-            for (int k = 0; k < errand.Subtasks.Count; k++)
-            //foreach (XMLSubtask subtask in errand.Subtasks)
-            {
-                XMLSubtask subtask = errand.Subtasks[k];
-                Debug.Log("Subtask number " + k);
-                Debug.Log("subtask " + subtask.ID);
-                Debug.Log("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
-            }
-            for (int l = 0; l < errand.AuxSubtasks.Count; l++)
-            //foreach (XMLSubtask auxSubtask in errand.AuxSubtasks)
-            {
-                XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                Debug.Log("auxSubtask " + auxSubtask.ID);
-                Debug.Log("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
-            }
-        }*/
-        /*foreach (XMLInterference interference in xmlInterferences)
-        {
-            Debug.Log("Interference " + interference.Dialog);
-            List<string> iObjects = interference.iObjects;
-            foreach (string iObject in iObjects)
-            {
-                Debug.Log("Object " + iObject);
-            }
-        }*/
-
-        /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
-        {
-            Debug.Log("InterferenceVersion " + iVersion.Number);
-            List<string> dialogs = iVersion.Dialogs;
-            foreach (string dialog in dialogs)
-            {
-                Debug.Log("Dialog " + dialog);
-            }
-        }*/
+        fileName = System.DateTime.Today.ToString("yy-MM-dd") + "_" + VRAISVersion[DataManager.Instance.VRAISVersion]
+           + "_V" + DataManager.Instance.InterferenceVersion + "_P" + DataManager.Instance.ParticipantID + "_A" + DataManager.Instance.AssessmentNo;
     }
 
     /// <summary>
@@ -87,14 +59,7 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        /*if ((dialogIndex < dialogs.Length) && dialogs[dialogIndex].DialogClosed())
-        {
-            UpdateInterference();
-            interferences[dialogIndex].Answer = dialogs[dialogIndex].GetAnswer();
-            dialogIndex++;
-        }*/
-
-        if ((dialogIndex < dialogs.Length) && ((currentDialog != null) && (currentDialog.DialogClosed())))
+        if ((dialogList != null) && (dialogIndex < dialogs.Length) && ((currentDialog != null) && (currentDialog.DialogClosed())))
         {
             Debug.Log("dialog index " + dialogIndex);
             UpdateInterference();
@@ -139,7 +104,7 @@ public class WorldModelManager : MonoBehaviour {
         actions.Add(new PrimitiveAction(pAction, eOne, eTwo));
 
         // activate the interference is the interval is reached and no other interference is active
-        if ((actions.Count > 0) && (actions.Count % interferenceInterval == 0) && (!interfering))
+        if ((dialogList != null) && (actions.Count > 0) && (actions.Count % interferenceInterval == 0) && (!interfering))
         {
             if ((dialogIndex < dialogs.Length))
             {
@@ -160,10 +125,6 @@ public class WorldModelManager : MonoBehaviour {
                     //adding the interference action
                     interferences.Add(new Interference(currentDialog));
                 }
-                /*dialogs[dialogIndex].ShowDialog();
-                UpdateInterference();
-                // adding the interference action            
-                interferences.Add(new Interference(dialogs[dialogIndex]));      */
             }
         }
     }
@@ -174,7 +135,7 @@ public class WorldModelManager : MonoBehaviour {
     /// <param name="iObject">object to be added to the object list</param>
     public void InterfereWorldModel(GameObject iObject)
     {
-        if ((dialogIndex < dialogs.Length))
+        if ((dialogList != null) && (dialogIndex < dialogs.Length))
         {
             interferences[dialogIndex].AddObject(iObject);
         }
@@ -186,7 +147,14 @@ public class WorldModelManager : MonoBehaviour {
     private void UpdateInterference()
     {
         //interfering = dialogs[dialogIndex].GetInterference();
-        interfering = currentDialog.GetInterference();
+        if (dialogList != null)
+        {
+            interfering = currentDialog.GetInterference();
+        }
+        else
+        {
+            interfering = false;
+        }
     }
 
     /// <summary>
@@ -201,21 +169,21 @@ public class WorldModelManager : MonoBehaviour {
     /// <summary>
     /// Logging all the actions to a text file with post-fix _log.txt in the Logs folder 
     /// </summary>
-    private void LogActions()
+    public void LogActions()
     {
-        string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_log.txt", true))
-        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_log.txt", true))
+        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
+        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_log.txt", true))
         {
-            for (int j = 0; j < xmlErrands.Count; j++)
+            /*for (int j = 0; j < xmlErrands.Count; j++)
             {
                 XMLErrand errand = xmlErrands[j];
                 logFile.WriteLine("errand " + errand.Name + " ID " + errand.ID);
                 for (int k = 0; k < errand.Subtasks.Count; k++)
                 {
                     XMLSubtask subtask = errand.Subtasks[k];
-                    logFile.WriteLine("sSubtask ID " + subtask.ID + " Subtask number " + k);
-                    logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementOne.SemanticCategory
+                    logFile.WriteLine("Subtask ID " + subtask.ID + " Subtask number " + k);
+                    logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
+                    /*logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementOne.SemanticCategory
                         + " " + subtask.Action.ElementTwo.ObjectElement + " " + subtask.Action.ElementTwo.SemanticCategory);
                 }
                 for (int l = 0; l < errand.AuxSubtasks.Count; l++)
@@ -226,12 +194,14 @@ public class WorldModelManager : MonoBehaviour {
                 }
             }
 
-            logFile.WriteLine();
+            logFile.WriteLine();*/
             for (int i = 0; i < actions.Count; i++)
             {
-                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " + 
-                    actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " + 
-                    actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);
+                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " +
+                    actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
+                /*logFile.WriteLine("Action " + i + " " + actions[i].Name + " " +
+                    actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " +
+                    actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);*/
             }
         }
     }
@@ -239,11 +209,10 @@ public class WorldModelManager : MonoBehaviour {
     /// <summary>
     /// Logging all the interferences to a text file with post-fix _interference.txt in the Logs folder 
     /// </summary>
-    private void LogInterferences()
+    public void LogInterferences()
     {
-        string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_interference.txt", true))
-        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_interference.txt", true))
+        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
+        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_interference.txt", true))
         {
             /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
             {
@@ -275,9 +244,9 @@ public class WorldModelManager : MonoBehaviour {
         LogInterferences();
 
         errorChecker = new ErrorChecker(actions, xmlErrands, interferences, xmlInterferences);
-        string fileName = System.DateTime.Today.ToString("yy-MM-dd");
-        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_pilot2_score.txt", true))
-        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_pilot2_score.txt", true))
+
+        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
+        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_score.txt", true))
         {
             // Checking for intrusion and repetition
             errorChecker.CheckIntrusionRepetition(scoreFile);
