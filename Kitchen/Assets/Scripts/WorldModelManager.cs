@@ -2,10 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class WorldModelManager : MonoBehaviour {
+public class WorldModelManager : MonoBehaviour
+{
 
     //public enum VRAISVersion { Practice, Pilot1, Pilot2, Pilot3 };
     //public enum InterferenceVersion { V1, V2, V3, V4, V5 }
+
+    // quit dialog
+    public SaveDialog saveDialog;
 
     // Interference dialog and variable
     public int interferenceInterval;
@@ -20,7 +24,7 @@ public class WorldModelManager : MonoBehaviour {
     // List of primitive actions and interferences as they occured
     private List<PrimitiveAction> actions;
     private List<Interference> interferences;
- 
+
     // List of errands and interference loaded from xml files
     private XMLParser xmlParser;
     private List<XMLErrand> xmlErrands;
@@ -28,13 +32,14 @@ public class WorldModelManager : MonoBehaviour {
     private List<XMLInterferenceVersion> xmlInterferenceVersions;
     private List<string> dialogList;
     private string[] VRAISVersion = { "Practice", "Pilot1", "Pilot2", "Pilot3" };
-    private string[] InterferenceVersion = { "None", "V1", "V2", "V3", "V4", "V5" };
+    private string[] InterferenceVersion = { "VP", "V1", "V2", "V3", "V4", "V5" };
     private string fileName;
 
     private ErrorChecker errorChecker;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         dialogIndex = 0;
         actions = new List<PrimitiveAction>();
         interferences = new List<Interference>();
@@ -44,14 +49,16 @@ public class WorldModelManager : MonoBehaviour {
 
         // parse the interference versions from xml and get the right interference dialogs list
         xmlInterferenceVersions = xmlParser.ParseXMLInterferenceVersions();
-        if (DataManager.Instance.InterferenceVersion > 0)
+        if (DataManager.Instance.InterferenceVersion >= 0)
         {
             dialogList = xmlInterferenceVersions[DataManager.Instance.InterferenceVersion].Dialogs;
         }       
-        //dialogList = xmlInterferenceVersions[interferenceVersion].Dialogs;
-
+        
         fileName = System.DateTime.Today.ToString("yy-MM-dd") + "_" + VRAISVersion[DataManager.Instance.VRAISVersion]
-           + "_V" + DataManager.Instance.InterferenceVersion + "_P" + DataManager.Instance.ParticipantID + "_A" + DataManager.Instance.AssessmentNo;
+           + "_" + InterferenceVersion[DataManager.Instance.InterferenceVersion] + "_P" + DataManager.Instance.ParticipantID + "_A" + DataManager.Instance.AssessmentNo;
+
+        //dialogList = xmlInterferenceVersions[0].Dialogs;
+        //fileName = System.DateTime.Today.ToString("yy-MM-dd");
     }
 
     /// <summary>
@@ -59,6 +66,11 @@ public class WorldModelManager : MonoBehaviour {
     /// </summary>
     void Update()
     {
+        if (Input.GetKey("escape"))
+        {
+            CloseApplication();
+        }
+
         if ((dialogList != null) && (dialogIndex < dialogs.Length) && ((currentDialog != null) && (currentDialog.DialogClosed())))
         {
             Debug.Log("dialog index " + dialogIndex);
@@ -67,6 +79,12 @@ public class WorldModelManager : MonoBehaviour {
             dialogIndex++;
             currentDialog = null;
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        if (!saveDialog.AllowQuit())
+            Application.CancelQuit();
     }
 
     /// <summary>
@@ -79,13 +97,13 @@ public class WorldModelManager : MonoBehaviour {
     {
         //adding the action performed
         Element eOne = new Element(elementOne);
-        Element eTwo = new Element(elementTwo);        
+        Element eTwo = new Element(elementTwo);
         if (elementOne.transform.parent != null && elementOne.transform.parent.GetComponent<SemanticCategory>())
         {
             // element one has a semantic category
             eOne.SemanticCategory = elementOne.transform.parent.tag;
             // element one belongs to the right semantic category
-            if(elementOne.transform.parent.GetComponent<CorrectSemanticCategory>())
+            if (elementOne.transform.parent.GetComponent<CorrectSemanticCategory>())
             {
                 eOne.CorrectSemanticCategory = true;
             }
@@ -115,7 +133,7 @@ public class WorldModelManager : MonoBehaviour {
                     {
                         currentDialog = dialogs[i];
                         break;
-                    }                    
+                    }
                 }
 
                 if (currentDialog != null)
@@ -269,5 +287,10 @@ public class WorldModelManager : MonoBehaviour {
             // Count all the errors
             errorChecker.CountErrors(scoreFile);
         }
+    }
+
+    public void CloseApplication()
+    {
+        saveDialog.ShowDialog();
     }
 }

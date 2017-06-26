@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <IVersions>
+	<IVersion number = "0">
+		<Dialog>PracticeDialog</Dialog>				
+	</IVersion>		
 	<IVersion number = "1">
 		<Dialog>TowelsDialog</Dialog>	
 		<Dialog>BleachDialog</Dialog>	

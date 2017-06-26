@@ -1,32 +1,25 @@
 <?xml version="1.0"?>
-<Interferences>
-	<Interference dialog = "TowelsDialog">
-		
+<Interferences>		
+	<Interference dialog = "TowelsDialog">		
 			<Object>MopTowel</Object>
 			<Object>HandTowel</Object>
 			<Object>CleaningCloth</Object>
-			<Object>TeaTowel</Object>
-	
+			<Object>TeaTowel</Object>	
 	</Interference>		
-	<Interference dialog = "BleachDialog">	
-			
-			<Object>Bleach</Object>
-		
+	<Interference dialog = "BleachDialog">			
+			<Object>Bleach</Object>		
 	</Interference>		
-	<Interference dialog = "CutleryDialog">		
-		
-			<Object>Knife</Object>
-		
+	<Interference dialog = "CutleryDialog">			
+			<Object>Knife</Object>		
 	</Interference>		
-	<Interference dialog = "ShelvesDialog">		
-			
-			<Object>Fridge</Object>
-		
+	<Interference dialog = "ShelvesDialog">				
+			<Object>Fridge</Object>		
 	</Interference>		
-	<Interference dialog = "CupsDialog">		
-			
-			<Object>Cup</Object>
-		
+	<Interference dialog = "CupsDialog">				
+			<Object>Cup</Object>		
 	</Interference>		
+	<Interference dialog = "PracticeDialog">			
+			<Object>Table</Object>		
+	</Interference>	
 </Interferences>
 	
