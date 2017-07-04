@@ -49,16 +49,16 @@ public class WorldModelManager : MonoBehaviour
 
         // parse the interference versions from xml and get the right interference dialogs list
         xmlInterferenceVersions = xmlParser.ParseXMLInterferenceVersions();
-        if (DataManager.Instance.InterferenceVersion >= 0)
+        /*if (DataManager.Instance.InterferenceVersion >= 0)
         {
             dialogList = xmlInterferenceVersions[DataManager.Instance.InterferenceVersion].Dialogs;
         }       
         
         fileName = System.DateTime.Today.ToString("yy-MM-dd") + "_" + VRAISVersion[DataManager.Instance.VRAISVersion]
-           + "_" + InterferenceVersion[DataManager.Instance.InterferenceVersion] + "_P" + DataManager.Instance.ParticipantID + "_A" + DataManager.Instance.AssessmentNo;
+           + "_" + InterferenceVersion[DataManager.Instance.InterferenceVersion] + "_P" + DataManager.Instance.ParticipantID + "_A" + DataManager.Instance.AssessmentNo;*/
 
-        //dialogList = xmlInterferenceVersions[0].Dialogs;
-        //fileName = System.DateTime.Today.ToString("yy-MM-dd");
+        dialogList = xmlInterferenceVersions[0].Dialogs;
+        fileName = System.DateTime.Today.ToString("yy-MM-dd");
     }
 
     /// <summary>
@@ -189,8 +189,8 @@ public class WorldModelManager : MonoBehaviour
     /// </summary>
     public void LogActions()
     {
-        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
-        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_log.txt", true))
+        //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_log.txt", true))
+        using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_log.txt", true))
         {
             /*for (int j = 0; j < xmlErrands.Count; j++)
             {
@@ -229,8 +229,8 @@ public class WorldModelManager : MonoBehaviour
     /// </summary>
     public void LogInterferences()
     {
-        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
-        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_interference.txt", true))
+        //using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_interference.txt", true))
+        using (System.IO.StreamWriter interferenceFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_interference.txt", true))
         {
             /*foreach (XMLInterferenceVersion iVersion in xmlInterferenceVersions)
             {
@@ -263,8 +263,8 @@ public class WorldModelManager : MonoBehaviour
 
         errorChecker = new ErrorChecker(actions, xmlErrands, interferences, xmlInterferences);
 
-        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
-        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_score.txt", true))
+        //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@"..\Logs\" + fileName + "_score.txt", true))
+        using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_score.txt", true))
         {
             // Checking for intrusion and repetition
             errorChecker.CheckIntrusionRepetition(scoreFile);
