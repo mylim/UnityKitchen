@@ -8,6 +8,7 @@ public class DataManager : MonoBehaviour {
     /// Static reference to the instance of our DataManager
     public static DataManager Instance;
     public GameObject loadingImage;
+    public InputDialog inputDialog;
 
     /// <summary>
     /// The VRAIS version number
@@ -58,15 +59,18 @@ public class DataManager : MonoBehaviour {
             Instance = this;
         }
 
-        this.VRAISVersion = 0;
+        this.VRAISVersion = 1;
         this.InterferenceVersion = 0;
+        this.ParticipantID = "";
+        this.AssessmentNo = "";
     }
 
     public void setVRAISVersion(int VRAISVersion)
     {
-        if (VRAISVersion >= 0)
+        if (VRAISVersion > 0)
         {
-            this.VRAISVersion = VRAISVersion;
+            // add 1 to account for the main menu
+            this.VRAISVersion = VRAISVersion + 1;
         }
         Debug.Log("VRAISVersion " + this.VRAISVersion);
     }
@@ -94,7 +98,15 @@ public class DataManager : MonoBehaviour {
 
     public void LoadScene()
     {
-        loadingImage.SetActive(true);
-        SceneManager.LoadScene(VRAISVersion);
+        if (ParticipantID.Equals("") || AssessmentNo.Equals(""))
+        {
+            Debug.Log("No data");
+            inputDialog.ShowDialog();
+        }
+        else
+        {
+            loadingImage.SetActive(true);
+            SceneManager.LoadScene(VRAISVersion); 
+        }
     }
 }

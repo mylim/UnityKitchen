@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\Execution.cs" />
     <Compile Include="Assets\Scripts\FridgeDoorAnim.cs" />
     <Compile Include="Assets\Scripts\HasContent.cs" />
+    <Compile Include="Assets\Scripts\InputDialog.cs" />
     <Compile Include="Assets\Scripts\InputHandler.cs" />
     <Compile Include="Assets\Scripts\InstantiateItem.cs" />
     <Compile Include="Assets\Scripts\Interference.cs" />

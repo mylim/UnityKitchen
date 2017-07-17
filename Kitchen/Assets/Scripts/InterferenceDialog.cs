@@ -13,8 +13,7 @@ public class InterferenceDialog : MonoBehaviour {
     {
         index = 0;
         interfering = false;
-        dialogClosed = false;
-       
+        dialogClosed = false;       
     }
 
     public void ShowDialog()

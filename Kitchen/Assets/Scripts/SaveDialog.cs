@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SaveDialog : MonoBehaviour
 {
-
     public GameObject dialog;
     private bool allowQuit;
 
