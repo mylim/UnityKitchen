@@ -1,0 +1,101 @@
+
+Action pickedUp Player  Kettle 
+Errand ID, k and type E1 1 Subtask
+
+Action filled Kettle  Water 
+Errand ID, k and type E1 2 Subtask
+
+Action on Kettle  KettleBase 
+Errand ID, k and type E1 3 Subtask
+
+Action boiled Kettle  Water 
+Errand ID, k and type E1 4 Subtask
+
+Intrusion Repetition Error
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+
+Swapping and mixed errors
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+
+Errand level errors
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+
+Order Errors
+ErrandID E1 SubtaskNumber 1 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 2 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 3 TaskType Subtask Errors: 
+ErrandID E1 SubtaskNumber 4 TaskType Subtask Errors: 
+
+Miss Errors
+ErrandID E1 Subtask number 5
+ErrandID E1 Subtask number 6
+ErrandID E1 Subtask number 7
+ErrandID E1 Subtask number 8
+ErrandID E1 Subtask number 9
+ErrandID E1 Subtask number 10
+ErrandID E1 Subtask number 11
+ErrandID E2 Subtask number 1
+ErrandID E2 Subtask number 2
+ErrandID E2 Subtask number 3
+ErrandID E2 Subtask number 4
+ErrandID E2 Subtask number 5
+ErrandID E2 Subtask number 6
+ErrandID E2 Subtask number 7
+ErrandID E2 Subtask number 8
+ErrandID E2 Subtask number 9
+ErrandID E3 Subtask number 1
+ErrandID E3 Subtask number 2
+ErrandID E3 Subtask number 3
+ErrandID E3 Subtask number 4
+ErrandID E3 Subtask number 5
+ErrandID E3 Subtask number 6
+ErrandID E3 Subtask number 7
+ErrandID E3 Subtask number 8
+ErrandID E3 Subtask number 9
+ErrandID E4 Subtask number 1
+ErrandID E4 Subtask number 2
+ErrandID E4 Subtask number 3
+ErrandID E4 Subtask number 4
+ErrandID E4 Subtask number 5
+ErrandID E5 Subtask number 1
+ErrandID E5 Subtask number 2
+ErrandID E5 Subtask number 3
+ErrandID E5 Subtask number 4
+ErrandID E5 Subtask number 5
+ErrandID E5 Subtask number 6
+ErrandID E5 Subtask number 7
+ErrandID E5 Subtask number 8
+ErrandID E6 Subtask number 1
+ErrandID E6 Subtask number 2
+ErrandID E6 Subtask number 3
+ErrandID E6 Subtask number 4
+ErrandID E6 Subtask number 5
+ErrandID E6 Subtask number 6
+ErrandID E6 Subtask number 7
+ErrandID E6 Subtask number 8
+ErrandID E6 Subtask number 9
+
+Executive errors
+
+Total Misses: 47
+Total Order: 0
+Total IntrusionFull: 0
+Total IntrusionTask: 0
+Total Executive: 0
+Total Semantic: 0
+Total Episodic: 0
+Total Swapping: 0
+Total Repetition: 0
+Total Mixed: 0
+Total ErrandOrder: 0
+Total SplitErrand: 0
+Total RepeatErrand: 0

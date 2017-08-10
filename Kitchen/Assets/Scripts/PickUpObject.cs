@@ -358,9 +358,9 @@ public class PickUpObject : MonoBehaviour
                     }
                 }
                 // Floor is clicked while carrying the mop
-                else if (collider.tag.Equals("Floor"))
+                else if (collider.tag.Equals("Floor") && (carriedObject.tag.Equals("Mop")))
                 {
-                    if (carriedObject.tag.Equals("Mop"))
+                    //if (carriedObject.tag.Equals("Mop"))
                     {
                         // Practice trial
                         Debug.Log("Mopping the floor ");
