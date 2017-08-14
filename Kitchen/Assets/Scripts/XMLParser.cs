@@ -3,25 +3,79 @@ using System.Collections;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.IO;
 
 public class XMLParser{
     private XmlDocument errandsFile;
     private XmlDocument interferencesFile;
     private XmlDocument interferenceVersionsFile;
 
+    private string filePath;
+    private string result = "";
+    private WWW www;
+
+    IEnumerator loadFile(string file)
+    {
+        filePath = Path.Combine(Application.streamingAssetsPath, file);
+        Debug.Log("filepath " + filePath);
+        result = "";
+        if (filePath.Contains("://") || filePath.Contains(":///"))
+        {
+            www = new WWW(filePath);
+            yield return www;
+            result = www.text;
+        }
+        else
+            result = File.ReadAllText(filePath);
+    }
+
     // Use this for initialization
     public XMLParser() {
+
+        // Windows
         // loading the errands file
         errandsFile = new XmlDocument();
-        errandsFile.Load(@".\Assets\XML\Tasks.xml");
+        errandsFile.Load(@".\Assets\XML\Tasks.xml"); 
 
         // loading the interferences file
         interferencesFile = new XmlDocument();
-        interferencesFile.Load(@".\Assets\XML\Interferences.xml");
+        interferencesFile.Load(@".\Assets\XML\Interferences.xml");           
 
         // loading the interference versions file
         interferenceVersionsFile = new XmlDocument();
-        interferenceVersionsFile.Load(@".\Assets\XML\InterferenceVersions.xml");
+        interferenceVersionsFile.Load(@".\Assets\XML\InterferenceVersions.xml");   
+
+        /*//WebGL
+        // loading the errands file
+        Debug.Log("result " + result);
+        loadFile("Tasks.xml");
+        errandsFile = new XmlDocument();
+        errandsFile.LoadXml(result);
+
+        // loading the interferences file
+        Debug.Log("result " + result);
+        loadFile("Interferences.xml");
+        interferencesFile = new XmlDocument();
+        interferencesFile.LoadXml(result);
+
+        // loading the interference versions file
+        Debug.Log("result " + result);
+        loadFile("InterferenceVersions.xml");
+        interferenceVersionsFile = new XmlDocument();
+        interferenceVersionsFile.LoadXml(result);*/
+
+        // WebPlayer
+        /*// loading the errands file
+        errandsFile = new XmlDocument();
+        errandsFile.Load(Resources.Load<TextAsset>("Tasks.xml").text);
+
+        // loading the interferences file
+        interferencesFile = new XmlDocument();
+        interferencesFile.Load(Resources.Load<TextAsset>("Interferences.xml").text);
+
+        // loading the interference versions file
+        interferenceVersionsFile = new XmlDocument();
+        interferenceVersionsFile.Load(Resources.Load<TextAsset>("InterferenceVersions").text);*/
     }
 
     public List<XMLErrand> ParseXMLErrands() { 

@@ -26,6 +26,7 @@ public class SaveDialog : MonoBehaviour
     public void ExitApplication()
     {
         dialog.SetActive(false);
+        allowQuit = true;
         Application.Quit();
     }
 

@@ -1,6 +1,0 @@
-Action 0 on Ham KitchenTop
-Action 0 on Ham KitchenTop
-Action 1 on Cereal KitchenTop
-Action 0 on Ham KitchenTop
-Action 1 on Cereal KitchenTop
-Action 2 on Cereal KitchenTop

@@ -1,3 +1,0 @@
-Interference : ShelvesDialog
-Click : Fridge
-Answer : 5

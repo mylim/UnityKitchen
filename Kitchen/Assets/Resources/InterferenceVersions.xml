@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<IVersions>
+	<IVersion number = "0">
+		<Dialog>PracticeDialog</Dialog>				
+	</IVersion>		
+	<IVersion number = "1">
+		<Dialog>TowelsDialog</Dialog>	
+		<Dialog>BleachDialog</Dialog>	
+		<Dialog>CutleryDialog</Dialog>	
+		<Dialog>ShelvesDialog</Dialog>	
+		<Dialog>CupsDialog</Dialog>			
+	</IVersion>		
+	<IVersion number = "2">
+		<Dialog>CupsDialog</Dialog>			
+		<Dialog>TowelsDialog</Dialog>	
+		<Dialog>BleachDialog</Dialog>	
+		<Dialog>CutleryDialog</Dialog>	
+		<Dialog>ShelvesDialog</Dialog>			
+	</IVersion>	
+	<IVersion number = "3">
+		<Dialog>ShelvesDialog</Dialog>	
+		<Dialog>CupsDialog</Dialog>	
+		<Dialog>TowelsDialog</Dialog>	
+		<Dialog>BleachDialog</Dialog>	
+		<Dialog>CutleryDialog</Dialog>			
+	</IVersion>	
+	<IVersion number = "4">
+		<Dialog>CutleryDialog</Dialog>	
+		<Dialog>ShelvesDialog</Dialog>	
+		<Dialog>CupsDialog</Dialog>	
+		<Dialog>TowelsDialog</Dialog>	
+		<Dialog>BleachDialog</Dialog>				
+	</IVersion>	
+	<IVersion number = "5">
+		<Dialog>BleachDialog</Dialog>	
+		<Dialog>CutleryDialog</Dialog>	
+		<Dialog>ShelvesDialog</Dialog>	
+		<Dialog>CupsDialog</Dialog>		
+		<Dialog>TowelsDialog</Dialog>	
+	</IVersion>	
+</IVersions>
+	

@@ -20,11 +20,6 @@ public class Pickupable : MonoBehaviour {
         }
     }
 
-	// Update is called once per frame
-	void Update () {
-
-    }
-
     public void OnMouseEnter()
     {
         float distance = Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position, gameObject.transform.position);

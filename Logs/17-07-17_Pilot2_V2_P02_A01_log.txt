@@ -1,8 +1,0 @@
-Action 0 on SingleNapkin Sandwich
-Action 1 on Bread KitchenTop
-Action 2 on SingleSlice Sandwich
-Action 3 on Spread KitchenTop
-Action 4 on Spread Sandwich
-Action 5 on Spread KitchenTop
-Action 6 on SingleSlice Sandwich
-Action 7 on Sandwich KitchenTop

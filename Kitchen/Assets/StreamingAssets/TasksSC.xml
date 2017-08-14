@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<Errands>
+	<Errand ID = "E1" name = "Prepare Tea">		
+		<Subtask ID = "E1-1">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo>Kettle</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-2">
+			<Name>filled</Name>
+			<ElementOne>Kettle</ElementOne>
+			<ElementTwo>Water</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-3">
+			<Name>on</Name>
+			<ElementOne>Kettle</ElementOne>
+			<ElementTwo>KettleBase</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-4">
+			<Name>boiled</Name>
+			<ElementOne>Kettle</ElementOne>
+			<ElementTwo>Water</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-5">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo semanticCategory = "BeverageContainers">Mug</ElementTwo>				
+		</Subtask>
+		<Subtask ID = "E1-6">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "BeverageContainers">Mug</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-7">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo semanticCategory = "Beverage">Tea</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-8">
+			<Name>in</Name>
+			<ElementOne>SingleTeaBag</ElementOne>
+			<ElementTwo semanticCategory = "BeverageContainers">Mug</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-9">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo>Water</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-10">
+			<Name>in</Name>
+			<ElementOne>Water</ElementOne>
+			<ElementTwo semanticCategory = "BeverageContainers">Mug</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E1-11">
+			<Name>on</Name>
+			<ElementOne>Water</ElementOne>
+			<ElementTwo>KettleBase</ElementTwo>
+		</Subtask>
+	</Errand>
+	<Errand ID = "E2" name = "Prepare Sandwich">
+		<Subtask ID = "E2-1">
+			<Name>on</Name>
+			<ElementOne>SingleNapkin</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-2">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "SandwichFilling">Cheese</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-3">
+			<Name>on</Name>
+			<ElementOne>Ham</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-4">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Dough">Bread</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-5">
+			<Name>on</Name>
+			<ElementOne>SingleSlice</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-6">
+			<Name>on</Name>
+			<ElementOne>HamSlice</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-7">
+			<Name>on</Name>
+			<ElementOne>HamSlice</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-8">
+			<Name>on</Name>
+			<ElementOne>CheeseSlice</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E2-9">
+			<Name>on</Name>
+			<ElementOne>SingleSlice</ElementOne>
+			<ElementTwo>Sandwich</ElementTwo>
+		</Subtask>
+	</Errand>
+	<Errand ID = "E3" name = "Prepare Cereal">
+		<Subtask ID = "E3-1">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-2">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Cutlery">TableSpoon</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-3">
+			<Name>on</Name>
+			<ElementOne>Cereal</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-4">
+			<Name>on</Name>
+			<ElementOne>Milk</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-5">
+			<Name>on</Name>
+			<ElementOne>Honey</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-6">
+			<Name>in</Name>
+			<ElementOne>Cereal</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-6-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne>Cereal</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-7">
+			<Name>in</Name>
+			<ElementOne>Milk</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-7-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne>Milk</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-8">
+			<Name>in</Name>
+			<ElementOne>Honey</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-8-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne>Honey</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E3-5">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Cutlery">TableSpoon</ElementOne>
+			<ElementTwo>KitchenTop</ElementTwo>
+		</Subtask>
+	</Errand>
+	<Errand ID = "E4" name = "Set Table">
+		<Subtask ID = "E4-1">
+			<Name>on</Name>
+			<ElementOne>Placemat</ElementOne>
+			<ElementTwo>Table</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-2">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>Placemat</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-3">
+			<Name>right</Name>
+			<ElementOne semanticCategory = "Cutlery">TableSpoon</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-3-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Cutlery">TableSpoon</ElementOne>
+			<ElementTwo>Placemat</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-4-1" Auxiliary = "true">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo>Drink</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-4">
+			<Name>front</Name>
+			<ElementOne>Drink</ElementOne>
+			<ElementTwo>Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-4-2" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne>Drink</ElementOne>
+			<ElementTwo>Placemat</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-5">
+			<Name>left</Name>
+			<ElementOne>Sandwich</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E4-5-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne>Sandwich</ElementOne>
+			<ElementTwo>Placemat</ElementTwo>
+		</Subtask>
+	</Errand>
+	<Errand ID = "E5" name = "Wash Dishes">
+		<Subtask ID = "E5-1">
+			<Name>disposed</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>BinLid</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-2">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>Sink</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-3">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "CleaningMaterials">Sponge</ElementOne>
+			<ElementTwo>Sink</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-4">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo semanticCategory = "WashingLiquids">DishwashingLiquid</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-5">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "WashingLiquids">DishwashingLiquid</ElementOne>
+			<ElementTwo semanticCategory = "CleaningMaterials">Sponge</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-5-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "WashingLiquids">DishwashingLiquid</ElementOne>
+			<ElementTwo semanticCategory = "WashingLiquids">Sink</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-6">
+			<Name>washed</Name>
+			<ElementOne semanticCategory = "CleaningMaterials">Sponge</ElementOne>
+			<ElementTwo semanticCategory = "Dishes">Bowl</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-6-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "CleaningMaterials">Sponge</ElementOne>
+			<ElementTwo>Sink</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-7">
+			<Name>rinsed</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>Water</ElementTwo>
+		</Subtask>
+		<Subtask ID = "E5-8">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Dishes">Bowl</ElementOne>
+			<ElementTwo>Dishrack</ElementTwo>
+		</Subtask>  
+	</Errand>
+	<Errand ID = "E6" name = "Clean Kitchen">
+		<Subtask ID = "E6-1">
+			<Name>on</Name>
+			<ElementOne>BinLid</ElementOne>
+			<ElementTwo>Floor</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-2">
+			<Name>tied</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo>BinBag</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-3">
+			<Name>on</Name>
+			<ElementOne>TiedBag</ElementOne>
+			<ElementTwo>Floor</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-4">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo semanticCategory = "Bags">BinBags</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-5">
+			<Name>in</Name>
+			<ElementOne>SingleItem</ElementOne>
+			<ElementTwo>BinBody</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-6">
+			<Name>on</Name>
+			<ElementOne>BinLid</ElementOne>
+			<ElementTwo>BinBag</ElementTwo>
+		</Subtask>  
+		<Subtask ID = "E6-7">
+			<Name>pickedUp</Name>
+			<ElementOne>Player</ElementOne>
+			<ElementTwo semanticCategory = "Towels">DishTowel</ElementTwo>
+		</Subtask> 
+		<Subtask ID = "E6-8">
+			<Name>on</Name>
+			<ElementOne>Water</ElementOne>
+			<ElementTwo semanticCategory = "Towels">DishTowel</ElementTwo>
+		</Subtask> 
+		<Subtask ID = "E6-9">
+			<Name>wiped</Name>
+			<ElementOne semanticCategory = "Towels">DishTowel</ElementOne>
+			<ElementTwo>Table</ElementTwo>
+		</Subtask> 
+		<Subtask ID = "E6-9-1" Auxiliary = "true">
+			<Name>on</Name>
+			<ElementOne semanticCategory = "Towels">DishTowel</ElementOne>
+			<ElementTwo>Wall</ElementTwo>
+		</Subtask> 
+	</Errand>
+</Errands>

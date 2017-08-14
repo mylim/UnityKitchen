@@ -1,8 +1,0 @@
-Action 0 on Bread KitchenTop
-Action 0 on Bread KitchenTop
-Action 1 on SingleSlice Sandwich
-Action 0 on Bread KitchenTop
-Action 1 on SingleSlice Sandwich
-Action 2 on Sandwich KitchenTop
-Action 0 on Bowl Sandwich
-Item Dishes, value E3_ST2_EM1_I1

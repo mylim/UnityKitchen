@@ -1,3 +1,0 @@
-Action 0 pickedUp Player Kettle
-Action 1 filled Kettle Water
-Action 2 on Kettle KettleBase

@@ -10,6 +10,7 @@ public class WorldModelManager : MonoBehaviour
 
     // quit dialog
     public SaveDialog saveDialog;
+    public ConfirmDialog confirmDialog;
 
     // Interference dialog and variable
     public int interferenceInterval;
@@ -36,11 +37,13 @@ public class WorldModelManager : MonoBehaviour
     private string fileName;
 
     private ErrorChecker errorChecker;
+    private bool isScoring;
 
     // Use this for initialization
     void Start()
     {
         dialogIndex = 0;
+        isScoring = false;
         actions = new List<PrimitiveAction>();
         interferences = new List<Interference>();
         xmlParser = new XMLParser();
@@ -126,7 +129,7 @@ public class WorldModelManager : MonoBehaviour
         {
             if ((dialogIndex < dialogs.Length))
             {
-                Debug.Log("Dialog index to show" + dialogIndex);
+                //Debug.Log("Dialog index to show" + dialogIndex);
                 for (int i = 0; i < dialogs.Length; i++)
                 {
                     if (dialogs[i].name.Equals(dialogList[dialogIndex]))
@@ -195,32 +198,38 @@ public class WorldModelManager : MonoBehaviour
             /*for (int j = 0; j < xmlErrands.Count; j++)
             {
                 XMLErrand errand = xmlErrands[j];
+                logFile.WriteLine();
                 logFile.WriteLine("errand " + errand.Name + " ID " + errand.ID);
                 for (int k = 0; k < errand.Subtasks.Count; k++)
                 {
                     XMLSubtask subtask = errand.Subtasks[k];
-                    logFile.WriteLine("Subtask ID " + subtask.ID + " Subtask number " + k);
-                    logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
+                    //logFile.WriteLine("Subtask ID " + subtask.ID + " Subtask number " + k);
+                    logFile.WriteLine("Subtask number " + k + ": Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
+                    //logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementTwo.ObjectElement);
                     /*logFile.WriteLine("Action " + subtask.Action.Name + " " + subtask.Action.ElementOne.ObjectElement + " " + subtask.Action.ElementOne.SemanticCategory
-                        + " " + subtask.Action.ElementTwo.ObjectElement + " " + subtask.Action.ElementTwo.SemanticCategory);
-                }
-                for (int l = 0; l < errand.AuxSubtasks.Count; l++)
-                {
-                    XMLSubtask auxSubtask = errand.AuxSubtasks[l];
-                    logFile.WriteLine("auxSubtask " + auxSubtask.ID);
-                    logFile.WriteLine("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
-                }
+                        + " " + subtask.Action.ElementTwo.ObjectElement + " " + subtask.Action.ElementTwo.SemanticCategory);*/
+            //}
+            /*for (int l = 0; l < errand.AuxSubtasks.Count; l++)
+            {
+                XMLSubtask auxSubtask = errand.AuxSubtasks[l];
+                logFile.WriteLine("auxSubtask " + auxSubtask.ID);
+                logFile.WriteLine("Aux Action " + auxSubtask.Action.Name + " " + auxSubtask.Action.ElementOne.ObjectElement + " " + auxSubtask.Action.ElementTwo.ObjectElement);
             }
+        }
 
-            logFile.WriteLine();*/
+        logFile.WriteLine();*/
             for (int i = 0; i < actions.Count; i++)
             {
-                logFile.WriteLine("Action " + i + " " + actions[i].Name + " " +
+                logFile.WriteLine("Action " + (i+1) + " " + actions[i].Name + " " +
                     actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
                 /*logFile.WriteLine("Action " + i + " " + actions[i].Name + " " +
                     actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " +
                     actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);*/
             }
+        }
+        if (!isScoring)
+        {
+            confirmDialog.ShowDialog();
         }
     }
 
@@ -258,6 +267,7 @@ public class WorldModelManager : MonoBehaviour
     /// </summary>
     public void Score()
     {
+        isScoring = true;
         LogActions();
         LogInterferences();
 
@@ -287,6 +297,7 @@ public class WorldModelManager : MonoBehaviour
             // Count all the errors
             errorChecker.CountErrors(scoreFile);
         }
+        confirmDialog.ShowDialog();
     }
 
     public void CloseApplication()
