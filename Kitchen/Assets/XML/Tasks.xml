@@ -173,11 +173,6 @@
 			<ElementTwo>Placemat</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-3">
-			<Name>right</Name>
-			<ElementOne>TableSpoon</ElementOne>
-			<ElementTwo>Bowl</ElementTwo>
-		</Subtask>
-		<Subtask ID = "E4-3-1" Auxiliary = "true">
 			<Name>on</Name>
 			<ElementOne>TableSpoon</ElementOne>
 			<ElementTwo>Placemat</ElementTwo>
@@ -188,21 +183,11 @@
 			<ElementTwo>Drink</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-4">
-			<Name>front</Name>
-			<ElementOne>Drink</ElementOne>
-			<ElementTwo>Bowl</ElementTwo>
-		</Subtask>
-		<Subtask ID = "E4-4-2" Auxiliary = "true">
 			<Name>on</Name>
 			<ElementOne>Drink</ElementOne>
 			<ElementTwo>Placemat</ElementTwo>
 		</Subtask>
 		<Subtask ID = "E4-5">
-			<Name>left</Name>
-			<ElementOne>Sandwich</ElementOne>
-			<ElementTwo>Bowl</ElementTwo>
-		</Subtask>
-		<Subtask ID = "E4-5-1" Auxiliary = "true">
 			<Name>on</Name>
 			<ElementOne>Sandwich</ElementOne>
 			<ElementTwo>Placemat</ElementTwo>

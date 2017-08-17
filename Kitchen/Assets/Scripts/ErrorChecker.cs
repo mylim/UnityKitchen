@@ -62,7 +62,7 @@ public class ErrorChecker {
             errandID = "";         
             taskID = 0;
             PrimitiveAction action = actions[i];
-            scoreFile.WriteLine("\nAction " + action.Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " +
+            scoreFile.WriteLine(action.TimeStamp.ToLongTimeString() + " Action " + action.Name + " " + actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " +
                     actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);
 
             // check is a subtask exists
@@ -813,7 +813,7 @@ public class ErrorChecker {
                     string xmlObj = xmlInterferences[i].IObjects[j];
                     for (int l = 0; (l < interferences[index].iObjects.Count) && (error); l++)
                     {
-                        string obj = interferences[index].iObjects[l].tag;
+                        string obj = interferences[index].iObjects[l].iObject.tag;
                         if (obj.Equals(xmlObj))
                         {
                             error = false;

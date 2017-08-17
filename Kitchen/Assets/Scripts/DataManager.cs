@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class DataManager : MonoBehaviour {
 
@@ -46,6 +47,15 @@ public class DataManager : MonoBehaviour {
         set;
     }
 
+    /// <summary>
+    /// The assessment StartTime
+    /// </summary>
+    public DateTime StartTime
+    {
+        get;
+        set;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -63,6 +73,8 @@ public class DataManager : MonoBehaviour {
         this.InterferenceVersion = 0;
         this.ParticipantID = "";
         this.AssessmentNo = "";
+        this.StartTime = System.DateTime.Now;
+        //Debug.Log("Start time " + this.StartTime);
     }
 
     public void setVRAISVersion(int VRAISVersion)

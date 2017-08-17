@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be55606b343873d4c8ba8210ebf264cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 1203593534}
+  dialog: {fileID: 0}
 --- !u!114 &1203593537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3621,7 +3621,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5dd15f4e4930ee04b93c7638fe836019, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

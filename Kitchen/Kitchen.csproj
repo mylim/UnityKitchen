@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\InstantiateItem.cs" />
     <Compile Include="Assets\Scripts\Interference.cs" />
     <Compile Include="Assets\Scripts\InterferenceDialog.cs" />
+    <Compile Include="Assets\Scripts\InterferenceObject.cs" />
     <Compile Include="Assets\Scripts\LeapHandler.cs" />
     <Compile Include="Assets\Scripts\LeapOpenCloseHandler.cs" />
     <Compile Include="Assets\Scripts\LookAt.cs" />
@@ -198,19 +199,9 @@
     <None Include="Assets\LeapMotion\readme.txt" />
     <None Include="Assets\LeapMotionModules\DetectionExamples\Shaders\LeapPinchLine.shader" />
     <None Include="Assets\Plugins\donotdelete.txt" />
-    <None Include="Assets\Resources\Errands.xml" />
-    <None Include="Assets\Resources\InterferenceVersions.xml" />
-    <None Include="Assets\Resources\Interferences.xml" />
-    <None Include="Assets\Resources\Tasks.xml" />
-    <None Include="Assets\Resources\TasksSC.xml" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\StreamingAssets\Errands.xml" />
-    <None Include="Assets\StreamingAssets\InterferenceVersions.xml" />
-    <None Include="Assets\StreamingAssets\Interferences.xml" />
-    <None Include="Assets\StreamingAssets\Tasks.xml" />
-    <None Include="Assets\StreamingAssets\TasksSC.xml" />
     <None Include="Assets\XML\Errands.xml" />
     <None Include="Assets\XML\InterferenceVersions.xml" />
     <None Include="Assets\XML\Interferences.xml" />

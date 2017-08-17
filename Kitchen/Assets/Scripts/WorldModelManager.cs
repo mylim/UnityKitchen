@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class WorldModelManager : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class WorldModelManager : MonoBehaviour
 
     private ErrorChecker errorChecker;
     private bool isScoring;
+    private DateTime endTime;
 
     // Use this for initialization
     void Start()
@@ -78,7 +80,8 @@ public class WorldModelManager : MonoBehaviour
         {
             Debug.Log("dialog index " + dialogIndex);
             UpdateInterference();
-            interferences[dialogIndex].Answer = currentDialog.GetAnswer();
+            interferences[dialogIndex].EndTime = System.DateTime.Now;
+            interferences[dialogIndex].Answer = currentDialog.GetAnswer();           
             dialogIndex++;
             currentDialog = null;
         }
@@ -98,6 +101,8 @@ public class WorldModelManager : MonoBehaviour
     /// <param name="elementTwo">interaction object two</param>
     public void UpdateWorldModel(string pAction, GameObject elementOne, GameObject elementTwo)
     {
+        DateTime timeStamp = System.DateTime.Now;
+
         //adding the action performed
         Element eOne = new Element(elementOne);
         Element eTwo = new Element(elementTwo);
@@ -122,7 +127,7 @@ public class WorldModelManager : MonoBehaviour
             }
         }
         // adding the primitive action performed to the list of actions
-        actions.Add(new PrimitiveAction(pAction, eOne, eTwo));
+        actions.Add(new PrimitiveAction(timeStamp, pAction, eOne, eTwo));
 
         // activate the interference is the interval is reached and no other interference is active
         if ((dialogList != null) && (actions.Count > 0) && (actions.Count % interferenceInterval == 0) && (!interfering))
@@ -154,11 +159,11 @@ public class WorldModelManager : MonoBehaviour
     /// Interference occurred
     /// </summary>
     /// <param name="iObject">object to be added to the object list</param>
-    public void InterfereWorldModel(GameObject iObject)
+    public void InterfereWorldModel(DateTime time, GameObject iObject)
     {
         if ((dialogList != null) && (dialogIndex < dialogs.Length))
         {
-            interferences[dialogIndex].AddObject(iObject);
+            interferences[dialogIndex].AddObject(time, iObject);
         }
     }
 
@@ -192,6 +197,7 @@ public class WorldModelManager : MonoBehaviour
     /// </summary>
     public void LogActions()
     {
+        endTime = System.DateTime.Now;
         using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_log.txt", true))
         //using (System.IO.StreamWriter logFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_log.txt", true))
         {
@@ -218,14 +224,19 @@ public class WorldModelManager : MonoBehaviour
         }
 
         logFile.WriteLine();*/
+            logFile.WriteLine("Start time " + DataManager.Instance.StartTime);
+            logFile.WriteLine();
+
             for (int i = 0; i < actions.Count; i++)
             {
-                logFile.WriteLine("Action " + (i+1) + " " + actions[i].Name + " " +
+                logFile.WriteLine(actions[i].TimeStamp.ToLongTimeString() + " Action " + (i+1) + " " + actions[i].Name + " " +
                     actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementTwo.ObjectElement.tag);
                 /*logFile.WriteLine("Action " + i + " " + actions[i].Name + " " +
                     actions[i].ElementOne.ObjectElement.tag + " " + actions[i].ElementOne.SemanticCategory + " " +
                     actions[i].ElementTwo.ObjectElement.tag + " " + actions[i].ElementTwo.SemanticCategory);*/
             }
+            logFile.WriteLine();
+            logFile.WriteLine("End time " + endTime);           
         }
         if (!isScoring)
         {
@@ -250,14 +261,23 @@ public class WorldModelManager : MonoBehaviour
                     interferenceFile.WriteLine("Dialog " + dialog);
                 }
             }*/
+            interferenceFile.WriteLine("Start time " + DataManager.Instance.StartTime);
+            interferenceFile.WriteLine();
+
             for (int j = 0; j < interferences.Count; j++)
             {
-                interferenceFile.WriteLine("Interference : " + interferences[j].Dialog.name);
+                interferenceFile.WriteLine(interferences[j].StartTime.ToLongTimeString() + " Interference : " + interferences[j].Dialog.name);
                 for (int k = 0; k < interferences[j].iObjects.Count; k++)
                 {
-                    interferenceFile.WriteLine("Click : " + interferences[j].iObjects[k].tag);
+                    interferenceFile.WriteLine(interferences[j].iObjects[k].TimeStamp.ToLongTimeString() + " Click : " + interferences[j].iObjects[k].iObject.tag);
                 }
-                interferenceFile.WriteLine("Answer : " + interferences[j].Answer);
+                interferenceFile.WriteLine(interferences[j].EndTime.ToLongTimeString() + " Answer : " + interferences[j].Answer);
+            }
+
+            if (endTime != null)
+            {
+                interferenceFile.WriteLine();
+                interferenceFile.WriteLine("End time " + endTime);
             }
         }
     }
@@ -276,6 +296,9 @@ public class WorldModelManager : MonoBehaviour
         using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_score.txt", true))
         //using (System.IO.StreamWriter scoreFile = new System.IO.StreamWriter(@".\Logs\" + fileName + "_score.txt", true))
         {
+            scoreFile.WriteLine("Start time " + DataManager.Instance.StartTime);
+            scoreFile.WriteLine();
+
             // Checking for intrusion and repetition
             errorChecker.CheckIntrusionRepetition(scoreFile);
 
@@ -296,7 +319,13 @@ public class WorldModelManager : MonoBehaviour
 
             // Count all the errors
             errorChecker.CountErrors(scoreFile);
-        }
+
+            if (endTime != null)
+            {
+                scoreFile.WriteLine();
+                scoreFile.WriteLine("End time " + endTime);
+            }            
+        }       
         confirmDialog.ShowDialog();
     }
 

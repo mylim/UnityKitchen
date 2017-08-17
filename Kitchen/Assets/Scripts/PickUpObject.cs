@@ -125,7 +125,7 @@ public class PickUpObject : MonoBehaviour
             {
                 //Debug.Log("Interference bleach " + worldHandler.GetComponent<WorldModelManager>().GetInterference());
                 //if (collider.tag.Equals("Bleach"))
-                worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(System.DateTime.Now, collider.gameObject);
                 //Debug.Log(collider.gameObject.tag + " clicked");
             }
             else
@@ -296,7 +296,7 @@ public class PickUpObject : MonoBehaviour
             if (worldHandler.GetComponent<WorldModelManager>().GetInterference())
             {
                 // update world model
-                worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(collider.gameObject);
+                worldHandler.GetComponent<WorldModelManager>().InterfereWorldModel(System.DateTime.Now, collider.gameObject);
                 //Debug.Log(collider.gameObject.tag + " clicked");
             }
             else
@@ -397,7 +397,6 @@ public class PickUpObject : MonoBehaviour
                     }
                 }
                 // sandwich is clicked 
-                //else if ((collider.transform.parent != null && collider.transform.parent.tag.Equals("Sandwich")) && (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("SandwichFilling")))
                 else if ((collider.tag.Equals("Sandwich") || (collider.transform.parent != null && collider.transform.parent.tag.Equals("Sandwich"))) && 
                     (carriedObject.transform.parent != null && carriedObject.transform.parent.tag.Equals("SandwichFilling")))
                 { 
@@ -512,7 +511,7 @@ public class PickUpObject : MonoBehaviour
         {
             carriedObject.transform.position = GetComponent<MouseHoverObject>().GetHitPoint();
 
-            // update world model with the new position of the object
+            // update world model with the new position of the object - sandwich making
             if (carriedObject.tag.Equals("SingleNapkin") || carriedObject.tag.Equals("SingleSlice") ||
                 carriedObject.tag.Equals("SingleWrap") || carriedObject.tag.Equals("SinglePitta") || carriedObject.tag.Equals("SingleRoll") ||
                 carriedObject.tag.Equals("HamSlice") || carriedObject.tag.Equals("CheeseSlice"))
@@ -524,6 +523,7 @@ public class PickUpObject : MonoBehaviour
                     sandwichStarted = true;
                 }
                 distance = Vector3.Distance(sandwich.transform.position, carriedObject.transform.position);
+                // if the click is on the sandwich, attached the carried object to it
                 if (distance < 0.1f)
                 {
                     carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
@@ -536,6 +536,7 @@ public class PickUpObject : MonoBehaviour
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, sandwich);
                 }
+                // place the carriedObject on the collider object if the click if further than the distance threshold
                 else
                 {
                     // update world model with the new position of the object
@@ -544,6 +545,7 @@ public class PickUpObject : MonoBehaviour
             }
             else
             {
+                // Items for making sandwich
                 if ((carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("Dough") || carriedObject.transform.parent.tag.Equals("SandwichFilling"))) || carriedObject.tag.Equals("Ham"))
                 {
                     //RigidbodyConstraints constraints = carriedObject.GetComponent<Rigidbody>().constraints;
@@ -561,7 +563,7 @@ public class PickUpObject : MonoBehaviour
                         }
                     }                      
                 }
-                else if ((carriedObject.transform.parent != null && 
+                /*else if ((carriedObject.transform.parent != null && 
                     (carriedObject.transform.parent.tag.Equals("Cutlery") || 
                     (carriedObject.transform.parent.tag.Equals("BeverageContainers")) || 
                     carriedObject == sandwich)))
@@ -616,22 +618,14 @@ public class PickUpObject : MonoBehaviour
                             }
                         }
                     }
-                }
+                }*/
 
-                if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
+                // carrying a drink
+                else if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
                 {
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);
                 }
-                // for objects other than bread, cheese and ham that are put on the sandwich
-                /*else if (collider.transform.parent != null && collider.transform.parent.tag.Equals("Sandwich"))
-                {
-                    carriedObject.transform.position = sandwich.transform.position + (transform.up * sandwichHeight);
-                    carriedObject.transform.parent = sandwich.transform;
-                    sandwichHeight += carriedObject.GetComponent<Collider>().bounds.size.y;
-                    // update world model with the new position of the object
-                    worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", carriedObject, sandwich);
-                }*/
                 else
                 {
                     // update world model with the new position of the object
@@ -641,18 +635,10 @@ public class PickUpObject : MonoBehaviour
         }
 
         carrying = false;
-        //Debug.Log("carrying is false");
-        //carriedObject.GetComponent<Rigidbody>().AddForce(-transform.up * 20f);
-        //carriedObject.GetComponent<Rigidbody>().AddTorque(transform.forward);
-        /*if (carriedObject.GetComponent<IsKinematic>())
-        {
-            carriedObject.GetComponent<Rigidbody>().isKinematic = true;
-        }*/
         if (carriedObject.GetComponent<Rigidbody>())
         {
             carriedObject.GetComponent<Rigidbody>().useGravity = true;
         }
-        //source.PlayOneShot(dropSound);
         carriedObject = null;
     }
 
@@ -663,23 +649,6 @@ public class PickUpObject : MonoBehaviour
         float dir = Vector3.Dot(right, targetDir);
         //Debug.Log("AngleDir " + dir);
         return dir;
-
-        /*returns -1 when to the left, 1 to the right, and 0 for forward/backward
-        if (dir > 0.0f)
-        {
-            Debug.Log("Returning 1");
-            return 1f;
-        }
-        else if (dir < 0.0f)
-        {
-            Debug.Log("Returning -1");
-            return -1f;
-        }
-        else
-        {
-            Debug.Log("Returning 0");
-            return 0f;
-        }*/
     }
 
 }

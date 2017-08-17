@@ -1,11 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// Task interference  
 /// </summary>
 public class Interference {
+
+    /// <summary>
+    /// Time when the interference started
+    /// </summary>
+    public DateTime StartTime
+    {
+        get;
+        set;
+    }
+
+    /// <summary>
+    /// Time when the interference ended
+    /// </summary>
+    public DateTime EndTime
+    {
+        get;
+        set;
+    }
+
     /// <summary>
     /// The interference dialog.
     /// </summary>
@@ -18,7 +38,7 @@ public class Interference {
     /// <summary>
     /// The objects involved in the interference
     /// </summary>
-    public List<GameObject> iObjects
+    public List<InterferenceObject> iObjects
     {
         get;
         set;
@@ -40,8 +60,9 @@ public class Interference {
     /// </summary>
     public Interference()
     {
+        this.StartTime = System.DateTime.Now;
         this.Dialog = new InterferenceDialog();
-        this.iObjects = new List<GameObject>();
+        this.iObjects = new List<InterferenceObject>();
         this.Answer = "";
     }
 
@@ -51,8 +72,9 @@ public class Interference {
     /// <param name="dialog">The interference dialog</param>
     public Interference(InterferenceDialog dialog)
     {
+        this.StartTime = System.DateTime.Now;
         this.Dialog = dialog;
-        this.iObjects = new List<GameObject>();
+        this.iObjects = new List<InterferenceObject>();
         this.Answer = "";
     }
 
@@ -62,7 +84,7 @@ public class Interference {
     /// </summary>
     /// <param name="dialog">The interference dialog</param>
     ///  /// <param name="iObjects">The objects list of the interference</param>
-    public Interference(InterferenceDialog dialog, List<GameObject> iObjects)
+    public Interference(InterferenceDialog dialog, List<InterferenceObject> iObjects)
     {
         Add(dialog, iObjects);
     }
@@ -72,7 +94,7 @@ public class Interference {
     /// </summary>
     /// <param name="dialog">The interference dialog</param>
     /// <param name="iObjects">The objects list of the interference</param>
-    public void Add(InterferenceDialog dialog, List<GameObject> iObjects)
+    public void Add(InterferenceDialog dialog, List<InterferenceObject> iObjects)
     {
         this.Dialog = dialog;
         this.iObjects = iObjects;
@@ -82,8 +104,9 @@ public class Interference {
     /// Adding new object to the object list
     /// </summary>
     /// <param name="iObject">The new object</param>
-    public void AddObject(GameObject iObject)
+    public void AddObject(DateTime time, GameObject iObject)
     {
-        this.iObjects.Add(iObject);
+        InterferenceObject intObject = new InterferenceObject(time, iObject);
+        this.iObjects.Add(intObject);
     }
 }
