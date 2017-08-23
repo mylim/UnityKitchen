@@ -621,7 +621,7 @@ public class PickUpObject : MonoBehaviour
                 }*/
 
                 // carrying a drink
-                else if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
+                if (carriedObject.transform.parent != null && (carriedObject.transform.parent.tag.Equals("BeverageContainers")) && (carriedObject.GetComponent<HasContent>().hasWater == true))
                 {
                     // update world model with the new position of the object
                     worldHandler.GetComponent<WorldModelManager>().UpdateWorldModel("on", drink, collider.gameObject);

@@ -9,6 +9,10 @@ public class WorldModelManager : MonoBehaviour
     //public enum VRAISVersion { Practice, Pilot1, Pilot2, Pilot3 };
     //public enum InterferenceVersion { V1, V2, V3, V4, V5 }
 
+    public static string[] VRAISVersion = { "MainMenu", "PracticePilot1", "PracticePilot2", "PracticePilot3", "Pilot1", "Pilot2", "Pilot3" };
+    public static string[] InterferenceVersion = { "VP", "V1", "V2", "V3", "V4", "V5" };
+
+
     // quit dialog
     public SaveDialog saveDialog;
     public ConfirmDialog confirmDialog;
@@ -33,8 +37,6 @@ public class WorldModelManager : MonoBehaviour
     private List<XMLInterference> xmlInterferences;
     private List<XMLInterferenceVersion> xmlInterferenceVersions;
     private List<string> dialogList;
-    private string[] VRAISVersion = { "MainMenu", "PracticePilot1", "PracticePilot2", "PracticePilot3", "Pilot1", "Pilot2", "Pilot3" };
-    private string[] InterferenceVersion = { "VP", "V1", "V2", "V3", "V4", "V5" };
     private string fileName;
 
     private ErrorChecker errorChecker;

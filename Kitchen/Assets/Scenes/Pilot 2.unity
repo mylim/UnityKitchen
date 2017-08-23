@@ -16977,6 +16977,14 @@ Prefab:
       propertyPath: confirmDialog
       value: 
       objectReference: {fileID: 44672541}
+    - target: {fileID: 428188, guid: 58b5b3124d9530c40bea96b18219ed84, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 428188, guid: 58b5b3124d9530c40bea96b18219ed84, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11455062, guid: 58b5b3124d9530c40bea96b18219ed84, type: 2}
     - {fileID: 11428898, guid: 58b5b3124d9530c40bea96b18219ed84, type: 2}
